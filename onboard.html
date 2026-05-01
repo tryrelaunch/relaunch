@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Onboard — Relaunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:         #080B10;
+  --bg-2:       #0D1117;
+  --bg-3:       #141B24;
+  --border:     rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.14);
+  --white:      #FFFFFF;
+  --off-white:  #E8EDF2;
+  --muted:      #5A6478;
+  --muted-2:    #8B96A8;
+  --accent:     #00E5FF;
+  --accent-2:   #0066FF;
+  --accent-glow: rgba(0,229,255,0.12);
+  --green:      #00FF88;
+  --font-head:  'Manrope', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+  --font-body:  'Manrope', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--off-white); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* NAV */
+nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: var(--bg); }
+.nav-logo { font-family: var(--font-head); font-size: 18px; font-weight: 800; color: var(--white); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.nav-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+.nav-back { font-size: 13px; color: var(--muted-2); font-family: var(--font-mono); text-decoration: none; transition: color 0.2s; }
+.nav-back:hover { color: var(--white); }
+
+/* MAIN LAYOUT */
+.onboard-wrap { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 48px 24px 80px; }
+.onboard-card { width: 100%; max-width: 560px; }
+
+/* PROGRESS */
+.progress-wrap { margin-bottom: 40px; }
+.progress-steps { display: flex; align-items: center; gap: 0; margin-bottom: 12px; }
+.progress-step { display: flex; align-items: center; flex: 1; }
+.ps-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border-bright); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: var(--muted); flex-shrink: 0; transition: all 0.3s; background: var(--bg-2); }
+.ps-dot.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); box-shadow: 0 0 16px rgba(0,229,255,0.2); }
+.ps-dot.done { border-color: var(--green); background: rgba(0,255,136,0.12); color: var(--green); }
+.ps-dot.done::after { content: '✓'; }
+.ps-line { flex: 1; height: 1px; background: var(--border); margin: 0 6px; transition: background 0.3s; }
+.ps-line.done { background: var(--green); }
+.progress-labels { display: flex; justify-content: space-between; }
+.progress-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; width: 28px; }
+.progress-label.active { color: var(--accent); }
+.progress-label.done { color: var(--green); }
+
+/* STEP CARDS */
+.step-card { display: none; animation: fadeIn 0.3s ease; }
+.step-card.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.step-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.step-title { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.2; }
+.step-sub { font-size: 14px; color: var(--muted-2); line-height: 1.6; margin-bottom: 32px; font-weight: 400; }
+
+/* FORM ELEMENTS */
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--off-white); margin-bottom: 7px; letter-spacing: 0.01em; }
+.form-label span { color: var(--muted); font-weight: 400; font-size: 11px; }
+.form-input {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,229,255,0.08); }
+.form-input.prefilled { border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.03); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-hint { font-size: 11px; color: var(--muted); margin-top: 5px; font-family: var(--font-mono); }
+
+/* RADIO OPTIONS */
+.radio-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.radio-option { display: flex; align-items: center; gap: 14px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: all 0.2s; }
+.radio-option:hover { border-color: rgba(0,229,255,0.3); background: var(--bg-3); }
+.radio-option.selected { border-color: var(--accent); background: var(--accent-glow); }
+.radio-option input { display: none; }
+.radio-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.radio-option.selected .radio-dot { border-color: var(--accent); background: var(--accent); }
+.radio-option.selected .radio-dot::after { content: ''; width: 6px; height: 6px; background: var(--bg); border-radius: 50%; }
+.radio-text { flex: 1; }
+.radio-title { font-size: 14px; font-weight: 600; color: var(--off-white); margin-bottom: 2px; }
+.radio-desc { font-size: 12px; color: var(--muted-2); }
+
+/* PLAN CARDS */
+.plan-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.plan-card { display: flex; align-items: center; gap: 16px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 12px; padding: 18px 20px; cursor: pointer; transition: all 0.2s; position: relative; }
+.plan-card:hover { border-color: rgba(0,229,255,0.3); }
+.plan-card.selected { border-color: var(--accent); background: var(--accent-glow); }
+.plan-card.popular::before { content: 'MOST POPULAR'; position: absolute; top: -1px; right: 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; color: var(--accent); background: var(--bg-3); border: 1px solid rgba(0,229,255,0.2); padding: 3px 8px; border-radius: 0 0 6px 6px; }
+.plan-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.plan-card.selected .plan-radio { border-color: var(--accent); background: var(--accent); }
+.plan-card.selected .plan-radio::after { content: ''; width: 6px; height: 6px; background: var(--bg); border-radius: 50%; }
+.plan-info { flex: 1; }
+.plan-name { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.plan-features { font-size: 12px; color: var(--muted-2); }
+.plan-price { text-align: right; }
+.plan-amount { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); line-height: 1; }
+.plan-card.selected .plan-amount { color: var(--accent); }
+.plan-period { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
+
+/* STRIPE MOCK */
+.stripe-field { background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 10px; padding: 13px 16px; margin-bottom: 14px; }
+.stripe-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.stripe-label { font-size: 10px; color: var(--muted); font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+.stripe-input { width: 100%; background: transparent; border: none; font-family: var(--font-body); font-size: 14px; color: var(--white); outline: none; }
+.stripe-input::placeholder { color: var(--muted); }
+.stripe-secure { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 20px; }
+
+/* CHECKBOX */
+.checkbox-wrap { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; cursor: pointer; }
+.checkbox-box { width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--border-bright); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.checkbox-box.checked { background: var(--accent); border-color: var(--accent); }
+.checkbox-box.checked::after { content: '✓'; font-size: 11px; color: var(--bg); font-weight: 800; }
+.checkbox-text { font-size: 13px; color: var(--muted-2); line-height: 1.5; }
+
+/* BUTTONS */
+.btn-next { width: 100%; background: var(--white); color: var(--bg); border: none; border-radius: 10px; padding: 15px; font-family: var(--font-head); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em; }
+.btn-next:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-next.accent { background: var(--accent); }
+.btn-back { background: none; border: 1px solid var(--border-bright); color: var(--muted-2); border-radius: 10px; padding: 11px 20px; font-family: var(--font-head); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-right: 10px; }
+.btn-back:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+.btn-row { display: flex; align-items: center; margin-top: 6px; }
+.btn-row .btn-next { flex: 1; }
+
+/* CONFIRMATION */
+.confirm-icon { width: 72px; height: 72px; background: rgba(0,255,136,0.1); border: 2px solid rgba(0,255,136,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 24px; }
+.confirm-title { font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--white); text-align: center; letter-spacing: -0.02em; margin-bottom: 10px; }
+.confirm-sub { font-size: 15px; color: var(--muted-2); text-align: center; line-height: 1.7; margin-bottom: 36px; font-weight: 400; }
+.confirm-steps { display: flex; flex-direction: column; gap: 0; background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 28px; }
+.confirm-step { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.confirm-step:last-child { border-bottom: none; }
+.cs-num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); flex-shrink: 0; width: 20px; margin-top: 2px; }
+.cs-text { flex: 1; }
+.cs-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+.cs-desc { font-size: 12px; color: var(--muted-2); }
+
+/* ERROR */
+.error-msg { font-size: 12px; color: #FF5050; font-family: var(--font-mono); margin-top: 5px; display: none; }
+.form-input.error { border-color: #FF5050; }
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+  .stripe-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-dot"></div>
+    Relaunch
+  </a>
+  <a href="index.html" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="onboard-wrap">
+  <div class="onboard-card">
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrap">
+      <div class="progress-steps">
+        <div class="progress-step">
+          <div class="ps-dot active" id="dot-1">1</div>
+          <div class="ps-line" id="line-1"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-2">2</div>
+          <div class="ps-line" id="line-2"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-3">3</div>
+          <div class="ps-line" id="line-3"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-4">4</div>
+        </div>
+      </div>
+      <div class="progress-labels">
+        <div class="progress-label active" id="label-1">You</div>
+        <div class="progress-label" id="label-2">Domain</div>
+        <div class="progress-label" id="label-3">Plan</div>
+        <div class="progress-label" id="label-4">Pay</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 — DETAILS -->
+    <div class="step-card active" id="step-1">
+      <div class="step-eyebrow">// step 1 of 4</div>
+      <div class="step-title" id="step1-title">Looks great, right?</div>
+      <div class="step-sub" id="step1-sub">Let's make sure we have your details right. This takes about 60 seconds.</div>
+
+      <div class="form-group">
+        <label class="form-label">Business name</label>
+        <input type="text" class="form-input" id="business-name" placeholder="Mario's Pizza">
+        <div class="error-msg" id="err-business">Please enter your business name</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your first name</label>
+          <input type="text" class="form-input" id="first-name" placeholder="Mario">
+          <div class="error-msg" id="err-first">Required</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your last name</label>
+          <input type="text" class="form-input" id="last-name" placeholder="Rossi">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-input" id="email" placeholder="mario@mariospizza.com">
+        <div class="error-msg" id="err-email">Please enter a valid email</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone number</label>
+        <input type="tel" class="form-input" id="phone" placeholder="(555) 000-0000">
+        <div class="error-msg" id="err-phone">Required</div>
+      </div>
+
+      <button class="btn-next" onclick="nextStep(1)">Looks good — next →</button>
+    </div>
+
+    <!-- STEP 2 — DOMAIN -->
+    <div class="step-card" id="step-2">
+      <div class="step-eyebrow">// step 2 of 4</div>
+      <div class="step-title">Your domain</div>
+      <div class="step-sub">This is how customers find you online. We'll handle the technical part — you just tell us what you want.</div>
+
+      <div class="radio-group" id="domain-options">
+        <label class="radio-option selected" onclick="selectDomain(this, 'existing')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">Keep my existing domain</div>
+            <div class="radio-desc">We'll connect your current domain to the new site — no change to your web address</div>
+          </div>
+        </label>
+        <label class="radio-option" onclick="selectDomain(this, 'new')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">Get a new domain</div>
+            <div class="radio-desc">We'll register a fresh domain for your business — from $12/year</div>
+          </div>
+        </label>
+        <label class="radio-option" onclick="selectDomain(this, 'none')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">I don't have a domain yet</div>
+            <div class="radio-desc">No problem — we'll help you get one set up as part of onboarding</div>
+          </div>
+        </label>
+      </div>
+
+      <!-- Existing domain fields -->
+      <div id="domain-existing-fields">
+        <div class="form-group">
+          <label class="form-label">Your current domain <span>(e.g. mariospizza.com)</span></label>
+          <input type="text" class="form-input" id="current-domain" placeholder="mariospizza.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Domain registrar <span>(where you bought it)</span></label>
+          <select class="form-input" id="registrar" style="cursor:pointer;">
+            <option value="">Select registrar...</option>
+            <option>GoDaddy</option>
+            <option>Namecheap</option>
+            <option>Google Domains</option>
+            <option>Squarespace</option>
+            <option>Wix</option>
+            <option>Network Solutions</option>
+            <option>Other</option>
+            <option>I'm not sure</option>
+          </select>
+          <div class="form-hint">// don't worry — we'll walk you through the nameserver change step by step</div>
+        </div>
+      </div>
+
+      <!-- New domain fields -->
+      <div id="domain-new-fields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Preferred domain name <span>(we'll check availability)</span></label>
+          <input type="text" class="form-input" id="new-domain" placeholder="mariospizza.com">
+          <div class="form-hint">// we'll confirm availability and register it for you</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(2)">← Back</button>
+        <button class="btn-next" onclick="nextStep(2)">Perfect — next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 — PLAN -->
+    <div class="step-card" id="step-3">
+      <div class="step-eyebrow">// step 3 of 4</div>
+      <div class="step-title">Pick your plan</div>
+      <div class="step-sub">All plans include same-day Slack edits, your Google reviews displayed, and no contracts. Cancel anytime.</div>
+
+      <div class="plan-grid">
+        <div class="plan-card" onclick="selectPlan(this, 99)" data-price="99">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Starter</div>
+            <div class="plan-features">Website + hosting + SSL + same-day edits via Slack</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$99</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+        <div class="plan-card popular selected" onclick="selectPlan(this, 299)" data-price="299">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Growth</div>
+            <div class="plan-features">Everything + monthly blog post + social content + SEO report</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$299</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+        <div class="plan-card" onclick="selectPlan(this, 499)" data-price="499">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Full Service</div>
+            <div class="plan-features">Everything + email campaigns + SMS + review management</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$499</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:18px;">💬</span>
+        <div style="font-size:13px;color:var(--muted-2);">Every plan includes a <strong style="color:var(--white)">shared Slack channel</strong> with our team. Request edits anytime — done same day.</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(3)">← Back</button>
+        <button class="btn-next" onclick="nextStep(3)">This plan works →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 — PAYMENT -->
+    <div class="step-card" id="step-4">
+      <div class="step-eyebrow">// step 4 of 4</div>
+      <div class="step-title">You're almost in</div>
+      <div class="step-sub" id="payment-sub">Last step — add your payment details. Your plan starts today, cancel anytime.</div>
+
+      <!-- Order summary -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span style="font-size:13px;color:var(--muted-2);">Plan</span>
+          <span style="font-size:13px;font-weight:600;color:var(--white);" id="summary-plan">Growth — $299/month</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span style="font-size:13px;color:var(--muted-2);">Business</span>
+          <span style="font-size:13px;font-weight:600;color:var(--white);" id="summary-business">—</span>
+        </div>
+        <div style="height:1px;background:var(--border);margin:10px 0;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:var(--muted-2);">Due today</span>
+          <span style="font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--accent);" id="summary-total">$299</span>
+        </div>
+      </div>
+
+      <!-- Card fields -->
+      <div class="form-group">
+        <label class="form-label">Card number</label>
+        <div class="stripe-field">
+          <input type="text" class="stripe-input" placeholder="1234 5678 9012 3456" maxlength="19" id="card-num" oninput="formatCard(this)">
+        </div>
+      </div>
+      <div class="stripe-row">
+        <div class="form-group">
+          <label class="form-label">Expiry date</label>
+          <div class="stripe-field">
+            <input type="text" class="stripe-input" placeholder="MM / YY" maxlength="7" id="card-exp" oninput="formatExp(this)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">CVC</label>
+          <div class="stripe-field">
+            <input type="text" class="stripe-input" placeholder="123" maxlength="4" id="card-cvc">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Slack email <span>(for your edit channel invite)</span></label>
+        <input type="email" class="form-input" id="slack-email" placeholder="same as above or different email">
+        <div class="form-hint">// we'll invite you to a shared Slack channel for same-day edits</div>
+      </div>
+
+      <div class="checkbox-wrap" onclick="toggleCheck()">
+        <div class="checkbox-box" id="agree-box"></div>
+        <div class="checkbox-text">I understand this is a month-to-month subscription. No contracts. Cancel anytime by messaging us on Slack or emailing hello@tryrelaunch.com.</div>
+      </div>
+
+      <div class="stripe-secure">
+        🔒 Secured by Stripe · Your card info is never stored on our servers
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(4)">← Back</button>
+        <button class="btn-next accent" onclick="submitPayment()" id="pay-btn">Start my plan →</button>
+      </div>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="step-card" id="step-confirm">
+      <div class="confirm-icon">🚀</div>
+      <div class="confirm-title">You're in. Welcome.</div>
+      <div class="confirm-sub">Your Relaunch plan is active. Here's exactly what happens next — we'll have everything live within 24–48 hours.</div>
+      <div class="confirm-steps">
+        <div class="confirm-step">
+          <div class="cs-num">01</div>
+          <div class="cs-text">
+            <div class="cs-title">Slack invite incoming</div>
+            <div class="cs-desc">Check your email — you'll receive a Slack invite to your dedicated edit channel within the hour.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">02</div>
+          <div class="cs-text">
+            <div class="cs-title">Domain connection</div>
+            <div class="cs-desc">We'll message you on Slack with simple nameserver instructions. Usually takes 5 minutes on your end.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">03</div>
+          <div class="cs-text">
+            <div class="cs-title">Site goes live</div>
+            <div class="cs-desc">Once the domain is connected, your new site goes live instantly. We'll confirm in Slack the moment it's up.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">04</div>
+          <div class="cs-text">
+            <div class="cs-title">First edit on us</div>
+            <div class="cs-desc">Send us your first edit request in Slack — anything you want to change, add, or update. Done same day.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:13px;color:var(--muted-2);margin-bottom:8px;">Questions? Reach us at</div>
+        <a href="mailto:hello@tryrelaunch.com" style="color:var(--accent);font-family:var(--font-mono);font-size:14px;">hello@tryrelaunch.com</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let currentStep = 1;
+let selectedPlan = 299;
+let selectedPlanName = 'Growth';
+let domainChoice = 'existing';
+let agreed = false;
+
+// Read URL params to pre-fill
+const params = new URLSearchParams(window.location.search);
+const avenue = params.get('avenue');
+const prefillBusiness = params.get('business');
+const prefillUrl = params.get('url');
+const prefillEmail = params.get('email');
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Pre-fill from URL params
+  if (prefillBusiness) {
+    const el = document.getElementById('business-name');
+    el.value = decodeURIComponent(prefillBusiness);
+    el.classList.add('prefilled');
+  }
+  if (prefillEmail) {
+    const el = document.getElementById('email');
+    el.value = decodeURIComponent(prefillEmail);
+    el.classList.add('prefilled');
+    document.getElementById('slack-email').value = decodeURIComponent(prefillEmail);
+  }
+  if (prefillUrl) {
+    const el = document.getElementById('current-domain');
+    if (el) {
+      el.value = decodeURIComponent(prefillUrl).replace(/^https?:\/\//, '');
+      el.classList.add('prefilled');
+    }
+  }
+
+  // Adjust step 1 messaging based on avenue
+  if (avenue === 'outbound') {
+    document.getElementById('step1-title').textContent = 'Like what you see?';
+    document.getElementById('step1-sub').textContent = "Let's get you set up. This takes about 5 minutes and you'll be live within 48 hours.";
+  } else {
+    document.getElementById('step1-title').textContent = 'Let\'s get you started';
+    document.getElementById('step1-sub').textContent = "Tell us about your business. We'll build your free preview and send it within 48 hours.";
+  }
+
+  // Select Growth plan by default
+  document.querySelector('.plan-card.popular').classList.add('selected');
+  document.querySelector('.plan-card.popular .plan-radio').style.cssText = 'border-color:var(--accent);background:var(--accent);';
+});
+
+function nextStep(from) {
+  if (!validateStep(from)) return;
+  updateSummary();
+  goToStep(from + 1);
+}
+
+function prevStep(from) {
+  goToStep(from - 1);
+}
+
+function goToStep(n) {
+  document.querySelectorAll('.step-card').forEach(s => s.classList.remove('active'));
+  const target = n > 4 ? 'step-confirm' : `step-${n}`;
+  document.getElementById(target).classList.add('active');
+  currentStep = n;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress() {
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById(`dot-${i}`);
+    const label = document.getElementById(`label-${i}`);
+    const line = document.getElementById(`line-${i}`);
+    dot.className = 'ps-dot';
+    label.className = 'progress-label';
+    if (i < currentStep) {
+      dot.className = 'ps-dot done';
+      dot.textContent = '';
+      label.className = 'progress-label done';
+      if (line) line.classList.add('done');
+    } else if (i === currentStep) {
+      dot.className = 'ps-dot active';
+      dot.textContent = i;
+      label.className = 'progress-label active';
+    } else {
+      dot.textContent = i;
+      if (line) line.classList.remove('done');
+    }
+  }
+}
+
+function validateStep(step) {
+  let valid = true;
+  if (step === 1) {
+    if (!document.getElementById('business-name').value.trim()) {
+      showError('business-name', 'err-business'); valid = false;
+    }
+    if (!document.getElementById('first-name').value.trim()) {
+      showError('first-name', 'err-first'); valid = false;
+    }
+    const email = document.getElementById('email').value.trim();
+    if (!email || !email.includes('@')) {
+      showError('email', 'err-email'); valid = false;
+    }
+    if (!document.getElementById('phone').value.trim()) {
+      showError('phone', 'err-phone'); valid = false;
+    }
+  }
+  return valid;
+}
+
+function showError(inputId, errId) {
+  document.getElementById(inputId).classList.add('error');
+  document.getElementById(errId).style.display = 'block';
+  setTimeout(() => {
+    document.getElementById(inputId).classList.remove('error');
+    document.getElementById(errId).style.display = 'none';
+  }, 3000);
+}
+
+function updateSummary() {
+  const business = document.getElementById('business-name').value || 'Your Business';
+  document.getElementById('summary-business').textContent = business;
+  document.getElementById('summary-plan').textContent = `${selectedPlanName} — $${selectedPlan}/month`;
+  document.getElementById('summary-total').textContent = `$${selectedPlan}`;
+  document.getElementById('payment-sub').textContent = `Starting your ${selectedPlanName} plan at $${selectedPlan}/month. Cancel anytime.`;
+
+  // Pre-fill slack email if email is set
+  const email = document.getElementById('email').value;
+  if (email && !document.getElementById('slack-email').value) {
+    document.getElementById('slack-email').value = email;
+  }
+}
+
+function selectPlan(el, price) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan = price;
+  const names = { 99: 'Starter', 299: 'Growth', 499: 'Full Service' };
+  selectedPlanName = names[price];
+}
+
+function selectDomain(el, type) {
+  document.querySelectorAll('.radio-option').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+  domainChoice = type;
+  document.getElementById('domain-existing-fields').style.display = type === 'existing' ? 'block' : 'none';
+  document.getElementById('domain-new-fields').style.display = type === 'new' ? 'block' : 'none';
+}
+
+function toggleCheck() {
+  agreed = !agreed;
+  const box = document.getElementById('agree-box');
+  box.className = agreed ? 'checkbox-box checked' : 'checkbox-box';
+}
+
+function formatCard(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 16);
+  input.value = v.replace(/(.{4})/g, '$1 ').trim();
+}
+
+function formatExp(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 2) v = v.substring(0, 2) + ' / ' + v.substring(2);
+  input.value = v;
+}
+
+function submitPayment() {
+  if (!agreed) {
+    alert('Please confirm you understand this is a month-to-month subscription.');
+    return;
+  }
+  const card = document.getElementById('card-num').value.replace(/\s/g, '');
+  if (card.length < 16) {
+    alert('Please enter a valid card number.');
+    return;
+  }
+
+  // Simulate payment processing
+  const btn = document.getElementById('pay-btn');
+  btn.textContent = 'Processing...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+
+  setTimeout(() => {
+    goToStep(5);
+  }, 1800);
+}
+</script>
+</body>
+</html>
