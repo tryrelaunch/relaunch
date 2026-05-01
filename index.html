@@ -3,749 +3,750 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Relaunch — We rebuild your business website for free. $99/month to keep it. No contracts. Cancel anytime.">
-<title>Relaunch — Your Website, Rebuilt. Free.</title>
+<meta name="description" content="Relaunch rebuilds your local business website for free. $99/month to keep it live. No contracts.">
+<title>Relaunch — Your Website, Rebuilt Free</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg:#FFFFFF; --bg-2:#F5F7FA; --bg-3:#ECEEF2;
-  --bg-dark:#0A0F1E; --bg-dark-2:#111827;
-  --border:rgba(0,0,0,0.08); --text:#0A0F1E; --text-2:#374151;
-  --muted:#6B7280; --muted-2:#9CA3AF;
-  --accent:#1D4ED8; --accent-2:#2563EB; --accent-lt:#EFF6FF;
-  --green:#059669; --green-lt:#ECFDF5;
-  --red:#DC2626; --red-lt:#FEF2F2;
-  --font-head:'Montserrat',sans-serif;
-  --font-body:'Manrope',sans-serif;
-  --font-mono:'DM Mono',monospace;
-  --radius:12px;
-  --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
-  --shadow-lg:0 8px 32px rgba(0,0,0,0.1),0 2px 8px rgba(0,0,0,0.06);
+  --white:   #FFFFFF;
+  --off:     #F7F8FA;
+  --border:  #E5E7EB;
+  --text:    #111827;
+  --text-2:  #374151;
+  --muted:   #6B7280;
+  --dark:    #0F172A;
+  --dark-2:  #1E293B;
+  --blue:    #1D4ED8;
+  --blue-lt: #EFF6FF;
+  --green:   #059669;
+  --green-lt:#ECFDF5;
+  --red:     #DC2626;
+  --fh: 'Montserrat', sans-serif;
+  --fb: 'Manrope', sans-serif;
+  --sh: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+  --sh2: 0 8px 32px rgba(0,0,0,0.1);
 }
-html { scroll-behavior:smooth; }
-body { font-family:var(--font-body); background:var(--bg); color:var(--text); line-height:1.6; overflow-x:hidden; }
-a { text-decoration:none; color:inherit; }
-img { max-width:100%; display:block; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
 
-/* NAV */
-nav { position:fixed; top:0; left:0; right:0; z-index:200; height:68px; display:flex; align-items:center; justify-content:space-between; padding:0 48px; background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); box-shadow:0 1px 0 rgba(0,0,0,0.04); }
-.nav-logo { font-family:var(--font-head); font-size:22px; font-weight:900; color:var(--text); letter-spacing:-0.03em; display:flex; align-items:center; gap:8px; }
-.nav-dot { width:8px; height:8px; background:var(--accent); border-radius:50%; box-shadow:0 0 0 3px rgba(29,78,216,0.15); animation:pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{box-shadow:0 0 0 3px rgba(29,78,216,0.15)} 50%{box-shadow:0 0 0 6px rgba(29,78,216,0.05)} }
-.nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
-.nav-links a { font-size:14px; font-weight:500; color:var(--muted); transition:color 0.2s; }
-.nav-links a:hover { color:var(--text); }
-.nav-cta { background:var(--bg-dark); color:#fff !important; padding:10px 22px; border-radius:8px; font-family:var(--font-head); font-size:13px; font-weight:700; letter-spacing:0.01em; transition:all 0.2s; }
-.nav-cta:hover { background:var(--accent); transform:translateY(-1px); box-shadow:0 4px 12px rgba(29,78,216,0.3); }
-
-/* HERO */
-.hero { padding:140px 0 80px; background:linear-gradient(160deg,#F8FAFF 0%,#FFFFFF 50%,#F0F4FF 100%); position:relative; overflow:hidden; }
-.hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(29,78,216,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(29,78,216,0.03) 1px,transparent 1px); background-size:64px 64px; }
-.hero-inner { max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:1fr 460px; gap:80px; align-items:center; position:relative; z-index:2; }
-.hero-badge { display:inline-flex; align-items:center; gap:8px; background:var(--accent-lt); border:1px solid rgba(29,78,216,0.2); border-radius:100px; padding:6px 14px 6px 8px; margin-bottom:24px; font-family:var(--font-mono); font-size:11px; color:var(--accent); letter-spacing:0.06em; text-transform:uppercase; }
-.hero-badge-dot { width:6px; height:6px; background:var(--accent); border-radius:50%; }
-.hero h1 { font-family:var(--font-head); font-size:clamp(38px,4.5vw,64px); font-weight:900; line-height:1.04; letter-spacing:-0.03em; color:var(--text); margin-bottom:20px; }
-.hero h1 em { font-style:normal; color:var(--accent); }
-.hero-sub { font-size:18px; color:var(--muted); line-height:1.7; margin-bottom:36px; max-width:520px; }
-.hero-form { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:6px 6px 6px 18px; display:flex; gap:8px; align-items:center; box-shadow:var(--shadow); margin-bottom:14px; max-width:500px; }
-.hero-form input { flex:1; border:none; outline:none; font-family:var(--font-body); font-size:15px; color:var(--text); background:transparent; }
-.hero-form input::placeholder { color:var(--muted-2); }
-.hero-form button { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:13px 22px; font-family:var(--font-head); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; transition:all 0.2s; }
-.hero-form button:hover { background:var(--accent-2); transform:translateY(-1px); }
-.hero-note { font-family:var(--font-mono); font-size:11px; color:var(--muted-2); letter-spacing:0.06em; margin-bottom:28px; }
-.hero-checks { display:flex; flex-wrap:wrap; gap:14px; }
-.hero-check { display:flex; align-items:center; gap:7px; font-size:13px; color:var(--muted); font-weight:500; }
-.hero-check-icon { color:var(--green); font-weight:700; font-size:14px; }
-
-/* HERO CARD */
-.hero-card { background:var(--bg); border-radius:16px; box-shadow:var(--shadow-lg); border:1px solid var(--border); overflow:visible; position:relative; margin-bottom:20px; }
-.card-bar { background:var(--bg-2); padding:12px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); border-radius:16px 16px 0 0; }
-.card-dots { display:flex; gap:5px; }
-.card-dot { width:10px; height:10px; border-radius:50%; }
-.cd-r{background:#FF5F57;} .cd-y{background:#FFBD2E;} .cd-g{background:#28CA42;}
-.card-url { flex:1; text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--muted); background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:4px 12px; }
-.card-score { font-family:var(--font-mono); font-size:11px; color:var(--green); background:var(--green-lt); padding:3px 8px; border-radius:4px; font-weight:600; }
-.card-tabs { display:flex; border-bottom:1px solid var(--border); }
-.card-tab { flex:1; padding:10px; text-align:center; font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; cursor:pointer; transition:all 0.2s; color:var(--muted); border-bottom:2px solid transparent; }
-.card-tab.active { color:var(--accent); border-bottom-color:var(--accent); background:var(--accent-lt); }
-.card-screens { position:relative; height:260px; overflow:hidden; }
-.card-screen { position:absolute; inset:0; padding:20px; opacity:0; transition:opacity 0.4s; }
-.card-screen.active { opacity:1; }
-.before-screen { background:#fff; }
-.old-nav-bar { height:8px; background:#d1d5db; border-radius:3px; margin-bottom:12px; width:55%; }
-.old-hero-box { height:90px; background:#f3f4f6; border-radius:6px; margin-bottom:10px; display:flex; align-items:center; justify-content:center; border:2px dashed #d1d5db; }
-.old-hero-box span { font-family:var(--font-mono); font-size:10px; color:#9ca3af; }
-.old-row { height:6px; background:#e5e7eb; border-radius:3px; margin-bottom:7px; }
-.old-badge-r { display:inline-flex; align-items:center; gap:4px; background:var(--red-lt); border:1px solid rgba(220,38,38,0.2); border-radius:4px; padding:4px 10px; font-family:var(--font-mono); font-size:10px; color:var(--red); margin-top:6px; font-weight:600; }
-.after-screen { background:#F8FAFF; }
-.new-hero-bar { height:80px; background:linear-gradient(135deg,#1D4ED8,#2563EB); border-radius:8px; margin-bottom:10px; display:flex; align-items:center; padding:0 16px; gap:12px; }
-.new-hero-txt { flex:1; }
-.new-h1 { height:10px; background:rgba(255,255,255,0.9); border-radius:3px; width:65%; margin-bottom:6px; }
-.new-h2 { height:6px; background:rgba(255,255,255,0.5); border-radius:3px; width:45%; }
-.new-btn-sm { background:#fff; border-radius:4px; padding:6px 12px; font-family:var(--font-mono); font-size:9px; color:var(--accent); font-weight:700; white-space:nowrap; }
-.new-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:8px; }
-.new-card-sm { height:44px; background:#fff; border-radius:6px; border:1px solid var(--border); }
-.new-badge-g { display:inline-flex; align-items:center; gap:4px; background:var(--green-lt); border:1px solid rgba(5,150,105,0.2); border-radius:4px; padding:4px 10px; font-family:var(--font-mono); font-size:10px; color:var(--green); font-weight:600; }
-.hero-metric { position:absolute; bottom:-18px; left:20px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:12px; box-shadow:var(--shadow-lg); z-index:10; }
-.metric-val { font-family:var(--font-head); font-size:17px; font-weight:800; color:var(--green); line-height:1; }
-.metric-label { font-family:var(--font-mono); font-size:10px; color:var(--muted); letter-spacing:0.05em; }
-
-/* STATS */
-.stats-bar { background:var(--bg-dark); padding:28px 0; }
-.stats-grid { max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:repeat(4,1fr); }
-.stat { text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.08); }
-.stat:last-child { border-right:none; }
-.stat-val { font-family:var(--font-head); font-size:38px; font-weight:900; color:#fff; letter-spacing:-0.03em; line-height:1; margin-bottom:4px; }
-.stat-val em { font-style:normal; color:#60A5FA; }
-.stat-label { font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; }
-
-/* TECH BANNER */
-.tech-banner { background:var(--accent-lt); border-top:1px solid rgba(29,78,216,0.1); border-bottom:1px solid rgba(29,78,216,0.1); padding:18px 0; }
-.tech-banner-inner { max-width:1280px; margin:0 auto; padding:0 48px; display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
-.tech-item { display:flex; align-items:center; gap:10px; }
-.tech-icon { font-size:18px; }
-.tech-name { font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--text); }
-.tech-sub { font-family:var(--font-mono); font-size:10px; color:var(--muted); letter-spacing:0.05em; }
-.tech-div { width:1px; height:32px; background:rgba(29,78,216,0.15); }
-
-/* SECTION BASE */
-.section-inner { max-width:1280px; margin:0 auto; padding:0 48px; }
-.section-label { font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
-.section-label::before { content:''; width:18px; height:2px; background:var(--accent); border-radius:2px; }
-h2.section-title { font-family:var(--font-head); font-size:clamp(28px,3.5vw,48px); font-weight:900; color:var(--text); letter-spacing:-0.03em; line-height:1.08; margin-bottom:16px; }
-h2.section-title em { font-style:normal; color:var(--accent); }
-.section-sub { font-size:17px; color:var(--muted); line-height:1.75; max-width:600px; }
-
-/* PAIN POINTS */
-.pain-section { background:var(--bg-dark); padding:100px 0; }
-.pain-intro { max-width:1280px; margin:0 auto; padding:0 48px; margin-bottom:56px; }
-.pain-intro .section-label { color:#60A5FA; }
-.pain-intro .section-label::before { background:#60A5FA; }
-.pain-intro h2.section-title { color:#fff; }
-.pain-intro .section-sub { color:rgba(255,255,255,0.45); }
-.pain-grid { max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
-.pain-card { background:var(--bg-dark-2); padding:40px 36px; transition:background 0.2s; position:relative; overflow:hidden; }
-.pain-card:hover { background:#1a2235; }
-.pain-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,rgba(96,165,250,0.4),transparent); }
-.pain-emoji { font-size:30px; margin-bottom:18px; }
-.pain-card h3 { font-family:var(--font-head); font-size:17px; font-weight:700; color:#fff; margin-bottom:10px; letter-spacing:-0.01em; }
-.pain-card p { font-size:14px; color:rgba(255,255,255,0.42); line-height:1.75; }
-.pain-cta-wrap { max-width:1280px; margin:48px auto 0; padding:0 48px; }
-.pain-cta-card { background:linear-gradient(135deg,#1D4ED8,#1e3a8a); border-radius:16px; padding:44px 52px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
-.pain-cta-card h3 { font-family:var(--font-head); font-size:26px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:6px; }
-.pain-cta-card p { font-size:15px; color:rgba(255,255,255,0.55); }
-.btn-white { background:#fff; color:var(--accent); border:none; border-radius:8px; padding:14px 30px; font-family:var(--font-head); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; transition:all 0.2s; }
-.btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
-
-/* HOW IT WORKS */
-.how-section { background:var(--bg-2); padding:100px 0; border-top:1px solid var(--border); }
-.steps { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; background:var(--border); border-radius:16px; overflow:hidden; }
-.step { background:var(--bg); padding:44px 36px; position:relative; }
-.step:hover { background:#FAFBFF; }
-.step-num { font-family:var(--font-mono); font-size:11px; color:var(--accent); letter-spacing:0.1em; margin-bottom:20px; }
-.step-icon { width:52px; height:52px; background:var(--accent-lt); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:20px; }
-.step h3 { font-family:var(--font-head); font-size:20px; font-weight:800; color:var(--text); margin-bottom:12px; letter-spacing:-0.02em; }
-.step p { font-size:14px; color:var(--muted); line-height:1.75; }
-.step-arr { position:absolute; top:44px; right:-14px; width:28px; height:28px; background:var(--bg); border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--muted); z-index:10; }
-.step:last-child .step-arr { display:none; }
-
-/* INCLUDED */
-.included-section { padding:100px 0; border-top:1px solid var(--border); }
-.included-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; background:var(--border); border-radius:16px; overflow:hidden; }
-.inc-card { background:var(--bg); padding:36px 32px; }
-.inc-card:hover { background:#FAFBFF; }
-.inc-icon { font-size:28px; margin-bottom:16px; }
-.inc-card h3 { font-family:var(--font-head); font-size:17px; font-weight:800; color:var(--text); margin-bottom:8px; letter-spacing:-0.02em; }
-.inc-card p { font-size:13.5px; color:var(--muted); line-height:1.7; }
-
-/* REVIEWS */
-.reviews-section { background:var(--bg-2); padding:100px 0; border-top:1px solid var(--border); }
-.reviews-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:36px; margin-top:48px; box-shadow:var(--shadow); }
-.reviews-header { display:flex; align-items:stretch; gap:20px; }
-.review-score-box { background:var(--green-lt); border:1px solid rgba(5,150,105,0.15); border-radius:12px; padding:20px 28px; text-align:center; flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-.rs-label { font-family:var(--font-mono); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
-.rs-stars { font-size:16px; color:#F59E0B; letter-spacing:2px; margin-bottom:4px; }
-.rs-num { font-family:var(--font-head); font-size:38px; font-weight:900; color:var(--text); line-height:1; margin-bottom:3px; }
-.rs-count { font-family:var(--font-mono); font-size:10px; color:var(--muted); }
-.review-list { display:flex; gap:14px; flex:1; }
-.review-item { background:var(--bg-2); border:1px solid var(--border); border-radius:10px; padding:16px 18px; flex:1; }
-.ri-name { font-family:var(--font-head); font-size:13px; font-weight:700; color:var(--text); margin-bottom:3px; }
-.ri-stars { font-size:11px; color:#F59E0B; margin-bottom:8px; }
-.ri-text { font-size:12.5px; color:var(--muted); line-height:1.55; font-style:italic; }
-.reviews-note { margin-top:18px; text-align:center; font-family:var(--font-mono); font-size:10px; color:var(--muted-2); letter-spacing:0.08em; }
-
-/* SLACK */
-.slack-section { padding:100px 0; }
-.slack-grid { max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.slack-checks { display:flex; flex-direction:column; gap:12px; margin-top:28px; }
-.slack-check { display:flex; align-items:center; gap:12px; font-size:14px; color:var(--muted); }
-.slack-chk-icon { width:22px; height:22px; background:var(--green-lt); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--green); font-weight:700; flex-shrink:0; }
-.slack-mock { background:var(--bg); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); }
-.slack-mock-bar { background:#3F0E40; padding:12px 16px; display:flex; align-items:center; gap:8px; }
-.slack-mock-dot { width:8px; height:8px; background:#28CA42; border-radius:50%; box-shadow:0 0 6px #28CA42; }
-.slack-mock-name { font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.7); }
-.slack-body { padding:20px; display:flex; flex-direction:column; gap:14px; }
-.slack-msg { display:flex; gap:10px; align-items:flex-start; }
-.slack-av { width:32px; height:32px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#fff; }
-.slack-bub { border-radius:0 10px 10px 10px; padding:10px 14px; flex:1; }
-.slack-bub.def { background:var(--bg-2); }
-.slack-bub.acc { background:var(--accent-lt); border:1px solid rgba(29,78,216,0.12); }
-.slack-from { font-size:11px; font-weight:700; color:var(--text); margin-bottom:4px; }
-.slack-from span { font-weight:400; color:var(--muted-2); }
-.slack-from.acc { color:var(--accent); }
-.slack-txt { font-size:13px; color:var(--muted); }
-.slack-timing { font-family:var(--font-mono); font-size:10px; color:var(--muted-2); text-align:center; padding-top:2px; letter-spacing:0.06em; }
-
-/* COMPARE */
-.compare-section { background:var(--bg-2); padding:100px 0; border-top:1px solid var(--border); }
-.compare-table { margin-top:56px; border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
-.compare-row { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; }
-.compare-row.hdr { background:var(--bg-dark); }
-.compare-cell { padding:16px 20px; border-right:1px solid var(--border); display:flex; align-items:center; }
-.compare-cell:last-child { border-right:none; }
-.compare-row:not(.hdr) { border-bottom:1px solid var(--border); background:var(--bg); }
-.compare-row:not(.hdr):last-child { border-bottom:none; }
-.compare-row:not(.hdr):nth-child(even) { background:var(--bg-2); }
-.compare-row:not(.hdr):hover { background:#EFF6FF; }
-.cf { font-size:13px; font-weight:600; color:var(--text); }
-.cv { font-size:13px; color:var(--muted); justify-content:center; text-align:center; }
-.cv.win { color:var(--green); font-weight:700; }
-.cv.lose { color:var(--red); }
-.ch { font-family:var(--font-head); font-size:13px; font-weight:800; justify-content:center; text-align:center; }
-.ch.rl { color:#60A5FA; }
-.ch.ot { color:rgba(255,255,255,0.4); }
-
-/* TERMINAL */
-.terminal-section { padding:100px 0; border-top:1px solid var(--border); }
-.terminal-grid { max-width:1280px; margin:0 auto; padding:0 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.terminal { background:#0D1117; border:1px solid rgba(255,255,255,0.07); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-lg); }
-.terminal-bar { background:#161B22; padding:12px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.05); }
-.t-dot { width:10px; height:10px; border-radius:50%; }
-.t-r{background:#FF5F57;} .t-y{background:#FFBD2E;} .t-g{background:#28CA42;}
-.t-title { font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.25); margin-left:8px; }
-.terminal-body { padding:24px; font-family:var(--font-mono); font-size:12.5px; line-height:2; }
-.t-line { display:flex; gap:10px; }
-.t-p { color:#60A5FA; }
-.t-c { color:#E2E8F0; }
-.t-cm { color:#4B5563; }
-.t-o { color:#34D399; padding-left:20px; }
-.t-o.d { color:rgba(255,255,255,0.28); }
-.t-o.r { color:#F87171; }
-.t-cur { display:inline-block; width:7px; height:13px; background:#60A5FA; margin-left:3px; animation:blink 1s step-end infinite; vertical-align:middle; }
-@keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
-.t-checks { display:flex; flex-direction:column; gap:10px; margin:24px 0 32px; }
-.t-check { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); }
-.t-chk-ico { width:20px; height:20px; background:var(--green-lt); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--green); font-weight:700; flex-shrink:0; }
-
-/* WHO */
-.who-section { background:var(--bg-2); padding:100px 0; border-top:1px solid var(--border); }
-.who-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; background:var(--border); border-radius:16px; overflow:hidden; }
-.who-card { background:var(--bg); padding:36px 32px; }
-.who-card:hover { background:#FAFBFF; }
-.who-icon { font-size:28px; margin-bottom:16px; }
-.who-card h3 { font-family:var(--font-head); font-size:17px; font-weight:800; color:var(--text); margin-bottom:8px; letter-spacing:-0.02em; }
-.who-card p { font-size:13.5px; color:var(--muted); line-height:1.7; }
-
-/* PRICING */
-.pricing-section { padding:100px 0; border-top:1px solid var(--border); }
-.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; background:var(--border); border-radius:16px; overflow:hidden; }
-.price-card { background:var(--bg); padding:44px 36px; position:relative; }
-.price-card.featured { background:var(--bg-dark); }
-.price-card.featured::before { content:'MOST POPULAR'; position:absolute; top:0; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:9px; letter-spacing:0.14em; background:var(--accent); color:#fff; padding:4px 14px; border-radius:0 0 8px 8px; }
-.price-tier { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
-.price-card.featured .price-tier { color:rgba(255,255,255,0.35); }
-.price-amount { font-family:var(--font-head); font-size:52px; font-weight:900; color:var(--text); letter-spacing:-0.04em; line-height:1; margin-bottom:2px; }
-.price-card.featured .price-amount { color:#60A5FA; }
-.price-amount sup { font-size:22px; vertical-align:top; margin-top:12px; font-weight:600; }
-.price-period { font-family:var(--font-mono); font-size:11px; color:var(--muted); margin-bottom:20px; }
-.price-card.featured .price-period { color:rgba(255,255,255,0.3); }
-.price-desc { font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:24px; }
-.price-card.featured .price-desc { color:rgba(255,255,255,0.45); }
-.price-features { list-style:none; margin-bottom:32px; }
-.price-features li { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted); padding:8px 0; border-bottom:1px solid var(--border); }
-.price-features li:last-child { border-bottom:none; }
-.price-card.featured .price-features li { color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.06); }
-.price-features li::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
-.price-card.featured .price-features li::before { color:#34D399; }
-.price-btn { display:block; width:100%; padding:14px; border-radius:10px; font-family:var(--font-head); font-size:14px; font-weight:700; text-align:center; cursor:pointer; border:none; transition:all 0.2s; }
-.btn-outline { background:transparent; color:var(--muted); border:1px solid var(--border); }
-.btn-outline:hover { color:var(--text); border-color:rgba(0,0,0,0.25); }
-.btn-dark { background:#fff; color:var(--bg-dark); }
-.btn-dark:hover { background:#F0F4FF; }
-
-/* ZERO RISK */
-.risk-section { background:var(--bg-2); padding:100px 0; border-top:1px solid var(--border); }
-.risk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
-.risk-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:36px 32px; text-align:center; box-shadow:var(--shadow); }
-.risk-icon { font-size:36px; margin-bottom:16px; }
-.risk-card h3 { font-family:var(--font-head); font-size:17px; font-weight:800; color:var(--text); margin-bottom:10px; letter-spacing:-0.02em; }
-.risk-card p { font-size:13.5px; color:var(--muted); line-height:1.7; }
-.risk-note { text-align:center; margin-top:20px; font-family:var(--font-mono); font-size:11px; color:var(--muted-2); letter-spacing:0.08em; }
-
-/* FAQ */
-.faq-section { padding:100px 0; border-top:1px solid var(--border); }
-.faq-list { margin-top:56px; border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow); }
-.faq-item { border-bottom:1px solid var(--border); background:var(--bg); }
-.faq-item:last-child { border-bottom:none; }
-.faq-q { width:100%; text-align:left; padding:22px 28px; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-head); font-size:16px; font-weight:700; color:var(--text); transition:background 0.2s; letter-spacing:-0.01em; }
-.faq-q:hover { background:var(--bg-2); }
-.faq-q.open { color:var(--accent); background:var(--accent-lt); }
-.faq-icon { font-size:18px; color:var(--muted-2); transition:transform 0.3s; flex-shrink:0; }
-.faq-q.open .faq-icon { transform:rotate(45deg); color:var(--accent); }
-.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s; font-size:14px; color:var(--muted); line-height:1.8; padding:0 28px; background:var(--accent-lt); }
-.faq-a.open { max-height:300px; padding:20px 28px; }
-
-/* CTA */
-.cta-section { background:var(--bg-dark); padding:120px 0; text-align:center; position:relative; overflow:hidden; }
-.cta-section::before { content:''; position:absolute; width:800px; height:400px; background:radial-gradient(ellipse,rgba(29,78,216,0.3) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
-.cta-inner { position:relative; z-index:2; max-width:600px; margin:0 auto; padding:0 40px; }
-.cta-section h2 { font-family:var(--font-head); font-size:clamp(30px,4vw,52px); font-weight:900; color:#fff; letter-spacing:-0.03em; margin-bottom:16px; }
-.cta-section p { font-size:17px; color:rgba(255,255,255,0.45); margin-bottom:40px; }
-.cta-form { display:flex; gap:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:6px 6px 6px 20px; }
-.cta-input { flex:1; background:transparent; border:none; outline:none; font-family:var(--font-body); font-size:15px; color:#fff; }
-.cta-input::placeholder { color:rgba(255,255,255,0.28); }
-.cta-submit { background:var(--accent); color:#fff; border:none; border-radius:8px; padding:13px 24px; font-family:var(--font-head); font-size:14px; font-weight:700; cursor:pointer; transition:all 0.2s; white-space:nowrap; }
-.cta-submit:hover { background:#2563EB; transform:translateY(-1px); }
-.cta-note { font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.22); margin-top:14px; letter-spacing:0.06em; }
-.cta-founder { margin-top:48px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; gap:14px; }
-.founder-av { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--accent),#7C3AED); display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-size:18px; font-weight:900; color:#fff; flex-shrink:0; }
-.founder-name { font-size:14px; font-weight:600; color:#fff; text-align:left; }
-.founder-title { font-size:12px; color:rgba(255,255,255,0.38); }
-.founder-title a { color:#60A5FA; }
-
-/* FOOTER */
-footer { background:var(--bg-dark-2); padding:40px 0; border-top:1px solid rgba(255,255,255,0.05); }
-.footer-inner { max-width:1280px; margin:0 auto; padding:0 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
-.footer-logo { font-family:var(--font-head); font-size:18px; font-weight:900; color:#fff; display:flex; align-items:center; gap:8px; letter-spacing:-0.02em; }
-.footer-logo-dot { width:7px; height:7px; background:var(--accent); border-radius:50%; }
-.footer-links { display:flex; gap:28px; }
-.footer-links a { font-size:13px; color:rgba(255,255,255,0.3); transition:color 0.2s; font-family:var(--font-mono); }
-.footer-links a:hover { color:rgba(255,255,255,0.7); }
-.footer-copy { font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.18); }
-
-/* ANIMATIONS */
-.fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
-.fade-up.visible { opacity:1; transform:translateY(0); }
-
-/* RESPONSIVE */
-@media (max-width:1024px) {
-  .hero-inner { grid-template-columns:1fr; }
-  .hero-card { display:none; }
-  .terminal-grid, .slack-grid { grid-template-columns:1fr; }
-  .slack-grid { padding:0 24px; }
+/* ── NAV ─────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 66px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
 }
-@media (max-width:900px) {
-  nav { padding:0 20px; }
-  .nav-links { display:none; }
-  .hero { padding:100px 0 60px; }
-  .hero-inner, .section-inner, .stats-grid, .steps, .included-grid, .pain-grid, .pricing-grid, .who-grid, .pain-intro, .pain-cta-wrap, .terminal-grid { padding:0 20px; }
-  .steps, .included-grid, .pain-grid, .pricing-grid, .who-grid { grid-template-columns:1fr; }
-  .stats-grid { grid-template-columns:1fr 1fr; }
-  .compare-table { overflow-x:auto; }
-  .pain-cta-card { flex-direction:column; text-align:center; }
-  .reviews-header { flex-direction:column; }
-  .review-list { flex-direction:column; }
-  .risk-grid { grid-template-columns:1fr; gap:16px; }
-  .footer-inner { padding:0 20px; }
+.logo { font-family: var(--fh); font-size: 20px; font-weight: 900; color: var(--text); letter-spacing: -0.03em; display: flex; align-items: center; gap: 7px; }
+.logo-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-btn { background: var(--dark); color: #fff !important; padding: 9px 20px; border-radius: 7px; font-family: var(--fh); font-size: 13px; font-weight: 700; transition: all 0.2s; }
+.nav-btn:hover { background: var(--blue); }
+
+/* ── HERO ────────────────────────────── */
+.hero {
+  padding: 130px 0 80px;
+  background: var(--off);
+  border-bottom: 1px solid var(--border);
 }
-@media (max-width:600px) {
-  .hero-form { flex-direction:column; padding:12px; }
-  .cta-form { flex-direction:column; }
-  .footer-inner { flex-direction:column; text-align:center; }
-  .tech-banner-inner { gap:20px; }
-  .tech-div { display:none; }
-  .stats-grid { grid-template-columns:1fr 1fr; gap:0; }
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 1fr 500px; gap: 80px; align-items: center;
+}
+.hero-tag {
+  display: inline-block; background: var(--blue-lt); color: var(--blue);
+  font-family: var(--fh); font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 5px 12px; border-radius: 4px; margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--fh); font-size: clamp(36px, 4vw, 56px); font-weight: 900;
+  line-height: 1.06; letter-spacing: -0.03em; color: var(--text); margin-bottom: 18px;
+}
+.hero h1 span { color: var(--blue); }
+.hero-sub {
+  font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; max-width: 480px;
+}
+.hero-form {
+  display: flex; gap: 8px; background: var(--white);
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 6px 6px 6px 16px; box-shadow: var(--sh); max-width: 480px; margin-bottom: 14px;
+}
+.hero-form input { flex: 1; border: none; outline: none; font-family: var(--fb); font-size: 15px; color: var(--text); background: transparent; }
+.hero-form input::placeholder { color: #9CA3AF; }
+.hero-form button {
+  background: var(--blue); color: #fff; border: none; border-radius: 7px;
+  padding: 12px 20px; font-family: var(--fh); font-size: 13px; font-weight: 700;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.hero-form button:hover { background: #1e40af; }
+.hero-note { font-size: 12px; color: #9CA3AF; margin-bottom: 28px; }
+.hero-checks { display: flex; flex-direction: column; gap: 9px; }
+.hc { display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--text-2); font-weight: 500; }
+.hc-dot { width: 18px; height: 18px; background: var(--green-lt); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--green); font-weight: 800; flex-shrink: 0; }
+
+/* ── BEFORE / AFTER ──────────────────── */
+.ba-wrap { position: relative; }
+.ba-browser {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; box-shadow: var(--sh2);
+}
+.ba-bar {
+  background: #F3F4F6; padding: 10px 14px;
+  display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border);
+}
+.ba-dots { display: flex; gap: 5px; }
+.ba-dot { width: 9px; height: 9px; border-radius: 50%; }
+.d-r{background:#FF5F57;} .d-y{background:#FFBD2E;} .d-g{background:#28CA42;}
+.ba-addr {
+  flex: 1; background: var(--white); border: 1px solid var(--border);
+  border-radius: 5px; padding: 3px 10px; text-align: center;
+  font-family: monospace; font-size: 11px; color: var(--muted);
+}
+.ba-tabs { display: flex; border-bottom: 1px solid var(--border); }
+.ba-tab {
+  flex: 1; padding: 9px; text-align: center; font-family: var(--fh);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.ba-tab.on { color: var(--blue); border-bottom-color: var(--blue); background: var(--blue-lt); }
+.ba-content { height: 300px; position: relative; overflow: hidden; }
+.ba-screen { position: absolute; inset: 0; transition: opacity 0.4s; }
+.ba-screen.show { opacity: 1; }
+.ba-screen.hide { opacity: 0; pointer-events: none; }
+
+/* BEFORE — old ugly site */
+.before-site {
+  background: #fff; padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+.bs-nav {
+  background: #003366; padding: 8px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.bs-nav-logo { color: #fff; font-size: 13px; font-weight: bold; }
+.bs-nav-links { display: flex; gap: 12px; }
+.bs-nav-links span { color: rgba(255,255,255,0.7); font-size: 10px; cursor: pointer; }
+.bs-hero { background: #003366; padding: 20px 16px; text-align: center; }
+.bs-hero h2 { color: #fff; font-size: 16px; font-weight: bold; margin-bottom: 6px; font-family: 'Arial'; }
+.bs-hero p { color: rgba(255,255,255,0.6); font-size: 10px; margin-bottom: 10px; }
+.bs-hero-btn { background: #FF6600; color: #fff; border: none; padding: 6px 14px; font-size: 10px; font-weight: bold; cursor: pointer; border-radius: 2px; }
+.bs-body { padding: 12px 16px; }
+.bs-notice { background: #FFFDE7; border: 1px solid #F59E0B; padding: 6px 10px; font-size: 9px; color: #92400E; margin-bottom: 10px; border-radius: 2px; }
+.bs-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.bs-col { background: #F5F5F5; border: 1px solid #ddd; padding: 8px; }
+.bs-col-title { font-size: 10px; font-weight: bold; color: #003366; margin-bottom: 4px; font-family: 'Arial'; }
+.bs-col-text { font-size: 9px; color: #666; line-height: 1.4; }
+.bs-footer { background: #eee; padding: 6px 16px; font-size: 9px; color: #999; text-align: center; border-top: 1px solid #ddd; }
+.bs-badge { display: inline-block; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; font-size: 8px; padding: 2px 6px; border-radius: 2px; margin-top: 4px; }
+
+/* AFTER — beautiful new site */
+.after-site { background: #fff; font-family: var(--fb); }
+.as-nav { background: var(--dark); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+.as-logo { color: #fff; font-family: var(--fh); font-size: 13px; font-weight: 800; letter-spacing: -0.02em; }
+.as-nav-links { display: flex; gap: 12px; }
+.as-nav-links span { color: rgba(255,255,255,0.6); font-size: 9px; font-weight: 500; cursor: pointer; }
+.as-nav-btn { background: var(--blue); color: #fff; border: none; padding: 4px 10px; font-size: 9px; font-weight: 700; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-hero { background: linear-gradient(135deg, #0F172A 0%, #1D4ED8 100%); padding: 20px 16px; }
+.as-hero h2 { color: #fff; font-family: var(--fh); font-size: 16px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 5px; }
+.as-hero p { color: rgba(255,255,255,0.65); font-size: 9px; margin-bottom: 10px; line-height: 1.5; }
+.as-hero-btns { display: flex; gap: 6px; }
+.as-hero-btn1 { background: #fff; color: var(--blue); border: none; padding: 5px 12px; font-size: 9px; font-weight: 700; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-hero-btn2 { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 5px 12px; font-size: 9px; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-body { padding: 12px 16px; background: #F8FAFF; }
+.as-stars { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; }
+.as-star-ico { color: #F59E0B; font-size: 10px; letter-spacing: 1px; }
+.as-star-txt { font-size: 9px; color: var(--muted); font-weight: 500; }
+.as-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+.as-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+.as-card-title { font-family: var(--fh); font-size: 9px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.as-card-text { font-size: 8px; color: var(--muted); line-height: 1.4; }
+.as-card-btn { background: var(--blue); color: #fff; border: none; padding: 3px 7px; font-size: 8px; font-weight: 700; border-radius: 3px; margin-top: 5px; cursor: pointer; font-family: var(--fh); display: block; width: 100%; text-align: center; }
+
+/* Metric badge */
+.ba-metric {
+  position: absolute; bottom: -14px; right: 16px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px; box-shadow: var(--sh2); z-index: 10;
+}
+.bm-val { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--green); }
+.bm-label { font-size: 10px; color: var(--muted); }
+
+/* ── STATS BAR ───────────────────────── */
+.stats { background: var(--dark); padding: 32px 0; }
+.stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(4,1fr); }
+.stat { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: var(--fh); font-size: 36px; font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+.stat-n b { color: #60A5FA; font-style: normal; }
+.stat-l { font-size: 12px; color: rgba(255,255,255,0.38); font-weight: 500; }
+
+/* ── WHAT YOU GET ────────────────────── */
+.wyg { padding: 96px 0; background: var(--white); }
+.sec { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.label { font-family: var(--fh); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.title { font-family: var(--fh); font-size: clamp(26px, 3vw, 40px); font-weight: 900; color: var(--text); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px; }
+.title span { color: var(--blue); }
+.sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 560px; }
+.wyg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 48px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.wyg-card { background: var(--white); padding: 32px 28px; }
+.wyg-card:hover { background: var(--off); }
+.wyg-card h3 { font-family: var(--fh); font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.wyg-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── PAIN POINTS ─────────────────────── */
+.pain { background: var(--dark); padding: 96px 0; }
+.pain .label { color: #60A5FA; }
+.pain .title { color: #fff; }
+.pain .sub { color: rgba(255,255,255,0.45); }
+.pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 48px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+.pain-card { background: var(--dark-2); padding: 32px 28px; }
+.pain-card:hover { background: #263347; }
+.pain-card h3 { font-family: var(--fh); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; letter-spacing: -0.01em; }
+.pain-card p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.pain-cta { margin-top: 40px; background: var(--blue); border-radius: 12px; padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.pain-cta h3 { font-family: var(--fh); font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 4px; }
+.pain-cta p { font-size: 14px; color: rgba(255,255,255,0.6); }
+.btn-w { background: #fff; color: var(--blue); border: none; border-radius: 7px; padding: 13px 26px; font-family: var(--fh); font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+.btn-w:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
+/* ── HOW IT WORKS ────────────────────── */
+.how { padding: 96px 0; background: var(--off); border-top: 1px solid var(--border); }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 48px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.step { background: var(--white); padding: 36px 32px; position: relative; }
+.step:hover { background: #FAFBFF; }
+.step-n { font-family: var(--fh); font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; margin-bottom: 16px; }
+.step h3 { font-family: var(--fh); font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
+.step p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.step-arrow { position: absolute; top: 36px; right: -12px; width: 24px; height: 24px; background: var(--white); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--muted); z-index: 5; }
+.step:last-child .step-arrow { display: none; }
+
+/* ── SLACK ───────────────────────────── */
+.slack-sec { padding: 96px 0; background: var(--white); border-top: 1px solid var(--border); }
+.slack-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.slack-checks { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.sc { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-2); }
+.sc-chk { color: var(--green); font-weight: 700; font-size: 15px; flex-shrink: 0; }
+.slack-mock { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--sh2); }
+.sm-bar { background: #3F0E40; padding: 11px 16px; display: flex; align-items: center; gap: 7px; }
+.sm-dot { width: 7px; height: 7px; background: #28CA42; border-radius: 50%; }
+.sm-name { font-family: monospace; font-size: 11px; color: rgba(255,255,255,0.65); }
+.sm-body { padding: 18px; display: flex; flex-direction: column; gap: 12px; background: var(--white); }
+.sm-msg { display: flex; gap: 9px; }
+.sm-av { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; }
+.sm-bub { border-radius: 0 9px 9px 9px; padding: 9px 13px; flex: 1; }
+.sm-bub.light { background: var(--off); }
+.sm-bub.blue { background: var(--blue-lt); border: 1px solid rgba(29,78,216,0.1); }
+.sm-from { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.sm-from span { font-weight: 400; color: var(--muted); }
+.sm-from.b { color: var(--blue); }
+.sm-txt { font-size: 13px; color: var(--muted); }
+.sm-note { font-size: 10px; color: var(--muted); text-align: center; padding-top: 2px; font-family: monospace; }
+
+/* ── PRICING ─────────────────────────── */
+.pricing { padding: 96px 0; background: var(--off); border-top: 1px solid var(--border); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 48px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.pc { background: var(--white); padding: 40px 32px; position: relative; }
+.pc.feat { background: var(--dark); }
+.pc.feat::before { content: 'MOST POPULAR'; position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-family: var(--fh); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; background: var(--blue); color: #fff; padding: 4px 12px; border-radius: 0 0 6px 6px; }
+.pc-tier { font-family: var(--fh); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.pc.feat .pc-tier { color: rgba(255,255,255,0.35); }
+.pc-price { font-family: var(--fh); font-size: 48px; font-weight: 900; color: var(--text); letter-spacing: -0.04em; line-height: 1; }
+.pc.feat .pc-price { color: #60A5FA; }
+.pc-price sup { font-size: 20px; vertical-align: top; margin-top: 10px; font-weight: 700; }
+.pc-period { font-size: 13px; color: var(--muted); margin: 4px 0 16px; }
+.pc.feat .pc-period { color: rgba(255,255,255,0.3); }
+.pc-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.pc.feat .pc-desc { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.07); }
+.pc-list { list-style: none; margin-bottom: 28px; }
+.pc-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--muted); padding: 7px 0; border-bottom: 1px solid var(--border); }
+.pc-list li:last-child { border: none; }
+.pc.feat .pc-list li { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.06); }
+.pc-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.pc.feat .pc-list li::before { color: #34D399; }
+.pc-btn { display: block; width: 100%; padding: 13px; border-radius: 8px; font-family: var(--fh); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; transition: all 0.2s; border: none; }
+.btn-outline { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.btn-outline:hover { color: var(--text); border-color: var(--text); }
+.btn-feat { background: #fff; color: var(--dark); }
+.btn-feat:hover { background: var(--blue-lt); }
+
+/* ── TRUST / FOUNDER ─────────────────── */
+.trust { padding: 96px 0; background: var(--white); border-top: 1px solid var(--border); }
+.trust-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.trust-photo { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #7C3AED); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 20px; }
+.trust h2 { font-family: var(--fh); font-size: clamp(24px, 2.5vw, 36px); font-weight: 900; color: var(--text); letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.15; }
+.trust-body { font-size: 15px; color: var(--muted); line-height: 1.8; }
+.trust-body p { margin-bottom: 14px; }
+.trust-body p:last-child { margin-bottom: 0; }
+.trust-sig { margin-top: 24px; font-family: var(--fh); font-size: 14px; font-weight: 700; color: var(--text); }
+.trust-sig span { font-weight: 400; color: var(--muted); display: block; font-size: 13px; margin-top: 2px; }
+.trust-cards { display: flex; flex-direction: column; gap: 16px; }
+.trust-card { background: var(--off); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.trust-card h4 { font-family: var(--fh); font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+.trust-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ── ZERO RISK ───────────────────────── */
+.risk { background: var(--dark); padding: 80px 0; }
+.risk .label { color: #60A5FA; }
+.risk .title { color: #fff; }
+.risk .sub { color: rgba(255,255,255,0.45); }
+.risk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 48px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+.risk-card { background: var(--dark-2); padding: 32px 28px; }
+.risk-card h3 { font-family: var(--fh); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; letter-spacing: -0.01em; }
+.risk-card p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+/* ── FAQ ─────────────────────────────── */
+.faq { padding: 96px 0; background: var(--off); border-top: 1px solid var(--border); }
+.faq-list { margin-top: 48px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.faq-item { background: var(--white); border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border: none; }
+.faq-q { width: 100%; text-align: left; padding: 20px 24px; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--fh); font-size: 15px; font-weight: 700; color: var(--text); transition: background 0.2s; letter-spacing: -0.01em; }
+.faq-q:hover { background: var(--off); }
+.faq-q.open { color: var(--blue); background: var(--blue-lt); }
+.faq-ico { font-size: 18px; color: var(--muted); transition: transform 0.3s; }
+.faq-q.open .faq-ico { transform: rotate(45deg); color: var(--blue); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; font-size: 14px; color: var(--muted); line-height: 1.8; padding: 0 24px; background: var(--blue-lt); }
+.faq-a.open { max-height: 300px; padding: 18px 24px; }
+
+/* ── CTA ─────────────────────────────── */
+.cta { background: var(--dark); padding: 100px 0; text-align: center; }
+.cta-inner { max-width: 560px; margin: 0 auto; padding: 0 40px; }
+.cta h2 { font-family: var(--fh); font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; color: #fff; letter-spacing: -0.03em; margin-bottom: 14px; }
+.cta p { font-size: 16px; color: rgba(255,255,255,0.45); margin-bottom: 36px; }
+.cta-form { display: flex; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 6px 6px 6px 18px; margin-bottom: 12px; }
+.cta-input { flex: 1; background: transparent; border: none; outline: none; font-family: var(--fb); font-size: 15px; color: #fff; }
+.cta-input::placeholder { color: rgba(255,255,255,0.28); }
+.cta-btn { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 12px 22px; font-family: var(--fh); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.cta-btn:hover { background: #2563EB; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* ── FOOTER ──────────────────────────── */
+footer { background: #080F1F; padding: 36px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+.foot { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.foot-logo { font-family: var(--fh); font-size: 17px; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 7px; letter-spacing: -0.02em; }
+.foot-dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-size: 13px; color: rgba(255,255,255,0.28); transition: color 0.2s; }
+.foot-links a:hover { color: rgba(255,255,255,0.65); }
+.foot-copy { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+/* ── UTILS ───────────────────────────── */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ──────────────────────── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .ba-wrap { display: none; }
+  .trust-inner, .slack-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 860px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-inner, .stats-inner, .sec, .slack-inner, .trust-inner, .foot { padding: 0 20px; }
+  .wyg-grid, .pain-grid, .steps, .pricing-grid, .risk-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .pain-cta { flex-direction: column; text-align: center; }
+}
+@media (max-width: 560px) {
+  .hero-form { flex-direction: column; padding: 10px; }
+  .cta-form { flex-direction: column; }
+  .foot { flex-direction: column; text-align: center; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo"><div class="nav-dot"></div>Relaunch</div>
+  <div class="logo"><div class="logo-dot"></div>Relaunch</div>
   <ul class="nav-links">
-    <li><a href="#pain">Why it matters</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#get-started" class="nav-cta">Get started free</a></li>
+    <li><a href="#cta" class="nav-btn">Get started free</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><div class="hero-badge-dot"></div>Your business is great. Your website should be too.</div>
-      <h1>Your website<br><em>relaunched.</em></h1>
-      <p class="hero-sub">We hand-code a brand new website for your business — faster, better looking, and SEO-optimized. Free to preview. $99/month to keep it. No contracts, cancel anytime.</p>
+      <div class="hero-tag">Free website rebuild for local businesses</div>
+      <h1>Your business deserves a better <span>website.</span></h1>
+      <p class="hero-sub">We rebuild your website from scratch — faster, more professional, and optimized for Google. Free to see. $99/month to keep it live. No contracts.</p>
       <div class="hero-form">
         <input type="url" id="hero-url" placeholder="yourwebsite.com">
         <button onclick="submitHero()">Get free preview →</button>
       </div>
-      <div class="hero-note">// free · no credit card · delivered in 48 hours</div>
+      <p class="hero-note">Free · No credit card · Preview delivered in 48 hours</p>
       <div class="hero-checks">
-        <div class="hero-check"><span class="hero-check-icon">✓</span>Custom HTML — no builders</div>
-        <div class="hero-check"><span class="hero-check-icon">✓</span>Loads in under 1 second</div>
-        <div class="hero-check"><span class="hero-check-icon">✓</span>SEO-optimized from day one</div>
-        <div class="hero-check"><span class="hero-check-icon">✓</span>Your Google reviews displayed</div>
-        <div class="hero-check"><span class="hero-check-icon">✓</span>Same-day edits via Slack</div>
+        <div class="hc"><div class="hc-dot">✓</div>Hand-coded HTML — loads in under 1 second</div>
+        <div class="hc"><div class="hc-dot">✓</div>Your Google reviews displayed on your homepage</div>
+        <div class="hc"><div class="hc-dot">✓</div>SEO-optimized from day one</div>
+        <div class="hc"><div class="hc-dot">✓</div>Same-day edits via Slack — included</div>
       </div>
     </div>
-    <div style="position:relative;margin-bottom:20px;">
-      <div class="hero-card">
-        <div class="card-bar">
-          <div class="card-dots"><div class="card-dot cd-r"></div><div class="card-dot cd-y"></div><div class="card-dot cd-g"></div></div>
-          <div class="card-url">marios-pizza.com</div>
-          <div class="card-score">98/100 ✓</div>
+
+    <!-- BEFORE / AFTER -->
+    <div class="ba-wrap" style="position:relative; padding-bottom:14px;">
+      <div class="ba-browser">
+        <div class="ba-bar">
+          <div class="ba-dots"><div class="ba-dot d-r"></div><div class="ba-dot d-y"></div><div class="ba-dot d-g"></div></div>
+          <div class="ba-addr" id="ba-addr">marios-pizza.com</div>
         </div>
-        <div class="card-tabs">
-          <div class="card-tab active" onclick="switchTab('before',this)">Before</div>
-          <div class="card-tab" onclick="switchTab('after',this)">After</div>
+        <div class="ba-tabs">
+          <div class="ba-tab on" onclick="showTab('before',this)">Before</div>
+          <div class="ba-tab" onclick="showTab('after',this)">After Relaunch</div>
         </div>
-        <div class="card-screens">
-          <div class="card-screen active" id="tab-before">
-            <div class="old-nav-bar"></div>
-            <div class="old-hero-box"><span>// last updated 2016</span></div>
-            <div class="old-row" style="width:80%"></div>
-            <div class="old-row" style="width:60%"></div>
-            <div class="old-row" style="width:72%"></div>
-            <div class="old-badge-r">⚠ Mobile score: 23/100</div>
+        <div class="ba-content">
+          <!-- BEFORE — old ugly site simulation -->
+          <div class="ba-screen show" id="s-before">
+            <div class="before-site">
+              <div class="bs-nav">
+                <div class="bs-nav-logo">MARIO'S PIZZA</div>
+                <div class="bs-nav-links"><span>Home</span><span>Menu</span><span>Contact</span></div>
+              </div>
+              <div class="bs-hero">
+                <h2>Welcome to Mario's Pizza!</h2>
+                <p>Best pizza in town since 1987. Call us today!</p>
+                <button class="bs-hero-btn">CLICK HERE</button>
+              </div>
+              <div class="bs-body">
+                <div class="bs-notice">⚠ This site is best viewed in Internet Explorer</div>
+                <div class="bs-cols">
+                  <div class="bs-col"><div class="bs-col-title">Our Menu</div><div class="bs-col-text">We have pizza, pasta, salads and more. Download our PDF menu below.</div></div>
+                  <div class="bs-col"><div class="bs-col-title">Hours</div><div class="bs-col-text">Mon-Fri: 11am-10pm<br>Sat-Sun: 12pm-11pm<br>Call for holidays</div></div>
+                  <div class="bs-col"><div class="bs-col-title">Contact Us</div><div class="bs-col-text">Phone: (555) 000-0000<br>123 Main St<br>Naples, FL 34102</div></div>
+                </div>
+                <div style="text-align:center;"><div class="bs-badge">Mobile score: 23/100 — Not mobile friendly</div></div>
+              </div>
+              <div class="bs-footer">© 2009 Mario's Pizza · Site designed by WebMaster Joe</div>
+            </div>
           </div>
-          <div class="card-screen" id="tab-after">
-            <div class="after-screen" style="position:absolute;inset:0;padding:20px;background:#F8FAFF;">
-              <div class="new-hero-bar"><div class="new-hero-txt"><div class="new-h1"></div><div class="new-h2"></div></div><div class="new-btn-sm">Book Now →</div></div>
-              <div class="new-cards"><div class="new-card-sm"></div><div class="new-card-sm"></div><div class="new-card-sm"></div></div>
-              <div class="new-badge-g">✓ Mobile score: 98/100</div>
+
+          <!-- AFTER — beautiful rebuilt site -->
+          <div class="ba-screen hide" id="s-after">
+            <div class="after-site">
+              <div class="as-nav">
+                <div class="as-logo">Mario's Pizza</div>
+                <div class="as-nav-links"><span>Menu</span><span>About</span><span>Reviews</span></div>
+                <button class="as-nav-btn">Order Now →</button>
+              </div>
+              <div class="as-hero">
+                <h2>Naples' Favorite Pizza Since 1987</h2>
+                <p>Hand-tossed dough, fresh ingredients, and 30+ years of flavor. Dine in, takeout, or delivery.</p>
+                <div class="as-hero-btns">
+                  <button class="as-hero-btn1">View Menu →</button>
+                  <button class="as-hero-btn2">Get Directions</button>
+                </div>
+              </div>
+              <div class="as-body">
+                <div class="as-stars">
+                  <span class="as-star-ico">★★★★★</span>
+                  <span class="as-star-txt">4.9 stars · 312 Google reviews · "Best pizza in Naples!"</span>
+                </div>
+                <div class="as-cards">
+                  <div class="as-card"><div class="as-card-title">Margherita</div><div class="as-card-text">Fresh mozzarella, basil, san marzano tomato</div><button class="as-card-btn">Order →</button></div>
+                  <div class="as-card"><div class="as-card-title">Pepperoni</div><div class="as-card-text">Double pepperoni, house red sauce, mozzarella</div><button class="as-card-btn">Order →</button></div>
+                  <div class="as-card"><div class="as-card-title">BBQ Chicken</div><div class="as-card-text">Grilled chicken, smoky BBQ, red onion, cilantro</div><button class="as-card-btn">Order →</button></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="hero-metric">
-        <span style="font-size:20px;">⚡</span>
-        <div><div class="metric-val">3.2s → 0.8s</div><div class="metric-label">page load time</div></div>
+      <div class="ba-metric">
+        <span style="font-size:18px;">⚡</span>
+        <div><div class="bm-val">8.4s → 0.7s</div><div class="bm-label">load time improvement</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="stats-bar">
-  <div class="stats-grid">
-    <div class="stat"><div class="stat-val"><em>$0</em></div><div class="stat-label">to get your new site</div></div>
-    <div class="stat"><div class="stat-val">99<em>/mo</em></div><div class="stat-label">to keep it forever</div></div>
-    <div class="stat"><div class="stat-val"><em>48</em>hr</div><div class="stat-label">average delivery</div></div>
-    <div class="stat"><div class="stat-val">0</div><div class="stat-label">contracts ever</div></div>
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n"><b>$0</b></div><div class="stat-l">to get your preview</div></div>
+    <div class="stat"><div class="stat-n">$99<b>/mo</b></div><div class="stat-l">to keep it live</div></div>
+    <div class="stat"><div class="stat-n"><b>48</b>hr</div><div class="stat-l">average delivery</div></div>
+    <div class="stat"><div class="stat-n">0</div><div class="stat-l">contracts. ever.</div></div>
   </div>
 </div>
 
-<div class="tech-banner">
-  <div class="tech-banner-inner">
-    <div class="tech-item"><div class="tech-icon">⚡</div><div><div class="tech-name">100% Custom HTML</div><div class="tech-sub">hand-coded for your business</div></div></div>
-    <div class="tech-div"></div>
-    <div class="tech-item"><div class="tech-icon">🚫</div><div><div class="tech-name">No Website Builders</div><div class="tech-sub">no wix · no squarespace · no wordpress</div></div></div>
-    <div class="tech-div"></div>
-    <div class="tech-item"><div class="tech-icon">🏎️</div><div><div class="tech-name">Fastest Possible Load Time</div><div class="tech-sub">sub-second · 95+ pagespeed score</div></div></div>
-    <div class="tech-div"></div>
-    <div class="tech-item"><div class="tech-icon">🎯</div><div><div class="tech-name">Unique to Your Business</div><div class="tech-sub">no templates · built from scratch</div></div></div>
-  </div>
-</div>
-
-<section class="pain-section" id="pain">
-  <div class="pain-intro">
-    <div class="section-label" style="color:#60A5FA;">Sound familiar?</div>
-    <h2 class="section-title" style="color:#fff;">Your website is costing you<br>customers every single day</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.45);">Most local business websites have the same problems. Here's what we fix — for free.</p>
-  </div>
-  <div class="pain-grid">
-    <div class="pain-card fade-up"><div class="pain-emoji">🐢</div><h3>It loads embarrassingly slow</h3><p>8 seconds to load. 70% of visitors leave before they ever see your page. Every plugin you added made it worse. Your competitors' fast sites are stealing your customers.</p></div>
-    <div class="pain-card fade-up"><div class="pain-emoji">📱</div><h3>It's broken on phones</h3><p>Over 70% of your customers visit on mobile. Your site looks fine on your desktop but it's a disaster on a phone — tiny text, broken layouts, buttons you can't tap. They leave.</p></div>
-    <div class="pain-card fade-up"><div class="pain-emoji">🔍</div><h3>Google can't find you</h3><p>No schema markup. No meta descriptions. No sitemap. You're invisible on Google not because your business is bad — but because your website is technically broken.</p></div>
-    <div class="pain-card fade-up"><div class="pain-emoji">⭐</div><h3>Your reviews aren't showing</h3><p>You have 200 five-star Google reviews and zero of them appear on your website. New customers have to leave your site to find proof you're great. Most don't bother.</p></div>
-    <div class="pain-card fade-up"><div class="pain-emoji">💸</div><h3>You've already been burned</h3><p>You paid someone $3,000 and the site looks worse than before. Or you're trapped on Wix paying $50/month for a template everyone's seen. Or your web guy disappeared.</p></div>
-    <div class="pain-card fade-up"><div class="pain-emoji">😳</div><h3>You're embarrassed to share it</h3><p>When someone visits your site, it doesn't reflect how good your business actually is. Your website makes you look small. Your business isn't small.</p></div>
-  </div>
-  <div class="pain-cta-wrap">
-    <div class="pain-cta-card">
-      <div><h3>We fix all of this. For free.</h3><p>Enter your URL and see your business rebuilt in 48 hours — no credit card, no commitment.</p></div>
-      <button class="btn-white" onclick="document.getElementById('hero-url').focus();window.scrollTo({top:0,behavior:'smooth'})">See it free →</button>
+<!-- WHAT YOU GET -->
+<section class="wyg">
+  <div class="sec">
+    <div class="label">What's included</div>
+    <h2 class="title">Built better than what you have.<br><span>In every way.</span></h2>
+    <p class="sub">Every site we build comes with the things most agencies charge extra for — or simply forget.</p>
+    <div class="wyg-grid">
+      <div class="wyg-card fade-up"><h3>Google-ready SEO</h3><p>Schema markup, meta descriptions, sitemaps, and proper structure built in from day one. Google finds you immediately. Most sites we replace have none of this.</p></div>
+      <div class="wyg-card fade-up"><h3>Your reviews on your homepage</h3><p>Your Google reviews displayed prominently so every visitor sees your social proof the moment they land. Not buried on a separate page — right up front.</p></div>
+      <div class="wyg-card fade-up"><h3>Your existing info, carried over</h3><p>Hours, address, phone, photos, services — all preserved perfectly. We start from what you already have and make it better. Nothing gets lost.</p></div>
+      <div class="wyg-card fade-up"><h3>Same-day edits via Slack</h3><p>Need to update your hours or add a new photo? Message us on Slack and it's done the same day. No tickets, no waiting, no extra charges.</p></div>
+      <div class="wyg-card fade-up"><h3>Loads in under one second</h3><p>Hand-coded HTML — no WordPress, no page builders, no plugin bloat. Pure code that scores 95+ on Google PageSpeed every time.</p></div>
+      <div class="wyg-card fade-up"><h3>Mobile-first design</h3><p>Over 70% of your customers are on their phone. Every site looks and works perfectly on every screen size. Tested before it goes live.</p></div>
     </div>
   </div>
 </section>
 
-<section class="how-section" id="how">
-  <div class="section-inner">
-    <div class="section-label">Process</div>
-    <h2 class="section-title">From old and broken to live<br>and beautiful in <em>48 hours</em></h2>
-    <p class="section-sub">No meetings. No discovery calls. No contracts to sign. We build it first — you decide after.</p>
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="sec">
+    <div class="label">Is this you?</div>
+    <h2 class="title">Common website problems<br>we fix for free</h2>
+    <p class="sub">We hear these from local business owners every week. If any of this sounds familiar, we can help.</p>
+  </div>
+  <div class="sec" style="margin-top:0;padding-top:0;">
+    <div class="pain-grid" style="margin-top:40px;">
+      <div class="pain-card fade-up"><h3>It takes too long to load</h3><p>Customers on their phones won't wait more than 3 seconds. A slow site means lost calls, lost bookings, and lost revenue — every single day.</p></div>
+      <div class="pain-card fade-up"><h3>It doesn't look right on phones</h3><p>If your site was built more than 5 years ago, there's a good chance it looks broken on mobile. That's where most of your customers are searching.</p></div>
+      <div class="pain-card fade-up"><h3>Google isn't ranking you</h3><p>Missing meta descriptions, no schema, no sitemap. Your competitors show up first not because their business is better — but because their site is set up better.</p></div>
+      <div class="pain-card fade-up"><h3>Your reviews aren't on your site</h3><p>You've worked hard for those Google reviews. They should be front and center — not something a customer has to go searching for.</p></div>
+      <div class="pain-card fade-up"><h3>Making a simple update takes forever</h3><p>Updating hours or adding a photo shouldn't require logging into three systems or waiting a week for your web person to respond.</p></div>
+      <div class="pain-card fade-up"><h3>It doesn't represent your business well</h3><p>You've built something you're proud of. Your website should reflect that — not look like it was made in 2010 by whoever was cheapest at the time.</p></div>
+    </div>
+    <div class="pain-cta">
+      <div><h3>We rebuild it for free. You decide if you want to keep it.</h3><p>No credit card. No commitment. Just a live preview of your new site within 48 hours.</p></div>
+      <button class="btn-w" onclick="window.scrollTo({top:0,behavior:'smooth'})">See it free →</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="sec">
+    <div class="label">How it works</div>
+    <h2 class="title">Three steps. 48 hours.<br>Zero risk.</h2>
+    <p class="sub">No meetings, no discovery calls, no contracts to sign before we build anything.</p>
     <div class="steps">
-      <div class="step fade-up"><div class="step-num">// 01</div><div class="step-icon">🎯</div><h3>We hand-pick you</h3><p>We research local businesses with great reviews, real traffic, and loyal customers — but a website that's slow, outdated, or broken. If we reached out to you, your business is already winning. Your website is the only thing holding you back.</p><div class="step-arr">→</div></div>
-      <div class="step fade-up"><div class="step-num">// 02</div><div class="step-icon">⚡</div><h3>We hand-code it</h3><p>Every site is built from scratch in pure HTML and CSS — no Wix, no Squarespace, no WordPress, no templates. This is why our sites score 95-100 on Google PageSpeed. Sub-second load times, custom to your business, every single time.</p><div class="step-arr">→</div></div>
-      <div class="step fade-up"><div class="step-num">// 03</div><div class="step-icon">🚀</div><h3>You claim it</h3><p>We send you a live preview link. If you love it — $99/month and it's yours. If not, no worries. Your old site never changes. The preview comes down after 30 days and we part ways, no hard feelings.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="included-section">
-  <div class="section-inner">
-    <div class="section-label">What's included</div>
-    <h2 class="section-title">Everything your website<br>should <em>already have</em></h2>
-    <p class="section-sub">Every site we build comes loaded with the things most agencies charge extra for — or forget entirely.</p>
-    <div class="included-grid">
-      <div class="inc-card fade-up"><div class="inc-icon">🔍</div><h3>SEO-optimized from day one</h3><p>Schema markup, proper heading structure, meta descriptions, XML sitemap, and robots.txt — all built in. Google can find and rank you immediately.</p></div>
-      <div class="inc-card fade-up"><div class="inc-icon">⭐</div><h3>Your reviews, front and center</h3><p>We pull your Google reviews and display them beautifully on your homepage. Social proof is your #1 conversion tool — every visitor sees it immediately.</p></div>
-      <div class="inc-card fade-up"><div class="inc-icon">📋</div><h3>All your existing info, preserved</h3><p>Hours, address, phone, services, photos, and content — all carried over perfectly. We start from you, not from scratch. Nothing gets lost.</p></div>
-      <div class="inc-card fade-up"><div class="inc-icon">💬</div><h3>Same-day edits via Slack</h3><p>Need to update hours? Add a photo? Just Slack us. Every plan includes a shared Slack channel — edits done same day, every time.</p></div>
-      <div class="inc-card fade-up"><div class="inc-icon">📱</div><h3>Mobile-first, always</h3><p>Every site looks and works perfectly on every screen — phone, tablet, and desktop. Tested before it goes live. No exceptions.</p></div>
-      <div class="inc-card fade-up"><div class="inc-icon">🔒</div><h3>SSL + fast hosting included</h3><p>Every site ships with HTTPS on a global CDN. No setup fees, no extra costs — fast everywhere, trusted by every browser.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="reviews-section">
-  <div class="section-inner">
-    <div class="section-label">Social proof</div>
-    <h2 class="section-title">Your reviews displayed<br><em>like this</em> — automatically</h2>
-    <p class="section-sub">Reviews convert browsers into customers. We make sure every visitor sees yours the moment they land.</p>
-    <div class="reviews-card">
-      <div class="reviews-header">
-        <div class="review-score-box"><div class="rs-label">Excellent</div><div class="rs-stars">★★★★★</div><div class="rs-num">4.9</div><div class="rs-count">247+ reviews · Google</div></div>
-        <div class="review-list">
-          <div class="review-item"><div class="ri-name">Sarah M.</div><div class="ri-stars">★★★★★</div><div class="ri-text">"Absolutely incredible experience. Best in the area by far — we keep coming back every single time."</div></div>
-          <div class="review-item"><div class="ri-name">James R.</div><div class="ri-stars">★★★★★</div><div class="ri-text">"Showed up and everything was exactly as advertised. Highly recommend to everyone I know."</div></div>
-          <div class="review-item"><div class="ri-name">Linda K.</div><div class="ri-stars">★★★★★</div><div class="ri-text">"Worth every penny. Professional, friendly, and so easy to work with from start to finish."</div></div>
-        </div>
+      <div class="step fade-up">
+        <div class="step-n">STEP 01</div>
+        <h3>We hand-pick your business</h3>
+        <p>We look for local businesses with great reviews, real customers, and a website that isn't keeping up. If we reached out to you, it's because we think you deserve better — and we want to prove it.</p>
+        <div class="step-arrow">→</div>
       </div>
-      <div class="reviews-note">// your real google reviews — displayed automatically on your homepage</div>
+      <div class="step fade-up">
+        <div class="step-n">STEP 02</div>
+        <h3>We build your new site</h3>
+        <p>We hand-code a completely new website using your existing content, photos, and information. No templates. No builders. Clean, fast HTML that loads in under a second and ranks on Google.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-n">STEP 03</div>
+        <h3>You decide</h3>
+        <p>We send you a live preview link. If you love it, $99/month keeps it live and managed. If it's not right for you, no problem — your old site stays exactly as it was. No pressure.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="slack-section">
-  <div class="slack-grid">
+<!-- SLACK -->
+<section class="slack-sec">
+  <div class="slack-inner">
     <div>
-      <div class="section-label">Same-day edits</div>
-      <h2 class="section-title">Just Slack us.<br>Done <em>same day.</em></h2>
-      <p class="section-sub" style="margin-bottom:0;">No tickets. No email chains. No waiting a week. Every plan includes a shared Slack channel — send us anything and we handle it same day.</p>
+      <div class="label">Ongoing support</div>
+      <h2 class="title">Need a change?<br>Just message us.</h2>
+      <p class="sub">Every plan includes a shared Slack channel with our team. Send us what you need — it's done the same day. No tickets, no phone calls, no delays.</p>
       <div class="slack-checks">
-        <div class="slack-check"><div class="slack-chk-icon">✓</div>Update business hours or location</div>
-        <div class="slack-check"><div class="slack-chk-icon">✓</div>Add new photos, menu items, or services</div>
-        <div class="slack-check"><div class="slack-chk-icon">✓</div>Change prices or descriptions</div>
-        <div class="slack-check"><div class="slack-chk-icon">✓</div>Add seasonal promotions or announcements</div>
-        <div class="slack-check"><div class="slack-chk-icon">✓</div>Fix anything, anytime — included in every plan</div>
+        <div class="sc"><span class="sc-chk">✓</span>Update your hours or location</div>
+        <div class="sc"><span class="sc-chk">✓</span>Add new photos or menu items</div>
+        <div class="sc"><span class="sc-chk">✓</span>Post a seasonal promotion</div>
+        <div class="sc"><span class="sc-chk">✓</span>Fix anything, anytime — it's included</div>
       </div>
     </div>
     <div class="slack-mock">
-      <div class="slack-mock-bar"><div class="slack-mock-dot"></div><div class="slack-mock-name"># your-business · Relaunch</div></div>
-      <div class="slack-body">
-        <div class="slack-msg">
-          <div class="slack-av" style="background:linear-gradient(135deg,#4A90E2,#7B68EE);">Y</div>
-          <div class="slack-bub def"><div class="slack-from">You <span>· 9:14 AM</span></div><div class="slack-txt">Hey! Can you update our hours? We're now open Sundays 10am–4pm 🙏</div></div>
+      <div class="sm-bar"><div class="sm-dot"></div><div class="sm-name"># marios-pizza · Relaunch</div></div>
+      <div class="sm-body">
+        <div class="sm-msg">
+          <div class="sm-av" style="background:linear-gradient(135deg,#4A90E2,#7B68EE);">M</div>
+          <div class="sm-bub light"><div class="sm-from">Mario <span>· 9:14 AM</span></div><div class="sm-txt">Hey! Can you update our hours? Now open Sundays 11am–9pm.</div></div>
         </div>
-        <div class="slack-msg">
-          <div class="slack-av" style="background:linear-gradient(135deg,#1D4ED8,#2563EB);">R</div>
-          <div class="slack-bub acc"><div class="slack-from acc">Relaunch <span>· 9:21 AM</span></div><div class="slack-txt">Done! Hours updated and live ✓ <strong style="color:var(--accent);">yourbusiness.com</strong></div></div>
+        <div class="sm-msg">
+          <div class="sm-av" style="background:linear-gradient(135deg,#1D4ED8,#2563EB);">R</div>
+          <div class="sm-bub blue"><div class="sm-from b">Relaunch <span>· 9:19 AM</span></div><div class="sm-txt">Done! Updated and live. <strong style="color:var(--blue);">marios-pizza.com</strong> ✓</div></div>
         </div>
-        <div class="slack-timing">// 7 minutes from request to live</div>
+        <div class="sm-note">// 5 minutes from request to live</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="compare-section">
-  <div class="section-inner">
-    <div class="section-label">The comparison</div>
-    <h2 class="section-title">Relaunch vs<br><em>everything else</em></h2>
-    <p class="section-sub">Every builder trades speed and quality for ease of use. We don't make that tradeoff.</p>
-    <div class="compare-table">
-      <div class="compare-row hdr">
-        <div class="compare-cell"><span class="ch" style="color:rgba(255,255,255,0.25);font-size:12px;">Feature</span></div>
-        <div class="compare-cell"><span class="ch rl">Relaunch</span></div>
-        <div class="compare-cell"><span class="ch ot">Wix</span></div>
-        <div class="compare-cell"><span class="ch ot">Squarespace</span></div>
-        <div class="compare-cell"><span class="ch ot">WordPress</span></div>
-      </div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Page load speed</span></div><div class="compare-cell"><span class="cv win">Under 1s</span></div><div class="compare-cell"><span class="cv lose">3–6s</span></div><div class="compare-cell"><span class="cv lose">3–5s</span></div><div class="compare-cell"><span class="cv lose">4–8s</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Google PageSpeed score</span></div><div class="compare-cell"><span class="cv win">95–100</span></div><div class="compare-cell"><span class="cv lose">40–65</span></div><div class="compare-cell"><span class="cv lose">55–70</span></div><div class="compare-cell"><span class="cv lose">30–60</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Custom HTML per business</span></div><div class="compare-cell"><span class="cv win">✅ Always</span></div><div class="compare-cell"><span class="cv lose">❌ Templates</span></div><div class="compare-cell"><span class="cv lose">❌ Templates</span></div><div class="compare-cell"><span class="cv lose">❌ Templates</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">SEO + Schema built in</span></div><div class="compare-cell"><span class="cv win">✅ Included</span></div><div class="compare-cell"><span class="cv lose">Plugin needed</span></div><div class="compare-cell"><span class="cv lose">Limited</span></div><div class="compare-cell"><span class="cv lose">Plugin needed</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Google reviews displayed</span></div><div class="compare-cell"><span class="cv win">✅ Included</span></div><div class="compare-cell"><span class="cv lose">Paid app</span></div><div class="compare-cell"><span class="cv lose">Paid app</span></div><div class="compare-cell"><span class="cv lose">Paid plugin</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Same-day edits via Slack</span></div><div class="compare-cell"><span class="cv win">✅ Included</span></div><div class="compare-cell"><span class="cv lose">❌ DIY only</span></div><div class="compare-cell"><span class="cv lose">❌ DIY only</span></div><div class="compare-cell"><span class="cv lose">❌ DIY only</span></div></div>
-      <div class="compare-row"><div class="compare-cell"><span class="cf">Starting price</span></div><div class="compare-cell"><span class="cv win">$99/mo</span></div><div class="compare-cell"><span class="cv">$17–$159/mo</span></div><div class="compare-cell"><span class="cv">$16–$49/mo</span></div><div class="compare-cell"><span class="cv">$25–$200+/mo</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="terminal-section">
-  <div class="terminal-grid">
-    <div>
-      <div class="section-label">Under the hood</div>
-      <h2 class="section-title">Real code.<br>Real <em>speed.</em></h2>
-      <p class="section-sub" style="margin-bottom:0;">Wix, Squarespace, and WordPress produce bloated code with dozens of scripts slowing everything down. We write clean HTML and CSS by hand. There is no faster website technology available.</p>
-      <div class="t-checks">
-        <div class="t-check"><div class="t-chk-ico">✓</div>No WordPress — no 40-plugin overhead</div>
-        <div class="t-check"><div class="t-chk-ico">✓</div>No Wix or Squarespace template limits</div>
-        <div class="t-check"><div class="t-chk-ico">✓</div>Pure HTML/CSS — the web's fastest format</div>
-        <div class="t-check"><div class="t-chk-ico">✓</div>Custom-coded for your business, not a template</div>
-        <div class="t-check"><div class="t-chk-ico">✓</div>Sub-second load times — every single time</div>
-      </div>
-      <a href="#get-started" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg-dark);color:#fff;padding:13px 24px;border-radius:8px;font-family:var(--font-head);font-size:14px;font-weight:700;transition:all 0.2s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--bg-dark)'">Get your free preview →</a>
-    </div>
-    <div class="terminal">
-      <div class="terminal-bar"><div class="t-dot t-r"></div><div class="t-dot t-y"></div><div class="t-dot t-g"></div><div class="t-title">relaunch — site audit</div></div>
-      <div class="terminal-body">
-        <div class="t-line"><span class="t-p">→</span><span class="t-c"> scanning marios-pizza.com</span></div>
-        <div class="t-line"><span class="t-o d">checking 24 pages...</span></div>
-        <div class="t-line">&nbsp;</div>
-        <div class="t-line"><span class="t-cm">// current site:</span></div>
-        <div class="t-line"><span class="t-o d">mobile score &nbsp;&nbsp; </span><span class="t-o r">23/100 ✗</span></div>
-        <div class="t-line"><span class="t-o d">load time &nbsp;&nbsp;&nbsp;&nbsp; </span><span class="t-o r">8.4s ✗</span></div>
-        <div class="t-line"><span class="t-o d">last updated &nbsp; </span><span class="t-o r">2016 ✗</span></div>
-        <div class="t-line"><span class="t-o d">schema markup &nbsp;</span><span class="t-o r">none ✗</span></div>
-        <div class="t-line">&nbsp;</div>
-        <div class="t-line"><span class="t-p">→</span><span class="t-c"> building new site...</span></div>
-        <div class="t-line"><span class="t-o">mobile score &nbsp;&nbsp; 98/100 ✓</span></div>
-        <div class="t-line"><span class="t-o">load time &nbsp;&nbsp;&nbsp;&nbsp; 0.8s ✓</span></div>
-        <div class="t-line"><span class="t-o">schema markup &nbsp; complete ✓</span></div>
-        <div class="t-line"><span class="t-o">ssl &amp; cdn &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ready ✓</span></div>
-        <div class="t-line">&nbsp;</div>
-        <div class="t-line"><span class="t-p">→</span><span class="t-c"> preview ready<span class="t-cur"></span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="who-section">
-  <div class="section-inner">
-    <div class="section-label">Who we work with</div>
-    <h2 class="section-title">We only work with businesses<br><em>already winning</em></h2>
-    <p class="section-sub">We're selective. Here's exactly what we look for before we build your free preview.</p>
-    <div class="who-grid">
-      <div class="who-card fade-up"><div class="who-icon">⭐</div><h3>Strong reviews</h3><p>4.0 stars or higher on Google. Your customers already love you — your website just isn't showing it.</p></div>
-      <div class="who-card fade-up"><div class="who-icon">📈</div><h3>Real website traffic</h3><p>Your site is already getting visitors. But a slow, outdated site means many are leaving before they ever contact you.</p></div>
-      <div class="who-card fade-up"><div class="who-icon">🐢</div><h3>Underperforming website</h3><p>Slow load times, poor mobile, no SEO, or messy code under the hood. The site is failing the business.</p></div>
-      <div class="who-card fade-up"><div class="who-icon">🏪</div><h3>Established local business</h3><p>Restaurants, tours, contractors, salons, medical offices — businesses with real customers and a real community.</p></div>
-      <div class="who-card fade-up"><div class="who-icon">💰</div><h3>Revenue to protect</h3><p>You have customers, revenue, and a reputation worth protecting. A bad website costs you bookings every day.</p></div>
-      <div class="who-card fade-up"><div class="who-icon">🎯</div><h3>Ready to grow</h3><p>You know your website needs work. You just needed a risk-free, no-pressure way to make it happen. That's us.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="pricing-section" id="pricing">
-  <div class="section-inner">
-    <div class="section-label">Pricing</div>
-    <h2 class="section-title">Simple, honest pricing</h2>
-    <p class="section-sub">No setup fees. No hidden costs. No surprises. Cancel anytime — no questions asked.</p>
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="sec">
+    <div class="label">Pricing</div>
+    <h2 class="title">Simple pricing.<br>No surprises.</h2>
+    <p class="sub">Your preview is always free. You only pay when you decide to keep it live — and you can cancel anytime.</p>
     <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Starter</div>
-        <div class="price-amount"><sup>$</sup>99</div>
-        <div class="price-period">/ month · cancel anytime</div>
-        <div class="price-desc">A beautiful, fast website — maintained and updated for you every month.</div>
-        <ul class="price-features"><li>Custom HTML website</li><li>Mobile-optimized</li><li>SSL + fast CDN hosting</li><li>Google reviews displayed</li><li>Same-day Slack edits</li><li>SEO foundation built in</li></ul>
-        <button class="price-btn btn-outline" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      <div class="pc">
+        <div class="pc-tier">Starter</div>
+        <div class="pc-price"><sup>$</sup>99</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">A professionally built, fast website — kept live and managed for you every month.</div>
+        <ul class="pc-list"><li>Custom HTML website</li><li>Mobile-optimized</li><li>Hosting + SSL included</li><li>Google reviews on homepage</li><li>Same-day Slack edits</li><li>SEO built in from day one</li></ul>
+        <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
-      <div class="price-card featured">
-        <div class="price-tier">Growth</div>
-        <div class="price-amount"><sup>$</sup>299</div>
-        <div class="price-period">/ month · cancel anytime</div>
-        <div class="price-desc">Everything in Starter, plus active content to grow your rankings month over month.</div>
-        <ul class="price-features"><li>Everything in Starter</li><li>1 new blog post per month</li><li>Social media content</li><li>Monthly SEO report</li><li>Google Business updates</li><li>Priority support</li></ul>
-        <button class="price-btn btn-dark" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      <div class="pc feat">
+        <div class="pc-tier">Growth</div>
+        <div class="pc-price"><sup>$</sup>299</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">Everything in Starter, plus fresh content every month to grow your Google rankings.</div>
+        <ul class="pc-list"><li>Everything in Starter</li><li>1 blog post per month</li><li>Social media content</li><li>Monthly SEO report</li><li>Google Business updates</li><li>Priority support</li></ul>
+        <button class="pc-btn btn-feat" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
-      <div class="price-card">
-        <div class="price-tier">Full Service</div>
-        <div class="price-amount"><sup>$</sup>499</div>
-        <div class="price-period">/ month · cancel anytime</div>
-        <div class="price-desc">Complete digital marketing for businesses ready to dominate their local market.</div>
-        <ul class="price-features"><li>Everything in Growth</li><li>Monthly email campaigns</li><li>SMS marketing</li><li>Review management</li><li>Analytics dashboard</li><li>Dedicated account manager</li></ul>
-        <button class="price-btn btn-outline" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      <div class="pc">
+        <div class="pc-tier">Full Service</div>
+        <div class="pc-price"><sup>$</sup>499</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">Full digital marketing management for businesses ready to grow aggressively online.</div>
+        <ul class="pc-list"><li>Everything in Growth</li><li>Monthly email campaigns</li><li>SMS marketing</li><li>Review management</li><li>Analytics dashboard</li><li>Dedicated account manager</li></ul>
+        <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="risk-section">
-  <div class="section-inner">
-    <div class="section-label">Zero risk</div>
-    <h2 class="section-title">Your old site stays live.<br><em>Always.</em></h2>
-    <p class="section-sub">We never touch your existing website. If you ever cancel, we point your domain back and you're right where you started — in minutes.</p>
+<!-- TRUST / FOUNDER -->
+<section class="trust">
+  <div class="trust-inner">
+    <div>
+      <div class="trust-photo">N</div>
+      <h2>Built by someone who works with local businesses every day.</h2>
+      <div class="trust-body">
+        <p>I'm Nate Sinisgalli, founder of Boatr Marketing. For the past several years I've worked with local businesses — charter companies, restaurants, tour operators — helping them grow online.</p>
+        <p>What I kept seeing was the same problem everywhere: great businesses with terrible websites. Owners who were too busy to fix it, or who'd been burned by expensive agencies and had nothing to show for it.</p>
+        <p>Relaunch exists to fix that. We build the site first and let you decide. No risk, no upfront cost, no contract. Just a better website that actually works for your business.</p>
+      </div>
+      <div class="trust-sig">Nate Sinisgalli <span>Founder, Relaunch &amp; Boatr Marketing · <a href="mailto:hello@tryrelaunch.com" style="color:var(--blue);">hello@tryrelaunch.com</a></span></div>
+    </div>
+    <div class="trust-cards">
+      <div class="trust-card">
+        <h4>We've built sites for businesses just like yours</h4>
+        <p>Tour operators, charter companies, restaurants, and local service businesses across the US. We understand what local business customers are looking for and how to convert them.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Your old site is never touched</h4>
+        <p>We build your new site separately. Your existing website stays live and untouched the entire time. If you don't love the preview, nothing changes. There is no risk.</p>
+      </div>
+      <div class="trust-card">
+        <h4>No lock-in, ever</h4>
+        <p>Month-to-month. Cancel anytime. If you leave, we point your domain back to your old site in minutes. We earn your business every month by doing good work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERO RISK -->
+<section class="risk">
+  <div class="sec">
+    <div class="label">Zero risk</div>
+    <h2 class="title">Your old site stays live.<br>Until you say otherwise.</h2>
+    <p class="sub">We never touch your existing website. Cancel anytime and we'll have your old site back up in minutes.</p>
     <div class="risk-grid">
-      <div class="risk-card fade-up"><div class="risk-icon">🔒</div><h3>Your old site stays untouched</h3><p>We never modify your existing website. It stays live exactly where it is while your new site is previewed. Nothing changes until you say so.</p></div>
-      <div class="risk-card fade-up"><div class="risk-icon">↩️</div><h3>Cancel and revert in minutes</h3><p>If you cancel, we simply point your domain back to your old site. You're right back where you started within minutes. Nothing is permanently lost.</p></div>
-      <div class="risk-card fade-up"><div class="risk-icon">💳</div><h3>No card until you decide</h3><p>The preview is completely free for 30 days. You only need a credit card when you decide to keep the site — and even then, cancel anytime.</p></div>
+      <div class="risk-card"><h3>Your old site is never changed</h3><p>We build your new site completely separately. Your existing site stays live and untouched throughout the entire preview period.</p></div>
+      <div class="risk-card"><h3>Cancel and revert in minutes</h3><p>If you cancel at any point, we point your domain back to your old host and your old site is live again within minutes. Nothing is permanently lost.</p></div>
+      <div class="risk-card"><h3>No card until you're ready</h3><p>Your 30-day preview is completely free. You only need a credit card when you decide the new site is worth keeping. Not before.</p></div>
     </div>
-    <div class="risk-note">// the only risk is that you might actually like it</div>
   </div>
 </section>
 
-<section class="faq-section" id="faq">
-  <div class="section-inner">
-    <div class="section-label">Questions</div>
-    <h2 class="section-title">Frequently asked</h2>
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec">
+    <div class="label">Questions</div>
+    <h2 class="title">Frequently asked</h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What's the catch?<span class="faq-icon">+</span></button><div class="faq-a">No catch. We build your site free because the demo is our pitch. If you love it — $99/month. If not, the preview comes down after 30 days, no hard feelings. We only make money if we build something genuinely great.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is the rebuild actually free?<span class="faq-icon">+</span></button><div class="faq-a">Yes — completely free. No credit card required. We build your site, host it, and send you a live preview at zero cost. You only pay if you decide you want to keep it.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens to my current website?<span class="faq-icon">+</span></button><div class="faq-a">Nothing — until you decide you want to switch. Your current site stays exactly where it is. We only replace it when you give us the go-ahead to point your domain to the new site.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel anytime?<span class="faq-icon">+</span></button><div class="faq-a">Yes — cancel anytime. If you cancel, we simply point your domain back to your old site. Within minutes you're right back where you started. Nothing is ever permanently changed. The only risk is that your new site might be so much better you never want to go back.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does the rebuild take?<span class="faq-icon">+</span></button><div class="faq-a">Most sites are delivered within 48 hours. Complex sites with many pages may take a bit longer — we'll always give you a realistic timeline upfront.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to do anything?<span class="faq-icon">+</span></button><div class="faq-a">Barely anything. We pull your existing content, photos, and info from your current site and Google Business profile. If you want to provide extra photos or updated copy, great — but it's not required.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I want changes after launch?<span class="faq-icon">+</span></button><div class="faq-a">Minor updates — text changes, new photos, updated hours — are all included. Just Slack us and it's done same day. Larger projects are scoped and quoted separately.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What's the catch?<span class="faq-ico">+</span></button><div class="faq-a">There isn't one. We build your site for free because the preview is our pitch. If you love it, $99/month keeps it live. If not, the preview comes down after 30 days and we part ways with no hard feelings. We only make money if we build you something genuinely great.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What happens to my current website?<span class="faq-ico">+</span></button><div class="faq-a">Nothing — until you decide to switch. Your current site stays exactly where it is. We only move your domain when you give us the go-ahead. If you ever cancel after that, we point it straight back. Your old site is never touched or deleted.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">How long does the rebuild take?<span class="faq-ico">+</span></button><div class="faq-a">Most sites are delivered within 48 hours. Larger sites with many pages may take a bit longer. We'll always give you a clear timeline before we start.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Do I need to do anything?<span class="faq-ico">+</span></button><div class="faq-a">Very little. We pull your content, photos, and info from your current site and your Google Business profile. If you have additional photos or updated copy you'd like included, just send them over — but it's not required to get started.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I cancel anytime?<span class="faq-ico">+</span></button><div class="faq-a">Yes. No contracts, no cancellation fees. If you decide to cancel, we point your domain back to your old site within minutes. You're never locked in and you're never without a website.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if I want changes after the site goes live?<span class="faq-ico">+</span></button><div class="faq-a">Text changes, new photos, updated hours, seasonal promotions — all included in your monthly plan. Just message us on Slack and it's done the same day. Larger projects like new pages are quoted separately.</div></div>
     </div>
   </div>
 </section>
 
-<section class="cta-section" id="get-started">
+<!-- CTA -->
+<section class="cta" id="cta">
   <div class="cta-inner">
-    <h2>See what your business<br>could look like</h2>
-    <p>Enter your URL. We build it. You decide. No pressure, no credit card, no commitment.</p>
+    <h2>See what your website could look like.</h2>
+    <p>Enter your URL. We'll build a free preview and send it within 48 hours. No credit card, no commitment.</p>
     <div class="cta-form">
-      <input type="url" class="cta-input" placeholder="yourwebsite.com" id="site-url">
-      <button class="cta-submit" onclick="submitUrl()">Get my free preview →</button>
+      <input type="url" class="cta-input" placeholder="yourwebsite.com" id="cta-url">
+      <button class="cta-btn" onclick="submitCta()">Get my free preview →</button>
     </div>
-    <div class="cta-note">// free · delivered in 48 hours · preview lives for 30 days</div>
-    <div class="cta-founder">
-      <div class="founder-av">N</div>
-      <div>
-        <div class="founder-name">Nate Sinisgalli</div>
-        <div class="founder-title">Founder, Relaunch &amp; Boatr Marketing · <a href="mailto:hello@tryrelaunch.com">hello@tryrelaunch.com</a></div>
-      </div>
-    </div>
+    <p class="cta-note">Free · No credit card · Preview lives for 30 days · Cancel anytime</p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo"><div class="footer-logo-dot"></div>Relaunch</div>
-    <div class="footer-links">
-      <a href="#pain">Why it matters</a>
+  <div class="foot">
+    <div class="foot-logo"><div class="foot-dot"></div>Relaunch</div>
+    <div class="foot-links">
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="mailto:hello@tryrelaunch.com">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Relaunch · tryrelaunch.com</div>
+    <div class="foot-copy">© 2026 Relaunch · tryrelaunch.com</div>
   </div>
 </footer>
 
 <script>
-let currentTab='before';
-setInterval(()=>{
-  currentTab=currentTab==='before'?'after':'before';
-  document.querySelectorAll('.card-tab').forEach((t,i)=>t.classList.toggle('active',i===(currentTab==='after'?1:0)));
-  document.querySelectorAll('.card-screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('tab-'+currentTab).classList.add('active');
-},3000);
-function switchTab(tab,el){currentTab=tab;document.querySelectorAll('.card-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.card-screen').forEach(s=>s.classList.remove('active'));el.classList.add('active');document.getElementById('tab-'+tab).classList.add('active');}
-function toggleFaq(btn){const a=btn.nextElementSibling;const o=btn.classList.contains('open');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');q.nextElementSibling.classList.remove('open');});if(!o){btn.classList.add('open');a.classList.add('open');}}
-function submitHero(){const u=document.getElementById('hero-url').value.trim();if(!u){document.getElementById('hero-url').style.borderColor='#DC2626';return;}handleSubmit(u);}
-function submitUrl(){const u=document.getElementById('site-url').value.trim();if(!u)return;handleSubmit(u);}
-function handleSubmit(url){alert("Thanks! We'll build your free preview and send it within 48 hours.");}
-document.addEventListener('DOMContentLoaded',()=>{
-  document.getElementById('hero-url')?.addEventListener('keydown',e=>{if(e.key==='Enter')submitHero();});
-  document.getElementById('site-url')?.addEventListener('keydown',e=>{if(e.key==='Enter')submitUrl();});
+// Before/After tabs
+let curTab = 'before';
+function showTab(tab, el) {
+  curTab = tab;
+  document.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('s-before').className = 'ba-screen ' + (tab === 'before' ? 'show' : 'hide');
+  document.getElementById('s-after').className  = 'ba-screen ' + (tab === 'after'  ? 'show' : 'hide');
+}
+setInterval(() => {
+  const next = curTab === 'before' ? 'after' : 'before';
+  const tabs = document.querySelectorAll('.ba-tab');
+  showTab(next, next === 'before' ? tabs[0] : tabs[1]);
+}, 4000);
+
+// FAQ
+function faq(btn) {
+  const a = btn.nextElementSibling, o = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+  if (!o) { btn.classList.add('open'); a.classList.add('open'); }
+}
+
+// Forms
+function submitHero() {
+  const u = document.getElementById('hero-url').value.trim();
+  if (!u) { document.getElementById('hero-url').style.outline = '2px solid #DC2626'; return; }
+  handle(u);
+}
+function submitCta() {
+  const u = document.getElementById('cta-url').value.trim();
+  if (!u) return;
+  handle(u);
+}
+function handle(url) {
+  alert("Thanks! We'll build your free preview and send it to you within 48 hours.");
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('hero-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitHero(); });
+  document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
 });
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Scroll fade
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
