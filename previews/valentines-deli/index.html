@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Valentine's Deli — Seriously good sandwiches in Bend, Oregon. Hand-crafted on fresh Sparrow Bakery bread. Mon–Fri 11am–2pm at 555 NW Arizona Ave.">
+<meta name="robots" content="noindex">
+<title>Valentine's Deli — Seriously Good Sandwiches · Bend, OR</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Valentine's Deli",
+  "description": "Seriously good sandwiches crafted to order on fresh Sparrow Bakery bread in Bend, Oregon.",
+  "url": "https://valentinesdeli.com",
+  "telephone": "(541) 322-2154",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "555 NW Arizona Ave Suite 25",
+    "addressLocality": "Bend",
+    "addressRegion": "OR",
+    "postalCode": "97703",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "11:00",
+      "closes": "14:00"
+    }
+  ],
+  "servesCuisine": "Sandwiches, Deli",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "123",
+    "bestRating": "5"
+  },
+  "award": "Best Sandwich/Deli in Bend 2020, 2021, 2022"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:   #111111;
+  --white:   #FFFFFF;
+  --red:     #D42B2B;
+  --red-dk:  #B52222;
+  --off:     #F5F5F5;
+  --gray:    #888888;
+  --border:  #E0E0E0;
+  --checker: #1A1A1A;
+  --fh: 'Barlow Condensed', sans-serif;
+  --fb: 'Barlow', sans-serif;
+  --fs: 'Dancing Script', cursive;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--white); color: var(--black); line-height: 1.5; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ── CHECKER PATTERN ───────────────────── */
+.checker {
+  background-image: repeating-conic-gradient(var(--checker) 0% 25%, var(--white) 0% 50%);
+  background-size: 20px 20px;
+}
+.checker-sm {
+  background-image: repeating-conic-gradient(var(--checker) 0% 25%, var(--white) 0% 50%);
+  background-size: 12px 12px;
+}
+
+/* ── SEO BANNER ──────────────────────────── */
+.seo-banner { background: var(--black); }
+.seo-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 24px; cursor: pointer; gap: 12px; flex-wrap: wrap;
+}
+.seo-badge {
+  background: var(--red); color: var(--white);
+  font-family: var(--fh); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 3px; white-space: nowrap;
+}
+.seo-text { font-family: var(--fb); font-size: 13px; font-weight: 600; color: var(--white); }
+.seo-text span { color: #FE8D01; }
+.seo-scores { display: flex; align-items: center; gap: 16px; }
+.seo-score { text-align: center; }
+.seo-score-lbl { font-size: 9px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1px; }
+.seo-score-val { font-family: var(--fh); font-size: 22px; font-weight: 900; line-height: 1; }
+.bad { color: #EF4444; }
+.good { color: #22C55E; }
+.seo-toggle {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75); padding: 5px 14px; border-radius: 4px;
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.seo-toggle:hover { background: rgba(255,255,255,0.18); color: white; }
+.seo-panel {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.seo-panel.open { max-height: 600px; }
+.seo-panel-inner {
+  padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 900px; margin: 0 auto;
+}
+.seo-col-title { font-family: var(--fh); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+.seo-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.seo-ico { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.seo-ico.x { background: rgba(239,68,68,0.15); color: #EF4444; }
+.seo-ico.c { background: rgba(34,197,94,0.15); color: #22C55E; }
+.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.4; }
+.seo-row-text strong { color: white; font-weight: 700; }
+.seo-cta-row {
+  grid-column: 1 / -1;
+  background: rgba(254,141,1,0.1); border: 1px solid rgba(254,141,1,0.3);
+  border-radius: 8px; padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.seo-cta-text { font-size: 14px; color: rgba(255,255,255,0.8); }
+.seo-cta-text strong { color: #FE8D01; }
+.btn-orange {
+  background: #FE8D01; color: white; border: none; border-radius: 5px;
+  padding: 10px 20px; font-family: var(--fh); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-orange:hover { background: #ea7c00; transform: translateY(-1px); }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  background: var(--black); padding: 0 40px; height: 62px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 3px solid var(--red);
+}
+.nav-logo-script {
+  font-family: var(--fs); font-size: 28px; color: var(--white);
+  line-height: 1;
+}
+.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+.nav-links a { font-family: var(--fh); font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: white; }
+.nav-order { background: var(--red); color: white !important; padding: 8px 18px; border-radius: 3px; }
+.nav-order:hover { background: var(--red-dk) !important; }
+.nav-phone { color: #FE8D01 !important; }
+
+/* ── HERO ─────────────────────────────────── */
+.hero { background: var(--white); }
+.hero-checker-bar { height: 16px; }
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding: 56px 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.hero-award {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--black); color: var(--white);
+  font-family: var(--fh); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 3px; margin-bottom: 16px;
+}
+.hero-award span { color: #FE8D01; margin-right: 2px; }
+.hero h1 {
+  font-family: var(--fh); font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900; line-height: 0.95; letter-spacing: -0.01em;
+  text-transform: uppercase; color: var(--black); margin-bottom: 16px;
+}
+.hero h1 em { font-style: normal; color: var(--red); }
+.hero-sub { font-size: 16px; color: #555; line-height: 1.65; margin-bottom: 28px; max-width: 440px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+.btn-red {
+  background: var(--red); color: white; padding: 14px 28px;
+  font-family: var(--fh); font-size: 16px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px;
+  border: none; cursor: pointer; transition: all 0.2s; display: inline-block;
+}
+.btn-red:hover { background: var(--red-dk); }
+.btn-black {
+  background: var(--black); color: white; padding: 14px 24px;
+  font-family: var(--fh); font-size: 16px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px;
+  border: none; cursor: pointer; transition: all 0.2s; display: inline-block;
+}
+.btn-black:hover { background: #333; }
+.hero-meta { display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-meta-item { font-size: 13px; color: #777; }
+.hero-meta-item strong { display: block; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 1px; }
+
+/* Hero right — food photo mock + review card */
+.hero-right { display: flex; flex-direction: column; gap: 16px; }
+.hero-photo-wrap {
+  position: relative; border-radius: 4px; overflow: hidden;
+  background: var(--off); aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-photo-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #f8e8d8 0%, #f0d4b8 50%, #e8c49a 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px;
+}
+.hero-photo-inner {
+  width: 85%; height: 80%;
+  background: linear-gradient(160deg, #c8854a 0%, #a85f2a 40%, #d4965a 100%);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.sandwich-layers {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  width: 80%;
+}
+.bread-top { height: 18px; background: #c8763a; border-radius: 40px 40px 8px 8px; width: 90%; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.filling-1 { height: 8px; background: #8BC34A; width: 95%; border-radius: 2px; }
+.filling-2 { height: 6px; background: #ef5350; width: 88%; border-radius: 2px; }
+.filling-3 { height: 10px; background: #FFC107; width: 92%; border-radius: 2px; }
+.filling-4 { height: 7px; background: #f8bbd0; width: 85%; border-radius: 2px; }
+.bread-bot { height: 14px; background: #b8652a; border-radius: 4px 4px 8px 8px; width: 90%; }
+.photo-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.65); padding: 8px 12px;
+  font-family: var(--fh); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: white;
+}
+
+/* Review card */
+.review-strip {
+  background: var(--black); border-radius: 4px; padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.rs-score { text-align: center; flex-shrink: 0; }
+.rs-num { font-family: var(--fh); font-size: 36px; font-weight: 900; color: white; line-height: 1; }
+.rs-stars { color: #FE8D01; font-size: 14px; letter-spacing: 1px; }
+.rs-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+.rs-quotes { flex: 1; }
+.rs-quote { font-size: 12px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.4; }
+.rs-quote + .rs-quote { margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.07); }
+.rs-award {
+  flex-shrink: 0; background: var(--red); border-radius: 3px;
+  padding: 8px 12px; text-align: center;
+}
+.rs-award-icon { font-size: 18px; margin-bottom: 2px; }
+.rs-award-text { font-family: var(--fh); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: white; line-height: 1.2; }
+
+/* ── RED STRIP ───────────────────────────── */
+.red-strip {
+  background: var(--red); padding: 14px 0;
+}
+.red-strip-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.red-strip-item { font-family: var(--fh); font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 8px; }
+.red-strip-div { width: 1px; height: 24px; background: rgba(255,255,255,0.25); }
+
+/* ── MENU ────────────────────────────────── */
+.menu-section { padding: 72px 0; background: var(--white); }
+.sec { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.sec-label {
+  font-family: var(--fh); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 8px;
+}
+.sec-title {
+  font-family: var(--fh); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em;
+  color: var(--black); line-height: 1; margin-bottom: 8px;
+}
+.sec-sub { font-size: 15px; color: #666; line-height: 1.6; max-width: 540px; }
+
+/* Favorites grid */
+.fav-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 36px;
+  background: var(--border); border: 2px solid var(--black);
+  border-radius: 0;
+}
+.fav-card { background: white; padding: 24px 22px; position: relative; border: 1px solid transparent; transition: border-color 0.2s; }
+.fav-card:hover { border-color: var(--red); z-index: 1; }
+.fav-card.featured { background: var(--black); }
+.fav-num {
+  font-family: var(--fh); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+}
+.fav-card.featured .fav-num { color: rgba(255,255,255,0.4); }
+.fav-name {
+  font-family: var(--fh); font-size: 24px; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.01em; color: var(--black);
+  line-height: 1.05; margin-bottom: 10px;
+}
+.fav-card.featured .fav-name { color: white; }
+.fav-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+.fav-card.featured .fav-desc { color: rgba(255,255,255,0.55); }
+.fav-footer { display: flex; align-items: center; justify-content: space-between; }
+.fav-price { font-family: var(--fh); font-size: 26px; font-weight: 900; color: var(--black); }
+.fav-card.featured .fav-price { color: var(--red); }
+.fav-order {
+  background: var(--red); color: white; border: none; border-radius: 3px;
+  padding: 7px 14px; font-family: var(--fh); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.fav-order:hover { background: var(--red-dk); }
+.fav-card.featured .fav-order { background: white; color: var(--red); }
+.fav-card.featured .fav-order:hover { background: var(--off); }
+
+/* Full menu list */
+.menu-list-wrap { margin-top: 56px; }
+.menu-cat { margin-bottom: 40px; }
+.menu-cat-title {
+  font-family: var(--fh); font-size: 22px; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.02em; color: var(--black);
+  border-bottom: 3px solid var(--black); padding-bottom: 10px; margin-bottom: 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.menu-item {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.menu-item:last-child { border-bottom: none; }
+.mi-name {
+  font-family: var(--fh); font-size: 17px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.02em; color: var(--black);
+  margin-bottom: 3px;
+}
+.mi-desc { font-size: 13px; color: #777; line-height: 1.55; }
+.mi-price { font-family: var(--fh); font-size: 20px; font-weight: 900; color: var(--black); flex-shrink: 0; padding-top: 2px; }
+
+/* ── REVIEWS ─────────────────────────────── */
+.reviews-section { background: var(--black); padding: 72px 0; }
+.reviews-section .sec-label { color: var(--red); }
+.reviews-section .sec-title { color: white; }
+.reviews-section .sec-sub { color: rgba(255,255,255,0.45); }
+.reviews-head {
+  display: flex; align-items: center; gap: 24px; margin: 36px 0 28px; flex-wrap: wrap;
+}
+.reviews-score {
+  background: var(--red); border-radius: 3px; padding: 20px 24px; text-align: center; flex-shrink: 0;
+}
+.rs2-num { font-family: var(--fh); font-size: 52px; font-weight: 900; color: white; line-height: 1; }
+.rs2-stars { color: white; font-size: 16px; letter-spacing: 2px; margin: 2px 0; }
+.rs2-label { font-family: var(--fh); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.reviews-award {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px; padding: 16px 20px;
+}
+.ra-title { font-family: var(--fh); font-size: 20px; font-weight: 900; text-transform: uppercase; color: white; letter-spacing: 0.01em; margin-bottom: 4px; }
+.ra-sub { font-size: 13px; color: rgba(255,255,255,0.45); }
+.ra-years { display: flex; gap: 8px; margin-top: 10px; }
+.ra-year { background: var(--red); color: white; font-family: var(--fh); font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 3px; letter-spacing: 0.05em; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
+.review-card { background: rgba(255,255,255,0.04); padding: 20px; }
+.rc-stars { color: #FE8D01; font-size: 13px; letter-spacing: 1px; margin-bottom: 10px; }
+.rc-text { font-size: 13px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.6; margin-bottom: 12px; }
+.rc-author { font-family: var(--fh); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+/* ── ABOUT ───────────────────────────────── */
+.about-section { padding: 72px 0; background: var(--off); border-top: 1px solid var(--border); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 36px; }
+.about-text p { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 14px; }
+.about-text p strong { color: var(--black); font-weight: 700; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-facts { display: flex; flex-direction: column; gap: 2px; }
+.af-item { background: white; border: 1px solid var(--border); padding: 18px 20px; border-left: 4px solid var(--red); }
+.af-title { font-family: var(--fh); font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--black); margin-bottom: 4px; }
+.af-text { font-size: 13px; color: #777; line-height: 1.55; }
+
+/* ── HOURS / CONTACT ─────────────────────── */
+.info-section { padding: 72px 0; background: var(--black); }
+.info-section .sec-label { color: var(--red); }
+.info-section .sec-title { color: white; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 36px; background: rgba(255,255,255,0.06); }
+.info-card { background: var(--checker); background-image: none; background: #1A1A1A; padding: 28px 24px; }
+.info-card h3 { font-family: var(--fh); font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; color: white; margin-bottom: 18px; border-bottom: 2px solid var(--red); padding-bottom: 10px; }
+.info-row { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 4px; }
+.info-row strong { color: rgba(255,255,255,0.85); font-weight: 700; }
+.info-row a { color: #FE8D01; transition: color 0.2s; }
+.info-row a:hover { color: white; }
+.hours-row { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.5); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.hours-row strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+.hours-row.off { color: rgba(255,255,255,0.2); }
+.hours-row.off strong { color: rgba(255,255,255,0.25); }
+
+/* ── FOOTER ──────────────────────────────── */
+footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red); }
+.foot {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.foot-logo { font-family: var(--fs); font-size: 24px; color: white; }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-family: var(--fh); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.foot-links a:hover { color: rgba(255,255,255,0.7); }
+.foot-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+/* ── STICKY BAR ──────────────────────────── */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+  background: #FE8D01; padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  transform: translateY(100%); transition: transform 0.4s ease;
+}
+.sticky-bar.show { transform: translateY(0); }
+.sticky-txt { font-family: var(--fh); font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: white; }
+.sticky-txt span { opacity: 0.75; font-weight: 400; text-transform: none; letter-spacing: 0; font-family: var(--fb); font-size: 14px; }
+.sticky-btn {
+  background: var(--black); color: white; border: none; border-radius: 3px;
+  padding: 10px 22px; font-family: var(--fh); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+  white-space: nowrap; transition: all 0.2s; text-decoration: none; display: inline-block;
+}
+.sticky-btn:hover { background: #333; transform: translateY(-1px); }
+.sticky-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 22px; cursor: pointer; padding: 4px; line-height: 1; flex-shrink: 0; }
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 40px 20px; }
+  .hero-checker-bar { height: 12px; }
+  .fav-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .sec { padding: 0 20px; }
+  .red-strip-inner { padding: 0 20px; }
+  .red-strip-div { display: none; }
+  .foot { padding: 0 20px; flex-direction: column; text-align: center; }
+  .reviews-head { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- SEO BANNER -->
+<div class="seo-banner">
+  <div class="seo-top" onclick="toggleSEO()">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div class="seo-badge">Built by Relaunch</div>
+      <div class="seo-text">Hey Valentine's — <span>we rebuilt your site. Here's why it matters.</span></div>
+    </div>
+    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
+  </div>
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner" style="grid-template-columns:1fr;max-width:780px;">
+
+      <!-- Human intro -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:20px 24px;margin-bottom:4px;">
+        <div style="font-family:var(--fb);font-size:15px;color:rgba(255,255,255,0.85);line-height:1.75;">
+          We looked at your site, your Instagram, your reviews — and we get it. You're not trying to be fancy. You make great sandwiches, you care about your community, and you keep things simple. So did we.<br><br>
+          This site matches your vibe — bold, clean, no BS. Same black and white. Same straight talk. We just made sure Google actually knows you exist.
+        </div>
+      </div>
+
+      <!-- Keyword rankings -->
+      <div>
+        <div class="seo-col-title" style="margin-top:20px;">Where you show up when people search right now</div>
+        <div class="seo-row">
+          <div class="seo-ico x">✗</div>
+          <div class="seo-row-text"><strong>"best sandwich Bend Oregon"</strong> — your site doesn't rank. Your Google Business profile does some work, but Yelp and review sites are getting the click, not you.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico x">✗</div>
+          <div class="seo-row-text"><strong>"sandwich shop Bend Oregon"</strong> — you appear on Yelp at #3 behind Planker and Stacks. Your own website isn't in the picture at all.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico x">✗</div>
+          <div class="seo-row-text"><strong>"deli Bend Oregon"</strong> — same story. Third-party sites are showing up for you. That means they're getting the traffic. And the credit.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico x">✗</div>
+          <div class="seo-row-text"><strong>"lunch Bend Oregon"</strong> — you're not ranking here at all. That's one of the highest-volume local searches in Bend, and you're invisible to it.</div>
+        </div>
+      </div>
+
+      <!-- What we did -->
+      <div>
+        <div class="seo-col-title" style="margin-top:8px;">What this site fixes</div>
+        <div class="seo-row">
+          <div class="seo-ico c">✓</div>
+          <div class="seo-row-text"><strong>Google now knows exactly who you are.</strong> We added proper restaurant markup — your name, address, hours, menu, and your 4.8-star rating — all structured so Google reads it correctly instead of guessing.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico c">✓</div>
+          <div class="seo-row-text"><strong>Your reviews are on your site now.</strong> 123 reviews and 4.8 stars — right on your homepage where every new visitor can see them. You earned those. They should be working for you.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico c">✓</div>
+          <div class="seo-row-text"><strong>Loads fast on phones.</strong> The lunch crowd is searching on their phone at 10:55am. Your current site is slow. This one isn't.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico c">✓</div>
+          <div class="seo-row-text"><strong>Your "Best in Bend" wins are front and center.</strong> Three years running and it's barely visible on your current site. We fixed that.</div>
+        </div>
+        <div class="seo-row">
+          <div class="seo-ico c">✓</div>
+          <div class="seo-row-text"><strong>No more "Powered by GoDaddy" at the bottom.</strong> You built something worth being proud of. Your website should look like it.</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="seo-cta-row" style="margin-top:8px;">
+        <div class="seo-cta-text">Switch over to this site today. <strong>$99/month. No contract. Your old site stays live until you're ready.</strong> If you don't love it, we walk away, no hard feelings.</div>
+        <a href="https://tryrelaunch.com/onboard?business=Valentines+Deli&email=info@valentinesdeli.com" class="btn-orange">Switch to this site →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo-script">Valentine's Deli</div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="tel:5413222154" class="nav-phone">(541) 322-2154</a></li>
+    <li><a href="https://direct.chownow.com/order/28755/locations/42571" class="nav-order" target="_blank">Order Online</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-checker-bar checker"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-award"><span>🏆</span>Best Sandwich in Bend — 3 years running</div>
+      <h1>Seriously<br>good<br><em>sandwiches.</em></h1>
+      <p class="hero-sub">Hand-crafted to order on fresh Sparrow Bakery bread. Mon–Fri, 11am to 2pm. 555 NW Arizona Ave, Bend Oregon.</p>
+      <div class="hero-btns">
+        <a href="https://direct.chownow.com/order/28755/locations/42571" class="btn-red" target="_blank">Order Online →</a>
+        <a href="#menu" class="btn-black">See the menu</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>Mon – Fri</strong>11:00am – 2:00pm</div>
+        <div class="hero-meta-item"><strong>555 NW Arizona Ave #25</strong>Bend, OR 97703</div>
+        <div class="hero-meta-item"><strong>(541) 322-2154</strong>Call to order ahead</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-placeholder">
+          <div class="hero-photo-inner">
+            <div class="sandwich-layers">
+              <div class="bread-top"></div>
+              <div class="filling-1"></div>
+              <div class="filling-2"></div>
+              <div class="filling-3"></div>
+              <div class="filling-4"></div>
+              <div class="bread-bot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="photo-label">The Ranch Hand — $15</div>
+      </div>
+      <div class="review-strip">
+        <div class="rs-score">
+          <div class="rs-num">4.8</div>
+          <div class="rs-stars">★★★★★</div>
+        </div>
+        <div class="rs-divider"></div>
+        <div class="rs-quotes">
+          <div class="rs-quote">"Best sandwich in Bend hands down!"</div>
+          <div class="rs-quote">"The Hot Italian is done RIGHT. No olives!!"</div>
+        </div>
+        <div class="rs-award">
+          <div class="rs-award-icon">🏆</div>
+          <div class="rs-award-text">Best<br>in Bend<br>×3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-checker-bar checker-sm"></div>
+</section>
+
+<!-- RED STRIP -->
+<div class="red-strip">
+  <div class="red-strip-inner">
+    <div class="red-strip-item">🍞 Sparrow Bakery bread — baked fresh daily</div>
+    <div class="red-strip-div"></div>
+    <div class="red-strip-item">🥬 Gluten-free option available</div>
+    <div class="red-strip-div"></div>
+    <div class="red-strip-item">🎁 Gift cards available</div>
+    <div class="red-strip-div"></div>
+    <div class="red-strip-item">📲 Order ahead on ChowNow</div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="sec">
+    <div class="sec-label">The menu</div>
+    <h2 class="sec-title">Our favorites.<br>Trust us.</h2>
+    <p class="sec-sub">Every sandwich made to order. Toasted or cold. Hoagie or sourdough. Your call.</p>
+
+    <div class="fav-grid">
+      <div class="fav-card featured">
+        <div class="fav-num">// Staff pick</div>
+        <div class="fav-name">Hot Italian</div>
+        <div class="fav-desc">Pepperoni, salami, hot capicola, ham, and provolone on a Sparrow hoagie. Shredded lettuce, tomatoes, red onion, pepperoncini. Juiced up with mayo and house red wine vinaigrette.</div>
+        <div class="fav-footer"><div class="fav-price">$15</div><a href="https://direct.chownow.com/order/28755/locations/42571" class="fav-order" target="_blank">Order →</a></div>
+      </div>
+      <div class="fav-card">
+        <div class="fav-num">// Customer favorite</div>
+        <div class="fav-name">Ranch Hand</div>
+        <div class="fav-desc">Toasted turkey, crispy bacon, and swiss on a Sparrow hoagie. Shredded lettuce, tomatoes, thin sliced red onions, mayo, and a country boy's helping of buttermilk ranch.</div>
+        <div class="fav-footer"><div class="fav-price">$15</div><a href="https://direct.chownow.com/order/28755/locations/42571" class="fav-order" target="_blank">Order →</a></div>
+      </div>
+      <div class="fav-card">
+        <div class="fav-num">// Crowd pleaser</div>
+        <div class="fav-name">Peppersteak</div>
+        <div class="fav-desc">Thin sliced roast beef, pepper jack, sautéed red & green peppers, onions, jalapeños, and the right amount of chipotle mayo on a Sparrow hoagie. Dressed to perfection.</div>
+        <div class="fav-footer"><div class="fav-price">$15</div><a href="https://direct.chownow.com/order/28755/locations/42571" class="fav-order" target="_blank">Order →</a></div>
+      </div>
+    </div>
+
+    <div class="menu-list-wrap">
+      <div class="menu-cat">
+        <div class="menu-cat-title">Valentine's Classics<span style="font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:#777;">All on Sparrow Bakery hoagies or sourdough</span></div>
+        <div class="menu-item"><div><div class="mi-name">AlbaScore 🐟</div><div class="mi-desc">Tuna salad, bacon, avocado, sharp cheddar, shredded lettuce, red onion, and tomatoes on thick Sparrow sourdough. This fish is kept wet by a thin hit of mayo.</div></div><div class="mi-price">$14</div></div>
+        <div class="menu-item"><div><div class="mi-name">Cow-abunga! 🐂</div><div class="mi-desc">Thin sliced roast beef and melty provolone on a Sparrow hoagie. Spinach, tomatoes, dill pickles, shaved onions. Mayo, red wine vinaigrette, and horseradish dijon complete the package.</div></div><div class="mi-price">$15</div></div>
+        <div class="menu-item"><div><div class="mi-name">Albuquerque 🦃🐖</div><div class="mi-desc">Turkey, crispy bacon, fresh avocado, arugula, tomato, pepperjack, red onion, and chipotle mayo on sliced Sparrow sourdough.</div></div><div class="mi-price">$15</div></div>
+        <div class="menu-item"><div><div class="mi-name">The Sierra (veg.) 🥬</div><div class="mi-desc">Sundried tomatoes, provolone, black olives, pepperoncinis, arugula, shredded lettuce, red onions, fresh tomatoes on a Sparrow hoagie. Herb mayo and red wine vinaigrette.</div></div><div class="mi-price">$14</div></div>
+        <div class="menu-item"><div><div class="mi-name">Humble Ham 🐖</div><div class="mi-desc">Ham, swiss, shredded lettuce, dill pickles, red onions, and tomatoes on Sparrow sourdough. Mayo, dijon, and red wine vinaigrette.</div></div><div class="mi-price">$14</div></div>
+        <div class="menu-item"><div><div class="mi-name">Simple Tom 🦃</div><div class="mi-desc">Turkey, provolone, shredded lettuce, dill pickles, red onions, and tomatoes on a Sparrow hoagie. Mayo, dijon, and a dash of red wine vinegar.</div></div><div class="mi-price">$14</div></div>
+        <div class="menu-item"><div><div class="mi-name">Veggie Avo (veg.) 🥬</div><div class="mi-desc">Avocado, slivered carrots, spinach, shredded lettuce, red onions, tomatoes, and sharp cheddar on Sparrow sourdough. Herb mayo.</div></div><div class="mi-price">$12</div></div>
+        <div class="menu-item"><div><div class="mi-name">Turkey Avocado 🦃</div><div class="mi-desc">Turkey, avocado, spinach, tomatoes, shaved onions, and sharp cheddar on Sparrow sourdough. Just a dab of herb mayo.</div></div><div class="mi-price">$14</div></div>
+        <div class="menu-item"><div><div class="mi-name">Pastrami Swiss 🐂</div><div class="mi-desc">Thin sliced pastrami, swiss, shredded lettuce, red onions, dill pickles, and tomatoes on a Sparrow hoagie. Cold cut or toasted — your choice.</div></div><div class="mi-price">$15</div></div>
+        <div class="menu-item"><div><div class="mi-name">B.L.T.A</div><div class="mi-desc">Bacon, shredded lettuce, tomato, avocado, and mayo on sliced sourdough. 'Nough said.</div></div><div class="mi-price">$13</div></div>
+        <div class="menu-item"><div><div class="mi-name">Half Sando</div><div class="mi-desc">Not so hungry? Choose any sandwich and make it a half.</div></div><div class="mi-price">$9</div></div>
+      </div>
+
+      <div class="menu-cat">
+        <div class="menu-cat-title">Got Kiddos? <span style="font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:#777;">12 and younger · served with applesauce</span></div>
+        <div class="menu-item"><div><div class="mi-name">Kid's Half Sando</div><div class="mi-desc">½ sandwich with turkey, ham, pastrami, or roast beef with cheddar on sourdough. Veggies on request.</div></div><div class="mi-price">$6</div></div>
+        <div class="menu-item"><div><div class="mi-name">Kid's Grilled Cheese</div><div class="mi-desc">Whole grilled sourdough and cheddar.</div></div><div class="mi-price">$6</div></div>
+      </div>
+
+      <div class="menu-cat">
+        <div class="menu-cat-title">Add-Ons & Extras</div>
+        <div class="menu-item"><div><div class="mi-name">Add-Ons</div><div class="mi-desc">Extra meat / bacon / avocado / veggies</div></div><div class="mi-price">$3 / $2 / $2 / $1.50</div></div>
+        <div class="menu-item"><div><div class="mi-name">Gluten Free Bread</div><div class="mi-desc">Ener-G sliced sourdough — add to any sandwich</div></div><div class="mi-price">$1</div></div>
+        <div class="menu-item"><div><div class="mi-name">Sides</div><div class="mi-desc">Call for today's options (when available)</div></div><div class="mi-price">$4.50 / $7</div></div>
+        <div class="menu-item"><div><div class="mi-name">Kettle Chips</div><div class="mi-desc">Original, BBQ, Salt & Vinegar, Jalapeño</div></div><div class="mi-price">$2</div></div>
+      </div>
+
+      <div class="menu-cat">
+        <div class="menu-cat-title">Drinks</div>
+        <div class="menu-item"><div><div class="mi-name">Soda</div><div class="mi-desc">Coke, Diet Coke, RC Cola, A&W Root Beer</div></div><div class="mi-price">$3</div></div>
+        <div class="menu-item"><div><div class="mi-name">LaCroix / San Pellegrino / Iced Tea</div><div class="mi-desc">Rotating flavors</div></div><div class="mi-price">$3</div></div>
+        <div class="menu-item"><div><div class="mi-name">Kombucha</div><div class="mi-desc">Compassion Kombucha, Bend — rotating flavors</div></div><div class="mi-price">$6</div></div>
+        <div class="menu-item"><div><div class="mi-name">Rainier Tall Boys / Craft Beer</div><div class="mi-desc">Check the cooler</div></div><div class="mi-price">$3.50 / $5</div></div>
+        <div class="menu-item"><div><div class="mi-name">Cider / White Claw</div><div class="mi-desc">Bend Cider (rotating) / Check the cooler</div></div><div class="mi-price">$6 / $4</div></div>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <a href="https://direct.chownow.com/order/28755/locations/42571" class="btn-red" target="_blank" style="display:inline-block;">Order Online Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="sec">
+    <div class="sec-label">What people are saying</div>
+    <h2 class="sec-title" style="color:white;">Bend's sandwich shop.</h2>
+    <p class="sec-sub">123 reviews. 4.8 stars. Three-time Best Sandwich in Bend. The people have spoken.</p>
+    <div class="reviews-head">
+      <div class="reviews-score">
+        <div class="rs2-num">4.8</div>
+        <div class="rs2-stars">★★★★★</div>
+        <div class="rs2-label">123+ reviews</div>
+      </div>
+      <div class="reviews-award">
+        <div class="ra-title">🏆 Best Sandwich / Deli in Bend</div>
+        <div class="ra-sub">Bend Source — voted by the community</div>
+        <div class="ra-years">
+          <div class="ra-year">2020</div>
+          <div class="ra-year">2021</div>
+          <div class="ra-year">2022</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"Best sandwich in Bend hands down! I loveeee the warm sandos on the sparrow hoagies. My favorites are the pepper steak and ranch hand."</div><div class="rc-author">Sarah K. · Google</div></div>
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"The first place in Central Oregon that I've found that actually makes an Italian the right way! NO OLIVES!! The portions are hearty and just mouthwatering."</div><div class="rc-author">James R. · Yelp</div></div>
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"Greg Two G's and the VD family make creative and delicious variations on the sandwich as a concept, forcing me out of my Hot Italian comfort zone."</div><div class="rc-author">Greg W. · Wanderlog</div></div>
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"The bread was super fresh and delicious, the ingredients were top notch, sauce and flavor combos left us wanting more. Don't forget the fresh baked cookies!"</div><div class="rc-author">Mike T. · Google</div></div>
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"The sandwich was hot and absolutely delicious. Thick bacon and lots of turkey and lettuce. We can't wait to go back and try something else."</div><div class="rc-author">Linda P. · Tripadvisor</div></div>
+      <div class="review-card"><div class="rc-stars">★★★★★</div><div class="rc-text">"A small sandwich shop that is a hidden gem known for serving the best sandwiches in town. The friendly staff create a welcoming atmosphere."</div><div class="rc-author">Wheree Review</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="sec">
+    <div class="sec-label">About us</div>
+    <h2 class="sec-title">Named after<br>someone special.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Valentine's Deli is the vision of <strong>Kari Johannsen</strong>, a native Oregonian who named her deli after her mother, Jane Valentine — born on February 14th. Jane was all about the love of family, treating people with respect, and welcoming everyone with warmth. That's the feeling Kari wanted to recreate in her shop.</p>
+        <p>We're tucked into <strong>The Box Factory</strong> at 555 NW Arizona Ave in Bend. Open Monday through Friday from 11am to 2pm — just enough time to make you something genuinely worth your lunch break.</p>
+        <p>Every sandwich we make is crafted to order on <strong>fresh Sparrow Bakery bread</strong>, baked daily right here in Bend. No shortcuts. No pre-made anything. Just real ingredients from people who actually care.</p>
+        <div style="margin-top:24px;">
+          <a href="https://squareup.com/gift/MLV24A76WNP0T/order" class="btn-red" style="display:inline-block;" target="_blank">Send a Gift Card →</a>
+        </div>
+      </div>
+      <div class="about-facts">
+        <div class="af-item"><div class="af-title">Sparrow Bakery bread, daily</div><div class="af-text">Hoagies and sourdough baked fresh every morning by Sparrow Bakery in Bend. If you've had it, you know.</div></div>
+        <div class="af-item"><div class="af-title">Crafted to order, every time</div><div class="af-text">Nothing sits under a heat lamp. Every sandwich is made when you order it. That's why the line moves the way it moves.</div></div>
+        <div class="af-item"><div class="af-title">Gluten-free friendly</div><div class="af-text">Ener-G sliced sourdough available for $1. Just mention it when you order.</div></div>
+        <div class="af-item"><div class="af-title">Community-first</div><div class="af-text">We sponsor local events, support causes we believe in, and try to be the kind of business Bend deserves.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS / CONTACT -->
+<section class="info-section">
+  <div class="sec">
+    <div class="sec-label">Find us</div>
+    <h2 class="sec-title" style="color:white;">Come get a sandwich.</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Hours</h3>
+        <div class="hours-row"><strong>Monday</strong><span>11:00am – 2:00pm</span></div>
+        <div class="hours-row"><strong>Tuesday</strong><span>11:00am – 2:00pm</span></div>
+        <div class="hours-row"><strong>Wednesday</strong><span>11:00am – 2:00pm</span></div>
+        <div class="hours-row"><strong>Thursday</strong><span>11:00am – 2:00pm</span></div>
+        <div class="hours-row"><strong>Friday</strong><span>11:00am – 2:00pm</span></div>
+        <div class="hours-row off"><strong>Saturday</strong><span>Closed</span></div>
+        <div class="hours-row off"><strong>Sunday</strong><span>Closed</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Location</h3>
+        <div class="info-row"><strong>555 NW Arizona Ave, Suite 25</strong></div>
+        <div class="info-row">Bend, Oregon 97703</div>
+        <div class="info-row" style="margin-top:10px;"><strong>In The Box Factory</strong></div>
+        <div class="info-row">Parking available in the complex lot</div>
+        <div class="info-row" style="margin-top:14px;"><a href="https://maps.google.com/?q=555+NW+Arizona+Ave+Bend+OR+97703" target="_blank">Get Directions →</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Order & Contact</h3>
+        <div class="info-row"><strong>Phone</strong></div>
+        <div class="info-row"><a href="tel:5413222154">(541) 322-2154</a></div>
+        <div class="info-row" style="margin-top:12px;"><strong>Order online via ChowNow</strong></div>
+        <div class="info-row">Skip the wait — order ahead from anywhere</div>
+        <div style="margin-top:14px;">
+          <a href="https://direct.chownow.com/order/28755/locations/42571" class="btn-red" style="display:inline-block;font-size:14px;padding:11px 20px;" target="_blank">Order Online →</a>
+        </div>
+        <div class="info-row" style="margin-top:14px;"><strong>Gift cards</strong></div>
+        <div class="info-row"><a href="https://squareup.com/gift/MLV24A76WNP0T/order" target="_blank">Send via Square →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="foot-logo">Valentine's Deli</div>
+    <div class="foot-links">
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="tel:5413222154">Call</a>
+    </div>
+    <div class="foot-copy">© 2026 Valentine's Deli · Bend, Oregon</div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-txt">Like this site? <span>Swap it in for your current one.</span></div>
+  <a href="https://tryrelaunch.com/onboard?business=Valentines+Deli&email=info@valentinesdeli.com" class="sticky-btn">Make this my website — $99/mo →</a>
+  <button class="sticky-close" onclick="closeBar()">×</button>
+</div>
+
+<script>
+function toggleSEO() {
+  const p = document.getElementById('seo-panel');
+  const b = document.getElementById('seo-btn');
+  p.classList.toggle('open');
+  b.textContent = p.classList.contains('open') ? 'Hide details ▲' : 'See what we fixed ▼';
+}
+const bar = document.getElementById('sticky-bar');
+let closed = false;
+window.addEventListener('scroll', () => {
+  if (closed) return;
+  bar.classList.toggle('show', window.scrollY > 500);
+});
+function closeBar() { closed = true; bar.classList.remove('show'); }
+</script>
+</body>
+</html>
