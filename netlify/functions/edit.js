@@ -34,11 +34,15 @@ exports.handler = async function (event) {
 
   const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 
+  console.log('API key present:', !!CLAUDE_API_KEY);
+  console.log('API key length:', CLAUDE_API_KEY ? CLAUDE_API_KEY.length : 0);
+
   if (!CLAUDE_API_KEY) {
     return { statusCode: 500, body: 'API key not configured' };
   }
 
   try {
+    console.log('Calling Claude API...');
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -68,8 +72,9 @@ RULES — read carefully:
 
     if (!response.ok) {
       const err = await response.text();
-      console.error('Claude API error:', err);
-      return { statusCode: 502, body: 'Claude API error' };
+      console.error('Claude API error status:', response.status);
+      console.error('Claude API error body:', err);
+      return { statusCode: 502, body: `Claude API error: ${response.status} - ${err}` };
     }
 
     const data = await response.json();
@@ -89,7 +94,8 @@ RULES — read carefully:
     };
 
   } catch (err) {
-    console.error('Function error:', err);
-    return { statusCode: 500, body: 'Internal server error' };
+    console.error('Function error:', err.message);
+    console.error('Stack:', err.stack);
+    return { statusCode: 500, body: `Internal error: ${err.message}` };
   }
 };
