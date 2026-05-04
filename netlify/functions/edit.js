@@ -24,13 +24,13 @@ exports.handler = async function (event) {
     return { statusCode: 400, body: 'Request too long' };
   }
 
-  // Strip the edit widget and SEO banner from HTML before sending to Claude
-  // This saves tokens on every request — Claude never needs to see or edit these
+  // Strip scripts, styles, and the edit widget/SEO banner to reduce tokens
   let cleanedHTML = html
-    .replace(/<!-- EDIT WIDGET -->[\s\S]*?<\/style>/m, '')
-    .replace(/<!-- Edit FAB[\s\S]*?<\/div>\n/m, '')
-    .replace(/<!-- Edit panel[\s\S]*?<\/div>\n/m, '')
-    .replace(/<!-- SEO BANNER -->[\s\S]*?<\/div>\n\n/m, '');
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<!-- EDIT WIDGET -->[\s\S]*$/i, '')
+    .replace(/<!-- SEO BANNER -->[\s\S]*?(?=<!-- NAV -->)/i, '')
+    .trim();
 
   const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 
@@ -53,16 +53,12 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
         max_tokens: 4000,
-        system: `You are a website editor. A local business owner is asking you to make a change to their website.
-
-RULES — read carefully:
-- You may ONLY change: text content, prices, hours, phone numbers, addresses, menu items, descriptions, promotional announcements
-- You may NOT change: colors, fonts, CSS, layout, HTML structure, class names, the nav, the footer structure
-- Return the COMPLETE updated HTML document — the full file, nothing omitted
-- Make ONLY the specific change requested. Nothing else.
-- Keep the exact same tone and voice as the existing content
-- If the request is ambiguous, make the most sensible interpretation
-- Do not add commentary, explanation, or markdown. Return raw HTML only.`,
+        system: `You are a website editor. Make ONLY the requested change to the HTML. 
+Rules:
+- Only change text, prices, hours, phone numbers, addresses, menu items
+- Never change CSS, colors, fonts, layout, or structure
+- Return the complete raw HTML with the change applied
+- No markdown, no code fences, no explanation — raw HTML only`,
         messages: [{
           role: 'user',
           content: `Here is the current website HTML:\n\n${cleanedHTML}\n\n---\n\nPlease make this change: ${request}`
@@ -78,7 +74,11 @@ RULES — read carefully:
     }
 
     const data = await response.json();
-    const updatedHTML = data?.content?.[0]?.text?.trim();
+    const updatedHTML = data?.content?.[0]?.text
+      ?.trim()
+      ?.replace(/^```html\n?/, '')
+      ?.replace(/^```\n?/, '')
+      ?.replace(/\n?```$/, '');
 
     if (!updatedHTML) {
       return { statusCode: 502, body: 'No response from Claude' };
