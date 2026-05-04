@@ -1084,36 +1084,20 @@ async function sendEdit() {
   const currentHTML = document.documentElement.outerHTML;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('/.netlify/functions/edit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `You are a website editor for Valentine's Deli in Bend, Oregon. 
-The user will ask you to make changes to their website.
-
-RULES:
-- You may ONLY change: text content, prices, hours, phone numbers, menu items, addresses, promotional text
-- You may NOT change: colors, fonts, layout, CSS, the SEO banner, the sticky claim bar, the edit widget itself
-- Always return the COMPLETE updated HTML document
-- Make exactly the change requested, nothing more
-- If the request is unclear, make your best guess at what they mean
-- Keep the same tone and voice as the existing content
-
-Return ONLY the complete HTML with the change applied. No explanation, no markdown, just the raw HTML.`,
-        messages: [{
-          role: 'user',
-          content: `Here is the current website HTML:\n\n${currentHTML}\n\nPlease make this change: ${request}`
-        }]
+        request: request,
+        html: currentHTML
       })
     });
 
     const data = await response.json();
     typing.classList.remove('show');
 
-    if (data.content && data.content[0] && data.content[0].text) {
-      const newHTML = data.content[0].text.trim();
+    if (data.html) {
+      const newHTML = data.html;
 
       // Store originals
       originalHTML = currentHTML;
