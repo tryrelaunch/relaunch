@@ -421,6 +421,11 @@ footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red);
 .sticky-btn:hover { background: #333; transform: translateY(-1px); }
 .sticky-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 22px; cursor: pointer; padding: 4px; line-height: 1; flex-shrink: 0; }
 
+@media (max-width: 600px) {
+  .sticky-bar { display: none !important; }
+  .edit-fab { bottom: 24px; }
+}
+
 /* ── RESPONSIVE ──────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
