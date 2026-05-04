@@ -1,11 +1,9 @@
 exports.handler = async function (event) {
 
-  // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
   }
 
-  // Parse body
   let body;
   try {
     body = JSON.parse(event.body);
@@ -13,36 +11,22 @@ exports.handler = async function (event) {
     return { statusCode: 400, body: 'Invalid JSON' };
   }
 
-  const { request, html } = body;
+  const { request, content } = body;
 
-  if (!request || !html) {
-    return { statusCode: 400, body: 'Missing request or html' };
+  if (!request || !content) {
+    return { statusCode: 400, body: 'Missing request or content' };
   }
 
-  // Basic abuse prevention — request can't be too long
   if (request.length > 500) {
     return { statusCode: 400, body: 'Request too long' };
   }
 
-  // Strip scripts, styles, and the edit widget/SEO banner to reduce tokens
-  let cleanedHTML = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<!-- EDIT WIDGET -->[\s\S]*$/i, '')
-    .replace(/<!-- SEO BANNER -->[\s\S]*?(?=<!-- NAV -->)/i, '')
-    .trim();
-
   const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
-
-  console.log('API key present:', !!CLAUDE_API_KEY);
-  console.log('API key length:', CLAUDE_API_KEY ? CLAUDE_API_KEY.length : 0);
-
   if (!CLAUDE_API_KEY) {
     return { statusCode: 500, body: 'API key not configured' };
   }
 
   try {
-    console.log('Calling Claude API...');
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -52,36 +36,49 @@ exports.handler = async function (event) {
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
-        max_tokens: 4000,
-        system: `You are a website editor. Make ONLY the requested change to the HTML. 
+        max_tokens: 1000,
+        system: `You are a website content editor. The user will describe a change they want made to their website.
+
+You will receive a JSON object of all editable content on the page with element IDs as keys.
+
+Respond with ONLY a valid JSON object in this exact format — no markdown, no explanation:
+{
+  "changes": [
+    { "id": "element-id", "text": "new text value" }
+  ],
+  "confirmation": "One sentence confirming what you changed in plain English."
+}
+
 Rules:
-- Only change text, prices, hours, phone numbers, addresses, menu items
-- Never change CSS, colors, fonts, layout, or structure
-- Return the complete raw HTML with the change applied
-- No markdown, no code fences, no explanation — raw HTML only`,
+- Only include elements that actually need to change
+- Only change text content — never IDs, structure, or anything else
+- If the request is unclear, make the most sensible interpretation
+- Keep the same tone and voice as the existing content`,
         messages: [{
           role: 'user',
-          content: `Here is the current website HTML:\n\n${cleanedHTML}\n\n---\n\nPlease make this change: ${request}`
+          content: `Here is the current editable content:\n${JSON.stringify(content, null, 2)}\n\nChange requested: ${request}`
         }]
       })
     });
 
     if (!response.ok) {
       const err = await response.text();
-      console.error('Claude API error status:', response.status);
-      console.error('Claude API error body:', err);
-      return { statusCode: 502, body: `Claude API error: ${response.status} - ${err}` };
+      console.error('Claude API error:', response.status, err);
+      return { statusCode: 502, body: 'Claude API error' };
     }
 
     const data = await response.json();
-    const updatedHTML = data?.content?.[0]?.text
-      ?.trim()
-      ?.replace(/^```html\n?/, '')
-      ?.replace(/^```\n?/, '')
-      ?.replace(/\n?```$/, '');
+    let raw = data?.content?.[0]?.text?.trim() || '';
 
-    if (!updatedHTML) {
-      return { statusCode: 502, body: 'No response from Claude' };
+    // Strip markdown fences if present
+    raw = raw.replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '').trim();
+
+    let result;
+    try {
+      result = JSON.parse(raw);
+    } catch {
+      console.error('Failed to parse Claude response as JSON:', raw);
+      return { statusCode: 502, body: 'Invalid response format' };
     }
 
     return {
@@ -90,12 +87,11 @@ Rules:
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify({ html: updatedHTML })
+      body: JSON.stringify(result)
     };
 
   } catch (err) {
     console.error('Function error:', err.message);
-    console.error('Stack:', err.stack);
     return { statusCode: 500, body: `Internal error: ${err.message}` };
   }
 };
