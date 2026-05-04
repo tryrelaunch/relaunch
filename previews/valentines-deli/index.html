@@ -788,20 +788,389 @@ footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red);
   <button class="sticky-close" onclick="closeBar()">×</button>
 </div>
 
+<!-- EDIT WIDGET -->
+<style>
+.edit-fab {
+  position: fixed; bottom: 80px; right: 24px; z-index: 998;
+  background: var(--black); color: white;
+  border: none; border-radius: 50px;
+  padding: 12px 20px; cursor: pointer;
+  font-family: var(--fh); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+.edit-fab:hover { background: var(--red); transform: translateY(-2px); }
+.edit-fab-dot {
+  width: 8px; height: 8px; background: #22C55E;
+  border-radius: 50%; animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+.edit-panel {
+  position: fixed; bottom: 140px; right: 24px; z-index: 997;
+  width: 380px; background: var(--black);
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+  display: none; flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.1);
+  max-height: 520px;
+}
+.edit-panel.open { display: flex; }
+
+.edit-panel-header {
+  background: var(--red); padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.edit-panel-title {
+  font-family: var(--fh); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: white;
+  display: flex; align-items: center; gap: 8px;
+}
+.edit-panel-close {
+  background: none; border: none; color: rgba(255,255,255,0.7);
+  font-size: 20px; cursor: pointer; line-height: 1; padding: 2px;
+}
+.edit-panel-close:hover { color: white; }
+
+.edit-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 200px; max-height: 300px;
+}
+.edit-msg {
+  max-width: 85%; padding: 10px 14px;
+  border-radius: 10px; font-size: 13px; line-height: 1.5;
+}
+.edit-msg.user {
+  background: var(--red); color: white;
+  align-self: flex-end; border-radius: 10px 10px 2px 10px;
+}
+.edit-msg.claude {
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+  align-self: flex-start; border-radius: 10px 10px 10px 2px;
+}
+.edit-msg.system {
+  background: rgba(34,197,94,0.1); color: #22C55E;
+  align-self: center; text-align: center; font-size: 12px;
+  border: 1px solid rgba(34,197,94,0.2); border-radius: 6px;
+  max-width: 100%;
+}
+.edit-msg.error {
+  background: rgba(239,68,68,0.1); color: #EF4444;
+  align-self: center; text-align: center; font-size: 12px;
+  border: 1px solid rgba(239,68,68,0.2); border-radius: 6px;
+  max-width: 100%;
+}
+
+.edit-typing {
+  display: none; align-self: flex-start;
+  background: rgba(255,255,255,0.08);
+  padding: 10px 14px; border-radius: 10px 10px 10px 2px;
+}
+.edit-typing.show { display: flex; gap: 4px; align-items: center; }
+.edit-typing span {
+  width: 6px; height: 6px; background: rgba(255,255,255,0.4);
+  border-radius: 50%; animation: bounce 1.2s infinite;
+}
+.edit-typing span:nth-child(2) { animation-delay: 0.2s; }
+.edit-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+.edit-confirm-bar {
+  display: none; background: rgba(34,197,94,0.1);
+  border-top: 1px solid rgba(34,197,94,0.2);
+  padding: 10px 16px; gap: 8px; align-items: center;
+  justify-content: space-between;
+}
+.edit-confirm-bar.show { display: flex; }
+.edit-confirm-text { font-size: 12px; color: #22C55E; }
+.edit-confirm-btns { display: flex; gap: 6px; }
+.btn-confirm {
+  background: #22C55E; color: white; border: none;
+  border-radius: 4px; padding: 6px 12px;
+  font-family: var(--fh); font-size: 12px; font-weight: 700;
+  cursor: pointer; letter-spacing: 0.05em;
+}
+.btn-confirm:hover { background: #16a34a; }
+.btn-revert {
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6);
+  border: none; border-radius: 4px; padding: 6px 12px;
+  font-family: var(--fh); font-size: 12px; font-weight: 700;
+  cursor: pointer;
+}
+.btn-revert:hover { background: rgba(255,255,255,0.15); }
+
+.edit-input-row {
+  padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; gap: 8px; align-items: flex-end;
+}
+.edit-input {
+  flex: 1; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px; padding: 10px 12px;
+  font-family: var(--fb); font-size: 13px; color: white;
+  outline: none; resize: none; min-height: 40px; max-height: 100px;
+  line-height: 1.4;
+}
+.edit-input::placeholder { color: rgba(255,255,255,0.3); }
+.edit-input:focus { border-color: var(--red); }
+.edit-send {
+  background: var(--red); color: white; border: none;
+  border-radius: 8px; width: 38px; height: 38px;
+  cursor: pointer; font-size: 16px; flex-shrink: 0;
+  transition: background 0.2s; display: flex;
+  align-items: center; justify-content: center;
+}
+.edit-send:hover { background: var(--red-dk); }
+.edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
+
+.edit-suggestions {
+  padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px;
+}
+.edit-chip {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.55); border-radius: 20px;
+  padding: 4px 10px; font-size: 11px; cursor: pointer; transition: all 0.2s;
+  font-family: var(--fb);
+}
+.edit-chip:hover { background: rgba(255,255,255,0.12); color: white; border-color: var(--red); }
+</style>
+
+<!-- Edit FAB button -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+
+<!-- Edit panel -->
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">
+      ✏️ Edit your site
+    </div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()">×</button>
+  </div>
+
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">
+      Hey! Tell me what you'd like to change and I'll update the site for you instantly. Try something like changing your hours, adding a menu item, or updating your phone number.
+    </div>
+  </div>
+
+  <div class="edit-typing" id="edit-typing">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="edit-confirm-bar" id="edit-confirm-bar">
+    <div class="edit-confirm-text">✓ Changes look good?</div>
+    <div class="edit-confirm-btns">
+      <button class="btn-revert" onclick="revertChanges()">Undo</button>
+      <button class="btn-confirm" onclick="confirmChanges()">Save changes</button>
+    </div>
+  </div>
+
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-chip" onclick="useChip(this)">Update our hours</div>
+    <div class="edit-chip" onclick="useChip(this)">Add a new menu item</div>
+    <div class="edit-chip" onclick="useChip(this)">Change our phone number</div>
+    <div class="edit-chip" onclick="useChip(this)">Add a special promotion</div>
+  </div>
+
+  <div class="edit-input-row">
+    <textarea
+      class="edit-input"
+      id="edit-input"
+      placeholder="What would you like to change?"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
+  </div>
+</div>
+
 <script>
+// ── SEO panel ──
 function toggleSEO() {
   const p = document.getElementById('seo-panel');
   const b = document.getElementById('seo-btn');
   p.classList.toggle('open');
   b.textContent = p.classList.contains('open') ? 'Hide details ▲' : 'See what we fixed ▼';
 }
+
+// ── Sticky bar ──
 const bar = document.getElementById('sticky-bar');
-let closed = false;
+let barClosed = false;
 window.addEventListener('scroll', () => {
-  if (closed) return;
+  if (barClosed) return;
   bar.classList.toggle('show', window.scrollY > 500);
 });
-function closeBar() { closed = true; bar.classList.remove('show'); }
+function closeBar() { barClosed = true; bar.classList.remove('show'); }
+
+// ── Edit widget ──
+let originalHTML = '';
+let pendingHTML = '';
+let isLoading = false;
+
+function toggleEditPanel() {
+  const panel = document.getElementById('edit-panel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    setTimeout(() => document.getElementById('edit-input').focus(), 100);
+  }
+}
+
+function useChip(el) {
+  const input = document.getElementById('edit-input');
+  input.value = el.textContent;
+  input.focus();
+  autoResize(input);
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendEdit();
+  }
+}
+
+function addMessage(text, type) {
+  const messages = document.getElementById('edit-messages');
+  const msg = document.createElement('div');
+  msg.className = `edit-msg ${type}`;
+  msg.textContent = text;
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+  return msg;
+}
+
+async function sendEdit() {
+  if (isLoading) return;
+  const input = document.getElementById('edit-input');
+  const request = input.value.trim();
+  if (!request) return;
+
+  // Clear input
+  input.value = '';
+  autoResize(input);
+
+  // Hide suggestions after first use
+  document.getElementById('edit-suggestions').style.display = 'none';
+
+  // Add user message
+  addMessage(request, 'user');
+
+  // Show typing indicator
+  isLoading = true;
+  document.getElementById('edit-send').disabled = true;
+  const typing = document.getElementById('edit-typing');
+  typing.classList.add('show');
+
+  // Scroll messages
+  const messages = document.getElementById('edit-messages');
+  messages.scrollTop = messages.scrollHeight;
+
+  // Get current page HTML
+  const currentHTML = document.documentElement.outerHTML;
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are a website editor for Valentine's Deli in Bend, Oregon. 
+The user will ask you to make changes to their website.
+
+RULES:
+- You may ONLY change: text content, prices, hours, phone numbers, menu items, addresses, promotional text
+- You may NOT change: colors, fonts, layout, CSS, the SEO banner, the sticky claim bar, the edit widget itself
+- Always return the COMPLETE updated HTML document
+- Make exactly the change requested, nothing more
+- If the request is unclear, make your best guess at what they mean
+- Keep the same tone and voice as the existing content
+
+Return ONLY the complete HTML with the change applied. No explanation, no markdown, just the raw HTML.`,
+        messages: [{
+          role: 'user',
+          content: `Here is the current website HTML:\n\n${currentHTML}\n\nPlease make this change: ${request}`
+        }]
+      })
+    });
+
+    const data = await response.json();
+    typing.classList.remove('show');
+
+    if (data.content && data.content[0] && data.content[0].text) {
+      const newHTML = data.content[0].text.trim();
+
+      // Store originals
+      originalHTML = currentHTML;
+      pendingHTML = newHTML;
+
+      // Apply the change
+      document.open();
+      document.write(newHTML);
+      document.close();
+
+      // Show confirm bar after re-render
+      // (widget will be re-initialized by the new HTML)
+
+    } else {
+      addMessage('Something went wrong. Try again.', 'error');
+      isLoading = false;
+      document.getElementById('edit-send').disabled = false;
+    }
+
+  } catch (err) {
+    typing.classList.remove('show');
+    addMessage('Couldn\'t connect. Check your internet and try again.', 'error');
+    isLoading = false;
+    document.getElementById('edit-send').disabled = false;
+  }
+}
+
+function confirmChanges() {
+  // In production this would commit to GitHub
+  // For the demo, just show a success message and close confirm bar
+  document.getElementById('edit-confirm-bar').classList.remove('show');
+  addMessage('✓ Changes saved! In the live version this would update your site instantly.', 'system');
+  originalHTML = '';
+  pendingHTML = '';
+}
+
+function revertChanges() {
+  if (originalHTML) {
+    document.open();
+    document.write(originalHTML);
+    document.close();
+  }
+}
+
+// Auto-open confirm bar if this page was just rendered by an edit
+// (persisted via sessionStorage)
+window.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('pendingConfirm') === 'true') {
+    sessionStorage.removeItem('pendingConfirm');
+    const panel = document.getElementById('edit-panel');
+    if (panel) {
+      panel.classList.add('open');
+      document.getElementById('edit-confirm-bar').classList.add('show');
+      addMessage('Done! Here\'s your updated site. How does it look?', 'claude');
+    }
+  }
+});
 </script>
 </body>
 </html>
