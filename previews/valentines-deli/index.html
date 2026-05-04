@@ -107,7 +107,7 @@ img { max-width: 100%; display: block; }
   max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
-.seo-panel.open { max-height: 600px; }
+.seo-panel.open { max-height: 80vh; overflow-y: auto; }
 .seo-panel-inner {
   padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
   max-width: 900px; margin: 0 auto;
@@ -647,25 +647,25 @@ footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red);
 
       <div class="menu-cat">
         <div class="menu-cat-title">Got Kiddos? <span style="font-size:13px;font-weight:400;text-transform:none;letter-spacing:0;color:#777;">12 and younger · served with applesauce</span></div>
-        <div class="menu-item"><div><div class="mi-name">Kid's Half Sando</div><div class="mi-desc">½ sandwich with turkey, ham, pastrami, or roast beef with cheddar on sourdough. Veggies on request.</div></div><div class="mi-price">$6</div></div>
-        <div class="menu-item"><div><div class="mi-name">Kid's Grilled Cheese</div><div class="mi-desc">Whole grilled sourdough and cheddar.</div></div><div class="mi-price">$6</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-k1-name">Kid's Half Sando</div><div class="mi-desc" id="edit-k1-desc">½ sandwich with turkey, ham, pastrami, or roast beef with cheddar on sourdough. Veggies on request.</div></div><div class="mi-price" id="edit-k1-price">$6</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-k2-name">Kid's Grilled Cheese</div><div class="mi-desc" id="edit-k2-desc">Whole grilled sourdough and cheddar.</div></div><div class="mi-price" id="edit-k2-price">$6</div></div>
       </div>
 
       <div class="menu-cat">
         <div class="menu-cat-title">Add-Ons & Extras</div>
-        <div class="menu-item"><div><div class="mi-name">Add-Ons</div><div class="mi-desc">Extra meat / bacon / avocado / veggies</div></div><div class="mi-price">$3 / $2 / $2 / $1.50</div></div>
-        <div class="menu-item"><div><div class="mi-name">Gluten Free Bread</div><div class="mi-desc">Ener-G sliced sourdough — add to any sandwich</div></div><div class="mi-price">$1</div></div>
-        <div class="menu-item"><div><div class="mi-name">Sides</div><div class="mi-desc">Call for today's options (when available)</div></div><div class="mi-price">$4.50 / $7</div></div>
-        <div class="menu-item"><div><div class="mi-name">Kettle Chips</div><div class="mi-desc">Original, BBQ, Salt & Vinegar, Jalapeño</div></div><div class="mi-price">$2</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-ao1-name">Add-Ons</div><div class="mi-desc" id="edit-ao1-desc">Extra meat / bacon / avocado / veggies</div></div><div class="mi-price" id="edit-ao1-price">$3 / $2 / $2 / $1.50</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-ao2-name">Gluten Free Bread</div><div class="mi-desc" id="edit-ao2-desc">Ener-G sliced sourdough — add to any sandwich</div></div><div class="mi-price" id="edit-ao2-price">$1</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-ao3-name">Sides</div><div class="mi-desc" id="edit-ao3-desc">Call for today's options (when available)</div></div><div class="mi-price" id="edit-ao3-price">$4.50 / $7</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-ao4-name">Kettle Chips</div><div class="mi-desc" id="edit-ao4-desc">Original, BBQ, Salt & Vinegar, Jalapeño</div></div><div class="mi-price" id="edit-ao4-price">$2</div></div>
       </div>
 
       <div class="menu-cat">
         <div class="menu-cat-title">Drinks</div>
-        <div class="menu-item"><div><div class="mi-name">Soda</div><div class="mi-desc">Coke, Diet Coke, RC Cola, A&W Root Beer</div></div><div class="mi-price">$3</div></div>
-        <div class="menu-item"><div><div class="mi-name">LaCroix / San Pellegrino / Iced Tea</div><div class="mi-desc">Rotating flavors</div></div><div class="mi-price">$3</div></div>
-        <div class="menu-item"><div><div class="mi-name">Kombucha</div><div class="mi-desc">Compassion Kombucha, Bend — rotating flavors</div></div><div class="mi-price">$6</div></div>
-        <div class="menu-item"><div><div class="mi-name">Rainier Tall Boys / Craft Beer</div><div class="mi-desc">Check the cooler</div></div><div class="mi-price">$3.50 / $5</div></div>
-        <div class="menu-item"><div><div class="mi-name">Cider / White Claw</div><div class="mi-desc">Bend Cider (rotating) / Check the cooler</div></div><div class="mi-price">$6 / $4</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-dr1-name">Soda</div><div class="mi-desc" id="edit-dr1-desc">Coke, Diet Coke, RC Cola, A&W Root Beer</div></div><div class="mi-price" id="edit-dr1-price">$3</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-dr2-name">LaCroix / San Pellegrino / Iced Tea</div><div class="mi-desc" id="edit-dr2-desc">Rotating flavors</div></div><div class="mi-price" id="edit-dr2-price">$3</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-dr3-name">Kombucha</div><div class="mi-desc" id="edit-dr3-desc">Compassion Kombucha, Bend — rotating flavors</div></div><div class="mi-price" id="edit-dr3-price">$6</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-dr4-name">Rainier Tall Boys / Craft Beer</div><div class="mi-desc" id="edit-dr4-desc">Check the cooler</div></div><div class="mi-price" id="edit-dr4-price">$3.50 / $5</div></div>
+        <div class="menu-item"><div><div class="mi-name" id="edit-dr5-name">Cider / White Claw</div><div class="mi-desc" id="edit-dr5-desc">Bend Cider (rotating) / Check the cooler</div></div><div class="mi-price" id="edit-dr5-price">$6 / $4</div></div>
       </div>
 
       <div style="text-align:center;margin-top:24px;">
@@ -963,7 +963,7 @@ footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red);
 
   <div class="edit-messages" id="edit-messages">
     <div class="edit-msg claude">
-      Hey! Tell me what you'd like to change and I'll update the site for you instantly. Try something like changing your hours, adding a menu item, or updating your phone number.
+      Hey! Tell me what you'd like to change — hours, prices, menu descriptions, phone number, address, or any text on the page. Note: adding brand new items isn't supported yet, but updating existing ones is.
     </div>
   </div>
 
@@ -980,10 +980,10 @@ footer { background: #0A0A0A; padding: 28px 0; border-top: 3px solid var(--red);
   </div>
 
   <div class="edit-suggestions" id="edit-suggestions">
-    <div class="edit-chip" onclick="useChip(this)">Update our hours</div>
-    <div class="edit-chip" onclick="useChip(this)">Add a new menu item</div>
-    <div class="edit-chip" onclick="useChip(this)">Change our phone number</div>
-    <div class="edit-chip" onclick="useChip(this)">Add a special promotion</div>
+    <div class="edit-chip" onclick="useChip(this)">Change Monday hours to 10am-3pm</div>
+    <div class="edit-chip" onclick="useChip(this)">Change soda price to $3.50</div>
+    <div class="edit-chip" onclick="useChip(this)">Change the phone number</div>
+    <div class="edit-chip" onclick="useChip(this)">Change Hot Italian price to $16</div>
   </div>
 
   <div class="edit-input-row">
