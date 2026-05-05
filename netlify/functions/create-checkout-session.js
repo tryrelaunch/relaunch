@@ -1,8 +1,8 @@
 // Maps plan tier names to Stripe Price IDs (test mode)
 const PRICE_IDS = {
-  starter: 'price_1TTqNlP1XFF6NaBoEakSDPe3',
-  growth: 'price_1TTqO6P1XFF6NaBo6qMV0Xfa',
-  full_service: 'price_1TTqOhP1XFF6NaBoNfjleuHK'
+  starter: 'price_1TTr9fP1XFF6NaBocfETPu0B',
+  growth: 'price_1TTr9uP1XFF6NaBoulvEJQJy',
+  full_service: 'price_1TTrA8P1XFF6NaBoeqNHZy2d'
 };
 
 // Lightweight rate limit (resets on cold start, fine at our scale)
