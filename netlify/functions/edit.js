@@ -1,7 +1,39 @@
+// In-memory rate limiter. Resets on cold start, fine at our scale.
+const hits = new Map();
+const WINDOW_MS = 60 * 1000;
+const MAX_PER_WINDOW = 10;
+const MAX_CONTENT_LEN = 50000;
+
 exports.handler = async function (event) {
 
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
+  }
+
+  // Rate limit by IP
+  const ip = (event.headers['x-nf-client-connection-ip']
+    || (event.headers['x-forwarded-for'] || '').split(',')[0].trim()
+    || 'unknown');
+
+  const now = Date.now();
+  const record = hits.get(ip) || { count: 0, resetAt: now + WINDOW_MS };
+  if (now > record.resetAt) {
+    record.count = 0;
+    record.resetAt = now + WINDOW_MS;
+  }
+  record.count++;
+  hits.set(ip, record);
+
+  if (record.count > MAX_PER_WINDOW) {
+    const retryAfter = Math.ceil((record.resetAt - now) / 1000);
+    return {
+      statusCode: 429,
+      headers: {
+        'Content-Type': 'application/json',
+        'Retry-After': String(retryAfter)
+      },
+      body: JSON.stringify({ error: 'Too many edits. Try again in a minute.' })
+    };
   }
 
   let body;
@@ -21,10 +53,28 @@ exports.handler = async function (event) {
     return { statusCode: 400, body: 'Request too long' };
   }
 
+  // Cap content payload size to prevent token-burning attacks
+  if (JSON.stringify(content).length > MAX_CONTENT_LEN) {
+    return { statusCode: 400, body: 'Content payload too large' };
+  }
+
+  // Cheap prompt-injection guard
+  const lower = request.toLowerCase();
+  if (
+    lower.includes('ignore previous') ||
+    lower.includes('system prompt') ||
+    lower.includes('reveal instructions')
+  ) {
+    return { statusCode: 400, body: 'Invalid request' };
+  }
+
   const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
   if (!CLAUDE_API_KEY) {
     return { statusCode: 500, body: 'API key not configured' };
   }
+
+  // Read model from env var so swaps don't require redeploy; same default as before
+  const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -35,7 +85,7 @@ exports.handler = async function (event) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: MODEL,
         max_tokens: 1000,
         system: `You are a website content editor. The user will describe a change they want made to their website.
 
