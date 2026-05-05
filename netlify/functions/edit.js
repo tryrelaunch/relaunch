@@ -1,97 +1,135 @@
-exports.handler = async function (event) {
+import Anthropic from "@anthropic-ai/sdk";
 
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method not allowed' };
+const client = new Anthropic({ apiKey: process.env.CLAUDE_API_KEY });
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001";
+
+// In-memory rate limiter. Resets on cold start, which is fine —
+// Netlify functions cold-start frequently enough that abusers
+// can't accumulate state, and legitimate users won't hit limits.
+const hits = new Map();
+const WINDOW_MS = 60 * 1000;          // 1 minute window
+const MAX_PER_WINDOW = 10;            // 10 edits per IP per minute
+const MAX_PROMPT_LEN = 500;           // characters
+const MAX_HTML_LEN = 50_000;          // characters
+
+export default async (req) => {
+  // CORS / method gate
+  if (req.method !== "POST") {
+    return new Response("Method not allowed", { status: 405 });
   }
 
+  // Identify caller by IP
+  const ip =
+    req.headers.get("x-nf-client-connection-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "unknown";
+
+  // Rate limit check
+  const now = Date.now();
+  const record = hits.get(ip) || { count: 0, resetAt: now + WINDOW_MS };
+  if (now > record.resetAt) {
+    record.count = 0;
+    record.resetAt = now + WINDOW_MS;
+  }
+  record.count++;
+  hits.set(ip, record);
+
+  if (record.count > MAX_PER_WINDOW) {
+    const retryAfter = Math.ceil((record.resetAt - now) / 1000);
+    return new Response(
+      JSON.stringify({ error: "Too many edits. Try again in a minute." }),
+      {
+        status: 429,
+        headers: {
+          "Content-Type": "application/json",
+          "Retry-After": String(retryAfter),
+        },
+      }
+    );
+  }
+
+  // Parse + validate input
   let body;
   try {
-    body = JSON.parse(event.body);
+    body = await req.json();
   } catch {
-    return { statusCode: 400, body: 'Invalid JSON' };
+    return json({ error: "Invalid JSON" }, 400);
   }
 
-  const { request, content } = body;
-
-  if (!request || !content) {
-    return { statusCode: 400, body: 'Missing request or content' };
+  const { prompt, html, context } = body || {};
+  if (typeof prompt !== "string" || typeof html !== "string") {
+    return json({ error: "Missing prompt or html" }, 400);
+  }
+  if (prompt.length > MAX_PROMPT_LEN) {
+    return json({ error: "Prompt too long" }, 400);
+  }
+  if (html.length > MAX_HTML_LEN) {
+    return json({ error: "HTML payload too large" }, 400);
   }
 
-  if (request.length > 500) {
-    return { statusCode: 400, body: 'Request too long' };
+  // Cheap prompt-injection guard (not foolproof, just raises the bar)
+  const lower = prompt.toLowerCase();
+  if (
+    lower.includes("ignore previous") ||
+    lower.includes("system prompt") ||
+    lower.includes("reveal instructions")
+  ) {
+    return json({ error: "Invalid prompt" }, 400);
   }
 
-  const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
-  if (!CLAUDE_API_KEY) {
-    return { statusCode: 500, body: 'API key not configured' };
-  }
-
+  // Call Claude
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': CLAUDE_API_KEY,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 1000,
-        system: `You are a website content editor. The user will describe a change they want made to their website.
-
-You will receive a JSON object of all editable content on the page with element IDs as keys.
-
-Respond with ONLY a valid JSON object in this exact format — no markdown, no explanation:
-{
-  "changes": [
-    { "id": "element-id", "text": "new text value" }
-  ],
-  "confirmation": "One sentence confirming what you changed in plain English."
-}
-
-Rules:
-- Only include elements that actually need to change
-- Only change text content — never IDs, structure, or anything else
-- If the request is unclear, make the most sensible interpretation
-- Keep the same tone and voice as the existing content`,
-        messages: [{
-          role: 'user',
-          content: `Here is the current editable content:\n${JSON.stringify(content, null, 2)}\n\nChange requested: ${request}`
-        }]
-      })
+    const message = await client.messages.create({
+      model: MODEL,
+      max_tokens: 4096,
+      system:
+        "You edit static HTML for small business websites. The user " +
+        "will give you a snippet of HTML and a request. Return ONLY " +
+        "the modified HTML — no commentary, no markdown fences, no " +
+        "<script> tags. Preserve all attributes, classes, IDs, and " +
+        "any <script type=\"application/ld+json\"> blocks. Match the " +
+        "existing visual style.",
+      messages: [
+        {
+          role: "user",
+          content:
+            `Current HTML:\n${html}\n\n` +
+            (context ? `Page context:\n${context}\n\n` : "") +
+            `Request: ${prompt}\n\nReturn the modified HTML.`,
+        },
+      ],
     });
 
-    if (!response.ok) {
-      const err = await response.text();
-      console.error('Claude API error:', response.status, err);
-      return { statusCode: 502, body: 'Claude API error' };
+    let newHtml = message.content?.[0]?.text?.trim() || "";
+
+    // Strip any markdown fences Claude might add despite instructions
+    newHtml = newHtml
+      .replace(/^```(?:html)?\s*/i, "")
+      .replace(/```\s*$/, "")
+      .trim();
+
+    // Strip any <script> tags from the response — defense in depth.
+    // Schema (application/ld+json) is preserved by replacing only
+    // executable script tags.
+    newHtml = newHtml.replace(
+      /<script(?![^>]*type=["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/gi,
+      ""
+    );
+
+    if (!newHtml) {
+      return json({ error: "Empty response from model" }, 502);
     }
 
-    const data = await response.json();
-    let raw = data?.content?.[0]?.text?.trim() || '';
-
-    // Strip markdown fences if present
-    raw = raw.replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '').trim();
-
-    let result;
-    try {
-      result = JSON.parse(raw);
-    } catch {
-      console.error('Failed to parse Claude response as JSON:', raw);
-      return { statusCode: 502, body: 'Invalid response format' };
-    }
-
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify(result)
-    };
-
+    return json({ html: newHtml });
   } catch (err) {
-    console.error('Function error:', err.message);
-    return { statusCode: 500, body: `Internal error: ${err.message}` };
+    console.error("edit.js error:", err);
+    return json({ error: "Edit failed. Try again." }, 502);
   }
 };
+
+function json(obj, status = 200) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}
