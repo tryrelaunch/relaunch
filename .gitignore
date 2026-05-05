@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+
+# Secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+
+# Design source files (often huge, not needed in repo)
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xd
+
+# Archives & installers
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.dmg
+*.exe
+*.msi
+*.deb
+*.pkg
+
+# Raw/large image formats — shouldn't be in repo unless converted
+*.RAW
+*.DNG
+*.CR2
+*.NEF
+*.ARW
+*.heic
+*.HEIC
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Editor & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output (if any)
+dist/
+build/
+.cache/
+
+# Netlify CLI local
+.netlify/
