@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Spork — globally-inspired streetfood in Bend, Oregon. Asian-Mexican cuisine, craft cocktails, and 16+ years of Bend awards. Open Mon–Sat 11am–9pm at 937 NW Newport Ave.">
+<meta name="robots" content="noindex">
+<title>Spork — Globally-Inspired Streetfood · Bend, Oregon</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Spork",
+  "description": "Globally-inspired green-conscious streetfood serving Asian-Mexican cuisine and craft cocktails in Bend, Oregon since 2009.",
+  "url": "https://sporkbend.com",
+  "telephone": "(541) 390-0946",
+  "image": "https://tryrelaunch.com/previews/spork/images/interior-current.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "937 NW Newport Ave, Suite 130",
+    "addressLocality": "Bend",
+    "addressRegion": "OR",
+    "postalCode": "97701",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.062233,
+    "longitude": -121.325783
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "11:00",
+      "closes": "21:00"
+    }
+  ],
+  "servesCuisine": ["Asian Fusion","Mexican","Southeast Asian","Streetfood"],
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "493",
+    "bestRating": "5"
+  },
+  "award": "Source Weekly Restaurant of the Year 2016 · Best Casual Dining (2016, 2020, 2022) · Bulletin Best Vegetarian 2018 · The New York Times — \"Culinary magic\"",
+  "menu": "https://sporkbend.com/menu",
+  "acceptsReservations": "True"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&family=Caveat:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:    #4baf0f;
+  --green-dk: #3d9009;
+  --green-lt: #6ec934;
+  --leaf:     #1a3320;
+  --leaf-2:   #243d2a;
+  --cream:    #faf5e8;
+  --cream-2:  #f2ebd6;
+  --paper:    #fdfbf3;
+  --ink:      #1a1a1a;
+  --ink-2:    #4a4a4a;
+  --ink-3:    #888;
+  --line:     #e3dec8;
+  --clay:     #c9532a;
+  --clay-dk:  #a8401e;
+
+  --fh: 'Archivo', sans-serif;
+  --fb: 'Manrope', sans-serif;
+  --fs: 'Caveat', cursive;
+  --ff: 'Fraunces', Georgia, serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--cream); color: var(--ink); line-height: 1.55; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ── DECORATIVE LEAF MOTIF ─────────────────── */
+.leaf-motif::before, .leaf-motif::after {
+  content: ''; position: absolute; pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, var(--green-lt) 0%, transparent 65%);
+  opacity: 0.08;
+  border-radius: 50% 0 50% 50%;
+}
+
+/* ── SEO BANNER ─────────────────────────────── */
+.seo-banner { background: var(--leaf); border-bottom: 2px solid var(--green); }
+.seo-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 24px; cursor: pointer; gap: 14px; flex-wrap: wrap;
+  max-width: 1280px; margin: 0 auto;
+}
+.seo-badge {
+  background: var(--green); color: var(--leaf);
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 3px; white-space: nowrap;
+}
+.seo-text { font-family: var(--fb); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); }
+.seo-text span { color: var(--green-lt); font-weight: 700; }
+.seo-toggle {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.85); padding: 6px 14px; border-radius: 4px;
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+}
+.seo-toggle:hover { background: rgba(255,255,255,0.16); color: white; }
+.seo-panel {
+  max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
+}
+.seo-panel.open { max-height: 1200px; overflow-y: auto; }
+.seo-panel-inner {
+  padding: 28px 24px 32px;
+  max-width: 1100px; margin: 0 auto;
+}
+.seo-greeting {
+  font-family: var(--ff); font-style: italic; font-size: 22px; line-height: 1.5;
+  color: rgba(255,255,255,0.95); margin-bottom: 6px; max-width: 720px;
+}
+.seo-greeting strong { color: var(--green-lt); font-style: normal; font-weight: 500; }
+.seo-greeting-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+.seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.seo-col-title {
+  font-family: var(--fh); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--green-lt); margin-bottom: 14px; font-weight: 800;
+}
+.seo-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; }
+.seo-ico {
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+}
+.seo-ico.x { background: rgba(239,68,68,0.18); color: #f97171; }
+.seo-ico.c { background: rgba(75,175,15,0.22); color: var(--green-lt); }
+.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.seo-row-text strong { color: white; font-weight: 700; }
+.seo-cta-row {
+  margin-top: 24px;
+  background: rgba(75,175,15,0.12); border: 1px solid rgba(75,175,15,0.35);
+  border-radius: 8px; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.seo-cta-text { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.5; }
+.seo-cta-text strong { color: var(--green-lt); }
+.btn-green {
+  background: var(--green); color: white; border: none; border-radius: 5px;
+  padding: 11px 22px; font-family: var(--fh); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-green:hover { background: var(--green-dk); transform: translateY(-1px); }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  background: var(--leaf); padding: 0 36px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--fh); font-weight: 900; font-size: 22px;
+  color: white; letter-spacing: -0.01em;
+}
+.nav-logo-mark {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--green); display: grid; place-items: center;
+  position: relative;
+}
+.nav-logo-mark::before {
+  content: ''; width: 12px; height: 12px;
+  background: white; border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+}
+.nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+.nav-links a {
+  font-family: var(--fb); font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.65); letter-spacing: 0.04em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: white; }
+.nav-order {
+  background: var(--green); color: var(--leaf) !important;
+  padding: 9px 18px; border-radius: 4px; font-weight: 800 !important;
+  font-family: var(--fh) !important; letter-spacing: 0.06em !important;
+}
+.nav-order:hover { background: var(--green-lt); }
+.nav-mobile-cta { display: none; }
+
+/* ── HERO ──────────────────────────────────── */
+.hero {
+  background: var(--cream);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -100px; right: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(75,175,15,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -80px; left: -100px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(201,83,42,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1240px; margin: 0 auto;
+  padding: 72px 40px 64px;
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--fb); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-2); margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: ''; width: 28px; height: 2px; background: var(--green);
+}
+.hero-quote {
+  font-family: var(--ff); font-style: italic; font-weight: 500;
+  font-size: clamp(64px, 9vw, 124px); line-height: 0.92;
+  letter-spacing: -0.02em; color: var(--ink);
+  margin-bottom: 14px;
+}
+.hero-quote .open-q, .hero-quote .close-q {
+  color: var(--green); font-weight: 400;
+  display: inline-block; transform: translateY(0.05em);
+}
+.hero-attrib {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--fb); font-size: 14px; color: var(--ink-2);
+  margin-bottom: 30px;
+}
+.hero-attrib::before { content: '—'; color: var(--ink-3); }
+.hero-attrib strong { color: var(--ink); font-weight: 700; }
+.hero-tagline {
+  font-family: var(--fb); font-size: 19px; font-weight: 500;
+  line-height: 1.55; color: var(--ink-2);
+  margin-bottom: 30px; max-width: 480px;
+}
+.hero-tagline em { font-family: var(--fs); font-size: 26px; color: var(--green-dk); font-style: normal; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+.btn-primary {
+  background: var(--green); color: white; padding: 15px 28px;
+  font-family: var(--fh); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px;
+  border: none; cursor: pointer; transition: all 0.2s; display: inline-flex;
+  align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--green-dk); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--ink); padding: 15px 26px;
+  font-family: var(--fh); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px;
+  border: 2px solid var(--ink); cursor: pointer; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-outline:hover { background: var(--ink); color: white; }
+
+.hero-meta {
+  display: flex; gap: 36px; flex-wrap: wrap;
+  padding-top: 26px; border-top: 1px solid var(--line);
+}
+.hero-meta-item { font-family: var(--fb); font-size: 13px; color: var(--ink-3); }
+.hero-meta-item strong {
+  display: block; font-family: var(--fh); font-size: 17px; font-weight: 800;
+  color: var(--ink); margin-bottom: 1px;
+}
+.hero-meta-item .stars { color: var(--green); }
+
+/* Hero right — image + review card */
+.hero-right { display: flex; flex-direction: column; gap: 18px; position: relative; }
+.hero-photo-wrap {
+  border-radius: 6px; overflow: hidden;
+  aspect-ratio: 4/3.2; position: relative;
+  box-shadow: 0 24px 60px -20px rgba(26,51,32,0.35);
+}
+.hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo-tag {
+  position: absolute; bottom: 16px; left: 16px;
+  background: rgba(26,51,32,0.92); backdrop-filter: blur(8px);
+  color: white; padding: 8px 14px; border-radius: 4px;
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-photo-tag .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+
+.hero-floating-badge {
+  position: absolute; top: -22px; right: -18px;
+  background: var(--clay); color: white;
+  width: 130px; height: 130px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--fh); text-align: center; padding: 12px;
+  box-shadow: 0 14px 30px rgba(201,83,42,0.4);
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+.hero-floating-badge .b-num { font-size: 28px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.hero-floating-badge .b-txt { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.3; }
+
+.review-strip {
+  background: var(--leaf); border-radius: 6px; padding: 18px 22px;
+  display: flex; align-items: center; gap: 18px;
+  color: white;
+}
+.rs-score { text-align: center; flex-shrink: 0; }
+.rs-num { font-family: var(--fh); font-size: 38px; font-weight: 900; color: white; line-height: 1; }
+.rs-stars { color: var(--green-lt); font-size: 13px; letter-spacing: 1px; margin-top: 2px; }
+.rs-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+.rs-quotes { flex: 1; min-width: 0; }
+.rs-quote {
+  font-family: var(--ff); font-style: italic; font-size: 13px;
+  color: rgba(255,255,255,0.82); line-height: 1.45;
+}
+.rs-quote::before { content: '"'; color: var(--green-lt); }
+.rs-quote::after { content: '"'; color: var(--green-lt); }
+.rs-quote + .rs-quote { margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+/* ── AWARDS MARQUEE ────────────────────────── */
+.awards-strip {
+  background: var(--leaf); color: white;
+  padding: 22px 0; overflow: hidden;
+  border-top: 3px solid var(--green);
+  border-bottom: 3px solid var(--green);
+}
+.marquee {
+  display: flex; gap: 64px; align-items: center;
+  white-space: nowrap; animation: scroll 50s linear infinite;
+  font-family: var(--fh); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.marquee-item { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.marquee-item .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+.marquee-item .star { color: var(--green-lt); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ──────────────────────────────── */
+.sec { max-width: 1200px; margin: 0 auto; padding: 88px 40px; }
+.sec-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--fb); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-2); margin-bottom: 18px;
+}
+.sec-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--green); }
+.sec-eyebrow.light { color: rgba(255,255,255,0.55); }
+.sec-eyebrow.light::before { background: var(--green); }
+.sec-title {
+  font-family: var(--fh); font-size: clamp(40px, 5.6vw, 64px);
+  font-weight: 900; line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+.sec-title em { font-style: normal; color: var(--green); }
+.sec-title .script { font-family: var(--fs); font-style: normal; color: var(--green); font-size: 1.05em; }
+.sec-sub {
+  font-family: var(--fb); font-size: 18px; line-height: 1.6;
+  color: var(--ink-2); max-width: 640px; margin-bottom: 48px;
+}
+.sec-sub.light { color: rgba(255,255,255,0.7); }
+
+/* ── STORY SECTION ─────────────────────────── */
+.story-section {
+  background: var(--leaf); color: white;
+  position: relative; overflow: hidden;
+}
+.story-bg {
+  position: absolute; right: -60px; top: 50%;
+  transform: translateY(-50%);
+  width: 50%; max-width: 720px; aspect-ratio: 1.9/1;
+  border-radius: 8px; overflow: hidden;
+  opacity: 0.18;
+  filter: saturate(0.7);
+  pointer-events: none;
+}
+.story-bg img { width: 100%; height: 100%; object-fit: cover; }
+.story-section .sec { position: relative; z-index: 1; padding: 100px 40px; }
+.story-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
+.story-section .sec-title { color: white; }
+.story-section .sec-title em { color: var(--green-lt); font-family: var(--ff); font-style: italic; font-weight: 400; }
+.story-text p {
+  font-size: 16px; line-height: 1.75;
+  color: rgba(255,255,255,0.78); margin-bottom: 16px;
+}
+.story-text p strong { color: white; font-weight: 700; }
+.story-text p em { color: var(--green-lt); font-style: normal; font-weight: 600; }
+.story-pullquote {
+  border-left: 3px solid var(--green);
+  padding: 4px 0 4px 22px; margin: 28px 0;
+  font-family: var(--ff); font-style: italic; font-size: 22px; line-height: 1.4;
+  color: white;
+}
+.story-pullquote-attrib {
+  display: block; font-family: var(--fb); font-style: normal; font-size: 12px;
+  font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--green-lt); margin-top: 8px;
+}
+.story-timeline { display: flex; flex-direction: column; gap: 4px; }
+.story-yr {
+  display: grid; grid-template-columns: 76px 1fr; gap: 18px;
+  padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  align-items: start;
+}
+.story-yr:last-child { border-bottom: none; }
+.story-yr-num {
+  font-family: var(--fh); font-size: 26px; font-weight: 900;
+  color: var(--green-lt); line-height: 1;
+}
+.story-yr-text strong {
+  display: block; font-family: var(--fh); font-size: 15px; font-weight: 800;
+  color: white; margin-bottom: 4px; letter-spacing: 0.02em;
+}
+.story-yr-text span { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.5; }
+
+.values-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+  margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.value-card { }
+.value-card-title {
+  font-family: var(--fh); font-size: 14px; font-weight: 800;
+  color: var(--green-lt); letter-spacing: 0.04em; margin-bottom: 8px;
+}
+.value-card-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+/* ── FEATURED DISHES ────────────────────────── */
+.featured-section { background: var(--cream); padding-top: 88px; padding-bottom: 64px; }
+.fav-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.fav-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; flex-direction: column;
+}
+.fav-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(26,51,32,0.18);
+}
+.fav-img { aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.fav-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.fav-card:hover .fav-img img { transform: scale(1.04); }
+.fav-pill {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(26,51,32,0.92); backdrop-filter: blur(8px); color: white;
+  font-family: var(--fh); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 6px 11px; border-radius: 3px;
+}
+.fav-pill.green { background: var(--green); color: var(--leaf); }
+.fav-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+.fav-name {
+  font-family: var(--fh); font-size: 22px; font-weight: 900;
+  color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.fav-desc {
+  font-size: 14px; color: var(--ink-2); line-height: 1.55;
+  margin-bottom: 18px; flex: 1;
+}
+.fav-foot { display: flex; align-items: center; justify-content: space-between; }
+.fav-price {
+  font-family: var(--fh); font-size: 19px; font-weight: 900; color: var(--green-dk);
+}
+.fav-tag {
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  color: var(--ink-3); display: flex; gap: 4px;
+}
+.fav-tag span {
+  background: var(--cream-2); padding: 3px 8px; border-radius: 3px;
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px;
+}
+
+/* ── FULL MENU ──────────────────────────────── */
+.menu-section { background: var(--paper); padding: 80px 0 96px; }
+.menu-section .sec { padding-top: 0; padding-bottom: 0; }
+.menu-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px;
+  align-items: start;
+}
+.menu-cat { margin-bottom: 38px; }
+.menu-cat-title {
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--green-dk);
+  margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+}
+.menu-cat-title small {
+  font-family: var(--fb); font-weight: 500; font-size: 12px;
+  letter-spacing: 0; text-transform: none; color: var(--ink-3);
+}
+.menu-item {
+  display: grid; grid-template-columns: 1fr auto; gap: 18px;
+  padding: 11px 0; align-items: baseline;
+}
+.menu-item + .menu-item { border-top: 1px dashed rgba(0,0,0,0.06); }
+.mi-name {
+  font-family: var(--fh); font-size: 16px; font-weight: 800;
+  color: var(--ink); margin-bottom: 3px;
+}
+.mi-name .gf { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; margin-left: 6px; vertical-align: 2px; }
+.mi-name .veg { color: var(--clay); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; margin-left: 4px; vertical-align: 2px; }
+.mi-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+.mi-price {
+  font-family: var(--fh); font-size: 16px; font-weight: 900; color: var(--green-dk);
+  white-space: nowrap;
+}
+.menu-side {
+  position: sticky; top: 84px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.menu-side-card {
+  background: var(--leaf); color: white;
+  padding: 26px; border-radius: 8px;
+}
+.msc-eyebrow {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-lt);
+  margin-bottom: 12px;
+}
+.msc-title {
+  font-family: var(--fh); font-size: 26px; font-weight: 900;
+  line-height: 1.05; margin-bottom: 10px;
+}
+.msc-title .script { font-family: var(--fs); color: var(--green-lt); font-weight: 700; font-size: 1.1em; }
+.msc-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.55; margin-bottom: 18px; }
+.msc-btn {
+  background: var(--green); color: var(--leaf);
+  padding: 11px 18px; border-radius: 4px;
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: inline-block; transition: all 0.2s;
+}
+.msc-btn:hover { background: var(--green-lt); }
+.msc-img {
+  border-radius: 8px; overflow: hidden; aspect-ratio: 1/1;
+  border: 1px solid var(--line);
+}
+.msc-img img { width: 100%; height: 100%; object-fit: cover; }
+.msc-card-light {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px;
+  padding: 24px;
+}
+.msc-card-light .msc-eyebrow { color: var(--green-dk); }
+.msc-card-light .msc-text { color: var(--ink-2); }
+
+/* ── BAR / COCKTAILS ─────────────────────────── */
+.bar-section {
+  background: var(--leaf); color: white;
+  position: relative; overflow: hidden;
+}
+.bar-section::before {
+  content: ''; position: absolute; left: -120px; top: 80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(75,175,15,0.22) 0%, transparent 60%);
+  filter: blur(20px); pointer-events: none;
+}
+.bar-section .sec { position: relative; z-index: 1; padding: 100px 40px; }
+.bar-section .sec-title { color: white; max-width: 760px; }
+.bar-section .sec-title em { color: var(--green-lt); }
+.bar-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+.bar-cocktail-img {
+  border-radius: 8px; overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.bar-cocktail-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.cocktail-list { display: flex; flex-direction: column; gap: 0; }
+.cock-item {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 20px; padding: 16px 0; align-items: baseline;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.cock-item:first-child { padding-top: 0; }
+.ci-name {
+  font-family: var(--fh); font-size: 17px; font-weight: 800;
+  color: white; letter-spacing: 0.02em; margin-bottom: 4px;
+}
+.ci-name small {
+  display: inline-block; margin-left: 8px;
+  font-family: var(--fb); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--green-lt); vertical-align: 2px;
+}
+.ci-desc { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.5; }
+.ci-price {
+  font-family: var(--fh); font-size: 17px; font-weight: 900; color: var(--green-lt);
+  white-space: nowrap;
+}
+
+.bev-bottom-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  margin-top: 56px; padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.bev-block-title {
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--green-lt);
+  margin-bottom: 14px;
+}
+.bev-line {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 14px; padding: 8px 0; font-size: 14px;
+}
+.bev-line + .bev-line { border-top: 1px dashed rgba(255,255,255,0.06); }
+.bev-l { color: rgba(255,255,255,0.85); }
+.bev-l small { color: rgba(255,255,255,0.5); font-size: 12px; }
+.bev-r { font-family: var(--fh); font-weight: 900; color: var(--green-lt); }
+
+/* ── MENU GRAPHIC PREVIEW ─────────────────────── */
+.menu-graphic {
+  background: var(--cream); padding: 88px 0;
+}
+.menu-graphic .sec {
+  padding: 0 40px; max-width: 1100px;
+}
+.mg-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.mg-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; transition: all 0.3s; position: relative;
+}
+.mg-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px -14px rgba(0,0,0,0.15); }
+.mg-card img { width: 100%; height: auto; display: block; }
+.mg-label {
+  padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--line);
+}
+.mg-label-l {
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink);
+}
+.mg-label-r {
+  font-family: var(--fb); font-size: 12px; color: var(--green-dk);
+  font-weight: 700;
+}
+
+/* ── REVIEWS ────────────────────────────────── */
+.reviews-section {
+  background: var(--cream); padding: 96px 0;
+}
+.reviews-section .sec { padding: 0 40px; max-width: 1240px; }
+.reviews-hero {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+  padding: 56px 56px 48px;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+  margin-bottom: 56px;
+  position: relative; overflow: hidden;
+}
+.reviews-hero::before {
+  content: '"'; position: absolute; top: -60px; left: 30px;
+  font-family: var(--ff); font-style: italic; font-size: 320px;
+  color: rgba(75,175,15,0.07); line-height: 1; pointer-events: none;
+}
+.rh-quote {
+  font-family: var(--ff); font-style: italic; font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05;
+  color: var(--ink); margin-bottom: 18px; position: relative; z-index: 1;
+}
+.rh-quote em { font-style: italic; color: var(--green-dk); font-weight: 500; }
+.rh-attrib {
+  font-family: var(--fb); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
+}
+.rh-attrib strong { color: var(--ink); }
+.rh-image { border-radius: 8px; overflow: hidden; aspect-ratio: 4/5; }
+.rh-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.reviews-grid {
+  display: grid; grid-template-columns: 280px 1fr; gap: 40px;
+}
+.reviews-stat {
+  background: var(--leaf); color: white;
+  padding: 32px 28px; border-radius: 10px;
+  text-align: center;
+}
+.reviews-stat-num {
+  font-family: var(--fh); font-size: 64px; font-weight: 900;
+  line-height: 1; color: white; margin-bottom: 6px;
+}
+.reviews-stat-stars { color: var(--green-lt); font-size: 16px; letter-spacing: 2px; margin-bottom: 4px; }
+.reviews-stat-label {
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-bottom: 22px;
+}
+.reviews-platforms {
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  font-size: 12px; color: rgba(255,255,255,0.7);
+}
+.reviews-platforms div { display: flex; justify-content: space-between; }
+.reviews-platforms strong { color: var(--green-lt); font-weight: 700; }
+
+.reviews-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.r-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+  padding: 22px 24px; display: flex; flex-direction: column; gap: 12px;
+}
+.r-stars { color: var(--green); letter-spacing: 1px; font-size: 13px; }
+.r-text {
+  font-family: var(--fb); font-size: 14px; line-height: 1.6;
+  color: var(--ink-2); flex: 1;
+}
+.r-author {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+  display: flex; align-items: center; gap: 8px;
+}
+.r-author span { color: var(--green-dk); }
+
+/* ── VISIT ──────────────────────────────────── */
+.visit-section {
+  background: var(--leaf); color: white;
+  padding: 88px 0;
+}
+.visit-section .sec { padding: 0 40px; }
+.visit-section .sec-title { color: white; }
+.visit-section .sec-title em { color: var(--green-lt); }
+.visit-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.visit-card {
+  background: var(--leaf-2); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 30px;
+}
+.vc-title {
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--green-lt); margin-bottom: 18px;
+  padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.vc-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 7px 0; font-size: 14px;
+}
+.vc-row strong { color: white; font-weight: 600; }
+.vc-row span { color: rgba(255,255,255,0.7); }
+.vc-row.off span { color: rgba(255,255,255,0.35); }
+.vc-line { font-size: 15px; color: white; margin-bottom: 6px; }
+.vc-line.muted { color: rgba(255,255,255,0.6); font-size: 13px; }
+.vc-line a { color: var(--green-lt); border-bottom: 1px solid transparent; transition: border 0.2s; }
+.vc-line a:hover { border-bottom-color: var(--green-lt); }
+.vc-cta-row { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ── FOOTER ─────────────────────────────────── */
+footer {
+  background: #0e1f15; color: rgba(255,255,255,0.6);
+  padding: 56px 40px 48px; border-top: 3px solid var(--green);
+}
+.foot {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; align-items: start;
+}
+.foot-logo {
+  font-family: var(--fh); font-size: 24px; font-weight: 900;
+  color: white; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 9px;
+}
+.foot-tag {
+  font-family: var(--fs); font-size: 22px; color: var(--green-lt); margin-bottom: 16px;
+}
+.foot-mini { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.foot-col-title {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--green-lt); margin-bottom: 14px;
+}
+.foot-links { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.foot-links a { color: rgba(255,255,255,0.65); transition: color 0.2s; }
+.foot-links a:hover { color: white; }
+.foot-bottom {
+  max-width: 1240px; margin: 36px auto 0; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 12px; color: rgba(255,255,255,0.4);
+}
+.foot-bottom a { color: rgba(255,255,255,0.55); }
+
+/* ── STICKY CLAIM BAR ─────────────────────── */
+.sticky-bar {
+  position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
+  z-index: 99; background: var(--green); color: var(--leaf);
+  padding: 14px 22px; border-radius: 8px;
+  display: flex; align-items: center; gap: 18px;
+  box-shadow: 0 18px 50px -10px rgba(75,175,15,0.55);
+  transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
+  max-width: calc(100% - 32px);
+}
+.sticky-bar.show { transform: translate(-50%, 0); }
+.sticky-txt {
+  font-family: var(--fh); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.02em; color: var(--leaf); white-space: nowrap;
+}
+.sticky-txt span { color: var(--leaf-2); font-weight: 600; }
+.sticky-btn {
+  background: var(--leaf); color: var(--green-lt) !important;
+  padding: 10px 18px; border-radius: 5px;
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.04em; transition: background 0.2s; white-space: nowrap;
+}
+.sticky-btn:hover { background: #0e1f15; }
+.sticky-close {
+  background: rgba(0,0,0,0.1); border: none; color: var(--leaf);
+  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+  font-size: 18px; line-height: 1; flex-shrink: 0;
+}
+.sticky-close:hover { background: rgba(0,0,0,0.2); }
+
+/* ── EDIT WIDGET ──────────────────────────── */
+.edit-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 998;
+  background: var(--leaf); color: white;
+  padding: 12px 18px; border-radius: 999px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--fh); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.04em; cursor: pointer; border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.25s;
+}
+.edit-fab:hover { background: #0e1f15; transform: translateY(-2px); }
+.edit-fab-dot {
+  width: 8px; height: 8px; background: var(--green); border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.edit-panel {
+  position: fixed; bottom: 86px; right: 24px; z-index: 999;
+  width: min(380px, calc(100vw - 48px));
+  max-height: 70vh;
+  background: var(--leaf); color: white;
+  border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  display: none; flex-direction: column; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.edit-panel.open { display: flex; }
+.edit-panel-header {
+  padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.edit-panel-title {
+  font-family: var(--fh); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px;
+}
+.edit-panel-close {
+  background: none; border: none; color: rgba(255,255,255,0.6);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+.edit-panel-close:hover { color: white; }
+
+.edit-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.edit-msg {
+  padding: 10px 14px; border-radius: 12px;
+  font-size: 14px; line-height: 1.4; max-width: 86%;
+}
+.edit-msg.user {
+  background: var(--green); color: var(--leaf); align-self: flex-end;
+  border-bottom-right-radius: 3px; font-weight: 600;
+}
+.edit-msg.claude {
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92);
+  align-self: flex-start; border-bottom-left-radius: 3px;
+}
+.edit-msg.system {
+  background: rgba(75,175,15,0.18); color: var(--green-lt);
+  align-self: flex-start; border-bottom-left-radius: 3px;
+  font-size: 13px;
+}
+.edit-msg.error {
+  background: rgba(239,68,68,0.18); color: #f97171;
+  align-self: flex-start; border-bottom-left-radius: 3px;
+}
+.edit-typing {
+  padding: 8px 16px; display: none; gap: 4px;
+}
+.edit-typing.show { display: flex; }
+.edit-typing span {
+  width: 6px; height: 6px; background: var(--green-lt); border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite;
+}
+.edit-typing span:nth-child(2) { animation-delay: 0.15s; }
+.edit-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes bounce {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+
+.edit-suggestions {
+  padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px;
+}
+.edit-chip {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6); border-radius: 16px;
+  padding: 5px 11px; font-size: 11px; cursor: pointer; transition: all 0.2s;
+  font-family: var(--fb);
+}
+.edit-chip:hover { background: rgba(75,175,15,0.18); color: var(--green-lt); border-color: var(--green); }
+
+.edit-input-row {
+  padding: 12px 14px 14px; border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 8px; align-items: flex-end;
+}
+.edit-input {
+  flex: 1; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+  padding: 10px 12px; font-family: var(--fb); font-size: 14px;
+  color: white; outline: none; resize: none;
+  min-height: 40px; max-height: 100px; line-height: 1.4;
+}
+.edit-input::placeholder { color: rgba(255,255,255,0.3); }
+.edit-input:focus { border-color: var(--green); }
+.edit-send {
+  background: var(--green); color: var(--leaf); border: none;
+  border-radius: 8px; width: 40px; height: 40px;
+  cursor: pointer; font-size: 16px; flex-shrink: 0;
+  font-weight: 900; transition: background 0.2s;
+}
+.edit-send:hover { background: var(--green-lt); }
+.edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 48px; }
+  .hero-floating-badge { width: 96px; height: 96px; right: 8px; top: -16px; }
+  .hero-floating-badge .b-num { font-size: 22px; }
+  .hero-floating-badge .b-txt { font-size: 8px; }
+  .sec { padding: 64px 24px; }
+  .story-grid, .bar-grid, .menu-grid, .reviews-hero, .reviews-grid { grid-template-columns: 1fr; gap: 36px; }
+  .menu-side { position: static; }
+  .fav-grid { grid-template-columns: 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .values-row { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .reviews-quotes { grid-template-columns: 1fr; }
+  .mg-grid { grid-template-columns: 1fr; }
+  .bev-bottom-row { grid-template-columns: 1fr; }
+  .foot { grid-template-columns: 1fr; gap: 28px; }
+  .story-bg { display: none; }
+  .reviews-hero { padding: 36px 26px; }
+  .rh-image { display: none; }
+  nav { padding: 0 18px; }
+  .nav-links { display: none; }
+  .nav-mobile-cta { display: inline-flex; }
+  .seo-grid { grid-template-columns: 1fr; gap: 20px; }
+  .seo-greeting { font-size: 18px; }
+  .sticky-bar { display: none; }
+  .edit-panel { right: 12px; left: 12px; width: auto; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  SEO BANNER                             ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<div class="seo-banner">
+  <div class="seo-top" onclick="toggleSEO()">
+    <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
+      <div class="seo-badge">A note from Relaunch</div>
+      <div class="seo-text">Hey Spork — <span>we rebuilt your site</span>. Here's why it matters &nbsp;👇</div>
+    </div>
+    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
+  </div>
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+      <p class="seo-greeting">Erica, Jeff — Spork is one of the most <strong>awarded restaurants in Bend</strong>. The <em>Times</em> called your food culinary magic. You won Source Weekly Restaurant of the Year. Sixteen straight years of best-of nods. None of that shows up when someone searches.</p>
+      <p class="seo-greeting-sub">A quick honest look at where you stand and what we changed.</p>
+
+      <div class="seo-grid">
+        <div>
+          <div class="seo-col-title">What's not working on the current site</div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Your menu is a JPG image.</strong> Google can't read it. Searches for "Korean fried chicken Bend" or "Asian fusion Bend" don't surface you — even though you own those categories.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Hours are listed three different ways</strong> on three different pages. Tools and apps pull whichever they crawled most recently.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>The NYT quote and Restaurant of the Year award are buried in About.</strong> Visitors and Google never see your strongest credentials.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No structured data.</strong> Search engines aren't told you're a restaurant, your hours, your rating, or your awards.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Squarespace template bloat.</strong> Slow on mobile, generic look, hero photos timestamped 2013.</div></div>
+        </div>
+        <div>
+          <div class="seo-col-title">What this rebuild fixes</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Every dish, every price — fully indexable text.</strong> When someone searches "Dan Dan Noodles Bend," Spork can show up.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>One source of truth for hours, address, phone</strong> — synced in JSON-LD so Google, Apple Maps, and voice assistants all show the same info.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>NYT, awards, and the founder story are above the fold.</strong> Lead with what makes you Spork.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Restaurant schema markup baked in.</strong> Rich results, knowledge panel, the works.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Fast on mobile.</strong> Pure HTML/CSS, optimized images, no template overhead.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Edit anything by just asking.</strong> Hit the green button bottom-right. Hours, prices, descriptions — talk to the AI, it changes the page.</div></div>
+        </div>
+
+        <div class="seo-cta-row">
+          <div class="seo-cta-text">Want to swap this in for sporkbend.com? <strong>$99/month, no contract, cancel anytime.</strong> We handle the domain pointing, you keep your old site live until you say go.</div>
+          <a href="https://tryrelaunch.com/onboard?business=Spork&email=spork@sporkbend.com&avenue=outbound" class="btn-green">Make it mine →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  NAV                                     ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    <span>Spork</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#bar">Bar</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" class="nav-order" target="_blank">Order Online →</a></li>
+  </ul>
+  <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" class="nav-order nav-mobile-cta" target="_blank">Order →</a>
+</nav>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  HERO                                    ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Bend, Oregon · since 2009</div>
+      <div class="hero-quote">
+        <span class="open-q">&ldquo;</span><span id="edit-hero-quote">Culinary magic.</span><span class="close-q">&rdquo;</span>
+      </div>
+      <div class="hero-attrib">— <strong id="edit-hero-attrib">The New York Times</strong></div>
+      <p class="hero-tagline">
+        <span id="edit-hero-tagline">Globally-inspired, green-conscious streetfood. Sixteen years of awards, one Bend kitchen, zero shortcuts.</span>
+        <em id="edit-hero-script">Let's be curious.</em>
+      </p>
+      <div class="hero-btns">
+        <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" class="btn-primary" target="_blank">
+          Order Online <span>→</span>
+        </a>
+        <a href="https://www.sporkbend.com/reservations-1" class="btn-outline" target="_blank">
+          Reserve a Table
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong><span class="stars">★</span> <span id="edit-rating">4.5</span></strong>
+          <span><span id="edit-review-count">493</span> reviews · TripAdvisor</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>2016</strong>
+          <span>Restaurant of the Year · Source Weekly</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>16 yrs</strong>
+          <span>Of Bend "Best Of" wins</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-floating-badge">
+        <div class="b-num">2016</div>
+        <div class="b-txt">Restaurant<br>of the Year<br>Source Weekly</div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="images/interior-current.jpg" alt="Spork dining room — plant-filled space with rounded booth alcoves" id="edit-hero-img">
+        <div class="hero-photo-tag"><span class="dot"></span> Open · Mon–Sat 11am–9pm</div>
+      </div>
+      <div class="review-strip">
+        <div class="rs-score">
+          <div class="rs-num">4.5</div>
+          <div class="rs-stars">★★★★★</div>
+        </div>
+        <div class="rs-divider"></div>
+        <div class="rs-quotes">
+          <div class="rs-quote" id="edit-hero-quote-1">A gem amongst all the culinary spots in Bend.</div>
+          <div class="rs-quote" id="edit-hero-quote-2">Quirky, delicious, and unforgettable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  AWARDS MARQUEE                          ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<div class="awards-strip">
+  <div class="marquee">
+    <div class="marquee-item"><span class="dot"></span><span id="edit-mq-1">Source Weekly Restaurant of the Year 2016</span></div>
+    <div class="marquee-item"><span class="star">★</span><span id="edit-mq-2">"Culinary Magic" — The New York Times</span></div>
+    <div class="marquee-item"><span class="dot"></span><span id="edit-mq-3">Best Casual Dining — 2016, 2020, 2022</span></div>
+    <div class="marquee-item"><span class="star">★</span><span id="edit-mq-4">Best Vegetarian — Bend Bulletin 2018</span></div>
+    <div class="marquee-item"><span class="dot"></span><span id="edit-mq-5">Best Lunch — 2018, 2019</span></div>
+    <div class="marquee-item"><span class="star">★</span><span id="edit-mq-6">Best Chow Cart 2009–2012</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><span class="dot"></span>Source Weekly Restaurant of the Year 2016</div>
+    <div class="marquee-item"><span class="star">★</span>"Culinary Magic" — The New York Times</div>
+    <div class="marquee-item"><span class="dot"></span>Best Casual Dining — 2016, 2020, 2022</div>
+    <div class="marquee-item"><span class="star">★</span>Best Vegetarian — Bend Bulletin 2018</div>
+    <div class="marquee-item"><span class="dot"></span>Best Lunch — 2018, 2019</div>
+    <div class="marquee-item"><span class="star">★</span>Best Chow Cart 2009–2012</div>
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  STORY                                   ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="story-section" id="story">
+  <div class="story-bg"><img src="images/spread-aerial.jpg" alt=""></div>
+  <div class="sec">
+    <div class="sec-eyebrow light">The story</div>
+    <h2 class="sec-title">From a 1962 Airstream<br>to <em>one Bend kitchen</em>.</h2>
+
+    <div class="story-grid">
+      <div class="story-text">
+        <p id="edit-story-p1">Spork started in 2009 as a globally-inspired streetfood truck, housed in a <strong>1962 Airstream Tradewind</strong> that sailed the streets and events of Central Oregon. We were voted <em>Best Chow Cart in Bend</em> every year we ran it.</p>
+        <p id="edit-story-p2">In June 2013, we put down roots on Newport Avenue. Three of us — chef <strong>Jeff Hunt</strong>, hospitality maven <strong>Erica Reilly</strong>, and visionary <strong>Chris Lohrey</strong> — set out to build a place that wasn't just a restaurant, but a workplace and a watering hole. Four-day workweeks. Health benefits. A percentage of gross sales into a community abundance fund. Pop-ups for up-and-coming Bend chefs.</p>
+        <p id="edit-story-p3">Jeff's food draws from years of travel — <em>Vietnam, Japan, Spain, Mexico, Peru.</em> Mint, basil, cilantro on every dish. Latin American and Southeast Asian flavors, often in the same bowl. We don't call it fusion. We just cook what we love.</p>
+
+        <blockquote class="story-pullquote">
+          <span id="edit-story-pullquote">We've always tried to present food in a way that feels like an eye of travel. It's a bit of a watering hole.</span>
+          <span class="story-pullquote-attrib">— Erica Reilly, co-owner</span>
+        </blockquote>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-yr">
+          <div class="story-yr-num">2001</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2001-h">Astro Lounge, Bend</strong>
+            <span id="edit-tl-2001-t">Erica's running the bar. Jeff's in the kitchen. The partnership starts.</span>
+          </div>
+        </div>
+        <div class="story-yr">
+          <div class="story-yr-num">2009</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2009-h">The Airstream</strong>
+            <span id="edit-tl-2009-t">A 1962 Tradewind hits Bend's streets. Best Chow Cart, four years running.</span>
+          </div>
+        </div>
+        <div class="story-yr">
+          <div class="story-yr-num">2013</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2013-h">Newport Avenue opens</strong>
+            <span id="edit-tl-2013-t">Brick and mortar. 50 seats. The NYT calls — and calls it "culinary magic."</span>
+          </div>
+        </div>
+        <div class="story-yr">
+          <div class="story-yr-num">2015</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2015-h">First expansion</strong>
+            <span id="edit-tl-2015-t">+675 sq ft of dining room. Jetsons-style booths arrive.</span>
+          </div>
+        </div>
+        <div class="story-yr">
+          <div class="story-yr-num">2016</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2016-h">Restaurant of the Year</strong>
+            <span id="edit-tl-2016-t">Source Weekly names Spork the best in Bend.</span>
+          </div>
+        </div>
+        <div class="story-yr">
+          <div class="story-yr-num">2022</div>
+          <div class="story-yr-text">
+            <strong id="edit-tl-2022-h">Kitchen doubled</strong>
+            <span id="edit-tl-2022-t">Major remodel. More room for the cooks. More plants for the room.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="values-row">
+      <div class="value-card">
+        <div class="value-card-title">Four-day workweeks</div>
+        <div class="value-card-text" id="edit-val-1">A schedule that respects the people behind the food. Health benefits, fair pay, real time off.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">Community abundance fund</div>
+        <div class="value-card-text" id="edit-val-2">A percentage of gross sales goes back into Bend — donations, scholarships, mutual aid.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">Local sourcing</div>
+        <div class="value-card-text" id="edit-val-3">Draper Valley NW chicken, Carlton Farms pork, NW pastured beef. Slow Food USA member.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-card-title">Open kitchen, real people</div>
+        <div class="value-card-text" id="edit-val-4">Counter-style ordering. Self-poured water. We host like we're inviting you over.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FEATURED DISHES                         ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="featured-section" id="featured">
+  <div class="sec">
+    <div class="sec-eyebrow">The signatures</div>
+    <h2 class="sec-title">The dishes people<br>drive to <em>Bend for</em>.</h2>
+    <p class="sec-sub">Every plate finishes with our signature trio — mint, basil, cilantro. Pulled from a garnish station the kitchen built specifically because we wouldn't compromise.</p>
+
+    <div class="fav-grid">
+      <div class="fav-card">
+        <div class="fav-img">
+          <img src="images/dish-fried-chicken.jpg" alt="Spicy Fried Chicken with green onion and toasted sesame">
+          <div class="fav-pill green">Most ordered</div>
+        </div>
+        <div class="fav-body">
+          <div class="fav-name" id="edit-fav1-name">Spicy Fried Chicken</div>
+          <div class="fav-desc" id="edit-fav1-desc">Rice flour battered boneless chicken, sweet sambal chili sauce, green onion, toasted sesame, jasmine rice. Choice of cucumber salad or kimchi.</div>
+          <div class="fav-foot">
+            <div class="fav-price" id="edit-fav1-price">$19.50</div>
+            <div class="fav-tag"><span>GF</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <img src="images/dish-pork-noodles.jpg" alt="Spicy pork noodles with herbs and watermelon radish">
+          <div class="fav-pill">Cult favorite</div>
+        </div>
+        <div class="fav-body">
+          <div class="fav-name" id="edit-fav2-name">Dan Dan Noodles</div>
+          <div class="fav-desc" id="edit-fav2-desc">Ground pork simmered in black vinegar, chili oil, tahini, kimchi, garlic, ginger, soy and szechuan peppercorns over rice noodles. Mala sauce, green onion, palm sugar peanuts.</div>
+          <div class="fav-foot">
+            <div class="fav-price" id="edit-fav2-price">$18</div>
+            <div class="fav-tag"><span>spicy</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fav-card">
+        <div class="fav-img">
+          <img src="images/dish-green-curry.jpg" alt="Coconut green curry with bean sprouts and herbs">
+          <div class="fav-pill">Vegan friendly</div>
+        </div>
+        <div class="fav-body">
+          <div class="fav-name" id="edit-fav3-name">Coconut Green Curry</div>
+          <div class="fav-desc" id="edit-fav3-desc">Chicken broth and coconut milk based spicy Thai green curry with grilled vegetables, arugula, bean sprouts, cilantro, sesame, jasmine rice. Add chicken, shrimp, pork belly, or fried tofu.</div>
+          <div class="fav-foot">
+            <div class="fav-price" id="edit-fav3-price">$16</div>
+            <div class="fav-tag"><span>GF</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FULL MENU                               ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="menu-section" id="menu">
+  <div class="sec">
+    <div class="sec-eyebrow">The full menu</div>
+    <h2 class="sec-title">Plates, tacos, snacks,<br>and <span class="script">the whole thing.</span></h2>
+    <p class="sec-sub">Asian, Mexican, and a healthy helping of "wherever Jeff was last." Most dishes are gluten-free or can be. Vegan options on every page.</p>
+
+    <div class="menu-grid">
+      <div class="menu-list">
+        <div class="menu-cat">
+          <div class="menu-cat-title">Plates <small>served family-style if you ask</small></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m1-name">Shrimp & Pork Belly Yellow Curry</div><div class="mi-desc" id="edit-m1-desc">Mild coconut milk + chicken stock based aromatic yellow curry with fried pork belly and fried shrimp, braised collard greens, bean sprouts, herbs, fried shallot and garlic. Served with jasmine rice. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-m1-price">$20</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m2-name">Spicy Pork Noodles</div><div class="mi-desc" id="edit-m2-desc">Warm rice noodles, fish sauce caramel pork patties, fried garlic and shallot, peanuts, fresh herbs, cilantro, fried wonton, bean sprouts, nuoc cham. <span class="gf">GF w/o wonton</span></div></div><div class="mi-price" id="edit-m2-price">$20</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m3-name">Broccoli Beef</div><div class="mi-desc" id="edit-m3-desc">Chinese stir-fry of steak, broccoli, gai lan, onions, peppers, ginger in savory umami-rich sauce. Topped with green onions, fried garlic, sesame seeds. Served with rice. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-m3-price">$24</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m4-name">Thai Steak Salad</div><div class="mi-desc" id="edit-m4-desc">Grilled bavette steak, mixed greens, cabbage, herbs, bean sprouts, fried shallot, toasted coconut, naam jim dressing. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-m4-price">$18.50</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m5-name">Bánh Mì</div><div class="mi-desc" id="edit-m5-desc">Grilled fish sauce caramel pork patties, pork belly, Olympia Provisions green peppercorn pâté, chili mayo, pickles and herbs on Big Ed's baguette. Add fried egg +$3.</div></div><div class="mi-price" id="edit-m5-price">$16.50</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m6-name">Carnitas Sando</div><div class="mi-desc" id="edit-m6-desc">Toasted Big Ed's roll, carnitas, morita chili sauce, cotija cheese, onion, fried egg, cabbage, radish, cilantro, yuca chips, chili mayo.</div></div><div class="mi-price" id="edit-m6-price">$18</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m7-name">Chilaquiles</div><div class="mi-desc" id="edit-m7-desc">Housemade corn tortilla chips with morita chili or fried garlic tomatillo sauce, shredded cabbage, sweet onion, cotija, jalapeño pickles, crema, cilantro. Add fried egg +$3, chicken tinga or carnitas +$4, steak +$5. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-m7-price">$15</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-m8-name">Rice Bowl</div><div class="mi-desc" id="edit-m8-desc">Choice of chicken, pork, or fried tofu with spicy palm sugar peanuts, sweet soy reduction, green onion, jasmine rice. Choice of cucumber salad or kimchi. <span class="gf">GF · tofu = vegan</span></div></div><div class="mi-price" id="edit-m8-price">$16</div></div>
+        </div>
+
+        <div class="menu-cat">
+          <div class="menu-cat-title">Vegan <small>plant-forward, not afterthoughts</small></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-v1-name">Grilled Vegetable Coconut Green Curry</div><div class="mi-desc" id="edit-v1-desc">Grilled veggies, bean sprouts, cilantro, toasted sesame, jasmine rice. <span class="gf">GF</span> Add chicken, shrimp, pork belly, or fried tofu +$4.</div></div><div class="mi-price" id="edit-v1-price">$16</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-v2-name">Peanut Tomato Curry <span class="veg">vegan</span></div><div class="mi-desc" id="edit-v2-desc">Chickpeas, yams, cabbage, grilled onions and peppers, cilantro, jasmine rice. <span class="gf">GF</span> Add fried tofu, chicken, pork belly +$4 or steak +$5.</div></div><div class="mi-price" id="edit-v2-price">$16</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-v3-name">Spicy Fried Cauliflower or Tofu</div><div class="mi-desc" id="edit-v3-desc">Same sambal sauce, same accolades, no animals. Served with cucumber salad or kimchi.</div></div><div class="mi-price" id="edit-v3-price">$18</div></div>
+        </div>
+
+        <div class="menu-cat">
+          <div class="menu-cat-title">Sides & snacks</div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s1-name">Side Salad</div><div class="mi-desc" id="edit-s1-desc">Greens, cabbage, bean sprouts, herbs, sesame, grapefruit vinaigrette, toasted coconut, fried shallot. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s1-price">$8</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s2-name">Burmese Fried Cheese</div><div class="mi-desc" id="edit-s2-desc">Lightly fried fresh cheese, fish sauce tomato curry + cilantro. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s2-price">$10</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s3-name">Yuca Chips w/ Chili Mayo</div><div class="mi-desc" id="edit-s3-desc">Crispy. Salty. Dangerously snackable. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s3-price">$7</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s4-name">Grilled Vegetables <span class="veg">vegan</span></div><div class="mi-desc" id="edit-s4-desc">Whatever's looking good this week. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s4-price">$8</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s5-name">Kimchi <span class="veg">vegan</span></div><div class="mi-desc" id="edit-s5-desc">Mildly spicy Korean cabbage. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s5-price">$6</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s6-name">Chips & Salsa <span class="veg">vegan</span></div><div class="mi-desc" id="edit-s6-desc">Housemade chips. Two salsas. <span class="gf">GF</span></div></div><div class="mi-price" id="edit-s6-price">$5</div></div>
+          <div class="menu-item"><div><div class="mi-name" id="edit-s7-name">Chili Palm Sugar Peanuts</div><div class="mi-desc" id="edit-s7-desc">Sweet, hot, and smoky. <span class="gf">GF · vegan</span></div></div><div class="mi-price" id="edit-s7-price">$2</div></div>
+        </div>
+      </div>
+
+      <div class="menu-side">
+        <div class="menu-side-card">
+          <div class="msc-eyebrow">Tacos · $4 each</div>
+          <div class="msc-title">All on grilled<br><span class="script">5″ corn tortillas.</span></div>
+          <div class="msc-text">Six fillings rotating through the kitchen — including a fried cheese taco that pulls people back across town. All gluten-free.</div>
+          <div style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:18px;">
+            <div id="edit-tac-1"><strong style="color:white;">Chicken Tinga</strong> · chipotle tomato, cotija, morita salsa</div>
+            <div id="edit-tac-2"><strong style="color:white;">Carnitas</strong> · slow roasted pork, morita salsa, cotija</div>
+            <div id="edit-tac-3"><strong style="color:white;">Fried Tofu</strong> · salsa verde, chili mayo, jalapeño pickles</div>
+            <div id="edit-tac-4"><strong style="color:white;">Fried Shrimp</strong> · chili mayo, salsa verde</div>
+            <div id="edit-tac-5"><strong style="color:white;">Fried Cheese</strong> · queso fresco, chili mayo, salsa verde</div>
+          </div>
+          <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" class="msc-btn" target="_blank">Order Tacos →</a>
+        </div>
+
+        <div class="msc-card-light">
+          <div class="msc-eyebrow">Family-style takeout</div>
+          <div style="font-family:var(--fh);font-size:20px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.15;">Feeding a crew?<br>We've got you.</div>
+          <div class="msc-text">Each order serves 5 — Dan Dan, fried chicken, curry, taco bowls, the whole thing. 48 hours notice.</div>
+          <a href="mailto:catering@sporkbend.com" class="msc-btn" style="background:var(--green);color:var(--leaf);">catering@sporkbend.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  BAR / COCKTAILS                         ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="bar-section" id="bar">
+  <div class="sec">
+    <div class="sec-eyebrow light">The bar</div>
+    <h2 class="sec-title">Erica's program.<br>Housemade <em>everything</em>.</h2>
+    <p class="sec-sub light">All housemade ingredients. Daily fresh-squeezed juices. A dozen original cocktails alongside the classics, plus a real zero-proof menu — not just sodas with a lime in them.</p>
+
+    <div class="bar-grid">
+      <div class="bar-cocktail-img">
+        <img src="images/cocktail.jpg" alt="A red Spork cocktail with dehydrated citrus garnish">
+      </div>
+      <div class="cocktail-list">
+        <div class="cock-item"><div><div class="ci-name" id="edit-c1-name">Pandan Collins <small>Spork original</small></div><div class="ci-desc" id="edit-c1-desc">Gin, pandan, mint, lemongrass, cucumber, lime, soda.</div></div><div class="ci-price" id="edit-c1-price">$12</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c2-name">Maui Z <small>Bend classic</small></div><div class="ci-desc" id="edit-c2-desc">Pepper vodka, rum, lime, cilantro, mint, pineapple. By Columbine Quillen.</div></div><div class="ci-price" id="edit-c2-price">$12</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c3-name">Born A Star <small>Spork original</small></div><div class="ci-desc" id="edit-c3-desc">Vanilla vodka, passionfruit, cardamom, lime, Fernet.</div></div><div class="ci-price" id="edit-c3-price">$11</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c4-name">Cóctel de los Muertos <small>Modern classic</small></div><div class="ci-desc" id="edit-c4-desc">Mezcal, Lillet Blanc, Cointreau, lime.</div></div><div class="ci-price" id="edit-c4-price">$14</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c5-name">Gintonica No. 6 <small>Spork original</small></div><div class="ci-desc" id="edit-c5-desc">Roku Minori Gin, tonic, dehydrated grapefruit, basil.</div></div><div class="ci-price" id="edit-c5-price">$13</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c6-name">Spork Old Fashioned <small>Spork original</small></div><div class="ci-desc" id="edit-c6-desc">Bourbon, palm sugar, bitters.</div></div><div class="ci-price" id="edit-c6-price">$12</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c7-name">Oaxacan Old Fashioned <small>Spork original</small></div><div class="ci-desc" id="edit-c7-desc">Mezcal, tequila añejo, agave, Ancho Reyes, bitters.</div></div><div class="ci-price" id="edit-c7-price">$14</div></div>
+        <div class="cock-item"><div><div class="ci-name" id="edit-c8-name">Best Buddy <small>Spork original</small></div><div class="ci-desc" id="edit-c8-desc">Barbancourt rhum, Amaro Nonino, cold brew, tonic, soda.</div></div><div class="ci-price" id="edit-c8-price">$13</div></div>
+      </div>
+    </div>
+
+    <div class="bev-bottom-row">
+      <div>
+        <div class="bev-block-title">Zero proof</div>
+        <div class="bev-line"><div class="bev-l"><strong id="edit-zp1-n">Thai Kondo</strong> <small id="edit-zp1-d">cucumber, lemongrass, lime, mint, soda, bitters</small></div><div class="bev-r" id="edit-zp1-p">$8</div></div>
+        <div class="bev-line"><div class="bev-l"><strong id="edit-zp2-n">Plumfoolery</strong> <small id="edit-zp2-d">salted plum, lemon, black tea, soda</small></div><div class="bev-r" id="edit-zp2-p">$7</div></div>
+        <div class="bev-line"><div class="bev-l"><strong id="edit-zp3-n">Ibiscus Erbal</strong> <small id="edit-zp3-d">Pathfinder Hemp & Root, hibiscus, mint, lime</small></div><div class="bev-r" id="edit-zp3-p">$10</div></div>
+        <div class="bev-line"><div class="bev-l"><strong id="edit-bv1-n">Daily yerba mate'</strong> <small>add spirit +$6</small></div><div class="bev-r" id="edit-bv1-p">$5.50</div></div>
+        <div class="bev-line"><div class="bev-l"><strong id="edit-bv2-n">Mint apple lemonade</strong> <small>add spirit +$6</small></div><div class="bev-r" id="edit-bv2-p">$5.50</div></div>
+      </div>
+      <div>
+        <div class="bev-block-title">Beer · wine · etc.</div>
+        <div class="bev-line"><div class="bev-l"><strong>Pfriem IPA</strong> <small>draft</small></div><div class="bev-r">$7</div></div>
+        <div class="bev-line"><div class="bev-l"><strong>Double Mountain</strong> <small>Japanese Lager · draft</small></div><div class="bev-r">$7</div></div>
+        <div class="bev-line"><div class="bev-l"><strong>Yama Pinot Noir</strong> <small>Division Wine, Oregon · 2023</small></div><div class="bev-r">$14</div></div>
+        <div class="bev-line"><div class="bev-l"><strong>Tieton Cider Works</strong> <small>dry cider · draft</small></div><div class="bev-r">$7</div></div>
+        <div class="bev-line"><div class="bev-l"><strong>Kombucha</strong> <small>rotating local</small></div><div class="bev-r">$6</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  THE ACTUAL MENU GRAPHIC                 ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="menu-graphic">
+  <div class="sec">
+    <div class="sec-eyebrow">Print version</div>
+    <h2 class="sec-title" style="font-size:clamp(32px,4.4vw,52px);">The full menu, <em>printable.</em></h2>
+    <p class="sec-sub">Same menu we hand you at the counter. Snap a photo, screenshot for later, share with the table.</p>
+    <div class="mg-grid">
+      <div class="mg-card">
+        <img src="images/menu-food.jpg" alt="Spork food menu">
+        <div class="mg-label">
+          <div class="mg-label-l">Food menu</div>
+          <div class="mg-label-r">Updated weekly</div>
+        </div>
+      </div>
+      <div class="mg-card">
+        <img src="images/menu-cocktails.jpg" alt="Spork cocktail and beverage menu">
+        <div class="mg-label">
+          <div class="mg-label-l">Bar menu</div>
+          <div class="mg-label-r">Cocktails · beer · wine</div>
+        </div>
+      </div>
+      <div class="mg-card">
+        <img src="images/menu-family-takeout.jpg" alt="Spork family-style takeout menu">
+        <div class="mg-label">
+          <div class="mg-label-l">Family takeout</div>
+          <div class="mg-label-r">Serves 5 · 48hr notice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  REVIEWS                                 ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="reviews-section" id="reviews">
+  <div class="sec">
+    <div class="sec-eyebrow">What people are saying</div>
+    <h2 class="sec-title">Sixteen years.<br><em>3,000+ reviews.</em></h2>
+
+    <div class="reviews-hero">
+      <div>
+        <div class="rh-quote"><em id="edit-rev-pull">"Culinary magic."</em></div>
+        <div class="rh-attrib">— <strong id="edit-rev-pull-attrib">The New York Times</strong>, restaurant report</div>
+        <p style="margin-top:18px;font-size:14px;color:var(--ink-2);line-height:1.6;max-width:520px;" id="edit-rev-pull-sub">Spork was profiled in the Times in 2013, just months after opening on Newport. The piece called Jeff's cooking "globally conscious" and singled out the spicy fried chicken — a dish still on the menu, and still the most-ordered.</p>
+      </div>
+      <div class="rh-image">
+        <img src="images/dish-thai-salad.jpg" alt="Thai steak salad with margarita">
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="reviews-stat">
+        <div class="reviews-stat-num">4.5</div>
+        <div class="reviews-stat-stars">★★★★★</div>
+        <div class="reviews-stat-label">Across 3,000+<br>reviews</div>
+        <div class="reviews-platforms">
+          <div><span>TripAdvisor</span><strong id="edit-platform-trip">4.5 · 493</strong></div>
+          <div><span>Yelp</span><strong id="edit-platform-yelp">2,193</strong></div>
+          <div><span>Facebook</span><strong id="edit-platform-fb">92%</strong></div>
+          <div><span>Health Score</span><strong id="edit-platform-health">100/100</strong></div>
+        </div>
+      </div>
+
+      <div class="reviews-quotes">
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r1-t">A gem amongst all the culinary spots in Bend. Every dish is impeccable and the drinks are pretty good too. Great service, good ambience puts Spork on our favorite list.</div>
+          <div class="r-author" id="edit-r1-a">TripAdvisor <span>· verified review</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r2-t">The spicy fried chicken with cucumber salad keeps us coming back. The combination of lightly breaded meat covered with sweet/hot/sticky chili sauce is just about a perfect dish.</div>
+          <div class="r-author" id="edit-r2-a">TripAdvisor <span>· verified review</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r3-t">Spork is what happens when a Bend hiker, a Seattle garden gnome, and a zen master open a restaurant together — and somehow it works. Quirky, delicious, and unforgettable.</div>
+          <div class="r-author" id="edit-r3-a">Wanderlog <span>· local guide</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r4-t">A community staple since its inception as a food cart in 2009. Owner Jeff Hunt has created a menu that is a delightful fusion of global-inspired comfort food, meticulously prepared from scratch.</div>
+          <div class="r-author" id="edit-r4-a">Eater PDX <span>· best of Bend</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r5-t">Lush, greenhouse-worthy plant installations fill the restaurant from wall to ceiling. There's an unshakable sense that something delicious is soon coming your way.</div>
+          <div class="r-author" id="edit-r5-a">Bend Magazine <span>· feature</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">★★★★★</div>
+          <div class="r-text" id="edit-r6-t">The Crunchy Apple Salad is hands down the best salad I've had in Bend. The Coconut Green Curry and Dan Dan Noodles are both epic — rich, flavorful, perfectly spiced.</div>
+          <div class="r-author" id="edit-r6-a">Yelp <span>· top reviewer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  VISIT                                   ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="visit-section" id="visit">
+  <div class="sec">
+    <div class="sec-eyebrow light">Find us</div>
+    <h2 class="sec-title">Come <em>get curious</em>.</h2>
+    <p class="sec-sub light">A block off Galveston, a block from the river. Counter ordering, then a server delivers. Closed Sundays — we like our weekends.</p>
+
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="vc-title">Hours</div>
+        <div class="vc-row"><strong>Monday</strong><span id="edit-hours-mon">11:00am – 9:00pm</span></div>
+        <div class="vc-row"><strong>Tuesday</strong><span id="edit-hours-tue">11:00am – 9:00pm</span></div>
+        <div class="vc-row"><strong>Wednesday</strong><span id="edit-hours-wed">11:00am – 9:00pm</span></div>
+        <div class="vc-row"><strong>Thursday</strong><span id="edit-hours-thu">11:00am – 9:00pm</span></div>
+        <div class="vc-row"><strong>Friday</strong><span id="edit-hours-fri">11:00am – 9:00pm</span></div>
+        <div class="vc-row"><strong>Saturday</strong><span id="edit-hours-sat">11:00am – 9:00pm</span></div>
+        <div class="vc-row off"><strong>Sunday</strong><span id="edit-hours-sun">Community events only</span></div>
+        <div class="vc-row" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;padding-top:14px;"><strong>Happy Hour</strong><span id="edit-hours-hh">Mon–Fri 2:30–4:30pm</span></div>
+      </div>
+
+      <div class="visit-card">
+        <div class="vc-title">Location</div>
+        <div class="vc-line" id="edit-address"><strong>937 NW Newport Ave, Suite 130</strong></div>
+        <div class="vc-line" id="edit-city">Bend, Oregon 97701</div>
+        <div class="vc-line muted" style="margin-top:14px;">Westside Bend · between Galveston & 10th</div>
+        <div class="vc-line muted">Street parking + adjacent lot</div>
+        <div class="vc-line muted">Dog-friendly patio, weather permitting</div>
+        <div class="vc-cta-row" style="margin-top:18px;">
+          <a href="https://maps.google.com/?q=937+NW+Newport+Ave+Bend+OR+97701" target="_blank" class="msc-btn" style="background:rgba(75,175,15,0.15);color:var(--green-lt);border:1px solid rgba(75,175,15,0.3);">Get Directions →</a>
+        </div>
+      </div>
+
+      <div class="visit-card">
+        <div class="vc-title">Order & Contact</div>
+        <div class="vc-line"><strong>Phone</strong></div>
+        <div class="vc-line"><a href="tel:5413900946" id="edit-phone">(541) 390-0946</a></div>
+        <div class="vc-line muted" style="margin-top:12px;"><strong style="color:white;">Email</strong></div>
+        <div class="vc-line"><a href="mailto:spork@sporkbend.com" id="edit-email">spork@sporkbend.com</a></div>
+        <div class="vc-line muted" style="margin-top:12px;"><strong style="color:white;">Catering</strong></div>
+        <div class="vc-line"><a href="mailto:catering@sporkbend.com">catering@sporkbend.com</a></div>
+        <div class="vc-cta-row">
+          <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" target="_blank" class="msc-btn">Order on Toast →</a>
+          <a href="https://www.sporkbend.com/reservations-1" target="_blank" class="msc-btn" style="background:rgba(75,175,15,0.15);color:var(--green-lt);border:1px solid rgba(75,175,15,0.3);">Reserve →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FOOTER                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="foot-logo"><span class="nav-logo-mark"></span> Spork</div>
+      <div class="foot-tag">Let's be curious.</div>
+      <div class="foot-mini">Globally-inspired streetfood since 2009. Bend, Oregon.<br>Member: Slow Food USA · Buy Fresh Buy Local.</div>
+    </div>
+    <div>
+      <div class="foot-col-title">Visit</div>
+      <div class="foot-links">
+        <a href="#story">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#bar">Bar</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Hours & location</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">Connect</div>
+      <div class="foot-links">
+        <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" target="_blank">Order online</a>
+        <a href="https://www.sporkbend.com/reservations-1" target="_blank">Reservations</a>
+        <a href="mailto:catering@sporkbend.com">Catering</a>
+        <a href="https://instagram.com/spork.bend" target="_blank">Instagram @spork.bend</a>
+        <a href="https://facebook.com/sporkbend" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Spork · 937 NW Newport Ave, Bend, Oregon</div>
+    <div>Site rebuilt by <a href="https://tryrelaunch.com" target="_blank">Relaunch</a></div>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  STICKY CLAIM BAR                        ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-txt">Like this? <span>Swap it in for sporkbend.com.</span></div>
+  <a href="https://tryrelaunch.com/onboard?business=Spork&email=spork@sporkbend.com&avenue=outbound" class="sticky-btn">Make this my site — $99/mo →</a>
+  <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
+</div>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  EDIT WIDGET                             ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Hey! Tell me what you'd like to change — hours, prices, menu descriptions, phone, address, anything. Adding brand-new dishes isn't supported yet, but updating existing items is.</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-chip" onclick="useChip(this)">Change Spicy Fried Chicken to $20</div>
+    <div class="edit-chip" onclick="useChip(this)">Update Saturday hours to 11am–10pm</div>
+    <div class="edit-chip" onclick="useChip(this)">Change phone number</div>
+    <div class="edit-chip" onclick="useChip(this)">Update Dan Dan description</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea
+      class="edit-input"
+      id="edit-input"
+      placeholder="What would you like to change?"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
+  </div>
+</div>
+
+<script>
+// ── SEO panel ──
+function toggleSEO() {
+  const p = document.getElementById('seo-panel');
+  const b = document.getElementById('seo-btn');
+  p.classList.toggle('open');
+  b.textContent = p.classList.contains('open') ? 'Close ▲' : 'Read this first ▼';
+}
+
+// ── Sticky claim bar ──
+const bar = document.getElementById('sticky-bar');
+let barClosed = false;
+window.addEventListener('scroll', () => {
+  if (barClosed) return;
+  bar.classList.toggle('show', window.scrollY > 600);
+});
+function closeBar() { barClosed = true; bar.classList.remove('show'); }
+
+// ── Edit widget ──
+let isLoading = false;
+
+function toggleEditPanel() {
+  const panel = document.getElementById('edit-panel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    setTimeout(() => document.getElementById('edit-input').focus(), 100);
+  }
+}
+
+function useChip(el) {
+  const input = document.getElementById('edit-input');
+  input.value = el.textContent;
+  input.focus();
+  autoResize(input);
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendEdit();
+  }
+}
+
+function addMessage(text, type) {
+  const messages = document.getElementById('edit-messages');
+  const msg = document.createElement('div');
+  msg.className = `edit-msg ${type}`;
+  msg.textContent = text;
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+  return msg;
+}
+
+async function sendEdit() {
+  if (isLoading) return;
+  const input = document.getElementById('edit-input');
+  const request = input.value.trim();
+  if (!request) return;
+
+  input.value = '';
+  autoResize(input);
+  document.getElementById('edit-suggestions').style.display = 'none';
+  addMessage(request, 'user');
+
+  isLoading = true;
+  document.getElementById('edit-send').disabled = true;
+  document.getElementById('edit-typing').classList.add('show');
+
+  // Build content map — every editable element by ID
+  const content = {};
+  document.querySelectorAll('[id^="edit-"]').forEach(el => {
+    content[el.id] = el.textContent.trim();
+  });
+
+  try {
+    const response = await fetch('/.netlify/functions/edit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ request, content })
+    });
+
+    document.getElementById('edit-typing').classList.remove('show');
+
+    if (!response.ok) {
+      addMessage('Something went wrong. Try again.', 'error');
+      isLoading = false;
+      document.getElementById('edit-send').disabled = false;
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.changes && data.changes.length > 0) {
+      data.changes.forEach(change => {
+        const el = document.getElementById(change.id);
+        if (el) el.textContent = change.text;
+      });
+      addMessage(data.confirmation || 'Done! Change applied.', 'system');
+    } else {
+      addMessage("I couldn't find what to change. Try being more specific.", 'claude');
+    }
+  } catch (err) {
+    document.getElementById('edit-typing').classList.remove('show');
+    addMessage("Couldn't connect. Check your internet and try again.", 'error');
+  }
+
+  isLoading = false;
+  document.getElementById('edit-send').disabled = false;
+}
+</script>
+
+</body>
+</html>
