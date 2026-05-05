@@ -117,13 +117,13 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
 .plan-card.selected .plan-amount { color: var(--accent); }
 .plan-period { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
 
-/* STRIPE MOCK */
-.stripe-field { background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 10px; padding: 13px 16px; margin-bottom: 14px; }
-.stripe-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.stripe-label { font-size: 10px; color: var(--muted); font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
-.stripe-input { width: 100%; background: transparent; border: none; font-family: var(--font-body); font-size: 14px; color: var(--white); outline: none; }
-.stripe-input::placeholder { color: var(--muted); }
-.stripe-secure { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 20px; }
+/* CHECKOUT HANDOFF */
+.checkout-info { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; }
+.checkout-info-icon { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+.checkout-info-text { font-size: 12px; color: var(--muted-2); line-height: 1.55; }
+.checkout-info-text strong { color: var(--off-white); font-weight: 600; }
+
+.stripe-secure { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-bottom: 20px; justify-content: center; }
 
 /* CHECKBOX */
 .checkbox-wrap { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; cursor: pointer; }
@@ -136,6 +136,7 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
 .btn-next { width: 100%; background: var(--white); color: var(--bg); border: none; border-radius: 10px; padding: 15px; font-family: var(--font-head); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: -0.01em; }
 .btn-next:hover { opacity: 0.88; transform: translateY(-1px); }
 .btn-next.accent { background: var(--accent); }
+.btn-next:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .btn-back { background: none; border: 1px solid var(--border-bright); color: var(--muted-2); border-radius: 10px; padding: 11px 20px; font-family: var(--font-head); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-right: 10px; }
 .btn-back:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
 .btn-row { display: flex; align-items: center; margin-top: 6px; }
@@ -157,9 +158,12 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
 .error-msg { font-size: 12px; color: #FF5050; font-family: var(--font-mono); margin-top: 5px; display: none; }
 .form-input.error { border-color: #FF5050; }
 
+/* CANCELLED BANNER */
+.cancelled-banner { background: rgba(255,80,80,0.08); border: 1px solid rgba(255,80,80,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 20px; font-size: 13px; color: #FFB0B0; display: none; }
+.cancelled-banner.show { display: block; }
+
 @media (max-width: 500px) {
   .form-row { grid-template-columns: 1fr; }
-  .stripe-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -360,14 +364,19 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
       </div>
     </div>
 
-    <!-- STEP 4 — PAYMENT -->
+    <!-- STEP 4 — PAYMENT (Stripe Checkout handoff) -->
     <div class="step-card" id="step-4">
       <div class="step-eyebrow">// step 4 of 4</div>
       <div class="step-title">You're almost in</div>
-      <div class="step-sub" id="payment-sub">Last step — add your payment details. Your plan starts today, cancel anytime.</div>
+      <div class="step-sub" id="payment-sub">Last step — secure checkout via Stripe. Your plan starts today, cancel anytime.</div>
+
+      <!-- Cancelled return banner -->
+      <div class="cancelled-banner" id="cancelled-banner">
+        Checkout cancelled. No charges were made — your details are still here, ready to retry whenever you're set.
+      </div>
 
       <!-- Order summary -->
-      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:20px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
           <span style="font-size:13px;color:var(--muted-2);">Plan</span>
           <span style="font-size:13px;font-weight:600;color:var(--white);" id="summary-plan">Growth — $299/month</span>
@@ -383,32 +392,20 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
         </div>
       </div>
 
-      <!-- Card fields -->
-      <div class="form-group">
-        <label class="form-label">Card number</label>
-        <div class="stripe-field">
-          <input type="text" class="stripe-input" placeholder="1234 5678 9012 3456" maxlength="19" id="card-num" oninput="formatCard(this)">
-        </div>
-      </div>
-      <div class="stripe-row">
-        <div class="form-group">
-          <label class="form-label">Expiry date</label>
-          <div class="stripe-field">
-            <input type="text" class="stripe-input" placeholder="MM / YY" maxlength="7" id="card-exp" oninput="formatExp(this)">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">CVC</label>
-          <div class="stripe-field">
-            <input type="text" class="stripe-input" placeholder="123" maxlength="4" id="card-cvc">
-          </div>
-        </div>
-      </div>
-
+      <!-- Slack email field stays here so we get it before redirect -->
       <div class="form-group">
         <label class="form-label">Slack email <span>(for your edit channel invite)</span></label>
         <input type="email" class="form-input" id="slack-email" placeholder="same as above or different email">
         <div class="form-hint">// we'll invite you to a shared Slack channel for same-day edits</div>
+      </div>
+
+      <!-- Checkout handoff explainer -->
+      <div class="checkout-info">
+        <div class="checkout-info-icon">🔒</div>
+        <div class="checkout-info-text">
+          You'll be taken to <strong>Stripe's secure checkout</strong> to enter your card details.
+          Your card info never touches our servers. Once payment is confirmed, you'll come right back here.
+        </div>
       </div>
 
       <div class="checkbox-wrap" onclick="toggleCheck()">
@@ -416,13 +413,9 @@ nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify
         <div class="checkbox-text">I understand this is a month-to-month subscription. No contracts. Cancel anytime by messaging us on Slack or emailing hello@tryrelaunch.com.</div>
       </div>
 
-      <div class="stripe-secure">
-        🔒 Secured by Stripe · Your card info is never stored on our servers
-      </div>
-
       <div class="btn-row">
         <button class="btn-back" onclick="prevStep(4)">← Back</button>
-        <button class="btn-next accent" onclick="submitPayment()" id="pay-btn">Start my plan →</button>
+        <button class="btn-next accent" onclick="submitPayment()" id="pay-btn">Continue to secure checkout →</button>
       </div>
     </div>
 
@@ -477,7 +470,10 @@ let selectedPlanName = 'Growth';
 let domainChoice = 'existing';
 let agreed = false;
 
-// Read URL params to pre-fill
+// Map UI prices to Stripe plan keys (must match function's PRICE_IDS)
+const PLAN_KEY_BY_PRICE = { 99: 'starter', 299: 'growth', 499: 'full_service' };
+
+// Read URL params to pre-fill or detect Stripe return
 const params = new URLSearchParams(window.location.search);
 const avenue = params.get('avenue');
 const prefillBusiness = params.get('business');
@@ -485,7 +481,42 @@ const prefillUrl = params.get('url');
 const prefillEmail = params.get('email');
 
 window.addEventListener('DOMContentLoaded', () => {
-  // Pre-fill from URL params
+
+  // Stripe success return — jump straight to confirmation
+  if (params.get('paid') === 'true') {
+    goToStep(5);
+    return; // skip the rest, no need to set up the form
+  }
+
+  // Stripe cancel return — bring them back to step 4 with a banner
+  if (params.get('cancelled') === 'true') {
+    document.getElementById('cancelled-banner').classList.add('show');
+    // Also restore selected plan from sessionStorage if we saved it
+    try {
+      const saved = sessionStorage.getItem('relaunch_onboard');
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (data.businessName) document.getElementById('business-name').value = data.businessName;
+        if (data.firstName) document.getElementById('first-name').value = data.firstName;
+        if (data.lastName) document.getElementById('last-name').value = data.lastName;
+        if (data.email) document.getElementById('email').value = data.email;
+        if (data.phone) document.getElementById('phone').value = data.phone;
+        if (data.slackEmail) document.getElementById('slack-email').value = data.slackEmail;
+        if (data.selectedPlan) {
+          selectedPlan = data.selectedPlan;
+          selectedPlanName = data.selectedPlanName;
+          document.querySelectorAll('.plan-card').forEach(c => {
+            c.classList.toggle('selected', parseInt(c.dataset.price) === selectedPlan);
+          });
+        }
+      }
+    } catch (e) { /* no-op */ }
+    goToStep(4);
+    updateSummary();
+    return;
+  }
+
+  // Pre-fill from URL params (cold-email links)
   if (prefillBusiness) {
     const el = document.getElementById('business-name');
     el.value = decodeURIComponent(prefillBusiness);
@@ -516,7 +547,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Select Growth plan by default
   document.querySelector('.plan-card.popular').classList.add('selected');
-  document.querySelector('.plan-card.popular .plan-radio').style.cssText = 'border-color:var(--accent);background:var(--accent);';
 });
 
 function nextStep(from) {
@@ -597,7 +627,6 @@ function updateSummary() {
   document.getElementById('summary-total').textContent = `$${selectedPlan}`;
   document.getElementById('payment-sub').textContent = `Starting your ${selectedPlanName} plan at $${selectedPlan}/month. Cancel anytime.`;
 
-  // Pre-fill slack email if email is set
   const email = document.getElementById('email').value;
   if (email && !document.getElementById('slack-email').value) {
     document.getElementById('slack-email').value = email;
@@ -626,37 +655,65 @@ function toggleCheck() {
   box.className = agreed ? 'checkbox-box checked' : 'checkbox-box';
 }
 
-function formatCard(input) {
-  let v = input.value.replace(/\D/g, '').substring(0, 16);
-  input.value = v.replace(/(.{4})/g, '$1 ').trim();
-}
-
-function formatExp(input) {
-  let v = input.value.replace(/\D/g, '').substring(0, 4);
-  if (v.length >= 2) v = v.substring(0, 2) + ' / ' + v.substring(2);
-  input.value = v;
-}
-
-function submitPayment() {
+async function submitPayment() {
   if (!agreed) {
     alert('Please confirm you understand this is a month-to-month subscription.');
     return;
   }
-  const card = document.getElementById('card-num').value.replace(/\s/g, '');
-  if (card.length < 16) {
-    alert('Please enter a valid card number.');
-    return;
-  }
 
-  // Simulate payment processing
   const btn = document.getElementById('pay-btn');
-  btn.textContent = 'Processing...';
+  const originalText = btn.textContent;
+  btn.textContent = 'Redirecting to checkout...';
   btn.disabled = true;
-  btn.style.opacity = '0.7';
 
-  setTimeout(() => {
-    goToStep(5);
-  }, 1800);
+  // Save form state in case the user cancels and comes back
+  const state = {
+    businessName: document.getElementById('business-name').value,
+    firstName: document.getElementById('first-name').value,
+    lastName: document.getElementById('last-name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    slackEmail: document.getElementById('slack-email').value,
+    selectedPlan,
+    selectedPlanName
+  };
+  try { sessionStorage.setItem('relaunch_onboard', JSON.stringify(state)); } catch (e) {}
+
+  try {
+    const response = await fetch('/.netlify/functions/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        plan: PLAN_KEY_BY_PRICE[selectedPlan],
+        email: state.email,
+        businessName: state.businessName,
+        firstName: state.firstName,
+        lastName: state.lastName,
+        phone: state.phone,
+        slackEmail: state.slackEmail || state.email,
+        domainChoice,
+        currentDomain: document.getElementById('current-domain') ? document.getElementById('current-domain').value : '',
+        registrar: document.getElementById('registrar') ? document.getElementById('registrar').value : '',
+        newDomain: document.getElementById('new-domain') ? document.getElementById('new-domain').value : ''
+      })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text().catch(() => '');
+      console.error('Checkout session failed:', response.status, errText);
+      throw new Error('Could not start checkout');
+    }
+
+    const { url } = await response.json();
+    if (!url) throw new Error('No checkout URL returned');
+
+    window.location.href = url;
+  } catch (err) {
+    console.error('Payment error:', err);
+    alert('Something went wrong starting checkout. Please try again, or email hello@tryrelaunch.com if it keeps failing.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
 }
 </script>
 </body>
