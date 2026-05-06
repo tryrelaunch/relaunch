@@ -6,3 +6,21 @@
 
 [functions."edit"]
   timeout = 26
+
+[functions."edit-persistent"]
+  timeout = 26
+
+# Block public access to internal paths.
+# config/clients/*.json contains bcrypt-hashed PINs and allowed_origins —
+# must never be served as static content from tryrelaunch.com.
+[[redirects]]
+  from = "/config/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true

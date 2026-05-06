@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Spork — globally-inspired streetfood in Bend, Oregon. Asian-Mexican cuisine, craft cocktails, and 16+ years of Bend awards. Open Mon–Sat 11am–9pm at 937 NW Newport Ave.">
-<meta name="robots" content="noindex">
 <title>Spork — Globally-Inspired Streetfood · Bend, Oregon</title>
 
 <script type="application/ld+json">
@@ -90,73 +89,6 @@ img { max-width: 100%; display: block; }
   opacity: 0.08;
   border-radius: 50% 0 50% 50%;
 }
-
-/* ── SEO BANNER ─────────────────────────────── */
-.seo-banner { background: var(--leaf); border-bottom: 2px solid var(--green); }
-.seo-top {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 24px; cursor: pointer; gap: 14px; flex-wrap: wrap;
-  max-width: 1280px; margin: 0 auto;
-}
-.seo-badge {
-  background: var(--green); color: var(--leaf);
-  font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 5px 11px; border-radius: 3px; white-space: nowrap;
-}
-.seo-text { font-family: var(--fb); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); }
-.seo-text span { color: var(--green-lt); font-weight: 700; }
-.seo-toggle {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
-  color: rgba(255,255,255,0.85); padding: 6px 14px; border-radius: 4px;
-  font-family: var(--fb); font-size: 12px; font-weight: 600;
-  cursor: pointer; white-space: nowrap; transition: all 0.2s;
-}
-.seo-toggle:hover { background: rgba(255,255,255,0.16); color: white; }
-.seo-panel {
-  max-height: 0; overflow: hidden; transition: max-height 0.5s ease;
-}
-.seo-panel.open { max-height: 1200px; overflow-y: auto; }
-.seo-panel-inner {
-  padding: 28px 24px 32px;
-  max-width: 1100px; margin: 0 auto;
-}
-.seo-greeting {
-  font-family: var(--ff); font-style: italic; font-size: 22px; line-height: 1.5;
-  color: rgba(255,255,255,0.95); margin-bottom: 6px; max-width: 720px;
-}
-.seo-greeting strong { color: var(--green-lt); font-style: normal; font-weight: 500; }
-.seo-greeting-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
-.seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.seo-col-title {
-  font-family: var(--fh); font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--green-lt); margin-bottom: 14px; font-weight: 800;
-}
-.seo-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; }
-.seo-ico {
-  width: 18px; height: 18px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
-}
-.seo-ico.x { background: rgba(239,68,68,0.18); color: #f97171; }
-.seo-ico.c { background: rgba(75,175,15,0.22); color: var(--green-lt); }
-.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
-.seo-row-text strong { color: white; font-weight: 700; }
-.seo-cta-row {
-  margin-top: 24px;
-  background: rgba(75,175,15,0.12); border: 1px solid rgba(75,175,15,0.35);
-  border-radius: 8px; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-}
-.seo-cta-text { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.5; }
-.seo-cta-text strong { color: var(--green-lt); }
-.btn-green {
-  background: var(--green); color: white; border: none; border-radius: 5px;
-  padding: 11px 22px; font-family: var(--fh); font-size: 14px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
-  text-decoration: none; display: inline-block;
-}
-.btn-green:hover { background: var(--green-dk); transform: translateY(-1px); }
 
 /* ── NAV ─────────────────────────────────── */
 nav {
@@ -791,154 +723,6 @@ footer {
 }
 .foot-bottom a { color: rgba(255,255,255,0.55); }
 
-/* ── STICKY CLAIM BAR ─────────────────────── */
-.sticky-bar {
-  position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
-  z-index: 99; background: var(--green); color: var(--leaf);
-  padding: 14px 22px; border-radius: 8px;
-  display: flex; align-items: center; gap: 18px;
-  box-shadow: 0 18px 50px -10px rgba(75,175,15,0.55);
-  transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
-  max-width: calc(100% - 32px);
-}
-.sticky-bar.show { transform: translate(-50%, 0); }
-.sticky-txt {
-  font-family: var(--fh); font-size: 14px; font-weight: 800;
-  letter-spacing: 0.02em; color: var(--leaf); white-space: nowrap;
-}
-.sticky-txt span { color: var(--leaf-2); font-weight: 600; }
-.sticky-btn {
-  background: var(--leaf); color: var(--green-lt) !important;
-  padding: 10px 18px; border-radius: 5px;
-  font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; transition: background 0.2s; white-space: nowrap;
-}
-.sticky-btn:hover { background: #0e1f15; }
-.sticky-close {
-  background: rgba(0,0,0,0.1); border: none; color: var(--leaf);
-  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
-  font-size: 18px; line-height: 1; flex-shrink: 0;
-}
-.sticky-close:hover { background: rgba(0,0,0,0.2); }
-
-/* ── EDIT WIDGET ──────────────────────────── */
-.edit-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 998;
-  background: var(--leaf); color: white;
-  padding: 12px 18px; border-radius: 999px;
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; border: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: all 0.25s;
-}
-.edit-fab:hover { background: #0e1f15; transform: translateY(-2px); }
-.edit-fab-dot {
-  width: 8px; height: 8px; background: var(--green); border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-}
-
-.edit-panel {
-  position: fixed; bottom: 86px; right: 24px; z-index: 999;
-  width: min(380px, calc(100vw - 48px));
-  max-height: 70vh;
-  background: var(--leaf); color: white;
-  border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  display: none; flex-direction: column; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.edit-panel.open { display: flex; }
-.edit-panel-header {
-  padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.edit-panel-title {
-  font-family: var(--fh); font-size: 14px; font-weight: 800;
-  letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px;
-}
-.edit-panel-close {
-  background: none; border: none; color: rgba(255,255,255,0.6);
-  font-size: 22px; cursor: pointer; line-height: 1;
-}
-.edit-panel-close:hover { color: white; }
-
-.edit-messages {
-  flex: 1; overflow-y: auto; padding: 16px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.edit-msg {
-  padding: 10px 14px; border-radius: 12px;
-  font-size: 14px; line-height: 1.4; max-width: 86%;
-}
-.edit-msg.user {
-  background: var(--green); color: var(--leaf); align-self: flex-end;
-  border-bottom-right-radius: 3px; font-weight: 600;
-}
-.edit-msg.claude {
-  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92);
-  align-self: flex-start; border-bottom-left-radius: 3px;
-}
-.edit-msg.system {
-  background: rgba(75,175,15,0.18); color: var(--green-lt);
-  align-self: flex-start; border-bottom-left-radius: 3px;
-  font-size: 13px;
-}
-.edit-msg.error {
-  background: rgba(239,68,68,0.18); color: #f97171;
-  align-self: flex-start; border-bottom-left-radius: 3px;
-}
-.edit-typing {
-  padding: 8px 16px; display: none; gap: 4px;
-}
-.edit-typing.show { display: flex; }
-.edit-typing span {
-  width: 6px; height: 6px; background: var(--green-lt); border-radius: 50%;
-  animation: bounce 1.4s ease-in-out infinite;
-}
-.edit-typing span:nth-child(2) { animation-delay: 0.15s; }
-.edit-typing span:nth-child(3) { animation-delay: 0.3s; }
-@keyframes bounce {
-  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
-  40% { opacity: 1; transform: translateY(-4px); }
-}
-
-.edit-suggestions {
-  padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px;
-}
-.edit-chip {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6); border-radius: 16px;
-  padding: 5px 11px; font-size: 11px; cursor: pointer; transition: all 0.2s;
-  font-family: var(--fb);
-}
-.edit-chip:hover { background: rgba(75,175,15,0.18); color: var(--green-lt); border-color: var(--green); }
-
-.edit-input-row {
-  padding: 12px 14px 14px; border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex; gap: 8px; align-items: flex-end;
-}
-.edit-input {
-  flex: 1; background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
-  padding: 10px 12px; font-family: var(--fb); font-size: 14px;
-  color: white; outline: none; resize: none;
-  min-height: 40px; max-height: 100px; line-height: 1.4;
-}
-.edit-input::placeholder { color: rgba(255,255,255,0.3); }
-.edit-input:focus { border-color: var(--green); }
-.edit-send {
-  background: var(--green); color: var(--leaf); border: none;
-  border-radius: 8px; width: 40px; height: 40px;
-  cursor: pointer; font-size: 16px; flex-shrink: 0;
-  font-weight: 900; transition: background 0.2s;
-}
-.edit-send:hover { background: var(--green-lt); }
-.edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
-
 /* ── RESPONSIVE ────────────────────────────── */
 @media (max-width: 980px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 48px; }
@@ -963,58 +747,13 @@ footer {
   .nav-mobile-cta { display: inline-flex; }
   .seo-grid { grid-template-columns: 1fr; gap: 20px; }
   .seo-greeting { font-size: 18px; }
-  .sticky-bar { display: none; }
-  .edit-panel { right: 12px; left: 12px; width: auto; }
 }
 </style>
 
 </head>
 <body>
 
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  SEO BANNER                             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<div class="seo-banner">
-  <div class="seo-top" onclick="toggleSEO()">
-    <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
-      <div class="seo-badge">A note from Relaunch</div>
-      <div class="seo-text">Hey Spork — <span>we rebuilt your site</span>. Here's why it matters &nbsp;👇</div>
-    </div>
-    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
-  </div>
-  <div class="seo-panel" id="seo-panel">
-    <div class="seo-panel-inner">
-      <p class="seo-greeting">Erica, Jeff — Spork is one of the most <strong>awarded restaurants in Bend</strong>. The <em>Times</em> called your food culinary magic. You won Source Weekly Restaurant of the Year. Sixteen straight years of best-of nods. None of that shows up when someone searches.</p>
-      <p class="seo-greeting-sub">A quick honest look at where you stand and what we changed.</p>
-
-      <div class="seo-grid">
-        <div>
-          <div class="seo-col-title">What's not working on the current site</div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Your menu is a JPG image.</strong> Google can't read it. Searches for "Korean fried chicken Bend" or "Asian fusion Bend" don't surface you — even though you own those categories.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Hours are listed three different ways</strong> on three different pages. Tools and apps pull whichever they crawled most recently.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>The NYT quote and Restaurant of the Year award are buried in About.</strong> Visitors and Google never see your strongest credentials.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No structured data.</strong> Search engines aren't told you're a restaurant, your hours, your rating, or your awards.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Squarespace template bloat.</strong> Slow on mobile, generic look, hero photos timestamped 2013.</div></div>
-        </div>
-        <div>
-          <div class="seo-col-title">What this rebuild fixes</div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Every dish, every price — fully indexable text.</strong> When someone searches "Dan Dan Noodles Bend," Spork can show up.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>One source of truth for hours, address, phone</strong> — synced in JSON-LD so Google, Apple Maps, and voice assistants all show the same info.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>NYT, awards, and the founder story are above the fold.</strong> Lead with what makes you Spork.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Restaurant schema markup baked in.</strong> Rich results, knowledge panel, the works.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Fast on mobile.</strong> Pure HTML/CSS, optimized images, no template overhead.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Edit anything by just asking.</strong> Hit the green button bottom-right. Hours, prices, descriptions — talk to the AI, it changes the page.</div></div>
-        </div>
-
-        <div class="seo-cta-row">
-          <div class="seo-cta-text">Want to swap this in for sporkbend.com? <strong>$99/month, no contract, cancel anytime.</strong> We handle the domain pointing, you keep your old site live until you say go.</div>
-          <a href="https://tryrelaunch.com/onboard?business=Spork&email=spork@sporkbend.com&avenue=outbound" class="btn-green">Make it mine →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  NAV                                     ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
@@ -1579,10 +1318,6 @@ footer {
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  EDIT WIDGET                             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
-  <div class="edit-fab-dot"></div>
-  Edit this site
-</button>
 
 <div class="edit-panel" id="edit-panel">
   <div class="edit-panel-header">
@@ -1614,120 +1349,44 @@ footer {
   </div>
 </div>
 
+<!-- Relaunch production edit widget bootstrap (auto-generated) -->
 <script>
-// ── SEO panel ──
-function toggleSEO() {
-  const p = document.getElementById('seo-panel');
-  const b = document.getElementById('seo-btn');
-  p.classList.toggle('open');
-  b.textContent = p.classList.contains('open') ? 'Close ▲' : 'Read this first ▼';
-}
+(function () {
+  var SLUG = "spork";
+  var FN_BASE = "https://tryrelaunch.com/.netlify/functions";
+  var WIDGET_URL = "https://tryrelaunch.com/widget.js";
+  var token;
+  try { token = localStorage.getItem("relaunch_jwt"); } catch (e) { return; }
+  if (!token) return;
 
-// ── Sticky claim bar ──
-const bar = document.getElementById('sticky-bar');
-let barClosed = false;
-window.addEventListener('scroll', () => {
-  if (barClosed) return;
-  bar.classList.toggle('show', window.scrollY > 600);
-});
-function closeBar() { barClosed = true; bar.classList.remove('show'); }
-
-// ── Edit widget ──
-let isLoading = false;
-
-function toggleEditPanel() {
-  const panel = document.getElementById('edit-panel');
-  panel.classList.toggle('open');
-  if (panel.classList.contains('open')) {
-    setTimeout(() => document.getElementById('edit-input').focus(), 100);
-  }
-}
-
-function useChip(el) {
-  const input = document.getElementById('edit-input');
-  input.value = el.textContent;
-  input.focus();
-  autoResize(input);
-}
-
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-}
-
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendEdit();
-  }
-}
-
-function addMessage(text, type) {
-  const messages = document.getElementById('edit-messages');
-  const msg = document.createElement('div');
-  msg.className = `edit-msg ${type}`;
-  msg.textContent = text;
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
-  return msg;
-}
-
-async function sendEdit() {
-  if (isLoading) return;
-  const input = document.getElementById('edit-input');
-  const request = input.value.trim();
-  if (!request) return;
-
-  input.value = '';
-  autoResize(input);
-  document.getElementById('edit-suggestions').style.display = 'none';
-  addMessage(request, 'user');
-
-  isLoading = true;
-  document.getElementById('edit-send').disabled = true;
-  document.getElementById('edit-typing').classList.add('show');
-
-  // Build content map — every editable element by ID
-  const content = {};
-  document.querySelectorAll('[id^="edit-"]').forEach(el => {
-    content[el.id] = el.textContent.trim();
-  });
-
+  var payload;
   try {
-    const response = await fetch('/.netlify/functions/edit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ request, content })
-    });
+    var parts = token.split(".");
+    if (parts.length !== 3) return;
+    var b64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+    while (b64.length % 4) b64 += "=";
+    payload = JSON.parse(atob(b64));
+  } catch (e) { return; }
 
-    document.getElementById('edit-typing').classList.remove('show');
-
-    if (!response.ok) {
-      addMessage('Something went wrong. Try again.', 'error');
-      isLoading = false;
-      document.getElementById('edit-send').disabled = false;
-      return;
-    }
-
-    const data = await response.json();
-
-    if (data.changes && data.changes.length > 0) {
-      data.changes.forEach(change => {
-        const el = document.getElementById(change.id);
-        if (el) el.textContent = change.text;
-      });
-      addMessage(data.confirmation || 'Done! Change applied.', 'system');
-    } else {
-      addMessage("I couldn't find what to change. Try being more specific.", 'claude');
-    }
-  } catch (err) {
-    document.getElementById('edit-typing').classList.remove('show');
-    addMessage("Couldn't connect. Check your internet and try again.", 'error');
+  if (payload.exp && payload.exp * 1000 < Date.now()) {
+    try { localStorage.removeItem("relaunch_jwt"); } catch (e) {}
+    return;
   }
+  if (payload.slug !== SLUG) return;
 
-  isLoading = false;
-  document.getElementById('edit-send').disabled = false;
-}
+  window.__relaunchWidgetConfig = {
+    slug: SLUG,
+    token: token,
+    endpoint: FN_BASE + "/edit-persistent",
+    editPageUrl: "/edit/",
+    supportEmail: "support@tryrelaunch.com"
+  };
+
+  var s = document.createElement("script");
+  s.src = WIDGET_URL;
+  s.async = true;
+  document.head.appendChild(s);
+})();
 </script>
 
 </body>
