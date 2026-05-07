@@ -56,6 +56,13 @@ Phone, email, location, hours appear the same way on every page — Google's loc
 
 - `/about` — Jacob's story, family-owned narrative, eco-friendly philosophy
 - `/contact` — dedicated contact page (currently buried in homepage scroll)
+- `/faq` — comprehensive 35+ question FAQ covering pricing, drying time, pet stains, eco-friendly products, frequency, scheduling, warranties, and more — with full FAQPage schema for AI search citations (ChatGPT, Perplexity, Google AI Overview)
+
+### 5. Relaunch live editor widget (the SaaS demo)
+
+Floating button in the bottom-right corner of every page. Click it and Jacob can type changes — "change the hero photo", "add a holiday banner", "update the phone number" — and see what the live AI editor experience feels like.
+
+This is the demonstration of what Relaunch's $99-499/mo subscription delivers: edits without code, without designers, without waiting. The widget runs as a self-contained mock in the preview (so it's safe to deploy without a live backend), but on a real Relaunch site it would wire into the production edit.js endpoint to push real changes.
 
 ---
 
@@ -69,11 +76,13 @@ moore-than-clean/
 ├── upholstery-cleaning.html            [NEW — SEO win]
 ├── tile-and-grout-cleaning.html        [NEW — SEO win]
 ├── about.html                          [NEW]
+├── faq.html                            [NEW — 35+ Q&As, FAQPage schema, AI search bait]
 ├── gallery.html                        Gallery (preserved concept)
 ├── products-we-trust.html              Products (preserved verbatim)
 ├── contact.html                        [NEW — dedicated]
 ├── css/main.css                        Design system
 ├── js/main.js                          Mobile menu
+├── js/relaunch-editor.js               [NEW — live editor widget, SaaS demo]
 └── README.md                           This file
 ```
 

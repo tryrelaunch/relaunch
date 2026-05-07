@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpet Cleaning FAQ Prineville | Moore Than Clean</title>
+<meta name="description" content="Answers to common carpet cleaning questions in Prineville, Oregon. Drying time, pricing, pet stains, eco-friendly products, frequency, and more from Moore Than Clean.">
+<link rel="canonical" href="https://moorethanclean.com/faq">
+
+<meta property="og:title" content="Carpet Cleaning FAQ | Moore Than Clean Prineville Oregon">
+<meta property="og:description" content="35+ answers to common carpet cleaning questions — pricing, drying time, pet stains, eco-friendly products, and more.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+.faq-page { padding: 60px 0 100px; background: var(--bg); }
+.faq-jumpnav {
+  background: var(--bg-soft);
+  padding: 22px 32px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 84px;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 247, 250, 0.96);
+}
+.faq-jumpnav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.faq-jumpnav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: #fff;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.faq-jumpnav a:hover {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+.faq-category {
+  margin-bottom: 70px;
+  scroll-margin-top: 160px;
+}
+.faq-category-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--teal);
+}
+.faq-category-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--teal);
+  background: var(--teal-pale);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.faq-category-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.faq-category-sub {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+details.faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+details.faq-item[open] {
+  border-color: var(--teal);
+  box-shadow: 0 4px 14px rgba(14, 113, 135, 0.08);
+}
+details.faq-item summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--teal);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details.faq-item[open] summary::after {
+  content: '−';
+  transform: rotate(0deg);
+}
+details.faq-item summary:hover { color: var(--teal); }
+.faq-answer {
+  padding: 0 24px 22px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.faq-answer p { margin-bottom: 12px; }
+.faq-answer p:last-child { margin-bottom: 0; }
+.faq-answer strong { color: var(--ink); }
+
+.faq-still { background: var(--bg-soft); padding: 60px 32px; margin-top: 60px; text-align: center; border-radius: 12px; }
+.faq-still h3 { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.faq-still p { color: var(--ink-muted); margin-bottom: 24px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 700px) {
+  .faq-jumpnav { padding: 14px 16px; top: 64px; }
+  .faq-category-num { width: 36px; height: 36px; font-size: 13px; }
+  .faq-category-title { font-size: 24px; }
+  details.faq-item summary { font-size: 15px; padding: 16px 18px; }
+  .faq-answer { padding: 0 18px 18px; font-size: 14px; }
+}
+</style>
+
+<!-- COMPREHENSIVE FAQPage SCHEMA — for Google rich results, AI Overview, ChatGPT/Perplexity citations -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How much does professional carpet cleaning cost in Prineville?", "acceptedAnswer": {"@type": "Answer", "text": "Most homes in Prineville fall in the $150 to $400 range depending on square footage, number of rooms, and the level of soiling. We give every customer a free estimate up front — no surprise charges. Commercial pricing is per square foot and depends on traffic and frequency."}},
+    {"@type": "Question", "name": "Do you offer free estimates?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — every estimate is free and no-obligation. Most quotes happen over the phone in under 5 minutes. For larger or unusual jobs we may schedule a quick walkthrough."}},
+    {"@type": "Question", "name": "Are there hidden fees?", "acceptedAnswer": {"@type": "Answer", "text": "No. The price you're quoted is the price you pay. Stain treatment, pre-spray, and standard furniture moving are included. Optional add-ons like fabric protection are quoted separately and only added if you ask for them."}},
+    {"@type": "Question", "name": "Do you charge by room or by square foot?", "acceptedAnswer": {"@type": "Answer", "text": "Most residential jobs are quoted per room with a discount as room count goes up. Commercial work is per square foot. Either way, you'll know the full price before we start."}},
+    {"@type": "Question", "name": "Do you offer discounts for repeat or recurring customers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Recurring residential and commercial clients get preferred scheduling and locked-in pricing. Just ask when you call."}},
+    {"@type": "Question", "name": "What method do you use to clean carpets?", "acceptedAnswer": {"@type": "Answer", "text": "We use truck-mounted hot water extraction (HWE), often called steam cleaning. It's the method recommended by most major carpet manufacturers. Pressurized hot water and eco-friendly cleaning solution are injected into the carpet, then immediately extracted along with the dirt — leaving carpets clean, not soaked."}},
+    {"@type": "Question", "name": "Is steam cleaning the same as hot water extraction?", "acceptedAnswer": {"@type": "Answer", "text": "Essentially yes. Most professionals use the terms interchangeably. We use truck-mounted hot water extraction — water heated to a high temperature, pressurized, applied with cleaning solution, then vacuumed back out in the same motion."}},
+    {"@type": "Question", "name": "Do you do dry cleaning instead of steam?", "acceptedAnswer": {"@type": "Answer", "text": "Hot water extraction is our standard method because it gets carpets the cleanest. For specialty fabrics or situations where extreme low-moisture is required, we have alternative methods. Tell us your situation and we'll recommend the right approach."}},
+    {"@type": "Question", "name": "Why is truck-mounted equipment better than portable?", "acceptedAnswer": {"@type": "Answer", "text": "Truck-mounted units produce hotter water, stronger suction, and more consistent results than portable units. The heat alone makes a big difference for breaking down embedded soil and oils. We use professional truck-mounted equipment on every job."}},
+    {"@type": "Question", "name": "How long does a typical carpet cleaning take?", "acceptedAnswer": {"@type": "Answer", "text": "Most homes take 1 to 3 hours depending on size, number of rooms, and soiling level. Larger homes or heavily soiled carpets may take longer. We can give you a tighter estimate when you call."}},
+    {"@type": "Question", "name": "How long does it take for carpets to dry?", "acceptedAnswer": {"@type": "Answer", "text": "Carpets are usually walkable within 2 to 4 hours of cleaning. Full drying takes 6 to 12 hours depending on humidity, ventilation, and how heavily soiled the carpet was. Running fans or AC speeds it up."}},
+    {"@type": "Question", "name": "Can I walk on the carpet right after cleaning?", "acceptedAnswer": {"@type": "Answer", "text": "We recommend waiting at least an hour or two before walking on freshly cleaned carpet, and even then, wear clean socks or shoe covers (we provide them). Avoid moving furniture or playing on the carpet until it's fully dry."}},
+    {"@type": "Question", "name": "Can I put my furniture back the same day?", "acceptedAnswer": {"@type": "Answer", "text": "Most furniture can go back within 4 to 6 hours, but we recommend waiting until the carpet is fully dry (6 to 12 hours). For wood or metal furniture legs, we'll place protective foam blocks under them to prevent staining or rust marks during drying."}},
+    {"@type": "Question", "name": "What can I do to speed up drying time?", "acceptedAnswer": {"@type": "Answer", "text": "Run ceiling fans, open windows if the weather allows, turn on the AC, or set up a portable fan in the cleaned area. Dry, moving air is what you want."}},
+    {"@type": "Question", "name": "Are your cleaning products safe for kids and pets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that's the whole point. Moore Than Clean uses eco-friendly products specifically chosen to be tough on dirt but gentle on family and pets. No harsh chemicals, no lingering fumes, no residue. Same standard we use in our own home."}},
+    {"@type": "Question", "name": "Will the cleaning products affect my allergies?", "acceptedAnswer": {"@type": "Answer", "text": "Most clients with allergies report better air quality after professional cleaning, not worse. Hot water extraction pulls dust mites, pollen, dander, and mold spores out of the carpet — and our products are formulated to leave no chemical residue behind."}},
+    {"@type": "Question", "name": "Do I need to leave the house during cleaning?", "acceptedAnswer": {"@type": "Answer", "text": "No, you don't have to leave. The products are family- and pet-safe. That said, the equipment is loud (truck-mounted units have an exterior compressor), so many clients prefer to step out or work from a different room while we clean."}},
+    {"@type": "Question", "name": "Can you remove pet urine stains and odors?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We have a dedicated urine and odor treatment using specialty enzyme-based products. Even old, set-in pet urine usually comes out completely. For severe cases that have soaked into the pad or subfloor, we may recommend additional treatment."}},
+    {"@type": "Question", "name": "Can you remove old or set-in stains?", "acceptedAnswer": {"@type": "Answer", "text": "Most stains, even old ones, can be significantly improved or removed entirely. Some stains (red wine, certain dyes, bleach damage) are tougher and we'll be honest about expectations during the walkthrough."}},
+    {"@type": "Question", "name": "What about red wine, coffee, and food stains?", "acceptedAnswer": {"@type": "Answer", "text": "Red wine, coffee, juice, and most food stains respond well to professional pre-treatment + hot water extraction. The faster you call after a spill, the better the outcome — but we've removed plenty of stains that have been there for months."}},
+    {"@type": "Question", "name": "Can you fix carpet that's been damaged by bleach?", "acceptedAnswer": {"@type": "Answer", "text": "Bleach permanently removes color from carpet fibers — no cleaning method restores it. For bleach damage we'd recommend dye replacement or patching, which is a different specialty. We can refer you to a local pro if needed."}},
+    {"@type": "Question", "name": "Will stains come back after cleaning (wicking)?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes a stain that was deep in the carpet pad can wick back to the surface as the carpet dries. We use techniques specifically to prevent this. If a stain does reappear within 30 days, give us a call — we'll come back and re-treat it."}},
+    {"@type": "Question", "name": "How often should I have my carpets professionally cleaned?", "acceptedAnswer": {"@type": "Answer", "text": "Most carpet manufacturers recommend professional cleaning every 12 to 18 months to maintain warranties. Households with kids, pets, or allergies often benefit from cleaning every 6 to 9 months. Commercial spaces typically need quarterly or bi-monthly cleaning."}},
+    {"@type": "Question", "name": "Does professional cleaning extend the life of my carpet?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — significantly. Embedded dirt acts like sandpaper on carpet fibers, slowly cutting them as you walk. Regular professional cleaning removes that grit and can double or triple the lifespan of your carpet."}},
+    {"@type": "Question", "name": "Should I vacuum before you arrive?", "acceptedAnswer": {"@type": "Answer", "text": "It helps but it's not required. We do a thorough vacuuming as part of our process. If you have time to do a quick once-over before we arrive, it doesn't hurt — but don't stress if you can't."}},
+    {"@type": "Question", "name": "What areas does Moore Than Clean serve?", "acceptedAnswer": {"@type": "Answer", "text": "We're based in Prineville and serve Prineville, Bend, Redmond, Madras, Powell Butte, and surrounding Crook County and Deschutes County communities. If you're not sure if we cover your area, just call — we'll let you know."}},
+    {"@type": "Question", "name": "Do you charge a travel fee outside of Prineville?", "acceptedAnswer": {"@type": "Answer", "text": "For most addresses in Crook and Deschutes County, no travel fee. For locations outside our standard service area, we may add a small travel charge — we'll always tell you up front."}},
+    {"@type": "Question", "name": "Can I get a same-day appointment?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. Same-day and next-day appointments are frequently available. Call early in the day for the best chance of fitting you in."}},
+    {"@type": "Question", "name": "Do you work weekends?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We're open daily 8 AM to 11 PM. Weekends are popular and book up faster, so call as soon as you know your schedule."}},
+    {"@type": "Question", "name": "What's your cancellation policy?", "acceptedAnswer": {"@type": "Answer", "text": "Things come up — we get it. Just give us as much notice as you can and we'll reschedule. No fee for cancellations made before the appointment day."}},
+    {"@type": "Question", "name": "Do you move furniture during cleaning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — we move standard furniture (couches, chairs, end tables, smaller items) as part of the service. For large or heavy items (beds, dressers, pianos, entertainment centers) we typically clean around them. Just let us know what you'd like prioritized."}},
+    {"@type": "Question", "name": "What products do you use?", "acceptedAnswer": {"@type": "Answer", "text": "We use professional-grade, eco-friendly products including Pro-Safe Ecogard, USOR Unchained for urine and odor, GroutMaster for tile, and several others. See our Products We Trust page for the full list and details on each."}},
+    {"@type": "Question", "name": "Are your products certified eco-friendly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All products we use are formulated to be biodegradable, non-toxic, and safe around children and pets. We deliberately avoid harsh chemicals — both for your family's safety and our own (we breathe the same air during a job)."}},
+    {"@type": "Question", "name": "Will professional cleaning void my carpet's manufacturer warranty?", "acceptedAnswer": {"@type": "Answer", "text": "No — quite the opposite. Most carpet manufacturers REQUIRE professional cleaning at regular intervals (typically every 12-18 months) to keep warranties valid. We use IICRC-recommended methods and can provide receipts for warranty documentation."}},
+    {"@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — fully licensed and insured for residential and commercial work. Insurance documents are available on request for commercial clients or property managers."}},
+    {"@type": "Question", "name": "What if I'm not satisfied with the result?", "acceptedAnswer": {"@type": "Answer", "text": "We do a walkthrough with you before we leave to make sure you're happy. If something gets missed or you're not satisfied, we come back and fix it — no charge, no fight. We're a small local business and reputation is everything."}},
+    {"@type": "Question", "name": "Do you also clean upholstery and tile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer upholstery cleaning (sofas, chairs, dining sets), tile and grout cleaning (great for Prineville's hard water), mattress cleaning, area rug cleaning, and auto/RV interior cleaning. See our services page for the full list."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="preview-banner">
+  <span>Hi Jacob — sketch by Boatr Marketing for Moore Than Clean. Click around, holler if you're into it.</span>
+  <a href="mailto:nsinisgalli@gmail.com?subject=Moore%20Than%20Clean%20redesign">Reply →</a>
+</div>
+
+<div class="top-strip">
+  <div class="top-strip-left"><span class="tagline">Don't settle for clean, get Moore than clean.</span></div>
+  <div class="top-strip-right">
+    <span>Owner/Technician: <strong>Jacob Moore</strong></span>
+    <a href="tel:5413058600" class="phone">541-305-8600</a>
+  </div>
+</div>
+
+<nav class="main-nav">
+  <a href="index.html" class="nav-brand">
+    <div class="nav-brand-logo">M</div>
+    <div class="nav-brand-text"><span class="nav-brand-name">Moore Than Clean</span><span class="nav-brand-sub">Prineville, Oregon</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-services">
+      <a href="index.html#services" class="nav-services-toggle">Services</a>
+      <div class="nav-dropdown">
+        <a href="residential-carpet-cleaning.html">Residential Carpet</a>
+        <a href="commercial-carpet-cleaning.html">Commercial Carpet</a>
+        <a href="upholstery-cleaning.html">Upholstery</a>
+        <a href="tile-and-grout-cleaning.html">Tile & Grout</a>
+        <a href="index.html#services">All Services</a>
+      </div>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="products-we-trust.html">Products</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="tel:5413058600" class="nav-cta">Free Estimate</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#services">Services</a>
+  <div class="mobile-services-list">
+    <a href="residential-carpet-cleaning.html">— Residential Carpet</a>
+    <a href="commercial-carpet-cleaning.html">— Commercial Carpet</a>
+    <a href="upholstery-cleaning.html">— Upholstery</a>
+    <a href="tile-and-grout-cleaning.html">— Tile & Grout</a>
+  </div>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="faq.html">FAQ</a>
+  <a href="products-we-trust.html">Products We Trust</a>
+  <a href="contact.html">Contact</a>
+  <a href="tel:5413058600" class="cta">Free Estimate · 541-305-8600</a>
+</div>
+
+<section class="about-page-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Frequently Asked Questions</span>
+    <h1>Carpet Cleaning, <span class="accent">Answered</span></h1>
+    <p class="lede">Everything we get asked most often — pricing, drying time, pet stains, eco-friendly products, scheduling, and the rest. If your question isn't here, just call or text Jacob direct.</p>
+  </div>
+</section>
+
+<!-- JUMP NAV -->
+<div class="faq-jumpnav">
+  <div class="faq-jumpnav-inner">
+    <a href="#pricing">💲 Pricing</a>
+    <a href="#process">🧼 Cleaning Process</a>
+    <a href="#drying">⏱ Drying Time</a>
+    <a href="#safety">👶 Safety</a>
+    <a href="#stains">🧪 Stains &amp; Odors</a>
+    <a href="#frequency">🔁 Frequency</a>
+    <a href="#service-area">📍 Service Area</a>
+    <a href="#scheduling">📅 Scheduling</a>
+    <a href="#products">🌿 Products</a>
+    <a href="#guarantees">✅ Guarantees</a>
+  </div>
+</div>
+
+<section class="faq-page">
+  <div class="container">
+
+    <!-- 1. PRICING -->
+    <div class="faq-category" id="pricing">
+      <div class="faq-category-header">
+        <span class="faq-category-num">1</span>
+        <div>
+          <div class="faq-category-title">Pricing &amp; Estimates</div>
+          <div class="faq-category-sub">What does it cost and how do estimates work?</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>How much does professional carpet cleaning cost in Prineville?</summary>
+        <div class="faq-answer"><p>Most homes in Prineville fall in the <strong>$150 to $400 range</strong> depending on square footage, number of rooms, and the level of soiling. We give every customer a free estimate up front — no surprise charges. Commercial pricing is per square foot and depends on traffic and frequency.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer free estimates?</summary>
+        <div class="faq-answer"><p>Yes — every estimate is free and no-obligation. Most quotes happen <strong>over the phone in under 5 minutes</strong>. For larger or unusual jobs we may schedule a quick walkthrough.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Are there hidden fees?</summary>
+        <div class="faq-answer"><p>No. The price you're quoted is the price you pay. <strong>Stain treatment, pre-spray, and standard furniture moving are included.</strong> Optional add-ons like fabric protection are quoted separately and only added if you ask for them.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you charge by room or by square foot?</summary>
+        <div class="faq-answer"><p>Most residential jobs are quoted per room with a discount as room count goes up. Commercial work is per square foot. Either way, you'll know the full price before we start.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer discounts for repeat or recurring customers?</summary>
+        <div class="faq-answer"><p>Yes. <strong>Recurring residential and commercial clients get preferred scheduling and locked-in pricing.</strong> Just ask when you call.</p></div>
+      </details>
+    </div>
+
+    <!-- 2. PROCESS -->
+    <div class="faq-category" id="process">
+      <div class="faq-category-header">
+        <span class="faq-category-num">2</span>
+        <div>
+          <div class="faq-category-title">Cleaning Process &amp; Methods</div>
+          <div class="faq-category-sub">How we actually clean carpets</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>What method do you use to clean carpets?</summary>
+        <div class="faq-answer"><p>We use <strong>truck-mounted hot water extraction (HWE)</strong>, often called steam cleaning. It's the method recommended by most major carpet manufacturers. Pressurized hot water and eco-friendly cleaning solution are injected into the carpet, then immediately extracted along with the dirt — leaving carpets clean, not soaked.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Is steam cleaning the same as hot water extraction?</summary>
+        <div class="faq-answer"><p>Essentially yes. Most professionals use the terms interchangeably. We use truck-mounted hot water extraction — water heated to a high temperature, pressurized, applied with cleaning solution, then vacuumed back out in the same motion.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you do dry cleaning instead of steam?</summary>
+        <div class="faq-answer"><p>Hot water extraction is our standard method because it gets carpets the cleanest. For specialty fabrics or situations where extreme low-moisture is required, we have alternative methods. Tell us your situation and we'll recommend the right approach.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is truck-mounted equipment better than portable?</summary>
+        <div class="faq-answer"><p>Truck-mounted units produce <strong>hotter water, stronger suction, and more consistent results</strong> than portable units. The heat alone makes a big difference for breaking down embedded soil and oils. We use professional truck-mounted equipment on every job.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does a typical carpet cleaning take?</summary>
+        <div class="faq-answer"><p>Most homes take <strong>1 to 3 hours</strong> depending on size, number of rooms, and soiling level. Larger homes or heavily soiled carpets may take longer. We can give you a tighter estimate when you call.</p></div>
+      </details>
+    </div>
+
+    <!-- 3. DRYING -->
+    <div class="faq-category" id="drying">
+      <div class="faq-category-header">
+        <span class="faq-category-num">3</span>
+        <div>
+          <div class="faq-category-title">Drying Time &amp; After Care</div>
+          <div class="faq-category-sub">When can you walk on it again?</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>How long does it take for carpets to dry?</summary>
+        <div class="faq-answer"><p>Carpets are usually <strong>walkable within 2 to 4 hours</strong> of cleaning. Full drying takes 6 to 12 hours depending on humidity, ventilation, and how heavily soiled the carpet was. Running fans or AC speeds it up.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I walk on the carpet right after cleaning?</summary>
+        <div class="faq-answer"><p>We recommend waiting at least an hour or two before walking on freshly cleaned carpet, and even then, wear clean socks or shoe covers (we provide them). Avoid moving furniture or playing on the carpet until it's fully dry.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I put my furniture back the same day?</summary>
+        <div class="faq-answer"><p>Most furniture can go back within 4 to 6 hours, but we recommend waiting until the carpet is fully dry (6 to 12 hours). For wood or metal furniture legs, <strong>we'll place protective foam blocks under them</strong> to prevent staining or rust marks during drying.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What can I do to speed up drying time?</summary>
+        <div class="faq-answer"><p>Run ceiling fans, open windows if the weather allows, turn on the AC, or set up a portable fan in the cleaned area. Dry, moving air is what you want.</p></div>
+      </details>
+    </div>
+
+    <!-- 4. SAFETY -->
+    <div class="faq-category" id="safety">
+      <div class="faq-category-header">
+        <span class="faq-category-num">4</span>
+        <div>
+          <div class="faq-category-title">Safety: Pets, Kids, &amp; Allergies</div>
+          <div class="faq-category-sub">Eco-friendly is a non-negotiable for us</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>Are your cleaning products safe for kids and pets?</summary>
+        <div class="faq-answer"><p>Yes — that's the whole point. Moore Than Clean uses eco-friendly products specifically chosen to be <strong>tough on dirt but gentle on family and pets</strong>. No harsh chemicals, no lingering fumes, no residue. Same standard we use in our own home.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will the cleaning products affect my allergies?</summary>
+        <div class="faq-answer"><p>Most clients with allergies report <strong>better air quality after professional cleaning</strong>, not worse. Hot water extraction pulls dust mites, pollen, dander, and mold spores out of the carpet — and our products are formulated to leave no chemical residue behind.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to leave the house during cleaning?</summary>
+        <div class="faq-answer"><p>No, you don't have to leave. The products are family- and pet-safe. That said, the equipment is loud (truck-mounted units have an exterior compressor), so many clients prefer to step out or work from a different room while we clean.</p></div>
+      </details>
+    </div>
+
+    <!-- 5. STAINS -->
+    <div class="faq-category" id="stains">
+      <div class="faq-category-header">
+        <span class="faq-category-num">5</span>
+        <div>
+          <div class="faq-category-title">Stains &amp; Odors</div>
+          <div class="faq-category-sub">Wine, pet urine, coffee, and the rest</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>Can you remove pet urine stains and odors?</summary>
+        <div class="faq-answer"><p>Yes. We have a dedicated <strong>urine and odor treatment using specialty enzyme-based products</strong>. Even old, set-in pet urine usually comes out completely. For severe cases that have soaked into the pad or subfloor, we may recommend additional treatment.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you remove old or set-in stains?</summary>
+        <div class="faq-answer"><p>Most stains, even old ones, can be significantly improved or removed entirely. Some stains (red wine, certain dyes, bleach damage) are tougher and we'll be honest about expectations during the walkthrough.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What about red wine, coffee, and food stains?</summary>
+        <div class="faq-answer"><p>Red wine, coffee, juice, and most food stains respond well to professional pre-treatment + hot water extraction. <strong>The faster you call after a spill, the better the outcome</strong> — but we've removed plenty of stains that have been there for months.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you fix carpet that's been damaged by bleach?</summary>
+        <div class="faq-answer"><p>Bleach permanently removes color from carpet fibers — no cleaning method restores it. For bleach damage we'd recommend dye replacement or patching, which is a different specialty. We can refer you to a local pro if needed.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will stains come back after cleaning (wicking)?</summary>
+        <div class="faq-answer"><p>Sometimes a stain that was deep in the carpet pad can wick back to the surface as the carpet dries. We use techniques specifically to prevent this. <strong>If a stain does reappear within 30 days, give us a call — we'll come back and re-treat it.</strong></p></div>
+      </details>
+    </div>
+
+    <!-- 6. FREQUENCY -->
+    <div class="faq-category" id="frequency">
+      <div class="faq-category-header">
+        <span class="faq-category-num">6</span>
+        <div>
+          <div class="faq-category-title">Frequency &amp; Maintenance</div>
+          <div class="faq-category-sub">How often should you clean?</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>How often should I have my carpets professionally cleaned?</summary>
+        <div class="faq-answer"><p>Most carpet manufacturers recommend professional cleaning <strong>every 12 to 18 months</strong> to maintain warranties. Households with kids, pets, or allergies often benefit from cleaning every 6 to 9 months. Commercial spaces typically need quarterly or bi-monthly cleaning.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Does professional cleaning extend the life of my carpet?</summary>
+        <div class="faq-answer"><p>Yes — significantly. Embedded dirt acts like sandpaper on carpet fibers, slowly cutting them as you walk. <strong>Regular professional cleaning removes that grit and can double or triple the lifespan of your carpet.</strong></p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Should I vacuum before you arrive?</summary>
+        <div class="faq-answer"><p>It helps but it's not required. We do a thorough vacuuming as part of our process. If you have time to do a quick once-over before we arrive, it doesn't hurt — but don't stress if you can't.</p></div>
+      </details>
+    </div>
+
+    <!-- 7. SERVICE AREA -->
+    <div class="faq-category" id="service-area">
+      <div class="faq-category-header">
+        <span class="faq-category-num">7</span>
+        <div>
+          <div class="faq-category-title">Service Area</div>
+          <div class="faq-category-sub">Where we work in Central Oregon</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>What areas does Moore Than Clean serve?</summary>
+        <div class="faq-answer"><p>We're based in Prineville and serve <strong>Prineville, Bend, Redmond, Madras, Powell Butte</strong>, and surrounding Crook County and Deschutes County communities. If you're not sure if we cover your area, just call — we'll let you know.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you charge a travel fee outside of Prineville?</summary>
+        <div class="faq-answer"><p>For most addresses in Crook and Deschutes County, no travel fee. For locations outside our standard service area, we may add a small travel charge — we'll always tell you up front.</p></div>
+      </details>
+    </div>
+
+    <!-- 8. SCHEDULING -->
+    <div class="faq-category" id="scheduling">
+      <div class="faq-category-header">
+        <span class="faq-category-num">8</span>
+        <div>
+          <div class="faq-category-title">Booking &amp; Scheduling</div>
+          <div class="faq-category-sub">When can we come out?</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>Can I get a same-day appointment?</summary>
+        <div class="faq-answer"><p>Often, yes. <strong>Same-day and next-day appointments are frequently available.</strong> Call early in the day for the best chance of fitting you in.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work weekends?</summary>
+        <div class="faq-answer"><p>Yes. We're open daily 8 AM to 11 PM. Weekends are popular and book up faster, so call as soon as you know your schedule.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What's your cancellation policy?</summary>
+        <div class="faq-answer"><p>Things come up — we get it. Just give us as much notice as you can and we'll reschedule. <strong>No fee for cancellations made before the appointment day.</strong></p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you move furniture during cleaning?</summary>
+        <div class="faq-answer"><p>Yes — we move standard furniture (couches, chairs, end tables, smaller items) as part of the service. For large or heavy items (beds, dressers, pianos, entertainment centers) we typically clean around them. Just let us know what you'd like prioritized.</p></div>
+      </details>
+    </div>
+
+    <!-- 9. PRODUCTS -->
+    <div class="faq-category" id="products">
+      <div class="faq-category-header">
+        <span class="faq-category-num">9</span>
+        <div>
+          <div class="faq-category-title">Products &amp; Equipment</div>
+          <div class="faq-category-sub">What we put on your carpet</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>What products do you use?</summary>
+        <div class="faq-answer"><p>We use professional-grade, eco-friendly products including <strong>Pro-Safe Ecogard, USOR Unchained for urine and odor, GroutMaster for tile</strong>, and several others. See our <a href="products-we-trust.html">Products We Trust</a> page for the full list and details on each.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Are your products certified eco-friendly?</summary>
+        <div class="faq-answer"><p>Yes. All products we use are formulated to be <strong>biodegradable, non-toxic, and safe around children and pets</strong>. We deliberately avoid harsh chemicals — both for your family's safety and our own (we breathe the same air during a job).</p></div>
+      </details>
+    </div>
+
+    <!-- 10. GUARANTEES -->
+    <div class="faq-category" id="guarantees">
+      <div class="faq-category-header">
+        <span class="faq-category-num">10</span>
+        <div>
+          <div class="faq-category-title">Warranties &amp; Guarantees</div>
+          <div class="faq-category-sub">If something's not right, we make it right</div>
+        </div>
+      </div>
+      <details class="faq-item">
+        <summary>Will professional cleaning void my carpet's manufacturer warranty?</summary>
+        <div class="faq-answer"><p>No — quite the opposite. <strong>Most carpet manufacturers REQUIRE professional cleaning at regular intervals</strong> (typically every 12-18 months) to keep warranties valid. We use IICRC-recommended methods and can provide receipts for warranty documentation.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Are you licensed and insured?</summary>
+        <div class="faq-answer"><p>Yes — fully licensed and insured for residential and commercial work. Insurance documents are available on request for commercial clients or property managers.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I'm not satisfied with the result?</summary>
+        <div class="faq-answer"><p>We do a walkthrough with you before we leave to make sure you're happy. <strong>If something gets missed or you're not satisfied, we come back and fix it — no charge, no fight.</strong> We're a small local business and reputation is everything.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you also clean upholstery and tile?</summary>
+        <div class="faq-answer"><p>Yes. We offer <a href="upholstery-cleaning.html">upholstery cleaning</a> (sofas, chairs, dining sets), <a href="tile-and-grout-cleaning.html">tile and grout cleaning</a> (great for Prineville's hard water), mattress cleaning, area rug cleaning, and auto/RV interior cleaning. See our <a href="index.html#services">services page</a> for the full list.</p></div>
+      </details>
+    </div>
+
+    <!-- STILL HAVE QUESTIONS -->
+    <div class="faq-still">
+      <h3>Still have a question?</h3>
+      <p>If your question isn't answered above, just call or text Jacob direct. Most questions get answered in under a minute.</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="tel:5413058600" class="btn btn-primary">Call 541-305-8600</a>
+        <a href="contact.html" class="btn btn-ghost">Send a Message</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand-block">
+      <div class="footer-brand-name">Moore Than Clean<span>Carpet Cleaning · Prineville, OR</span></div>
+      <p class="footer-desc">Family-owned, eco-friendly carpet, upholstery, mattress, tile, and rug cleaning services serving Prineville and Central Oregon. Owner/Technician: Jacob Moore.</p>
+    </div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="residential-carpet-cleaning.html">Residential Carpet</a></li><li><a href="commercial-carpet-cleaning.html">Commercial Carpet</a></li><li><a href="upholstery-cleaning.html">Upholstery</a></li><li><a href="tile-and-grout-cleaning.html">Tile &amp; Grout</a></li><li><a href="index.html#services">All Services</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="faq.html">FAQ</a></li><li><a href="products-we-trust.html">Products We Trust</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Get In Touch</h5><ul><li><strong style="color: #fff;">541-305-8600</strong></li><li><a href="mailto:Info@moorethanclean.com">Info@moorethanclean.com</a></li><li>Prineville, OR 97754</li><li>Open Daily 8AM – 11PM</li></ul></div>
+  </div>
+  <div class="footer-meta"><p>&copy; 2026 Moore Than Clean — All Rights Reserved.</p><p>Sketch by <a href="https://tryrelaunch.com">Relaunch</a></p></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/relaunch-editor.js"></script>
+</body>
+</html>
