@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-cd /d "C:\Users\Nsini\Downloads\relaunch-website"
+cd /d "C:\Users\Nsini\Code\relaunch\relaunch-website"
 
 echo.
 echo  Relaunch -- Deploying to GitHub...
