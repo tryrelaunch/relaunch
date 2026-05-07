@@ -98,6 +98,126 @@
   ]
 }
 </script>
+
+<style id="relaunch-editor-styles">
+/* ── EDIT WIDGET (Powered by Relaunch) ──────────── */
+.edit-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 998;
+  background: #1a3320; color: white;
+  padding: 12px 18px; border-radius: 999px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 800;
+  letter-spacing: 0.04em; cursor: pointer; border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.25s;
+}
+.edit-fab:hover { background: #0e1f15; transform: translateY(-2px); }
+.edit-fab-dot {
+  width: 8px; height: 8px; background: #4baf0f; border-radius: 50%;
+  animation: rl-pulse 2s ease-in-out infinite;
+}
+@keyframes rl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+.edit-panel {
+  position: fixed; bottom: 86px; right: 24px; z-index: 999;
+  width: min(380px, calc(100vw - 48px));
+  max-height: 70vh;
+  background: #1a3320; color: white;
+  border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  display: none; flex-direction: column; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.edit-panel.open { display: flex; }
+.edit-panel-header {
+  padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.edit-panel-title {
+  font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 800;
+  letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px;
+}
+.edit-panel-close {
+  background: none; border: none; color: rgba(255,255,255,0.6);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+.edit-panel-close:hover { color: white; }
+.edit-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.edit-msg {
+  padding: 10px 14px; border-radius: 12px;
+  font-size: 14px; line-height: 1.4; max-width: 86%;
+}
+.edit-msg.user {
+  background: #4baf0f; color: #1a3320; align-self: flex-end;
+  border-bottom-right-radius: 3px; font-weight: 600;
+}
+.edit-msg.claude {
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92);
+  align-self: flex-start; border-bottom-left-radius: 3px;
+}
+.edit-msg.system {
+  background: rgba(75,175,15,0.18); color: #6ec934;
+  align-self: flex-start; border-bottom-left-radius: 3px;
+  font-size: 13px;
+}
+.edit-msg.error {
+  background: rgba(239,68,68,0.18); color: #f97171;
+  align-self: flex-start; border-bottom-left-radius: 3px;
+}
+.edit-typing {
+  padding: 8px 16px; display: none; gap: 4px;
+}
+.edit-typing.show { display: flex; }
+.edit-typing span {
+  width: 6px; height: 6px; background: #6ec934; border-radius: 50%;
+  animation: rl-bounce 1.4s ease-in-out infinite;
+}
+.edit-typing span:nth-child(2) { animation-delay: 0.15s; }
+.edit-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes rl-bounce {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+.edit-suggestions {
+  padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px;
+}
+.edit-chip {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6); border-radius: 16px;
+  padding: 5px 11px; font-size: 11px; cursor: pointer; transition: all 0.2s;
+  font-family: 'Manrope', sans-serif;
+}
+.edit-chip:hover { background: rgba(75,175,15,0.18); color: #6ec934; border-color: #4baf0f; }
+.edit-input-row {
+  padding: 12px 14px 14px; border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; gap: 8px; align-items: flex-end;
+}
+.edit-input {
+  flex: 1; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+  padding: 10px 12px; font-family: 'Manrope', sans-serif; font-size: 14px;
+  color: white; outline: none; resize: none;
+  min-height: 40px; max-height: 100px; line-height: 1.4;
+}
+.edit-input::placeholder { color: rgba(255,255,255,0.3); }
+.edit-input:focus { border-color: #4baf0f; }
+.edit-send {
+  background: #4baf0f; color: #1a3320; border: none;
+  border-radius: 8px; width: 40px; height: 40px;
+  cursor: pointer; font-size: 16px; flex-shrink: 0;
+  font-weight: 900; transition: background 0.2s;
+}
+.edit-send:hover { background: #6ec934; }
+.edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
+@media (max-width: 980px) {
+  .edit-panel { right: 12px; left: 12px; width: auto; }
+}
+</style>
+
 </head>
 <body>
 
@@ -110,11 +230,11 @@
 <!-- TOP STRIP — owner contact + social -->
 <div class="top-strip">
   <div class="top-strip-left">
-    <span class="tagline">Don't settle for clean, get Moore than clean.</span>
+    <span class="tagline" id="edit-tagline">Don't settle for clean, get Moore than clean.</span>
   </div>
   <div class="top-strip-right">
-    <span>Owner/Technician: <strong>Jacob Moore</strong></span>
-    <a href="tel:5413058600" class="phone">541-305-8600</a>
+    <span>Owner/Technician: <strong id="edit-owner-name">Jacob Moore</strong></span>
+    <a href="tel:5413058600" class="phone" id="edit-phone">541-305-8600</a>
     <div class="top-social">
       <a href="https://www.facebook.com/profile.php?id=61582652255904" aria-label="Facebook" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z"/></svg>
@@ -180,13 +300,13 @@
     <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=2000&q=80" alt="Professional carpet cleaning in progress">
   </div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Family-Owned · Prineville, OR</span>
-    <p class="hero-tagline">Your floor deserves Moore</p>
-    <h1>Professional Carpet Cleaning Services Based in <span class="accent">Prineville, Oregon</span></h1>
-    <p class="hero-lede">We offer eco-friendly carpet cleaning and upholstery cleaning in Prineville, providing family-focused solutions for spotless carpets and upholstery.</p>
+    <span class="hero-eyebrow" id="edit-hero-eyebrow">Family-Owned · Prineville, OR</span>
+    <p class="hero-tagline" id="edit-hero-tagline">Your floor deserves Moore</p>
+    <h1><span id="edit-hero-h1-main">Professional Carpet Cleaning Services Based in</span> <span class="accent" id="edit-hero-h1-accent">Prineville, Oregon</span></h1>
+    <p class="hero-lede" id="edit-hero-lede">We offer eco-friendly carpet cleaning and upholstery cleaning in Prineville, providing family-focused solutions for spotless carpets and upholstery.</p>
     <div class="hero-actions">
-      <a href="tel:5413058600" class="btn btn-primary">Call For Your Free Estimate</a>
-      <a href="https://g.page/r/CdF9g4VgFqA7EAI/review" class="btn btn-secondary" target="_blank" rel="noopener">Leave a Review</a>
+      <a href="tel:5413058600" class="btn btn-primary" id="edit-cta-primary">Call For Your Free Estimate</a>
+      <a href="https://g.page/r/CdF9g4VgFqA7EAI/review" class="btn btn-secondary" id="edit-cta-secondary" target="_blank" rel="noopener">Leave a Review</a>
     </div>
   </div>
 </section>
@@ -221,9 +341,9 @@
     </div>
     <div class="about-text">
       <span class="eyebrow">About Us</span>
-      <h2 class="section-h2">Our <span class="accent">Mission</span></h2>
-      <p>Moore Than Clean is a family-owned business committed to providing exceptional carpet cleaning in Prineville, Oregon, as well as top-notch upholstery cleaning services. Our mission is to deliver high-quality, eco-friendly carpet cleaning solutions that are family and pet friendly.</p>
-      <p>We use state of the art products that are tough on dirt, but gentle on your family and belongings. We strive to not only meet, but exceed our customers' expectations.</p>
+      <h2 class="section-h2"><span id="edit-mission-h2-main">Our</span> <span class="accent" id="edit-mission-h2-accent">Mission</span></h2>
+      <p id="edit-mission-p1">Moore Than Clean is a family-owned business committed to providing exceptional carpet cleaning in Prineville, Oregon, as well as top-notch upholstery cleaning services. Our mission is to deliver high-quality, eco-friendly carpet cleaning solutions that are family and pet friendly.</p>
+      <p id="edit-mission-p2">We use state of the art products that are tough on dirt, but gentle on your family and belongings. We strive to not only meet, but exceed our customers' expectations.</p>
       <ul class="about-bullets">
         <li>Eco-friendly products</li>
         <li>Family &amp; pet safe</li>
@@ -252,8 +372,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
         </div>
-        <h3>Residential Carpet</h3>
-        <p>Buying a new home? Selling one? Preparing for the holidays? If you'd like to erase the past that's trapped in your carpets, Moore Than Clean offers professional carpet cleaning services to reverse the clock.</p>
+        <h3 id="edit-svc-residential-title">Residential Carpet</h3>
+        <p id="edit-svc-residential-desc">Buying a new home? Selling one? Preparing for the holidays? If you'd like to erase the past that's trapped in your carpets, Moore Than Clean offers professional carpet cleaning services to reverse the clock.</p>
         <a href="residential-carpet-cleaning.html" class="service-link">Learn More</a>
       </article>
 
@@ -262,8 +382,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3>Commercial Carpet</h3>
-        <p>If you're a business owner, you know that a clean workplace is essential for productivity, employee morale, and customer satisfaction. Moore Than Clean offers commercial cleaning services for offices, retail spaces, and other commercial properties. We can customize our cleaning services to meet your specific needs and schedule.</p>
+        <h3 id="edit-svc-commercial-title">Commercial Carpet</h3>
+        <p id="edit-svc-commercial-desc">If you're a business owner, you know that a clean workplace is essential for productivity, employee morale, and customer satisfaction. Moore Than Clean offers commercial cleaning services for offices, retail spaces, and other commercial properties. We can customize our cleaning services to meet your specific needs and schedule.</p>
         <a href="commercial-carpet-cleaning.html" class="service-link">Learn More</a>
       </article>
 
@@ -272,8 +392,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12c0-2 1-4 3-4h10c2 0 3 2 3 4v4H4v-4z"/><path d="M4 16v3M20 16v3"/></svg>
         </div>
-        <h3>Upholstery</h3>
-        <p>In addition to carpet cleaning, Moore Than Clean also offers upholstery cleaning services. We can clean all types of furniture, including sofas, armchairs, and dining chairs. Our cleaning process removes dirt, stains, and allergens, leaving your furniture looking and feeling like new.</p>
+        <h3 id="edit-svc-upholstery-title">Upholstery</h3>
+        <p id="edit-svc-upholstery-desc">In addition to carpet cleaning, Moore Than Clean also offers upholstery cleaning services. We can clean all types of furniture, including sofas, armchairs, and dining chairs. Our cleaning process removes dirt, stains, and allergens, leaving your furniture looking and feeling like new.</p>
         <a href="upholstery-cleaning.html" class="service-link">Learn More</a>
       </article>
 
@@ -282,8 +402,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M7 7v11M17 7v11M3 12h18"/></svg>
         </div>
-        <h3>Mattress</h3>
-        <p>When was the last time you cleaned your mattress? According to materials published by Ohio State University, a typical used mattress may have 100,000 to 10 million mites inside. Stains, dust mites, and sweat stand no chance against our steam cleaning techniques.</p>
+        <h3 id="edit-svc-mattress-title">Mattress</h3>
+        <p id="edit-svc-mattress-desc">When was the last time you cleaned your mattress? According to materials published by Ohio State University, a typical used mattress may have 100,000 to 10 million mites inside. Stains, dust mites, and sweat stand no chance against our steam cleaning techniques.</p>
         <a href="contact.html" class="service-link">Get a Quote</a>
       </article>
 
@@ -292,8 +412,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17h2v-7l3-5h8l3 5v7h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
         </div>
-        <h3>Auto &amp; RV</h3>
-        <p>As a busy father, I know our car seats can take some unintended collateral damage. Whether it's a coffee spill, a juice box attack, or everyday dust buildup, we can bring your seats back to life. Is your RV or camp trailer starting to develop some unwanted smells, or stains? Don't let a hunting season, beach vacation, or camping trip follow you back home. Give us a call, and we'll get you ready for next years adventures.</p>
+        <h3 id="edit-svc-auto-title">Auto &amp; RV</h3>
+        <p id="edit-svc-auto-desc">As a busy father, I know our car seats can take some unintended collateral damage. Whether it's a coffee spill, a juice box attack, or everyday dust buildup, we can bring your seats back to life. Is your RV or camp trailer starting to develop some unwanted smells, or stains? Don't let a hunting season, beach vacation, or camping trip follow you back home. Give us a call, and we'll get you ready for next years adventures.</p>
         <a href="contact.html" class="service-link">Get a Quote</a>
       </article>
 
@@ -302,8 +422,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M4 10h16M4 14h16M9 6v12M15 6v12"/></svg>
         </div>
-        <h3>Rugs</h3>
-        <p>Moore Than Clean also offers on site rug cleaning services. We can clean all types of rugs, including Oriental, Persian, and wool rugs. Our cleaning process removes dirt, stains, and allergens, leaving your rugs looking vibrant and fresh.</p>
+        <h3 id="edit-svc-rugs-title">Rugs</h3>
+        <p id="edit-svc-rugs-desc">Moore Than Clean also offers on site rug cleaning services. We can clean all types of rugs, including Oriental, Persian, and wool rugs. Our cleaning process removes dirt, stains, and allergens, leaving your rugs looking vibrant and fresh.</p>
         <a href="contact.html" class="service-link">Get a Quote</a>
       </article>
 
@@ -312,8 +432,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
         </div>
-        <h3>Tile</h3>
-        <p>Dark grout lines? Mold or residue building up in your shower? (Trust us, our white tile shower is in a constant battle with Prineville's water too.) Before trying to color match your décor, and paint to your tile floors, give us a call to see what you're working with.</p>
+        <h3 id="edit-svc-tile-title">Tile</h3>
+        <p id="edit-svc-tile-desc">Dark grout lines? Mold or residue building up in your shower? (Trust us, our white tile shower is in a constant battle with Prineville's water too.) Before trying to color match your décor, and paint to your tile floors, give us a call to see what you're working with.</p>
         <a href="tile-and-grout-cleaning.html" class="service-link">Learn More</a>
       </article>
 
@@ -322,8 +442,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C8 8 4 11 4 15a8 8 0 0016 0c0-4-4-7-8-13z"/></svg>
         </div>
-        <h3>Stain &amp; Odor Removal</h3>
-        <p>Got a stubborn stain on your carpet or upholstery? Don't worry! We can tackle even the toughest stains. Even urine doesn't stand a chance when we're on the scene. Ask about our urine and odor treatment. We use specialized products and techniques to remove stains, and odors without damaging your carpets or furniture.</p>
+        <h3 id="edit-svc-stain-title">Stain &amp; Odor Removal</h3>
+        <p id="edit-svc-stain-desc">Got a stubborn stain on your carpet or upholstery? Don't worry! We can tackle even the toughest stains. Even urine doesn't stand a chance when we're on the scene. Ask about our urine and odor treatment. We use specialized products and techniques to remove stains, and odors without damaging your carpets or furniture.</p>
         <a href="contact.html" class="service-link">Get a Quote</a>
       </article>
 
@@ -332,8 +452,8 @@
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <h3>Fabric Protectant</h3>
-        <p>Accidents happen. When they do occur you can rest easy knowing your carpet is shielded. Adding a fabric protector can give you the time you need to clean up a spill before it sets a stain. Most protectants use a Teflon base, but we're proud to use a protectant that is both eco-friendly and family safe.</p>
+        <h3 id="edit-svc-fabric-title">Fabric Protectant</h3>
+        <p id="edit-svc-fabric-desc">Accidents happen. When they do occur you can rest easy knowing your carpet is shielded. Adding a fabric protector can give you the time you need to clean up a spill before it sets a stain. Most protectants use a Teflon base, but we're proud to use a protectant that is both eco-friendly and family safe.</p>
         <a href="contact.html" class="service-link">Get a Quote</a>
       </article>
 
@@ -519,11 +639,147 @@
   </div>
   <div class="footer-meta">
     <p>&copy; 2026 Moore Than Clean — All Rights Reserved.</p>
-    <p>Sketch by <a href="https://tryrelaunch.com">Relaunch</a></p>
-  </div>
+    <p>Sketch by <a href="https://tryrelaunch.com">Relaunch</a></p></div>
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/relaunch-editor.js"></script>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  EDIT WIDGET — Powered by Relaunch       ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Hey! Tell me what you'd like to change — hours, prices, menu descriptions, phone, address, anything. Adding brand-new dishes isn't supported yet, but updating existing items is.</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-chip" onclick="useChip(this)">Change Spicy Fried Chicken to $20</div>
+    <div class="edit-chip" onclick="useChip(this)">Update Saturday hours to 11am–10pm</div>
+    <div class="edit-chip" onclick="useChip(this)">Change phone number</div>
+    <div class="edit-chip" onclick="useChip(this)">Update Dan Dan description</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea
+      class="edit-input"
+      id="edit-input"
+      placeholder="What would you like to change?"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
+  </div>
+</div>
+
+<script id="relaunch-editor-script">
+// ── Edit widget (Powered by Relaunch) ──
+let isLoading = false;
+
+function toggleEditPanel() {
+  const panel = document.getElementById('edit-panel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) {
+    setTimeout(() => document.getElementById('edit-input').focus(), 100);
+  }
+}
+
+function useChip(el) {
+  const input = document.getElementById('edit-input');
+  input.value = el.textContent;
+  input.focus();
+  autoResize(input);
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendEdit();
+  }
+}
+
+function addMessage(text, type) {
+  const messages = document.getElementById('edit-messages');
+  const msg = document.createElement('div');
+  msg.className = `edit-msg ${type}`;
+  msg.textContent = text;
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+  return msg;
+}
+
+async function sendEdit() {
+  if (isLoading) return;
+  const input = document.getElementById('edit-input');
+  const request = input.value.trim();
+  if (!request) return;
+
+  input.value = '';
+  autoResize(input);
+  document.getElementById('edit-suggestions').style.display = 'none';
+  addMessage(request, 'user');
+
+  isLoading = true;
+  document.getElementById('edit-send').disabled = true;
+  document.getElementById('edit-typing').classList.add('show');
+
+  // Build content map — every editable element by ID
+  const content = {};
+  document.querySelectorAll('[id^="edit-"]').forEach(el => {
+    content[el.id] = el.textContent.trim();
+  });
+
+  try {
+    const response = await fetch('/.netlify/functions/edit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ request, content })
+    });
+
+    document.getElementById('edit-typing').classList.remove('show');
+
+    if (!response.ok) {
+      addMessage('Something went wrong. Try again.', 'error');
+      isLoading = false;
+      document.getElementById('edit-send').disabled = false;
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.changes && data.changes.length > 0) {
+      data.changes.forEach(change => {
+        const el = document.getElementById(change.id);
+        if (el) el.textContent = change.text;
+      });
+      addMessage(data.confirmation || 'Done! Change applied.', 'system');
+    } else {
+      addMessage("I couldn't find what to change. Try being more specific.", 'claude');
+    }
+  } catch (err) {
+    document.getElementById('edit-typing').classList.remove('show');
+    addMessage("Couldn't connect. Check your internet and try again.", 'error');
+  }
+
+  isLoading = false;
+  document.getElementById('edit-send').disabled = false;
+}
+</script>
+
 </body>
 </html>
