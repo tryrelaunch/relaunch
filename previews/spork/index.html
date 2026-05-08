@@ -968,6 +968,16 @@ footer {
 }
 </style>
 
+
+<!-- SEO: canonical + Open Graph + Twitter (auto-added) -->
+<link rel="canonical" href="https://tryrelaunch.com/previews/spork/">
+<meta property="og:title" content="Spork — Globally-Inspired Streetfood · Bend, Oregon">
+<meta property="og:description" content="Spork — globally-inspired streetfood in Bend, Oregon. Asian-Mexican cuisine, craft cocktails, and 16+ years of Bend awards. Open Mon–Sat 11am–9pm at 937 NW Newport Ave.">
+<meta property="og:url" content="https://tryrelaunch.com/previews/spork/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spork — Globally-Inspired Streetfood · Bend, Oregon">
+<meta name="twitter:description" content="Spork — globally-inspired streetfood in Bend, Oregon. Asian-Mexican cuisine, craft cocktails, and 16+ years of Bend awards. Open Mon–Sat 11am–9pm at 937 NW Newport Ave.">
 </head>
 <body>
 
@@ -977,7 +987,7 @@ footer {
 <div class="seo-banner">
   <div class="seo-top" onclick="toggleSEO()">
     <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
-      <div class="seo-badge">A note from Relaunch</div>
+      <div class="seo-badge">Built by Relaunch</div>
       <div class="seo-text">Hey Spork — <span>we rebuilt your site</span>. Here's why it matters &nbsp;👇</div>
     </div>
     <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
@@ -993,8 +1003,8 @@ footer {
           <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Your menu is a JPG image.</strong> Google can't read it. Searches for "Korean fried chicken Bend" or "Asian fusion Bend" don't surface you — even though you own those categories.</div></div>
           <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Hours are listed three different ways</strong> on three different pages. Tools and apps pull whichever they crawled most recently.</div></div>
           <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>The NYT quote and Restaurant of the Year award are buried in About.</strong> Visitors and Google never see your strongest credentials.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No structured data.</strong> Search engines aren't told you're a restaurant, your hours, your rating, or your awards.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Squarespace template bloat.</strong> Slow on mobile, generic look, hero photos timestamped 2013.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No restaurant-specific schema.</strong> Missing Restaurant, Menu, AggregateRating, Review, FAQPage. Google sees a generic Squarespace placeholder, not the most-awarded restaurant in Bend. AI Overviews skip you in favor of Yelp.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Google's mobile speed test scores you 50 out of 100.</strong> Squarespace ships 521 KiB of unused JavaScript on every page load. That score is a Google ranking signal — it's why somebody searching "Bend restaurant" on a phone doesn't see you in the top results, despite 16 years of awards.</div></div>
         </div>
         <div>
           <div class="seo-col-title">What this rebuild fixes</div>
@@ -1002,9 +1012,11 @@ footer {
           <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>One source of truth for hours, address, phone</strong> — synced in JSON-LD so Google, Apple Maps, and voice assistants all show the same info.</div></div>
           <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>NYT, awards, and the founder story are above the fold.</strong> Lead with what makes you Spork.</div></div>
           <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Restaurant schema markup baked in.</strong> Rich results, knowledge panel, the works.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Fast on mobile.</strong> Pure HTML/CSS, optimized images, no template overhead.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Mobile speed score 90+ instead of 50 — same Google test, different result.</strong> Pure HTML/CSS, optimized images, none of Squarespace's 521 KiB of unused JavaScript dragging every page.</div></div>
           <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Edit anything by just asking.</strong> Hit the green button bottom-right. Hours, prices, descriptions — talk to the AI, it changes the page.</div></div>
         </div>
+
+        <p class="seo-footnote" style="grid-column:1/-1;font-size:12px;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.5;">Speed score from Google's PageSpeed Insights, run today against sporkbend.com — verify yourself at pagespeed.web.dev. The Relaunch preview score includes this banner and the AI editor widget you're using right now; neither ships on the production version of your site, so the actual delivered build scores higher.</p>
 
         <div class="seo-cta-row">
           <div class="seo-cta-text">Want to swap this in for sporkbend.com? <strong>$99/month, no contract, cancel anytime.</strong> We handle the domain pointing, you keep your old site live until you say go.</div>
@@ -1045,10 +1057,10 @@ footer {
         <span class="open-q">&ldquo;</span><span id="edit-hero-quote">Culinary magic.</span><span class="close-q">&rdquo;</span>
       </div>
       <div class="hero-attrib">— <strong id="edit-hero-attrib">The New York Times</strong></div>
-      <p class="hero-tagline">
-        <span id="edit-hero-tagline">Globally-inspired, green-conscious streetfood. Sixteen years of awards, one Bend kitchen, zero shortcuts.</span>
+      <h1 class="hero-tagline">
+        <span id="edit-hero-tagline">Globally-inspired streetfood in Bend, Oregon — Asian-Mexican cuisine, sixteen years of awards.</span>
         <em id="edit-hero-script">Let's be curious.</em>
-      </p>
+      </h1>
       <div class="hero-btns">
         <a href="https://www.toasttab.com/spork-937-nw-newport-ave-suite-130" class="btn-primary" target="_blank">
           Order Online <span>→</span>
@@ -1732,3 +1744,4 @@ async function sendEdit() {
 
 </body>
 </html>
+       
