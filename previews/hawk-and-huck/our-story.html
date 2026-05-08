@@ -237,6 +237,44 @@
   </div>
 </footer>
 
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  RELAUNCH EDIT WIDGET                    ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Hey Jayme — tell me what you'd like to change about the story. Brian or James's bios, the ranch description, headlines, anything. Updating existing copy works; adding brand-new sections isn't supported yet.</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-chip" onclick="useChip(this)">Update Brian's bio</div>
+    <div class="edit-chip" onclick="useChip(this)">Change the page headline</div>
+    <div class="edit-chip" onclick="useChip(this)">Edit the ranch description</div>
+    <div class="edit-chip" onclick="useChip(this)">Update phone number</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea
+      class="edit-input"
+      id="edit-input"
+      placeholder="What would you like to change?"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
+  </div>
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -121,9 +121,9 @@
 <section class="hero">
   <div class="hero-content">
     <div class="hero-text">
-      <span class="hero-eyebrow">Bend, Oregon · Since 2024</span>
+      <span class="hero-eyebrow" id="edit-hero-eyebrow">Bend, Oregon · Since 2024</span>
       <h1>Wood-fired beef.<br>Canvas-tent <em>dining.</em><br>Family ranch, just up the road.</h1>
-      <p class="hero-lede">A modern cowboy steakhouse from Brian and James Malarkey — bringing their Tumalo ranch heritage into a kitchen built around live fire, whole-animal butchery, and the kind of evening that lingers.</p>
+      <p class="hero-lede" id="edit-hero-lede">A modern cowboy steakhouse from Brian and James Malarkey — bringing their Tumalo ranch heritage into a kitchen built around live fire, whole-animal butchery, and the kind of evening that lingers.</p>
       <div class="hero-actions">
         <a href="https://www.opentable.com/r/hawkeye-and-huckleberry-lounge-bend" class="btn btn-primary" target="_blank" rel="noopener">Reserve a Table</a>
         <a href="menu.html" class="btn btn-secondary">View the Menu</a>
@@ -287,15 +287,15 @@
       </div>
       <div class="info-row">
         <div class="info-label">Phone</div>
-        <div class="info-val"><a href="tel:5417282802">541.728.2802</a></div>
+        <div class="info-val"><a href="tel:5417282802" id="edit-phone">541.728.2802</a></div>
       </div>
       <div class="info-row">
         <div class="info-label">Email</div>
-        <div class="info-val"><a href="mailto:info@hawkandhuck.com">info@hawkandhuck.com</a></div>
+        <div class="info-val"><a href="mailto:info@hawkandhuck.com" id="edit-email">info@hawkandhuck.com</a></div>
       </div>
       <div class="info-row">
         <div class="info-label">Hours</div>
-        <div class="info-val">Open Daily 4PM<small>Sun–Thu till 8:30 · Fri–Sat till 9:30 · Happy Hour daily 4–5 in bar &amp; patio</small></div>
+        <div class="info-val"><span id="edit-hours-main">Open Daily 4PM</span><small><span id="edit-hours-detail">Sun–Thu till 8:30 · Fri–Sat till 9:30 · Happy Hour daily 4–5 in bar &amp; patio</span></small></div>
       </div>
 
       <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap;">
@@ -348,6 +348,44 @@
     <p>Sketch by <a href="https://tryrelaunch.com" style="color: var(--gold);">Relaunch</a></p>
   </div>
 </footer>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  RELAUNCH EDIT WIDGET                    ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Hey Jayme — tell me what you'd like to change. Hours, prices, menu descriptions, the phone number, anything. Updating existing items works; adding brand-new dishes isn't supported yet.</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-chip" onclick="useChip(this)">Change happy hour to 4–6pm</div>
+    <div class="edit-chip" onclick="useChip(this)">Update Friday hours to 4pm–10pm</div>
+    <div class="edit-chip" onclick="useChip(this)">Change phone number</div>
+    <div class="edit-chip" onclick="useChip(this)">Update the hero tagline</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea
+      class="edit-input"
+      id="edit-input"
+      placeholder="What would you like to change?"
+      rows="1"
+      onkeydown="handleKey(event)"
+      oninput="autoResize(this)"
+    ></textarea>
+    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
