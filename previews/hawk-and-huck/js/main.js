@@ -16,3 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// ── SEO banner toggle (Spork pattern) ──
+function toggleSEO() {
+  const p = document.getElementById('seo-panel');
+  const b = document.getElementById('seo-btn');
+  if (!p) return;
+  p.classList.toggle('open');
+  if (b) b.textContent = p.classList.contains('open') ? 'Close ▲' : 'Read this first ▼';
+}

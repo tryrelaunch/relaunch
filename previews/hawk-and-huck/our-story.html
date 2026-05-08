@@ -12,9 +12,47 @@
 </head>
 <body>
 
-<div class="preview-banner">
-  <span>Hey Jayme — sketch by Boatr Marketing for Hawk &amp; Huck. Click around, then let's grab a drink.</span>
-  <a href="mailto:nsinisgalli@gmail.com?subject=Hawk%20%26%20Huck%20redesign">Reply →</a>
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  SEO BANNER (Spork pattern)              ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<div class="seo-banner">
+  <div class="seo-top" onclick="toggleSEO()">
+    <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
+      <div class="seo-badge">A note from Relaunch</div>
+      <div class="seo-text">Hey Jayme — <span>we rebuilt your site</span>. Here's why it matters &nbsp;👇</div>
+    </div>
+    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
+  </div>
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+      <p class="seo-greeting">Jayme — Hawkeye &amp; Huckleberry has earned links from <strong>CNN, Food Network, Eater, and Condé Nast Traveler</strong>. With Brian Malarkey's Top Chef name behind it, you've built one of the strongest reputations in Bend dining. None of that shows up when somebody opens Google in Bend on a Saturday night and types &ldquo;steakhouse.&rdquo;</p>
+      <p class="seo-greeting-sub">A quick honest look at where you stand and what we changed.</p>
+
+      <div class="seo-grid">
+        <div>
+          <div class="seo-col-title">What's not working on the current site</div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>You rank #5 for &ldquo;Bend steakhouse&rdquo; — losing to three weaker restaurants.</strong> Brickhouse, RBC, and The Blacksmith all rank above you with lower domain authority. You should own this keyword.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Domain Rating of 24, but only 209 organic visits a month.</strong> The press has built real site authority. Google just isn't sending the traffic that should follow.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>96% of visitors land on the homepage. Every other page combined gets ~8 visits/month.</strong> Menu, Reservations, Our Story — none of them are doing real SEO work.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No restaurant-specific structured data on the live site.</strong> Google can't tell it has a menu, what the hours are, or what the reviews say. AI Overviews skip you in favor of Yelp and Reddit threads.</div></div>
+          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>20 keywords ranked total — 14 are people already searching your name.</strong> Almost no demand for &ldquo;Bend steakhouse,&rdquo; &ldquo;happy hour Bend,&rdquo; or &ldquo;date night Bend&rdquo; ever reaches the site.</div></div>
+        </div>
+        <div>
+          <div class="seo-col-title">What this rebuild fixes</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Dedicated service pages — Steakhouse, Lounge, Happy Hour, Private Events.</strong> Each one ranks for its own keyword instead of cramming everything onto the homepage.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Full Restaurant + Menu + AggregateRating schema.</strong> Google starts treating you like a restaurant. Star rating shows under your result. AI Overviews start citing you.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>FAQ block written for AI search.</strong> The exact format ChatGPT, Gemini, and Google AI Overviews quote when somebody asks &ldquo;best steakhouse in Bend.&rdquo;</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Brian &amp; James Malarkey surfaced where they convert.</strong> Top Chef credentials in the hero, in the About schema, in the Open Graph tags — not buried three clicks deep.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Edit anything by just asking.</strong> Type &ldquo;change happy hour to 4–6pm&rdquo; into the chat widget and it's live. Update prices, hours, specials yourself. No webmaster.</div></div>
+        </div>
+
+        <div class="seo-cta-row">
+          <div class="seo-cta-text">Want to swap this in for hawkeyeandhuckleberrylounge.com? <strong>$99/month, no contract, cancel anytime.</strong> We handle the migration. Your old site stays live until you say go.</div>
+          <a href="https://tryrelaunch.com/onboard?business=Hawkeye%20%26%20Huckleberry%20Lounge&amp;email=info@hawkandhuck.com&amp;avenue=outbound" class="seo-cta-btn">Make it mine →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="top-strip">
