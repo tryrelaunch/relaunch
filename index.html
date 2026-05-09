@@ -383,13 +383,18 @@ footer { background: #080F1F; padding: 36px 0; border-top: 1px solid rgba(255,25
 
 <!-- Netlify Forms: hidden form declaration for build-time detection.
      Submissions land in Netlify dashboard → Forms tab. Email notifications
-     are configured per-form in Netlify Site Settings → Forms → Notifications. -->
-<form name="lead-capture" data-netlify="true" hidden>
-  <input type="url"  name="url" />
-  <input type="text" name="source" />
-  <input type="text" name="referrer" />
-  <input type="text" name="user_agent" />
-  <input type="text" name="submitted_at" />
+     are configured per-form in Netlify Site Settings → Forms → Notifications.
+     IMPORTANT: Netlify's parser requires method="POST", a submit button, and
+     style="display:none" rather than the `hidden` attribute. -->
+<form name="lead-capture" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none;">
+  <input type="hidden" name="form-name" value="lead-capture" />
+  <input type="text" name="bot-field" />
+  <input type="url"   name="url" />
+  <input type="text"  name="source" />
+  <input type="text"  name="referrer" />
+  <input type="text"  name="user_agent" />
+  <input type="text"  name="submitted_at" />
+  <button type="submit">Send</button>
 </form>
 
 <!-- NAV -->
