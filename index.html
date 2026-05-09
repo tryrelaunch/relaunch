@@ -381,6 +381,17 @@ footer { background: #080F1F; padding: 36px 0; border-top: 1px solid rgba(255,25
 </head>
 <body>
 
+<!-- Netlify Forms: hidden form declaration for build-time detection.
+     Submissions land in Netlify dashboard → Forms tab. Email notifications
+     are configured per-form in Netlify Site Settings → Forms → Notifications. -->
+<form name="lead-capture" data-netlify="true" hidden>
+  <input type="url"  name="url" />
+  <input type="text" name="source" />
+  <input type="text" name="referrer" />
+  <input type="text" name="user_agent" />
+  <input type="text" name="submitted_at" />
+</form>
+
 <!-- NAV -->
 <nav>
   <div class="logo"><div class="logo-dot"></div>Relaunch</div>
@@ -400,9 +411,13 @@ footer { background: #080F1F; padding: 36px 0; border-top: 1px solid rgba(255,25
       <div class="hero-tag">Free website rebuild for local businesses</div>
       <h1>Your business deserves a better <span>website.</span></h1>
       <p class="hero-sub">We rebuild your website from scratch — faster, more professional, and optimized for Google. Free to see. $99/month to keep it live. No contracts.</p>
-      <div class="hero-form">
-        <input type="url" id="hero-url" placeholder="yourwebsite.com">
+      <div class="hero-form" id="hero-form-wrap">
+        <input type="url" id="hero-url" name="url" placeholder="yourwebsite.com" autocomplete="url">
         <button onclick="submitHero()">Get free preview →</button>
+      </div>
+      <div class="hero-success" id="hero-success" style="display:none;background:rgba(255,255,255,0.95);border:1px solid #d1d5db;border-radius:10px;padding:18px 20px;margin-bottom:8px;color:#111827;font-size:15px;line-height:1.5;">
+        <strong style="display:block;margin-bottom:4px;color:#059669;">Got it. ✓</strong>
+        We'll build a free preview of your site and email it within 48 hours. Keep an eye on your inbox.
       </div>
       <p class="hero-note">Free · No credit card · Preview delivered in 48 hours</p>
       <div class="hero-checks">
@@ -733,9 +748,13 @@ footer { background: #080F1F; padding: 36px 0; border-top: 1px solid rgba(255,25
   <div class="cta-inner">
     <h2>See what your website could look like.</h2>
     <p>Enter your URL. We'll build a free preview and send it within 48 hours. No credit card, no commitment.</p>
-    <div class="cta-form">
-      <input type="url" class="cta-input" placeholder="yourwebsite.com" id="cta-url">
+    <div class="cta-form" id="cta-form-wrap">
+      <input type="url" class="cta-input" placeholder="yourwebsite.com" id="cta-url" name="url" autocomplete="url">
       <button class="cta-btn" onclick="submitCta()">Get my free preview →</button>
+    </div>
+    <div class="cta-success" id="cta-success" style="display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:18px 20px;margin-bottom:12px;color:rgba(255,255,255,0.92);font-size:15px;line-height:1.5;text-align:left;">
+      <strong style="display:block;margin-bottom:4px;color:#34d399;">Got it. ✓</strong>
+      We'll build a free preview of your site and email it within 48 hours.
     </div>
     <p class="cta-note">Free · No credit card · Preview lives for 30 days · Cancel anytime</p>
   </div>
@@ -778,19 +797,43 @@ function faq(btn) {
   if (!o) { btn.classList.add('open'); a.classList.add('open'); }
 }
 
-// Forms
+// Forms — submits to Netlify Forms (the hidden <form name="lead-capture"> at top of body
+// is what Netlify detects at build time; subsequent JS submits POST to "/" with form-name).
 function submitHero() {
   const u = document.getElementById('hero-url').value.trim();
   if (!u) { document.getElementById('hero-url').style.outline = '2px solid #DC2626'; return; }
-  handle(u);
+  handle(u, 'hero', 'hero-form-wrap', 'hero-success');
 }
 function submitCta() {
   const u = document.getElementById('cta-url').value.trim();
-  if (!u) return;
-  handle(u);
+  if (!u) { document.getElementById('cta-url').style.outline = '2px solid #DC2626'; return; }
+  handle(u, 'cta', 'cta-form-wrap', 'cta-success');
 }
-function handle(url) {
-  alert("Thanks! We'll build your free preview and send it to you within 48 hours.");
+function handle(url, source, formId, successId) {
+  // Optimistic UI: show success immediately so the user feels confirmed
+  const formEl = document.getElementById(formId);
+  const successEl = document.getElementById(successId);
+  if (formEl) formEl.style.display = 'none';
+  if (successEl) successEl.style.display = 'block';
+
+  const payload = new URLSearchParams();
+  payload.append('form-name', 'lead-capture');
+  payload.append('url', url);
+  payload.append('source', source);
+  payload.append('referrer', document.referrer || '(direct)');
+  payload.append('user_agent', navigator.userAgent || '');
+  payload.append('submitted_at', new Date().toISOString());
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: payload.toString(),
+  }).catch(err => {
+    // Network failure — restore form and surface the error
+    if (formEl) formEl.style.display = '';
+    if (successEl) successEl.style.display = 'none';
+    alert("We couldn't reach the server. Please try again, or email hello@tryrelaunch.com.");
+  });
 }
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hero-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitHero(); });

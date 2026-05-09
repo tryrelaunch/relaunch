@@ -413,5 +413,49 @@ async function sendEdit() {
 }
 </script>
 
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  STICKY CTA — "Make this my real site"   ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<style id="relaunch-sticky-cta-styles">
+.rl-sticky-cta {
+  position: fixed; bottom: 24px; left: 24px; z-index: 997;
+  display: flex; align-items: center; gap: 14px;
+  background: #0a3d2c; color: #ffffff;
+  padding: 10px 14px 10px 18px; border-radius: 999px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.30), 0 0 0 1px rgba(255,255,255,0.05);
+  font-family: 'Inter', system-ui, sans-serif; font-size: 13px; font-weight: 600;
+  text-decoration: none; transition: all 0.2s; max-width: calc(100vw - 48px);
+}
+.rl-sticky-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,0.35); }
+.rl-sticky-cta-text { display: flex; flex-direction: column; line-height: 1.25; }
+.rl-sticky-cta-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; opacity: 0.65; text-transform: uppercase; }
+.rl-sticky-cta-main { font-size: 14px; font-weight: 700; }
+.rl-sticky-cta-btn {
+  background: #22c069; color: #082a1f; border-radius: 999px;
+  padding: 8px 16px; font-size: 13px; font-weight: 800;
+  white-space: nowrap; transition: background 0.2s;
+}
+.rl-sticky-cta:hover .rl-sticky-cta-btn { background: #3ad77f; }
+.rl-sticky-cta-close {
+  background: none; border: none; color: #ffffff; opacity: 0.4;
+  cursor: pointer; font-size: 18px; line-height: 1; padding: 0 4px;
+}
+.rl-sticky-cta-close:hover { opacity: 1; }
+@media (max-width: 640px) {
+  .rl-sticky-cta { left: 12px; right: 12px; bottom: 84px; padding: 10px 12px; }
+  .rl-sticky-cta-tag { display: none; }
+  .rl-sticky-cta-main { font-size: 13px; }
+}
+</style>
+<a class="rl-sticky-cta" id="rl-sticky-cta" href="https://tryrelaunch.com/onboard?business=Moore%20Than%20Clean&email=Info%40moorethanclean.com&avenue=outbound">
+  <div class="rl-sticky-cta-text">
+    <span class="rl-sticky-cta-tag">$99/mo · No contract</span>
+    <span class="rl-sticky-cta-main">Make this my real site</span>
+  </div>
+  <span class="rl-sticky-cta-btn">Switch →</span>
+  <button class="rl-sticky-cta-close" onclick="event.preventDefault();event.stopPropagation();document.getElementById('rl-sticky-cta').style.display='none';" aria-label="Dismiss">×</button>
+</a>
+
 </body>
 </html>
