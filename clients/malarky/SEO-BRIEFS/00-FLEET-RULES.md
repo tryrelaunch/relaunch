@@ -228,6 +228,22 @@ Every commercial keyword in the SD charter market is assigned to one boat. Other
 
 ## 6. Content Quality Rules
 
+**0. Vessel-size framing (READ FIRST — applies to every page).**
+
+The Malarky vessel is **NOT small.** It is a 47-foot Voyage performance catamaran with 4 staterooms, 2 bathrooms, an indoor lounge, and USCG capacity of 12 guests. Forty-feet-plus is the conventional yacht threshold; Malarky is comfortably a yacht.
+
+The differentiator vs Triton (75ft, 100-guest) is **the guest scale and the privacy model** — not the boat being smaller. Triton is the largest catamaran in the fleet; Malarky is the most **exclusive / private / intimate** by guest cap. Both yachts are real yachts.
+
+**Allowed language:** "intimate" / "exclusive" / "private" / "premium" / "12-guest" — all referring to the **audience scale** (how many guests, how exclusive the experience).
+
+**Forbidden language:** "small boat" / "small catamaran" / "small yacht" / "small vessel" / "smaller boat" / "smallest" / "tiny" / "compact" / "cozy boat" / "petite" — anything that frames the vessel itself as small. The boat is 47 feet and substantial. Don't undersell the asset.
+
+**When comparing to Triton or other large-cap boats:** frame the comparison as **guest capacity**, not **boat size**. Example: ✅ "While the bay's 60-to-100-guest catamarans run shared cruises, Malarky stays private at 12 guests." ❌ "While the bay's bigger boats..." (implies Malarky is small).
+
+**When talking about wedding/team/group size:** "small wedding," "small team," "small group" are fine — those describe the *audience*, not the boat.
+
+---
+
 1. **Write enough to satisfy search intent.** In the SD charter niche, top-ranking competitor pages run 1,200–2,500 words. Pages under 800 words won't rank. Pages over 3,000 words risk diluting intent. Calibrate per page; don't pad.
 2. **Original photos always.** Generic stock-style images hurt trust signals. Use the boat library (Malarky has 26 boat photos already imported into `/images/boat/`).
 3. **Concrete details over fluff.** "47-foot Voyage performance catamaran built in Cape Town, South Africa" beats "luxury yacht." Include real specs, real route, real add-on prices when available.
