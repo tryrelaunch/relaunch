@@ -775,6 +775,18 @@ nav {
 .hero-lede-inner p:last-child { margin-bottom: 0; }
 .hero-lede-inner strong { color: var(--ink); }
 
+/* ── HERO TRUST STRIP (subpage variant) ── */
+.trust-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  margin-top: var(--s-5);
+  font-family: var(--ff-display);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(247,241,227,0.85);
+}
+.trust-strip .trust-sep { color: var(--brass); opacity: 0.6; }
+.trust-strip .trust-check { color: var(--brass); font-weight: 700; margin-right: 4px; }
+
 /* ── HOMEPAGE — INCLUDED LIST ── */
 .included-wrap { max-width: 1080px; margin: 0 auto; }
 .included-wrap > p {
