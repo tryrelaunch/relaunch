@@ -202,3 +202,19 @@ That's Relaunch.
 - **Push hygiene:** use `deploy.bat` for a guided commit, or run `git add . && git commit -m "..." && git push origin main` directly. Netlify deploys on every push to `main`.
 - **GitHub remote:** `https://github.com/tryrelaunch/relaunch.git`. If git auth fails on push, the cached credential is probably for a different account — clear `git:https://github.com` from Windows Credential Manager and re-auth.
 - **Don't commit `node_modules/`** — already gitignored. The Netlify function pulls deps at build time.
+
+### Active SEO work — Malarky Charters (clients/malarky/)
+
+Malarky has a structured SEO playbook in `clients/malarky/SEO-BRIEFS/`. **Read it before editing any Malarky page.** Order:
+
+1. `clients/malarky/SEO-BRIEFS/00-FLEET-RULES.md` — Canonical operational truth + keyword territories + cannibalization rules across all 5 sister boats (Triton, Athena, Alana, Malarky, Aquata). Read first.
+2. `clients/malarky/SEO-BRIEFS/01-homepage.md` — Homepage spec.
+3. `clients/malarky/SEO-BRIEFS/02-...` through `20-...` — additional page briefs as added.
+
+**Hard rules (from `00-FLEET-RULES.md`, summarized):**
+- No boat in this fleet operates in Mission Bay or the Pacific Ocean. No whale watching. No dinner cruises. No overnight stays. Don't write copy claiming any of these.
+- Each page brief lists explicit off-limits keywords + topics. Honor them strictly to prevent cross-fleet cannibalization.
+- Schema rules: never include `AggregateRating` without real reviews embedded on the page; never include `Offer` with placeholder prices; FAQPage schema is for general structured data, not rich snippets.
+- Site copy fixes (P0) listed in `00-FLEET-RULES.md` Section 2 must ship before new SEO content.
+
+When implementing a brief, treat it as a complete spec — don't improvise on title, meta, H1, schema, or word counts. Flag any conflicts to the operator before deviating.

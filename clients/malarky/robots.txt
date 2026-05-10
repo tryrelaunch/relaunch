@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /edit/
+Disallow: /SEO-BRIEFS/
+
+Sitemap: https://malarkycharters.com/sitemap.xml

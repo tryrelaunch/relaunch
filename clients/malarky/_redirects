@@ -2,3 +2,7 @@
 /47864-2   /yacht-charter-deals-san-diego/  301
 /47835-2/  /bachelorette-yacht-charters-san-diego/  301
 /47835-2   /bachelorette-yacht-charters-san-diego/  301
+
+# Internal docs — not for public access
+/SEO-BRIEFS/*  /  404
+/edit/*        /  404

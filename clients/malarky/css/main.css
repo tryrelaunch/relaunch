@@ -763,6 +763,155 @@ nav {
   margin-top: var(--s-3);
 }
 
+/* ── HOMEPAGE — HERO LEDE ── */
+.hero-lede { background: var(--paper); padding: var(--s-9) 32px; }
+.hero-lede-inner { max-width: 880px; margin: 0 auto; }
+.hero-lede-inner p {
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin-bottom: var(--s-5);
+}
+.hero-lede-inner p:last-child { margin-bottom: 0; }
+.hero-lede-inner strong { color: var(--ink); }
+
+/* ── HOMEPAGE — INCLUDED LIST ── */
+.included-wrap { max-width: 1080px; margin: 0 auto; }
+.included-wrap > p {
+  max-width: 70ch; margin: 0 auto var(--s-7);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75; color: var(--ink-2);
+  text-align: center;
+}
+.included-list {
+  list-style: none;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--s-4) var(--s-7);
+}
+.included-list li {
+  font-size: 15px; line-height: 1.6;
+  color: var(--ink-2);
+  display: flex; gap: 12px;
+  align-items: flex-start;
+}
+.included-list li::before {
+  content: '\2713'; color: var(--teal-deep); font-weight: 700;
+  flex-shrink: 0;
+}
+.included-list strong { color: var(--ink); }
+.included-callout {
+  margin-top: var(--s-7);
+  max-width: 70ch; margin-left: auto; margin-right: auto;
+  padding: var(--s-5) var(--s-6);
+  border-left: 3px solid var(--brass);
+  background: var(--cream);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.included-callout strong { color: var(--ink); }
+
+/* ── HOMEPAGE — EXPERIENCE / CATERING / PRICING / DEPARTURE PROSE ── */
+.prose-wide {
+  max-width: 880px; margin: 0 auto;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.75; color: var(--ink-2);
+}
+.prose-wide p { margin-bottom: var(--s-5); }
+.prose-wide p:last-child { margin-bottom: 0; }
+.prose-wide a { color: var(--teal-deep); border-bottom: 1px solid var(--teal-deep); }
+.prose-wide strong { color: var(--ink); }
+
+/* ── HOMEPAGE — OCCASIONS GRID ── */
+.occasions-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-7) var(--s-6);
+}
+.occasion-card { display: flex; flex-direction: column; gap: 10px; }
+.occasion-card h3 {
+  font-family: var(--ff-display);
+  font-size: 19px; font-weight: 700; line-height: 1.3;
+  color: var(--ink); margin: 0;
+}
+.occasion-card p {
+  font-size: 15px; line-height: 1.65;
+  color: var(--ink-2); margin: 0;
+}
+.occasion-card p a {
+  color: var(--teal-deep);
+  border-bottom: 1px solid var(--teal-deep);
+  padding-bottom: 1px;
+}
+
+/* ── HOMEPAGE — MATTERPORT EMBED ── */
+.matterport-embed {
+  max-width: 1280px; margin: var(--s-7) auto 0;
+  aspect-ratio: 16/9;
+}
+.matterport-embed iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+}
+
+/* ── HOMEPAGE — DEPARTURE MAP ── */
+.departure-map {
+  max-width: 1080px; margin: var(--s-7) auto 0;
+}
+.departure-map iframe {
+  width: 100%; height: 380px; border: 0; display: block;
+}
+
+/* ── HOMEPAGE — GUEST REVIEWS (light) ── */
+.guest-reviews { background: var(--paper); }
+.guest-reviews-header { text-align: center; max-width: 880px; margin: 0 auto var(--s-7); }
+.guest-reviews-header .kicker { justify-content: center; }
+.guest-reviews-headline {
+  font-family: var(--ff-display);
+  font-size: clamp(18px, 1.8vw, 22px); font-weight: 600;
+  color: var(--ink-2);
+  margin-top: var(--s-5);
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.guest-reviews-headline .stars { color: var(--brass); letter-spacing: 3px; font-size: 18px; }
+.guest-reviews-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-6);
+}
+.guest-review {
+  background: var(--cream); padding: var(--s-6);
+  border-bottom: 2px solid var(--brass);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.guest-review-stars {
+  color: var(--brass); font-size: 14px; letter-spacing: 4px;
+}
+.guest-review-body {
+  font-size: 15px; line-height: 1.7;
+  color: var(--ink-2);
+  font-style: italic;
+  margin: 0;
+}
+.guest-review-body::before { content: '\201C'; color: var(--brass); margin-right: 2px; }
+.guest-review-body::after { content: '\201D'; color: var(--brass); margin-left: 2px; }
+.guest-review-meta {
+  font-family: var(--ff-display);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink); margin-top: auto;
+}
+.guest-reviews-cta {
+  text-align: center; margin-top: var(--s-7);
+}
+.guest-reviews-cta a {
+  font-family: var(--ff-display);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal-deep);
+  border-bottom: 1px solid var(--teal-deep);
+  padding-bottom: 2px;
+}
+
 /* ── SIBLING OCCASIONS ── */
 .sibling-occasions { background: var(--cream); }
 .sibling-occasions .kicker { justify-content: center; }
@@ -873,6 +1022,9 @@ footer {
   .pricing-grid { grid-template-columns: 1fr; }
   .related-pages-grid { grid-template-columns: 1fr; }
   .sibling-grid { grid-template-columns: 1fr; }
+  .occasions-grid { grid-template-columns: 1fr; gap: var(--s-6); }
+  .guest-reviews-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+  .included-list { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; gap: var(--s-6); }
   .cta-band, footer { padding-left: 24px; padding-right: 24px; }
   .breadcrumb { padding-left: 24px; padding-right: 24px; }
