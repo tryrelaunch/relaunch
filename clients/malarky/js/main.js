@@ -11,6 +11,41 @@ if (hamburger && mobileMenu) {
   });
 }
 
+// Mobile Charter Types accordion
+document.querySelectorAll('.mobile-accordion-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const acc = btn.closest('.mobile-accordion');
+    const isOpen = acc.getAttribute('data-open') === 'true';
+    acc.setAttribute('data-open', String(!isOpen));
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
+// Desktop Charter Types dropdown — click toggle (hover handled by CSS)
+document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const dd = btn.closest('.nav-dropdown');
+    const isOpen = dd.getAttribute('data-open') === 'true';
+    document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => {
+      d.setAttribute('data-open', 'false');
+      const t = d.querySelector('.nav-dropdown-trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      dd.setAttribute('data-open', 'true');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => {
+    d.setAttribute('data-open', 'false');
+    const t = d.querySelector('.nav-dropdown-trigger');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  });
+});
+
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
