@@ -6,3 +6,9 @@
 # Internal docs — not for public access
 /SEO-BRIEFS/*  /  404
 /edit/*        /  404
+
+# Brief #05 — catamaran page rename + with-captain page kill
+/catamaran-charter-san-diego/  /private-catamaran-charter-san-diego/  301
+/catamaran-charter-san-diego   /private-catamaran-charter-san-diego/  301
+/yacht-charter-with-captain/   /private-yacht-charter-san-diego/      301
+/yacht-charter-with-captain    /private-yacht-charter-san-diego/      301
