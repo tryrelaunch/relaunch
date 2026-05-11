@@ -1051,3 +1051,10 @@ footer {
   .content-hero { padding: 48px 24px 40px; }
   .hero-split-text { padding: var(--s-7) 24px; }
 }
+
+
+/* ───────────── speed-pass: extracted inline style patterns ───────────── */
+.section-header { text-align: center; margin-bottom: var(--s-7); }
+.section-header .kicker { justify-content: center; }
+.section-header .sec-title { max-width: 32ch; margin-left: auto; margin-right: auto; }
+.sec-paper { background: var(--paper); }
