@@ -228,7 +228,19 @@ Every commercial keyword in the SD charter market is assigned to one boat. Other
 
 ## 6. Content Quality Rules
 
-**0. Vessel-size framing (READ FIRST — applies to every page).**
+**0a. Audience framing — Malarky is an ADULT charter.**
+
+Malarky positions to adult crowds: milestone birthdays, anniversaries, weddings, bachelorettes, executive entertaining, proposals, intimate sunset charters. **Not a kid-party venue.** Don't market to kid birthdays, family-with-kids day trips, or "yacht for kids" search intent — even though the boat has features (waterslide, staterooms) that would technically support those use cases.
+
+Why this matters: brand positioning drives booking quality. The customers who book a kid party expect different things (kid-grade safety briefing, calmer pace, less alcohol, family-oriented crew tone) than the adult charter the rest of the business is built around. Sending mixed signals attracts wrong-fit bookings.
+
+**Forbidden positioning:** "kid birthday yacht," "kids party boat," "family yacht with kids," "yacht for kids' birthdays," "kid-friendly yacht charter." Don't target these search intents.
+
+**Allowed:** Mentioning that kids *may* be present on family charters (if confirmed by operator that kids are permitted at all) — but never as the headline use case. Adult charters with one or two family members of mixed age = fine to acknowledge in passing; not the lead.
+
+---
+
+**0b. Vessel-size framing (READ FIRST — applies to every page).**
 
 The Malarky vessel is **NOT small.** It is a 47-foot Voyage performance catamaran with 4 staterooms, 2 bathrooms, an indoor lounge, and USCG capacity of 12 guests. Forty-feet-plus is the conventional yacht threshold; Malarky is comfortably a yacht.
 

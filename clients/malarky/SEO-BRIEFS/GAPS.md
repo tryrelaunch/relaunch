@@ -24,6 +24,17 @@ Missing photos worth a dedicated shoot or social-media pull:
 2. Pull from social media. Search Instagram/TikTok for `#malarkycharters` and DM guests for usage rights on their best slide/lily-pad shots.
 3. Stage a half-charter specifically for content. ~2 hours at a Coronado anchorage with crew + a small group of friends/family + photographer. Captures all 5 toys in one session.
 
+### Brief #10 — Adult birthday photo gaps
+
+The repositioned `/birthday-yacht-charter-san-diego/` page (adult-only per Rule 0a — milestone / 21st / casual adult) ships with generic celebration photos as substitutes. Four specific gaps would materially lift conversion:
+
+- **Birthday cake on the aft deck with lit candles + birthday person** — Section 7 covers cake-on-the-aft-deck as the default cake-cutting setup. Currently no real photo of this. The cake-and-candles shot with the bay in the background is the page's emotional hero moment.
+- **Milestone birthday champagne toast at golden hour** — Section 3a (Milestone Birthdays) frames the champagne-toast-with-skyline-backdrop as the milestone-defining photo. Currently substituted with the generic `people-deck-cheers-08.webp` toast shot. A real milestone-birthday champagne moment with the bridge in frame would carry significant weight.
+- **21st birthday energy** — champagne pop on the bow, group celebration moment. Section 3b sells this as the 21st-defining shot. No equivalent in the library currently.
+- **Adult-group waterslide reel** — Section 6 frames the waterslide as the social-media-reel moment of adult birthdays. Currently substituted with `water-deck-jump-03.webp` (generic). A real reel-style clip of adults sliding into the water (with phones filming) is what the page is selling.
+
+Capture approach: adult birthdays are photogenic-rich by their nature — most groups already document heavily, and DMing past adult-birthday guests via `#malarkycharters` for usage rights is probably the fastest way to fill these gaps. Worth specifically targeting milestone birthdays from past bookings since they tend to bring photographers.
+
 ### Brief #09 — Bachelorette photo gaps
 
 The new `/bachelorette-yacht-charters-san-diego/` page (repositioned around private/BYOB/intimate per brief #09) ships with existing group-shot substitutes from the people library. Two specific gaps would materially lift conversion:
@@ -71,8 +82,9 @@ Briefs already shipped (in commit order):
 - ✅ Brief #06 — Boat rental with water toys (NEW)
 - ✅ Brief #07 — Private sunset yacht charter (rename)
 - ✅ Brief #08 — Wedding yacht charter (reposition to micro-wedding/elopement)
-- ✅ Brief #09 — Bachelorette yacht charter (reposition to intimate/BYOB/premium small group) — *this commit*
+- ✅ Brief #09 — Bachelorette yacht charter (reposition to intimate/BYOB/premium small group)
+- ✅ Brief #10 — Birthday yacht charter (adult-only reposition: milestone / 21st / casual adult) — *this commit*
 
 Next up:
-- Brief #10 — Birthday yacht charter (intimate / milestone / kid-friendly angles)
-- Briefs 11 onward — per `00-FLEET-RULES.md` Section 10 priority order.
+- Brief #11 — Anniversary yacht charter (transactional charter side; Alana owns the informational/content side)
+- Briefs 12 onward — per `00-FLEET-RULES.md` Section 10 priority order.
