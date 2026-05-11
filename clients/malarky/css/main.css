@@ -232,9 +232,14 @@ nav {
 }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  /* Brand navy overlay (#00304D from malarkycharters.com logo) — strong enough
-     to keep hero text legible regardless of where the underlying photo is bright. */
-  background: rgba(0, 48, 77, 0.62);
+  /* Brand navy overlay (#00304D) — directional gradient. Heavier on the left where
+     the H1 / subhead / CTAs live (gives them a clean dark canvas, even over a bright
+     sail in the photo). Lighter on the right where the boat does the visual work. */
+  background: linear-gradient(90deg,
+    rgba(0, 48, 77, 0.78) 0%,
+    rgba(0, 48, 77, 0.68) 35%,
+    rgba(0, 48, 77, 0.45) 75%,
+    rgba(0, 48, 77, 0.30) 100%);
 }
 .hero-inner {
   position: relative; z-index: 1;
