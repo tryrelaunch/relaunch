@@ -1,0 +1,75 @@
+<!-- Single source of truth for site nav. Edit only here.
+     Placeholders: __BASE__ = "" on homepage, "../" on subpages.
+                   __HOME_HREF__ = "./" on homepage, "../" on subpages.
+     Run sync-partials.py before deploy. -->
+<nav>
+  <div class="nav-inner">
+    <a href="__HOME_HREF__" class="nav-logo" aria-label="Malarky Charters home">
+      <img src="__BASE__images/logo.png?v=2026051005" alt="Malarky Charters">
+    </a>
+    <div class="nav-links">
+      <a href="__BASE__yacht-rental-san-diego/">Yacht Rental</a>
+      <a href="__BASE__private-catamaran-charter-san-diego/">Catamaran Charter</a>
+      <a href="__BASE__private-sunset-yacht-charter-san-diego/">Sunset Cruises</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Charter Types <span class="nav-dropdown-caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-col">
+            <a href="__BASE__wedding-yacht-charter-san-diego/" role="menuitem">Wedding</a>
+            <a href="__BASE__bachelorette-yacht-charters-san-diego/" role="menuitem">Bachelorette</a>
+            <a href="__BASE__anniversary-yacht-charter-san-diego/" role="menuitem">Anniversary</a>
+            <a href="__BASE__birthday-yacht-charter-san-diego/" role="menuitem">Birthday</a>
+            <a href="__BASE__executive-yacht-charter-san-diego/" role="menuitem">Executive</a>
+            <a href="__BASE__party-yacht-rental-san-diego/" role="menuitem">Party</a>
+          </div>
+          <div class="nav-dropdown-col">
+            <a href="__BASE__proposal-yacht-charter-san-diego/" role="menuitem">Proposal</a>
+            <a href="__BASE__private-yacht-charter-san-diego/" role="menuitem">Private</a>
+            <a href="__BASE__byob-yacht-charter-san-diego/" role="menuitem">BYOB</a>
+            <a href="__BASE__luxury-yacht-rental-san-diego/" role="menuitem">Luxury</a>
+            <a href="__BASE__sailboat-charters-san-diego/" role="menuitem">Sailboat</a>
+            <a href="__BASE__boat-rental-with-water-toys-san-diego/" role="menuitem">Water Toys</a>
+          </div>
+        </div>
+      </div>
+      <a href="__BASE__yacht-charter-pricing-san-diego/">Pricing</a>
+      <a href="__BASE__info/">Charter Info</a>
+      <a href="__BASE__contact-us/">Contact</a>
+      <a href="https://fareharbor.com/embeds/book/missionbaysportcenter/?full-items=yes&flow=1294652" class="btn-book" rel="noopener">Book Now</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile navigation">
+    <a href="__BASE__yacht-rental-san-diego/">Yacht Rental</a>
+    <a href="__BASE__private-catamaran-charter-san-diego/">Catamaran Charter</a>
+    <a href="__BASE__private-sunset-yacht-charter-san-diego/">Sunset Cruises</a>
+    <div class="mobile-accordion">
+      <button class="mobile-accordion-trigger" aria-expanded="false">Charter Types <span class="mobile-accordion-caret">&#9662;</span></button>
+      <div class="mobile-accordion-panel">
+        <a href="__BASE__wedding-yacht-charter-san-diego/">Wedding</a>
+        <a href="__BASE__bachelorette-yacht-charters-san-diego/">Bachelorette</a>
+        <a href="__BASE__anniversary-yacht-charter-san-diego/">Anniversary</a>
+        <a href="__BASE__birthday-yacht-charter-san-diego/">Birthday</a>
+        <a href="__BASE__executive-yacht-charter-san-diego/">Executive</a>
+        <a href="__BASE__party-yacht-rental-san-diego/">Party</a>
+        <a href="__BASE__proposal-yacht-charter-san-diego/">Proposal</a>
+        <a href="__BASE__private-yacht-charter-san-diego/">Private</a>
+        <a href="__BASE__byob-yacht-charter-san-diego/">BYOB</a>
+        <a href="__BASE__luxury-yacht-rental-san-diego/">Luxury</a>
+        <a href="__BASE__sailboat-charters-san-diego/">Sailboat</a>
+        <a href="__BASE__boat-rental-with-water-toys-san-diego/">Water Toys</a>
+      </div>
+    </div>
+    <a href="__BASE__yacht-charter-pricing-san-diego/">Pricing</a>
+    <a href="__BASE__yacht-charter-deals-san-diego/">Deals</a>
+    <a href="__BASE__info/">Charter Info</a>
+    <a href="__BASE__booking-info/">Booking Info</a>
+    <a href="__BASE__articles/">Articles</a>
+    <a href="__BASE__contact-us/">Contact</a>
+    <div class="mobile-menu-divider"></div>
+    <a href="__BASE__privacy-policy/" class="mobile-menu-meta">Privacy Policy</a>
+    <a href="https://fareharbor.com/embeds/book/missionbaysportcenter/?full-items=yes&flow=1294652" class="btn-book" rel="noopener" style="margin-top:8px;display:inline-block;">Book Now</a>
+  </nav>
+</nav>
