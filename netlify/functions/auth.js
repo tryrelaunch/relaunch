@@ -154,11 +154,13 @@ exports.handler = async function (event) {
     return jsonResponse(401, { error: 'wrong_pin' }, origin);
   }
 
-  // Issue JWT
+  // Issue JWT. 1-year expiry by default — invalidation is intent-based via
+  // pin_rotated_at (rotate the PIN to instantly invalidate all prior tokens).
+  // edit-persistent.js enforces the rotation check on every request.
   const token = jwt.sign(
     { slug },
     process.env.JWT_SECRET,
-    { expiresIn: '30d', algorithm: 'HS256' }
+    { expiresIn: '365d', algorithm: 'HS256' }
   );
 
   return jsonResponse(200, { token, slug }, origin);

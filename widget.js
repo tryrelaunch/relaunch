@@ -208,6 +208,20 @@
     }
   }
 
+  // Derive the current page slug from window.location.pathname.
+  // "/" → "" (homepage). "/menu/" → "menu". "/menu/lunch/" → "menu/lunch".
+  // The function rejects anything that isn't a simple slug-style path.
+  function getCurrentPage() {
+    try {
+      const path = String(window.location.pathname || '')
+        .replace(/^\/+|\/+$/g, '')      // strip leading/trailing slashes
+        .replace(/\/?index\.html?$/i, ''); // strip /index.html or trailing index.html
+      return path;
+    } catch (e) {
+      return '';
+    }
+  }
+
   function requestHumanHelp() {
     const lastReq = inputEl.value || '(describe what you need here)';
     const subject = encodeURIComponent(`[${SLUG}] Edit help needed`);
@@ -234,7 +248,7 @@
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${TOKEN}`
         },
-        body: JSON.stringify({ slug: SLUG, request })
+        body: JSON.stringify({ slug: SLUG, request, page: getCurrentPage() })
       });
 
       if (res.status === 401) {

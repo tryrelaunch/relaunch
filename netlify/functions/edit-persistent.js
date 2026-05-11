@@ -66,8 +66,9 @@ async function loadClientConfig(slug) {
   }
 }
 
-async function fetchClientHtml(slug) {
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/clients/${slug}/index.html`;
+async function fetchClientHtml(slug, page = '') {
+  const filePath = page ? `clients/${slug}/${page}/index.html` : `clients/${slug}/index.html`;
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
   const res = await fetch(url, {
     headers: {
       'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -86,8 +87,9 @@ async function fetchClientHtml(slug) {
   };
 }
 
-async function commitClientHtml(slug, content, sha, message) {
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/clients/${slug}/index.html`;
+async function commitClientHtml(slug, page, content, sha, message) {
+  const filePath = page ? `clients/${slug}/${page}/index.html` : `clients/${slug}/index.html`;
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
   const res = await fetch(url, {
     method: 'PUT',
     headers: {
@@ -151,6 +153,30 @@ function applyChanges(html, validatedChanges) {
 
 function escapeForCss(s) {
   return String(s).replace(/[^a-zA-Z0-9_-]/g, '');
+}
+
+/**
+ * Sanitize a page path from the widget. Must be a slug-style relative path
+ * like "menu" or "menu/lunch" — no path traversal, no absolute paths, no
+ * filesystem escapes. Returns the cleaned path, or null if the input is invalid.
+ * Empty string is the homepage (allowed).
+ */
+function sanitizePage(page) {
+  if (page === undefined || page === null || page === '') return '';
+  const cleaned = String(page).trim();
+  if (cleaned === '') return '';
+  // Reject any path traversal or absolute paths
+  if (cleaned.includes('..') || cleaned.includes('\\')) return null;
+  if (cleaned.startsWith('/') || cleaned.endsWith('/')) {
+    // Strip leading/trailing slashes; the widget commonly sends "/menu/"
+    return sanitizePage(cleaned.replace(/^\/+|\/+$/g, ''));
+  }
+  // Allow only [a-z0-9-] segments separated by single slashes
+  const segments = cleaned.split('/');
+  for (const seg of segments) {
+    if (!/^[a-z0-9-]+$/i.test(seg)) return null;
+  }
+  return segments.join('/');
 }
 
 // ─────────────────────────────────────────────
@@ -242,17 +268,17 @@ function validateChanges(rawChanges, allowlist) {
 // Commit retry loop (handles 409 SHA conflicts)
 // ─────────────────────────────────────────────
 
-async function commitWithRetry(slug, validatedChanges, message) {
+async function commitWithRetry(slug, page, validatedChanges, message) {
   let lastErr;
   for (let i = 0; i < COMMIT_RETRY_ATTEMPTS; i++) {
     try {
-      const { content, sha } = await fetchClientHtml(slug);
+      const { content, sha } = await fetchClientHtml(slug, page);
       const newContent = applyChanges(content, validatedChanges);
       // No-op detection: if content didn't change, don't commit
       if (newContent === content) {
         return { noop: true };
       }
-      return await commitClientHtml(slug, newContent, sha, message);
+      return await commitClientHtml(slug, page, newContent, sha, message);
     } catch (e) {
       lastErr = e;
       if (e.status !== 409 || i === COMMIT_RETRY_ATTEMPTS - 1) throw e;
@@ -305,9 +331,13 @@ exports.handler = async function (event) {
   } catch {
     return jsonResponse(400, { error: 'invalid_json' }, origin);
   }
-  const { slug, request } = body;
+  const { slug, request, page = '' } = body;
   if (!slug || !request) {
     return jsonResponse(400, { error: 'missing_fields' }, origin);
+  }
+  const cleanPage = sanitizePage(page);
+  if (cleanPage === null) {
+    return jsonResponse(400, { error: 'invalid_page' }, origin);
   }
   if (typeof request !== 'string' || request.length > MAX_REQUEST_LENGTH) {
     return jsonResponse(400, { error: 'request_invalid' }, origin);
@@ -326,6 +356,17 @@ exports.handler = async function (event) {
     return jsonResponse(403, { error: 'origin_not_allowed' }, origin);
   }
 
+  // Token-stale check: invalidates any token issued BEFORE the last PIN rotation.
+  // This is the intent-based revocation backstop that lets us safely use 1-year JWTs:
+  // tokens are long-lived for UX, but rotating the PIN instantly invalidates all
+  // previously-issued tokens. The widget treats 401 as "log in again".
+  if (config.pin_rotated_at) {
+    const rotatedAtSec = Math.floor(new Date(config.pin_rotated_at).getTime() / 1000);
+    if (Number.isFinite(rotatedAtSec) && payload.iat && payload.iat < rotatedAtSec) {
+      return jsonResponse(401, { error: 'token_stale' }, origin);
+    }
+  }
+
   // Rate limit by JWT (subject = slug + issued-at second)
   const jwtKey = `${payload.slug}:${payload.iat || 0}`;
   const now = Date.now();
@@ -342,7 +383,15 @@ exports.handler = async function (event) {
 
   // Main pipeline
   try {
-    const { content: currentHtml } = await fetchClientHtml(slug);
+    let currentHtml;
+    try {
+      ({ content: currentHtml } = await fetchClientHtml(slug, cleanPage));
+    } catch (e) {
+      if (e.status === 404) {
+        return jsonResponse(404, { error: 'page_not_found', page: cleanPage || '(homepage)' }, origin);
+      }
+      throw e;
+    }
     const editableMap = extractEditableElements(currentHtml);
     const allowlist = new Set(Object.keys(editableMap));
 
@@ -363,8 +412,9 @@ exports.handler = async function (event) {
     }
 
     const truncated = request.length > 80 ? request.slice(0, 80) + '...' : request;
-    const commitMessage = `AI edit by ${slug}: ${truncated}`;
-    await commitWithRetry(slug, validated, commitMessage);
+    const pageLabel = cleanPage ? `/${cleanPage}` : '';
+    const commitMessage = `AI edit by ${slug}${pageLabel}: ${truncated}`;
+    await commitWithRetry(slug, cleanPage, validated, commitMessage);
 
     return jsonResponse(200, {
       success: true,
