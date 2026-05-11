@@ -35,6 +35,17 @@ The repositioned `/birthday-yacht-charter-san-diego/` page (adult-only per Rule 
 
 Capture approach: adult birthdays are photogenic-rich by their nature — most groups already document heavily, and DMing past adult-birthday guests via `#malarkycharters` for usage rights is probably the fastest way to fill these gaps. Worth specifically targeting milestone birthdays from past bookings since they tend to bring photographers.
 
+### Brief #12 — Proposal photo gaps
+
+The repositioned `/proposal-yacht-charter-san-diego/` page (per brief #12 — expanded from ~430 words to ~2,500 with the "bow trampoline at golden hour" signature framing) ships with library substitutes for what is otherwise the highest-emotional-stakes page in the build. Four specific gaps would materially lift conversion — the ring shot in particular is probably the single highest-converting photo asset the page could ever carry:
+
+- **Actual proposal on the bow trampoline (ring shot, golden hour, Coronado Bridge in frame)** — the single highest-priority capture for this page. The page is literally selling this image; a real one would be worth more than any copy change. Currently substituted with `boat-bow-skyline-21.webp` in the Section 2 inline `<figure>` (the bow+skyline framing, no couple). When the real proposal-moment photo lands, swap that `<img src>` to the new filename — Section 2 is the explicit drop-in location.
+- **Champagne pop on the bow after the yes** — Section 6 frames the celebration moment as the second photo opportunity. No equivalent in the library. The arc of pop + spray + couple + bridge is the celebratory shot.
+- **Hidden-friends-emerging moment (the surprise reveal)** — Section 3b frames this as the most-photographed scenario because both moments get captured. Currently no real reveal-moment photo.
+- **Captain at helm coordinating** — the operational competence signal Section 4 leans on. A real shot of the captain at the upper helm reading the moment would carry weight on the trust front. No library photo currently dedicated to this.
+
+Capture approach: proposal photos are almost always professionally shot and the couples are usually willing to share once it's a clean memory. DM past Malarky-proposal couples via `#malarkycharters` Instagram for usage rights to their photographer's photos. Worth prioritizing this outreach specifically — the ring shot would be the most conversion-lifting asset capture anywhere in the brief lineup.
+
 ### Brief #09 — Bachelorette photo gaps
 
 The new `/bachelorette-yacht-charters-san-diego/` page (repositioned around private/BYOB/intimate per brief #09) ships with existing group-shot substitutes from the people library. Two specific gaps would materially lift conversion:
@@ -83,8 +94,9 @@ Briefs already shipped (in commit order):
 - ✅ Brief #07 — Private sunset yacht charter (rename)
 - ✅ Brief #08 — Wedding yacht charter (reposition to micro-wedding/elopement)
 - ✅ Brief #09 — Bachelorette yacht charter (reposition to intimate/BYOB/premium small group)
-- ✅ Brief #10 — Birthday yacht charter (adult-only reposition: milestone / 21st / casual adult) — *this commit*
+- ✅ Brief #10 — Birthday yacht charter (adult-only reposition: milestone / 21st / casual adult)
+- ✅ Brief #12 — Proposal yacht charter (expansion: bow-trampoline-at-golden-hour signature framing, ~2,500 words) — *this commit*
 
 Next up:
-- Brief #11 — Anniversary yacht charter (transactional charter side; Alana owns the informational/content side)
-- Briefs 12 onward — per `00-FLEET-RULES.md` Section 10 priority order.
+- Brief #11 — Anniversary yacht charter (transactional charter side; Alana owns the informational/content side) — skipped in commit order; circle back
+- Briefs 13 onward — per `00-FLEET-RULES.md` Section 10 priority order.
