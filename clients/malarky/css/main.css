@@ -885,8 +885,15 @@ nav {
 }
 
 /* ── HOMEPAGE — MEET MALARKY GALLERY SLIDER ── */
-.gallery-section { padding: var(--s-9) 0 var(--s-9) 0; background: var(--paper); overflow: hidden; }
+.gallery-section { padding: var(--s-9) 0 var(--s-6) 0; background: var(--paper); overflow: hidden; }
 .gallery-section .section-header { padding: 0 32px; }
+/* When gallery is directly followed by hero-lede, tighten the gap — both share
+   the --paper background, so a 192px stack of nothing reads as dead air. */
+.gallery-section + .hero-lede { padding-top: var(--s-6); }
+@media (max-width: 768px) {
+  .gallery-section { padding-bottom: var(--s-5); }
+  .gallery-section + .hero-lede { padding-top: var(--s-5); }
+}
 .gallery-slider {
   position: relative;
   margin-top: var(--s-7);
