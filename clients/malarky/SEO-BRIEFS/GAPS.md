@@ -24,6 +24,15 @@ Missing photos worth a dedicated shoot or social-media pull:
 2. Pull from social media. Search Instagram/TikTok for `#malarkycharters` and DM guests for usage rights on their best slide/lily-pad shots.
 3. Stage a half-charter specifically for content. ~2 hours at a Coronado anchorage with crew + a small group of friends/family + photographer. Captures all 5 toys in one session.
 
+### Brief #07 — Private sunset photo gaps
+
+The new `/private-sunset-yacht-charter-san-diego/` page leans on the three existing sunset photos (`sunset/sunset-deck-view-01/02/03.webp`) plus generic boat/people shots. Two specific gaps would meaningfully lift conversion on this page:
+
+- **Bow trampoline at golden hour** — the page's Section 5 frames the bow as the sunset-photo location ("the colors fall behind you while you're up there"). Currently substituted with `boat-bow-rail-07.webp` which is bow-at-daylight. A real bow-trampoline-at-sunset shot is the single most valuable asset for this page.
+- **Proposal moment on the bow at sunset** — Section 7 leads with proposals; the Coronado Bridge silhouette + couple on bow + champagne is the cinematic shot the copy is selling. A staged or real-charter capture of this scene would be worth pulling forward.
+
+Capture approach: same suggestions as the water-toy gaps above &mdash; either next booked sunset charter with a photographer aboard, or social-media DMs to past sunset-charter guests for usage rights on their best shots.
+
 ---
 
 ## Brand-truth / fleet-rule violations flagged but not fixed
@@ -42,8 +51,9 @@ Briefs already shipped (in commit order):
 - ✅ Brief #03 — BYOB yacht charter (NEW)
 - ✅ Brief #04 — Luxury yacht rental
 - ✅ Brief #05 — Private catamaran charter (rename) + kill with-captain page
-- ✅ Brief #06 — Boat rental with water toys (NEW) — *this commit*
+- ✅ Brief #06 — Boat rental with water toys (NEW)
+- ✅ Brief #07 — Private sunset yacht charter (rename) — *this commit*
 
 Next up:
-- Brief #07 — Private sunset yacht charter (rename of `sunset-cruise-san-diego/`)
-- Briefs 08 onward — per `00-FLEET-RULES.md` Section 10 priority order.
+- Brief #08 — Wedding yacht charter (reposition to intimate/micro-wedding/elopement)
+- Briefs 09 onward — per `00-FLEET-RULES.md` Section 10 priority order.
