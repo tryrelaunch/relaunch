@@ -401,7 +401,7 @@ nav {
   align-items: center;
 }
 .about-text { padding-right: var(--s-5); }
-.about-text p { font-size: 16px; line-height: 1.75; color: var(--ink-2); margin-bottom: var(--s-4); }
+.about-text p { font-size: 17px; line-height: 1.7; color: var(--ink-2); margin-bottom: var(--s-4); }
 .pull-quote {
   margin-top: var(--s-7);
   padding: var(--s-5) 0 var(--s-5) var(--s-5);
@@ -495,7 +495,7 @@ nav {
   color: var(--ink); margin-bottom: var(--s-3);
   letter-spacing: -0.01em;
 }
-.space-text { font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 38ch; }
+.space-text { font-size: 17px; line-height: 1.7; color: var(--ink-2); max-width: 38ch; }
 
 /* ── ADD-ONS ── */
 .addons { background: var(--cream); }
@@ -523,7 +523,7 @@ nav {
   letter-spacing: 0.04em; color: var(--ink);
   margin-bottom: var(--s-2);
 }
-.addon-desc { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.addon-desc { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
 
 /* ── REVIEWS ── */
 .reviews {
@@ -602,7 +602,7 @@ nav {
 .faq-item.open .faq-a { max-height: 600px; }
 .faq-a-inner {
   padding: 0 0 var(--s-6) 0;
-  font-size: 16px; line-height: 1.75;
+  font-size: 17px; line-height: 1.7;
   color: var(--ink-2); max-width: 60ch;
 }
 .faq-a-inner strong { color: var(--ink); }
@@ -627,7 +627,7 @@ nav {
 }
 .cta-title strong { font-weight: 700; }
 .cta-sub {
-  font-size: 16px; line-height: 1.6;
+  font-size: 17px; line-height: 1.6;
   color: rgba(247,241,227,0.78);
   max-width: 52ch; margin: 0 auto var(--s-7) auto;
 }
@@ -679,7 +679,7 @@ nav {
 }
 .hero-split-text h1 strong { font-weight: 700; }
 .hero-split-text p {
-  font-size: 16px; line-height: 1.6;
+  font-size: 17px; line-height: 1.6;
   color: rgba(247,241,227,0.82);
   max-width: 46ch; margin-bottom: var(--s-7);
 }
@@ -701,9 +701,9 @@ nav {
   letter-spacing: -0.01em;
 }
 .prose h2:first-child { margin-top: 0; }
-.prose p { font-size: 16px; line-height: 1.75; color: var(--ink-2); margin-bottom: var(--s-4); }
+.prose p { font-size: 17px; line-height: 1.7; color: var(--ink-2); margin-bottom: var(--s-4); }
 .prose ul { padding-left: var(--s-5); margin-bottom: var(--s-4); }
-.prose li { font-size: 16px; line-height: 1.7; color: var(--ink-2); margin-bottom: var(--s-2); }
+.prose li { font-size: 17px; line-height: 1.7; color: var(--ink-2); margin-bottom: var(--s-2); }
 .prose strong { color: var(--ink); }
 .prose a { color: var(--teal-deep); border-bottom: 1px solid currentColor; }
 
@@ -720,7 +720,7 @@ nav {
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--brass); margin-bottom: var(--s-5);
 }
-.sidebar-card p { font-size: 16px; line-height: 1.65; color: rgba(247,241,227,0.85); margin-bottom: var(--s-4); }
+.sidebar-card p { font-size: 17px; line-height: 1.65; color: rgba(247,241,227,0.85); margin-bottom: var(--s-4); }
 .sidebar-card .btn-primary { width: 100%; text-align: center; margin-bottom: var(--s-4); }
 .sidebar-card-contact { display: flex; flex-direction: column; gap: var(--s-3); }
 .sidebar-card-contact a {
@@ -762,7 +762,7 @@ nav {
 .pricing-price strong { font-weight: 700; }
 .pricing-period { font-size: 13px; color: var(--ink-3); margin-bottom: var(--s-5); }
 .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.pricing-features li { font-size: 16px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.pricing-features li { font-size: 17px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
 .pricing-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
 
 /* ── RELATED PAGES LINKS ── */
@@ -825,8 +825,8 @@ nav {
 .included-wrap { max-width: 1080px; margin: 0 auto; }
 .included-wrap > p {
   max-width: 70ch; margin: 0 auto var(--s-7);
-  font-size: clamp(16px, 1.2vw, 17px);
-  line-height: 1.75; color: var(--ink-2);
+  font-size: clamp(17px, 1.3vw, 18px);
+  line-height: 1.7; color: var(--ink-2);
   text-align: center;
 }
 .included-list {
@@ -835,7 +835,7 @@ nav {
   gap: var(--s-4) var(--s-7);
 }
 .included-list li {
-  font-size: 16px; line-height: 1.6;
+  font-size: 17px; line-height: 1.6;
   color: var(--ink-2);
   display: flex; gap: 12px;
   align-items: flex-start;
@@ -851,7 +851,7 @@ nav {
   padding: var(--s-5) var(--s-6);
   border-left: 3px solid var(--brass);
   background: var(--cream);
-  font-size: clamp(16px, 1.2vw, 17px);
+  font-size: clamp(17px, 1.3vw, 18px);
   line-height: 1.7;
   color: var(--ink-2);
 }
@@ -860,8 +860,8 @@ nav {
 /* ── HOMEPAGE — EXPERIENCE / CATERING / PRICING / DEPARTURE PROSE ── */
 .prose-wide {
   max-width: 880px; margin: 0 auto;
-  font-size: clamp(16px, 1.2vw, 17px);
-  line-height: 1.75; color: var(--ink-2);
+  font-size: clamp(17px, 1.3vw, 18px);
+  line-height: 1.7; color: var(--ink-2);
 }
 .prose-wide p { margin-bottom: var(--s-5); }
 .prose-wide p:last-child { margin-bottom: 0; }
@@ -881,7 +881,7 @@ nav {
   color: var(--ink); margin: 0;
 }
 .occasion-card p {
-  font-size: 16px; line-height: 1.65;
+  font-size: 17px; line-height: 1.65;
   color: var(--ink-2); margin: 0;
 }
 .occasion-card p a {
@@ -1042,7 +1042,7 @@ nav {
   color: var(--brass); font-size: 14px; letter-spacing: 4px;
 }
 .guest-review-body {
-  font-size: 16px; line-height: 1.7;
+  font-size: 17px; line-height: 1.7;
   color: var(--ink-2);
   font-style: italic;
   margin: 0;
@@ -1095,7 +1095,7 @@ nav {
   color: var(--ink);
 }
 .sibling-card-desc {
-  font-size: 16px; line-height: 1.6;
+  font-size: 17px; line-height: 1.6;
   color: var(--ink-3);
   margin: 0;
 }
@@ -1188,18 +1188,4 @@ footer {
 }
 @media (max-width: 640px) {
   .facts-grid { grid-template-columns: 1fr; }
-  .photo-grid { grid-template-columns: 1fr; grid-template-rows: none; }
-  .photo-grid-item:first-child { grid-column: 1; }
-  .photo-grid-item { height: 200px; }
-  .foot-grid { grid-template-columns: 1fr; }
-  .nav-inner { padding: 14px 20px; }
-  .content-hero { padding: 48px 24px 40px; }
-  .hero-split-text { padding: var(--s-7) 24px; }
-}
-
-
-/* ───────────── speed-pass: extracted inline style patterns ───────────── */
-.section-header { text-align: center; margin-bottom: var(--s-7); }
-.section-header .kicker { justify-content: center; }
-.section-header .sec-title { max-width: 32ch; margin-left: auto; margin-right: auto; }
-.sec-paper { background: var(--paper); }
+  .photo-grid { grid-template-columns: 1fr; grid-template-row
