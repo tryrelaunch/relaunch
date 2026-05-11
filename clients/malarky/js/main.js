@@ -55,3 +55,51 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+// Photo gallery slider — native scroll-snap + button/dot controls
+document.querySelectorAll('.gallery-slider').forEach(slider => {
+  const track = slider.querySelector('.gallery-track');
+  const slides = Array.from(slider.querySelectorAll('.gallery-slide'));
+  const dots = Array.from(slider.querySelectorAll('.gallery-dot'));
+  const prev = slider.querySelector('.gallery-prev');
+  const next = slider.querySelector('.gallery-next');
+  if (!track || !slides.length) return;
+
+  function step(direction) {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    track.scrollBy({ left: direction * (slideWidth + gap), behavior: 'smooth' });
+  }
+  prev && prev.addEventListener('click', () => step(-1));
+  next && next.addEventListener('click', () => step(1));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const target = slides[i];
+      if (!target) return;
+      const left = target.offsetLeft - (track.clientWidth - target.offsetWidth) / 2;
+      track.scrollTo({ left, behavior: 'smooth' });
+    });
+  });
+
+  // Update active dot based on which slide is centered in viewport
+  let rafId = null;
+  function updateActive() {
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
+    let activeIdx = 0;
+    let minDist = Infinity;
+    slides.forEach((slide, i) => {
+      const r = slide.getBoundingClientRect();
+      const dist = Math.abs((r.left + r.width / 2) - trackCenter);
+      if (dist < minDist) { minDist = dist; activeIdx = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  }
+  track.addEventListener('scroll', () => {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => { updateActive(); rafId = null; });
+  }, { passive: true });
+  window.addEventListener('resize', updateActive);
+  updateActive();
+});
