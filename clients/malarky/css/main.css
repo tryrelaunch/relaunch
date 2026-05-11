@@ -56,12 +56,12 @@ nav {
   padding: 18px 32px;
 }
 .nav-logo {
-  font-family: var(--ff-display);
-  font-weight: 700; font-size: 17px;
-  color: var(--teal-deep);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
+  line-height: 0;
+}
+.nav-logo img {
+  height: 42px; width: auto;
+  display: block;
 }
 .nav-logo-mark {
   display: inline-block;
@@ -992,12 +992,14 @@ footer {
   gap: var(--s-7);
 }
 .foot-brand-name {
-  font-family: var(--ff-display);
-  color: var(--cream);
-  font-size: 17px; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
+  display: flex; align-items: center;
+  line-height: 0;
   margin-bottom: var(--s-4);
-  display: flex; align-items: center; gap: 10px;
+}
+.foot-brand-name img {
+  height: 36px; width: auto;
+  display: block;
+  filter: brightness(0) invert(1);  /* render dark navy logo as white on dark footer */
 }
 .foot-tag { font-size: 14px; line-height: 1.7; color: rgba(247,241,227,0.6); margin-bottom: var(--s-5); max-width: 38ch; }
 .foot-col-title {
