@@ -1007,7 +1007,10 @@ nav {
 
 /* ── HOMEPAGE — DEPARTURE MAP ── */
 .departure-map {
-  max-width: 1080px; margin: var(--s-7) auto 0;
+  max-width: 1080px;
+  /* Match the section's bottom padding so the map sits centered in the
+     breathing room — equal gap to body text above and to next section below. */
+  margin: var(--s-9) auto 0;
 }
 .departure-map iframe {
   width: 100%; height: 380px; border: 0; display: block;
