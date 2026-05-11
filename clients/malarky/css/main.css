@@ -155,6 +155,12 @@ nav {
   width: 22px; height: 2px; background: var(--ink); display: block;
   transition: transform 0.3s, opacity 0.3s;
 }
+.mobile-menu .btn-book {
+  align-self: center;
+  text-align: center;
+  padding: 14px 36px;
+  margin-top: 14px !important;
+}
 .mobile-menu {
   display: none;
   flex-direction: column;
