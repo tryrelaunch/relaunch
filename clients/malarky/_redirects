@@ -16,3 +16,7 @@
 # Brief #07 — sunset cruise rename
 /sunset-cruise-san-diego/  /private-sunset-yacht-charter-san-diego/  301
 /sunset-cruise-san-diego   /private-sunset-yacht-charter-san-diego/  301
+
+# Brief #13 — corporate page rename to executive (force flag so 301 wins over old file)
+/corporate-yacht-charter-san-diego/  /executive-yacht-charter-san-diego/  301!
+/corporate-yacht-charter-san-diego   /executive-yacht-charter-san-diego/  301!
