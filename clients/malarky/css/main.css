@@ -82,7 +82,7 @@ nav {
 .nav-links a:hover { color: var(--teal-deep); }
 .btn-book {
   font-family: var(--ff-display);
-  background: var(--teal-deep); color: var(--cream);
+  background: var(--teal-deep); color: #fff;
   padding: 11px 18px;
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -90,6 +90,7 @@ nav {
   display: inline-block;
   white-space: nowrap;
 }
+.btn-book:link, .btn-book:visited, .btn-book:hover, .btn-book:active { color: #fff; }
 
 /* Charter Types dropdown (mega-menu) */
 .nav-dropdown { position: relative; }
