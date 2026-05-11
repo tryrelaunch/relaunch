@@ -523,7 +523,7 @@ nav {
   letter-spacing: 0.04em; color: var(--ink);
   margin-bottom: var(--s-2);
 }
-.addon-desc { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.addon-desc { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
 
 /* ── REVIEWS ── */
 .reviews {
@@ -602,7 +602,7 @@ nav {
 .faq-item.open .faq-a { max-height: 600px; }
 .faq-a-inner {
   padding: 0 0 var(--s-6) 0;
-  font-size: 15px; line-height: 1.75;
+  font-size: 16px; line-height: 1.75;
   color: var(--ink-2); max-width: 60ch;
 }
 .faq-a-inner strong { color: var(--ink); }
@@ -762,7 +762,7 @@ nav {
 .pricing-price strong { font-weight: 700; }
 .pricing-period { font-size: 13px; color: var(--ink-3); margin-bottom: var(--s-5); }
 .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.pricing-features li { font-size: 15px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.pricing-features li { font-size: 16px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
 .pricing-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
 
 /* ── RELATED PAGES LINKS ── */
@@ -1092,7 +1092,7 @@ nav {
   color: var(--ink);
 }
 .sibling-card-desc {
-  font-size: 14px; line-height: 1.6;
+  font-size: 16px; line-height: 1.6;
   color: var(--ink-3);
   margin: 0;
 }
