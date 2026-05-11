@@ -24,6 +24,14 @@ Missing photos worth a dedicated shoot or social-media pull:
 2. Pull from social media. Search Instagram/TikTok for `#malarkycharters` and DM guests for usage rights on their best slide/lily-pad shots.
 3. Stage a half-charter specifically for content. ~2 hours at a Coronado anchorage with crew + a small group of friends/family + photographer. Captures all 5 toys in one session.
 
+### Brief #08 — Wedding photo gap
+
+The new `/wedding-yacht-charter-san-diego/` page (repositioned around micro weddings + elopements per brief #08) ships with the existing `people-pro-couple-04.webp` as hero. The one specific gap worth flagging:
+
+- **Wedding ceremony on the bow trampoline** — the page's editorial center of gravity is the ceremony moment at golden hour on the bow with the Coronado Bridge in frame. Currently no real wedding-on-bow photo in the library. Even a single real shot from any past Malarky wedding (with usage rights from the couple, if private) would be a strong conversion signal — it's the literal product the page is selling.
+
+Capture approach: same as previous gaps. Either next booked Malarky wedding with a photographer aboard (probably already happening — wedding charters typically bring pros, so we just need usage rights), or pull from past wedding-couple Instagrams with `#malarkycharters` and DM for permission.
+
 ### Brief #07 — Private sunset photo gaps
 
 The new `/private-sunset-yacht-charter-san-diego/` page leans on the three existing sunset photos (`sunset/sunset-deck-view-01/02/03.webp`) plus generic boat/people shots. Two specific gaps would meaningfully lift conversion on this page:
@@ -52,8 +60,9 @@ Briefs already shipped (in commit order):
 - ✅ Brief #04 — Luxury yacht rental
 - ✅ Brief #05 — Private catamaran charter (rename) + kill with-captain page
 - ✅ Brief #06 — Boat rental with water toys (NEW)
-- ✅ Brief #07 — Private sunset yacht charter (rename) — *this commit*
+- ✅ Brief #07 — Private sunset yacht charter (rename)
+- ✅ Brief #08 — Wedding yacht charter (reposition to micro-wedding/elopement) — *this commit*
 
 Next up:
-- Brief #08 — Wedding yacht charter (reposition to intimate/micro-wedding/elopement)
-- Briefs 09 onward — per `00-FLEET-RULES.md` Section 10 priority order.
+- Brief #09 — Bachelorette yacht charter (reposition to intimate/BYOB/premium small group)
+- Briefs 10 onward — per `00-FLEET-RULES.md` Section 10 priority order.
