@@ -252,7 +252,7 @@ nav {
 .hero-inner {
   position: relative; z-index: 1;
   max-width: 1280px; margin: 0 auto;
-  width: 100%; padding: 0 32px var(--s-9) 32px;
+  width: 100%; padding: var(--s-6) 32px var(--s-9) 32px;
 }
 .hero-eyebrow {
   font-family: var(--ff-display);
@@ -1145,8 +1145,8 @@ footer {
 @media (max-width: 980px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
-  .hero { height: 560px; }
-  .hero-inner { padding: 0 24px var(--s-7) 24px; }
+  .hero { height: 620px; }
+  .hero-inner { padding: var(--s-7) 24px var(--s-7) 24px; }
   .sec { padding: var(--s-9) 24px; }
   .facts-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-6); }
   .about-grid { grid-template-columns: 1fr; gap: var(--s-7); }
