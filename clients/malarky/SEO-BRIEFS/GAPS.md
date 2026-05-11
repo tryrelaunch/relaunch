@@ -35,6 +35,16 @@ The repositioned `/birthday-yacht-charter-san-diego/` page (adult-only per Rule 
 
 Capture approach: adult birthdays are photogenic-rich by their nature — most groups already document heavily, and DMing past adult-birthday guests via `#malarkycharters` for usage rights is probably the fastest way to fill these gaps. Worth specifically targeting milestone birthdays from past bookings since they tend to bring photographers.
 
+### Brief #11 — Anniversary photo gaps
+
+The repositioned `/anniversary-yacht-charter-san-diego/` page (per brief #11 — full expansion from ~360 words to ~2,500 with transactional-product framing and cross-brand coordination with Alana) ships with library substitutes for three specific shots that would lift conversion. Anniversary photos are the easiest gap to fill — past anniversary guests are almost always sitting on usable content and willing to share once asked.
+
+- **Milestone anniversary group shot (6–12 guests on the aft deck or bow)** — Section 3a is selling the milestone-anniversary scenario (10th/25th/50th with extended family). Currently substituted with `people-celebration-15.webp` (generic celebration). A real shot of a milestone-anniversary group on Malarky with the bay backdrop would be the cleanest social-proof signal for the page's premium-spend lane.
+- **Just-us-two couples charter at golden hour** — Section 3b sells couples-only anniversary charters (the boat for 2 people, off-milestone years). Currently substituted with `people-couple-deck-10.webp` (generic couple-on-deck). A real shot of just two people on a Malarky charter at golden hour — the privacy-as-product visual the section is arguing for — would carry meaningful weight.
+- **Champagne pop on the bow trampoline** — Section 4 (BYOB champagne for anniversaries) and the celebration visual rhythm of the page lean on the pop-with-spray moment. Currently substituted with `people-deck-cheers-08.webp` (generic toast). The pop+spray+couple+bridge frame is the celebratory shot for the section.
+
+Capture approach: standard pattern — DM past anniversary guests via `#malarkycharters` Instagram for usage rights on their best shots, or bring a photographer aboard the next scheduled milestone anniversary charter for a one-hour dedicated capture. Anniversaries are photo-heavy by nature; this is one of the lower-effort gap-fill opportunities.
+
 ### Brief #12 — Proposal photo gaps
 
 The repositioned `/proposal-yacht-charter-san-diego/` page (per brief #12 — expanded from ~430 words to ~2,500 with the "bow trampoline at golden hour" signature framing) ships with library substitutes for what is otherwise the highest-emotional-stakes page in the build. Four specific gaps would materially lift conversion — the ring shot in particular is probably the single highest-converting photo asset the page could ever carry:
