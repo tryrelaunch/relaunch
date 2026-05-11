@@ -44,7 +44,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ── NAV ── */
 nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 9000;
   background: rgba(247,241,227,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -293,6 +293,7 @@ nav {
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   padding: 12px 32px;
+  position: relative; z-index: 1;
 }
 .breadcrumb-inner {
   max-width: 1280px; margin: 0 auto;
