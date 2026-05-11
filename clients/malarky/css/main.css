@@ -241,6 +241,14 @@ nav {
     rgba(0, 48, 77, 0.45) 75%,
     rgba(0, 48, 77, 0.30) 100%);
 }
+/* Mobile: H1 wraps across the full viewport width, so the directional gradient
+   leaves part of the headline over the lighter side. Switch to a uniform overlay
+   strong enough to keep contrast ≥4.5:1 (WCAG AA) regardless of horizontal position. */
+@media (max-width: 768px) {
+  .hero-bg::after {
+    background: rgba(0, 48, 77, 0.72);
+  }
+}
 .hero-inner {
   position: relative; z-index: 1;
   max-width: 1280px; margin: 0 auto;
@@ -263,14 +271,18 @@ nav {
   letter-spacing: -0.01em;
   max-width: 16ch;
   margin-bottom: var(--s-5);
+  /* WCAG safety net — invisible over the navy overlay, kicks in only where
+     the photo punches through (bright sail). Keeps contrast ≥4.5:1 site-wide. */
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
 }
 .hero-title strong { font-weight: 700; }
 .hero-sub {
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 400; line-height: 1.55;
-  color: rgba(247,241,227,0.88);
+  color: var(--cream);
   max-width: 48ch;
   margin-bottom: var(--s-7);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 .hero-ctas { display: flex; align-items: center; gap: var(--s-5); flex-wrap: wrap; }
 .btn-primary {
