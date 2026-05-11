@@ -897,7 +897,8 @@ nav {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 8px max(32px, calc(50vw - 600px));
+  /* Symmetric padding so the first and last slide can center themselves */
+  padding: 8px max(32px, calc(50vw - 620px));
   scrollbar-width: none;
   -ms-overflow-style: none;
   outline: none;
@@ -905,18 +906,20 @@ nav {
 .gallery-track::-webkit-scrollbar { display: none; }
 .gallery-slide {
   flex: 0 0 auto;
-  width: min(1200px, 92vw);
-  scroll-snap-align: center;
+  /* Desktop: 3 tiles visible inside a 1280px content band (16px gaps).
+     Per-tile: (1280 - 2*16) / 3 ≈ 416px. Capped at 420px, shrinks with viewport. */
+  width: min(420px, calc((100vw - 96px) / 3));
+  scroll-snap-align: start;
   margin: 0;
   position: relative;
 }
 .gallery-slide img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
   display: block;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
   border: 1px solid var(--line);
 }
 .gallery-slide figcaption {
@@ -948,8 +951,8 @@ nav {
 }
 .gallery-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
 .gallery-arrow:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
-.gallery-prev { left: max(16px, calc(50vw - 670px)); }
-.gallery-next { right: max(16px, calc(50vw - 670px)); }
+.gallery-prev { left: max(8px, calc(50vw - 680px)); }
+.gallery-next { right: max(8px, calc(50vw - 680px)); }
 .gallery-dots {
   display: flex; justify-content: center; gap: 10px;
   margin-top: var(--s-5);
@@ -967,10 +970,12 @@ nav {
 .gallery-dot.active { background: var(--brand); transform: scale(1.3); }
 .gallery-dot:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 
+@media (max-width: 900px) {
+  .gallery-slide { width: 240px; }        /* tablet — ~2.5 tiles visible */
+}
 @media (max-width: 768px) {
   .gallery-arrow { display: none; }       /* mobile uses native swipe */
-  .gallery-slide { width: 88vw; }
-  .gallery-slide img { aspect-ratio: 4 / 3; }
+  .gallery-slide { width: 72vw; }         /* mobile — 1 main + peek of next */
   .gallery-track { padding: 8px 6vw; }
 }
 
