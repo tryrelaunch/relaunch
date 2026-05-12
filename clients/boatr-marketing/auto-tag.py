@@ -35,8 +35,11 @@ INDEX = Path(__file__).parent / 'index.html'
 TARGET_TAGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'button', 'a', 'li', 'span', 'div'}
 
 # IDs and classes whose subtree should be ignored (the editor widget itself,
-# the nav links wrapper, hidden Netlify form, etc.)
-SKIP_PARENT_IDS = {'ew-panel', 'ew-fab', 'nav-links', 'hero-form-wrap', 'cta-form-wrap'}
+# the nav-links wrapper, hidden Netlify form, etc.).
+# Note: do NOT skip hero-form-wrap or cta-form-wrap — those contain the CTA
+# buttons that should remain editable. <input> isn't in TARGET_TAGS so it
+# won't get tagged accidentally.
+SKIP_PARENT_IDS = {'ew-panel', 'ew-fab', 'nav-links'}
 SKIP_PARENT_CLASSES = {
     'ew-header', 'ew-body', 'ew-footer', 'ew-msg', 'ew-msgs', 'ew-pin-screen',
     'ew-chat-screen', 'ew-suggestions', 'ew-save-wrap', 'hero-checks'
