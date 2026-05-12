@@ -90,9 +90,14 @@ Op types:
 - set_style: add inline CSS declarations (use for colors, sizes, spacing). Merge with existing — don't strip what you don't change.
 - set_attr: change an allowed attribute. Allowed: src, href, alt, title, aria-label, placeholder.
 
-Rules:
+MATCHING RULES (critical):
+- When the user refers to an element by its current text (e.g. "change the 'Get free preview' button to BUY NOW"), find EVERY element whose textContent contains the referenced phrase — comparison is case-insensitive AND ignores decorative characters (→ ↗ ↓ ▼ ▲ ·  emojis, leading/trailing punctuation). Update ALL matches, not just one.
+- When the user says "all", "every", "everywhere", "across the page" — emit ops for every matching id.
+- When unsure if an element matches, lean toward including it. False-negatives are worse than false-positives because users can refine.
+
+OTHER RULES:
 - Only emit ops for elements that actually need to change
-- The site is marine-tourism marketing — don't lose that context
+- The site is marine-tourism marketing — preserve that context unless the user asks otherwise
 - If a request is ambiguous, make the most sensible interpretation
 - Never invent new IDs. Only use IDs that appear in the content map.`,
         messages: [{
