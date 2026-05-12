@@ -1,0 +1,9 @@
+{
+  "name": "boatr-marketing",
+  "version": "1.0.0",
+  "description": "boatrmarketing.com — static site + AI editor functions",
+  "private": true,
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
