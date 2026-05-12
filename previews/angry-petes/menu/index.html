@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Menu — Angry Pete's Pizza · Detroit-Style Pizza, Burgers, Hot Dogs</title>
+<meta name="description" content="Full menu — Detroit-style pizzas, signature pans, build-your-own, Detroit-style burgers and hot dogs, sides, kids menu. Order pickup through Toast.">
+<meta property="og:title" content="Menu — Angry Pete's Pizza">
+<meta property="og:description" content="Detroit-style pizza menu — Ezzo pepperoni, Spartan, Habanero BBQ chicken, Coney dog, Detroit Classic Red Top, LooseBurger.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://angrypetespizza.com/menu/#menu",
+  "name": "Angry Pete's Pizza Menu",
+  "description": "Detroit-style pan pizzas, signature pies, Detroit-style burgers and hot dogs, sides.",
+  "inLanguage": "en-US",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Detroit-Style Signature Pizzas",
+      "description": "8×10 steel-pan pies, 80% hydration dough, Wisconsin brick cheese to the edge.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Ezzo SS Pepperoni", "description": "Cup-and-char Ezzo pepperoni from Columbus.", "offers": { "@type": "Offer", "price": "22", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "The Spartan", "description": "Italian sausage, caramelized onion, roasted pepper, Wisconsin brick.", "offers": { "@type": "Offer", "price": "23", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Habanero BBQ Chicken", "description": "House BBQ + habanero, slow-cooked chicken, red onion, cilantro.", "offers": { "@type": "Offer", "price": "24", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Coney Dog Pizza", "description": "Sliced Coney dogs, Detroit chili, mustard, white onion.", "offers": { "@type": "Offer", "price": "25", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Detroit Classic Red Top", "description": "Brick cheese to the edge, three stripes of San Marzano on top.", "offers": { "@type": "Offer", "price": "20", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Margherita Detroit", "description": "Fresh mozzarella, basil, San Marzano, finishing olive oil.", "offers": { "@type": "Offer", "price": "21", "priceCurrency": "USD" } }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Detroit-Style Burgers & Dogs",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Detroit LooseBurger", "description": "Loose-meat smash burger, steamed bun, pickles, mustard, raw onion.", "offers": { "@type": "Offer", "price": "5", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Coney Dog", "description": "All-beef dog, Detroit chili, mustard, white onion, soft bun.", "offers": { "@type": "Offer", "price": "7", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Plain Hot Dog", "description": "All-beef dog, soft bun, your choice of fixings.", "offers": { "@type": "Offer", "price": "6", "priceCurrency": "USD" } }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Sides & Starters",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Cheesy Garlic Bread", "description": "Detroit-style bread, brick cheese, garlic butter.", "offers": { "@type": "Offer", "price": "9", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "Hot Honey Wings", "description": "Crispy wings, hot honey glaze, blue cheese.", "offers": { "@type": "Offer", "price": "13", "priceCurrency": "USD" } },
+        { "@type": "MenuItem", "name": "House Salad", "description": "Romaine, parmesan, croutons, house Italian.", "offers": { "@type": "Offer", "price": "10", "priceCurrency": "USD" } }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<!-- SEO BANNER -->
+<div class="seo-banner">
+  <div class="seo-top" onclick="toggleSEO()">
+    <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
+      <div class="seo-badge">Built by Relaunch</div>
+      <div class="seo-text">This <span>menu page is in HTML</span> with Menu + MenuItem schema. Toast's menu is hidden behind JavaScript. &nbsp;👇</div>
+    </div>
+    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
+  </div>
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+      <p class="seo-greeting">Right now your menu is JavaScript-rendered. Google sees nothing. Somebody searching <em>"Ezzo pepperoni pizza san diego"</em> or <em>"detroit coney dog pizza"</em> can't find Angry Pete's because the words "Ezzo" and "Coney" only exist inside a JS bundle that Google's crawler never executes.</p>
+      <div class="seo-grid">
+        <div>
+          <div class="seo-col-title">What this menu page does</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Every dish, every price, every description — in raw HTML.</strong> Google indexes it on the next crawl.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Menu + MenuItem schema</strong> for every dish. Eligible for rich results, price snippets, and AI Overview citations.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Long-tail keyword surface area.</strong> "Detroit pepperoni pizza," "habanero BBQ chicken pizza," "coney dog pizza san diego" — niche searches you currently lose to nobody, because nobody else makes these.</div></div>
+        </div>
+        <div>
+          <div class="seo-col-title">What stays the same</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Toast still handles ordering.</strong> The "Order Pickup" button goes to your existing Toast checkout. We don't touch the actual order flow.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Prices update in one place.</strong> You change a price here, the demo updates instantly. (On a real Relaunch customer site, you'd type the change into the widget and it'd commit and redeploy in seconds.)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand">Angry <span>Pete's</span></a>
+    <button class="nav-burger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../menu/" style="color:var(--red-lt);">Menu</a></li>
+      <li><a href="../point-loma/">Point Loma</a></li>
+      <li><a href="../kearny-mesa/">Kearny Mesa</a></li>
+      <li><a href="../#story">Our Story</a></li>
+      <li><a href="https://order.toasttab.com/online/angry-petes-pizza" class="nav-cta">Order Pickup</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO (compact) -->
+<section class="hero" style="min-height: 50vh;">
+  <div class="hero-bg" style="background-image: url('../images/hero-pizza.jpg');"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">The Menu</div>
+    <h1>Detroit, by the pan.</h1>
+    <p class="hero-sub">Six signature pies, three rotating specials, and a Detroit-style burger and hot dog section that's worth the order on its own. Prices below. Order pickup through Toast.</p>
+    <div class="hero-cta">
+      <a href="https://order.toasttab.com/online/angry-petes-pizza" class="btn btn-primary">Order Pickup →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU CATEGORIES -->
+<section class="section">
+  <div class="container">
+
+    <!-- SIGNATURE PIZZAS -->
+    <div class="menu-category">
+      <div class="kicker">Signature pans · 8×10 Detroit-style</div>
+      <h2>The Pizzas</h2>
+      <p class="menu-category-lede">Every pan is 8×10 inches, hand-pressed, 80% hydration. Eight square slices per pan. Wisconsin brick cheese all the way to the edge — that's where the crispy caramelized crust comes from. Most folks order one pan per two people.</p>
+
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Ezzo SS Pepperoni</div>
+            <div class="menu-item-price">$22</div>
+          </div>
+          <div class="menu-item-desc">Full pan with Ezzo old-world cup-and-char pepperoni from Columbus, OH. Curls into crispy little oil-cups. The most-ordered pizza on the menu and it's not close.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">The Spartan</div>
+            <div class="menu-item-price">$23</div>
+          </div>
+          <div class="menu-item-desc">Italian sausage, caramelized onion, roasted green pepper, fresh mozzarella, Wisconsin brick. Pete's homage to the corner spot he grew up on in Michigan.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Habanero BBQ Chicken</div>
+            <div class="menu-item-price">$24</div>
+          </div>
+          <div class="menu-item-desc">House BBQ sauce with a habanero kick, slow-cooked chicken, red onion, cilantro, mozzarella. The Detroit pan turns the BBQ into an almost-burnt caramel on the edges.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Coney Dog Pizza</div>
+            <div class="menu-item-price">$25</div>
+          </div>
+          <div class="menu-item-desc">Sliced Coney dogs, Detroit-style chili, three stripes of mustard, raw white onion. Sells out every Friday. Yes it's a real Detroit thing.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Detroit Classic Red Top</div>
+            <div class="menu-item-price">$20</div>
+          </div>
+          <div class="menu-item-desc">No frills, all crunch. Brick cheese to the corner, three stripes of San Marzano on top. The way Buddy's makes it in Detroit. Order it once and you'll get it.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Margherita Detroit</div>
+            <div class="menu-item-price">$21</div>
+          </div>
+          <div class="menu-item-desc">Fresh mozzarella, hand-torn basil, San Marzano, finishing olive oil. The vegetarian crowd-pleaser. Light, balanced, somehow even better cold the next day.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- BURGERS & DOGS -->
+    <div class="menu-category">
+      <div class="kicker">Detroit-style sandwich menu</div>
+      <h2>Burgers &amp; Dogs</h2>
+      <p class="menu-category-lede">The non-pizza side of the menu. Detroit-style means steamed buns, loose meat, all-beef dogs, and the kind of toppings the Midwest gets right. Add fries for $4.</p>
+
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Detroit LooseBurger</div>
+            <div class="menu-item-price">$5</div>
+          </div>
+          <div class="menu-item-desc">Loose-meat smash burger on a steamed bun. Pickles, mustard, raw onion. Five bucks. Goes with everything.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Coney Dog</div>
+            <div class="menu-item-price">$7</div>
+          </div>
+          <div class="menu-item-desc">All-beef dog, Detroit chili, mustard, raw white onion, soft steamed bun. The way it's served at the original Coney Island in Detroit since 1917.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Plain Hot Dog</div>
+            <div class="menu-item-price">$6</div>
+          </div>
+          <div class="menu-item-desc">All-beef dog, soft bun, your choice of fixings. Ketchup, mustard, relish, sport peppers, kraut, raw onion — build it your way.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Add a side of fries</div>
+            <div class="menu-item-price">$4</div>
+          </div>
+          <div class="menu-item-desc">Twice-fried, sea salt, served hot. To any sandwich or hot dog order.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SIDES & STARTERS -->
+    <div class="menu-category">
+      <div class="kicker">Sides &amp; starters</div>
+      <h2>Around the pan</h2>
+      <p class="menu-category-lede">Detroit pizza is filling — but if you're a group of four or more, these round things out. Wings on Tuesday night happy hour are half-price.</p>
+
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Cheesy Garlic Bread</div>
+            <div class="menu-item-price">$9</div>
+          </div>
+          <div class="menu-item-desc">Detroit-style bread, brick cheese, garlic butter. Same crispy edges, no toppings. The dough on its own.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Hot Honey Wings</div>
+            <div class="menu-item-price">$13</div>
+          </div>
+          <div class="menu-item-desc">Crispy wings, hot honey glaze, blue cheese on the side. Eight wings.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">House Salad</div>
+            <div class="menu-item-price">$10</div>
+          </div>
+          <div class="menu-item-desc">Romaine, shaved parmesan, croutons, house Italian. Add chicken $5.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Caesar Salad</div>
+            <div class="menu-item-price">$11</div>
+          </div>
+          <div class="menu-item-desc">Romaine, anchovy dressing, parmesan, focaccia croutons. The Caesar fans will be happy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- KIDS MENU -->
+    <div class="menu-category">
+      <div class="kicker">For the small ones</div>
+      <h2>Kids menu</h2>
+      <p class="menu-category-lede">Kearny Mesa only. Kids 12 and under. Comes with a side and a drink. The arcade is on us if a pizza shows up on the receipt.</p>
+
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Detroit Cheese Slice</div>
+            <div class="menu-item-price">$8</div>
+          </div>
+          <div class="menu-item-desc">Two square slices of plain cheese Detroit-style. Side of carrots or apple slices. Juice or milk.</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-row">
+            <div class="menu-item-name">Kids Cheese Burger</div>
+            <div class="menu-item-price">$7</div>
+          </div>
+          <div class="menu-item-desc">Mini LooseBurger, no onion, no mustard unless they want it. Side and drink.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container-narrow">
+    <h2>Ready to order?</h2>
+    <p class="lede">Pickup through Toast. Or walk in to either location.</p>
+    <div class="cta-actions">
+      <a href="https://order.toasttab.com/online/angry-petes-pizza" class="btn btn-dark">Order Pickup →</a>
+      <a href="../point-loma/" class="btn btn-ghost">Point Loma</a>
+      <a href="../kearny-mesa/" class="btn btn-ghost">Kearny Mesa</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Angry <span>Pete's</span></div>
+        <p class="footer-tag">San Diego's Detroit-style pizza joint. 8×10 steel pans, caramelized cheese edges, and a Michigan attitude.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Point Loma</h4>
+        <ul>
+          <li>2734 Lytton St</li>
+          <li>San Diego, CA 92110</li>
+          <li><a href="tel:+16192246409">(619) 224-6409</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kearny Mesa</h4>
+        <ul>
+          <li>5335 Overland Ave</li>
+          <li>San Diego, CA 92123</li>
+          <li><a href="tel:+16194153477">(619) 415-3477</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow / Order</h4>
+        <ul>
+          <li><a href="https://order.toasttab.com/online/angry-petes-pizza">Order Pickup</a></li>
+          <li><a href="https://www.instagram.com/angrypetespizza/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/angrypetespizza/">Facebook</a></li>
+          <li><a href="https://www.yelp.com/biz/angry-petes-pizza-san-diego-6">Yelp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Angry Pete's Pizza · San Diego, CA</div>
+      <div>Built fresh by <a href="https://tryrelaunch.com" style="color:var(--red-lt);">Relaunch</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-txt">Like this? <span>Swap it in for angrypetespizza.com.</span></div>
+  <a href="https://tryrelaunch.com/onboard?business=Angry+Pete%27s+Pizza&prospect=angry-petes" class="sticky-btn">Make this my site — $99/mo →</a>
+  <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
+</div>
+
+<!-- EDIT WIDGET -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Editing the menu. Try "raise the Ezzo to $24" or "add a vegan option line to the Margherita."</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">Claude is thinking…</div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-sugg" onclick="fillSuggestion('Raise the Ezzo Pepperoni to $24')">Raise Ezzo</div>
+    <div class="edit-sugg" onclick="fillSuggestion('Add gluten-free note to the FAQ')">GF note</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea id="edit-input" class="edit-input" placeholder="Type a change… (Cmd+Enter to send)" rows="1"></textarea>
+    <button id="edit-send" class="edit-send" onclick="sendEdit()">Send</button>
+  </div>
+</div>
+
+<script src="../demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Angry Pete's Pizza — Kearny Mesa · Detroit Pizza, Beer, Arcade</title>
+<meta name="description" content="Detroit-style pizza in Kearny Mesa, San Diego. 5335 Overland Ave. Open daily 11am–8pm. Ten craft beers on tap, arcade games, full bar, family-friendly. Call (619) 415-3477.">
+<meta property="og:title" content="Angry Pete's Pizza — Kearny Mesa">
+<meta property="og:description" content="Detroit pizza, arcade, ten taps, family-friendly. Kearny Mesa, San Diego.">
+<meta property="og:type" content="restaurant">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://angrypetespizza.com/kearny-mesa/#location",
+  "name": "Angry Pete's Pizza — Kearny Mesa",
+  "description": "Detroit-style pizza, craft beer, and arcade games in a former Taco Bell in Kearny Mesa. Open daily 11am-8pm. Catering available.",
+  "url": "https://angrypetespizza.com/kearny-mesa/",
+  "telephone": "+1-619-415-3477",
+  "image": "https://angrypetespizza.com/images/kearny-mesa-exterior.jpg",
+  "servesCuisine": ["Pizza", "Detroit-Style Pizza", "American"],
+  "priceRange": "$$",
+  "parentOrganization": { "@type": "Restaurant", "name": "Angry Pete's Pizza", "url": "https://angrypetespizza.com/" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5335 Overland Ave",
+    "addressLocality": "San Diego",
+    "addressRegion": "CA",
+    "postalCode": "92123",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 32.8253, "longitude": -117.1450 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "11:00", "closes": "20:00" }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Arcade Games", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Full Bar", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Family Friendly", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Happy Hour", "value": true }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "247",
+    "bestRating": "5"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<!-- SEO BANNER -->
+<div class="seo-banner">
+  <div class="seo-top" onclick="toggleSEO()">
+    <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;flex-wrap:wrap;">
+      <div class="seo-badge">Built by Relaunch</div>
+      <div class="seo-text">This <span>Kearny Mesa location page</span> ranks. Toast's single-shell site doesn't. &nbsp;👇</div>
+    </div>
+    <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
+  </div>
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+      <p class="seo-greeting">"Pizza Kearny Mesa" gets searched. "Pizza arcade San Diego" gets searched. "Family-friendly pizza near 163" gets searched. Right now your Toast page rolls both locations into one JS shell and Google can't tell them apart. This page solves that.</p>
+      <div class="seo-grid">
+        <div>
+          <div class="seo-col-title">What this page does for ranking</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>LocalBusiness schema</strong> with the Kearny Mesa address, hours, phone, and amenity features (arcade, full bar, family-friendly, parking) — the things that get filtered in restaurant searches.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>247 Yelp reviews surfaced</strong> with AggregateRating schema. Star rating shows up in the search result snippet.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Daily 11–8 hours, in HTML.</strong> Knowledge panel can show "Open now" with confidence.</div></div>
+        </div>
+        <div>
+          <div class="seo-col-title">What it does for the visitor</div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Address, phone, hours above the fold.</strong> The three things people came for.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>The arcade and bar story.</strong> Why this location is different from Point Loma — and from any other pizza spot in San Diego.</div></div>
+          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Catering section.</strong> The business that pays the bills, made browsable.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-brand">Angry <span>Pete's</span></a>
+    <button class="nav-burger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../menu/">Menu</a></li>
+      <li><a href="../point-loma/">Point Loma</a></li>
+      <li><a href="../kearny-mesa/" style="color:var(--red-lt);">Kearny Mesa</a></li>
+      <li><a href="../#story">Our Story</a></li>
+      <li><a href="https://order.toasttab.com/online/angry-petes-pizza" class="nav-cta">Order Pickup</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height: 70vh;">
+  <div class="hero-bg" style="background-image: url('../images/kearny-mesa-interior.jpg');"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Kearny Mesa · 5335 Overland Ave</div>
+    <h1 id="edit-km-h1">Detroit pizza, ten taps, and an arcade in an old Taco Bell.</h1>
+    <p class="hero-sub" id="edit-km-hero-sub">Our flagship. Full menu, ten rotating San Diego craft beers, a wall of arcade games, sports on TV, and a kitchen that's open seven days a week from 11am to 8pm. Walk in. Order at the counter. Grab a booth. Or pull up to the bar and watch the game.</p>
+    <div class="hero-cta">
+      <a href="https://order.toasttab.com/online/angry-petes-pizza" class="btn btn-primary">Order for Pickup</a>
+      <a href="tel:+16194153477" class="btn btn-ghost">Call (619) 415-3477</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION FACTS -->
+<section class="section">
+  <div class="container">
+    <div class="sec-header">
+      <div class="kicker">The Essentials</div>
+      <h2>Find us, call us, the hours.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-5);" class="loc-facts">
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--s-6);">
+        <h4 style="font-family:var(--fa);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;">Address</h4>
+        <p style="font-family:var(--fh);font-size:22px;line-height:1.2;text-transform:uppercase;margin-bottom:6px;" id="edit-km-address-display">5335 Overland Ave<br>San Diego, CA 92123</p>
+        <p style="font-size:14px;color:var(--ink-3);">Free parking lot out front. Off the 163.</p>
+        <a href="https://maps.google.com/?q=5335+Overland+Ave+San+Diego+CA+92123" class="btn btn-dark" style="margin-top:var(--s-3);">Get Directions →</a>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--s-6);">
+        <h4 style="font-family:var(--fa);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;">Phone</h4>
+        <p style="font-family:var(--fh);font-size:22px;line-height:1.2;text-transform:uppercase;margin-bottom:6px;" id="edit-km-phone-display">(619) 415-3477</p>
+        <p style="font-size:14px;color:var(--ink-3);">Catering, large groups, special orders, anything.</p>
+        <a href="tel:+16194153477" class="btn btn-dark" style="margin-top:var(--s-3);">Call Now →</a>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--s-6);">
+        <h4 style="font-family:var(--fa);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;">Hours</h4>
+        <div style="font-size:15px;line-height:1.7;color:var(--ink-2);" id="edit-km-hours-display">
+          <div>Mon – Sun · 11am – 8pm</div>
+          <div style="color:var(--red);">Happy hour · 3pm – 6pm</div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-3);margin-top:var(--s-3);">Kitchen closes 30 min before close. Last call for pizza is 7:30pm.</p>
+      </div>
+    </div>
+    <style>@media(max-width:880px){.loc-facts{grid-template-columns:1fr !important;}}</style>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="section story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img" style="background-image: url('../images/kearny-mesa-arcade.jpg');"></div>
+      <div class="story-prose">
+        <div class="kicker">What to expect</div>
+        <h2 id="edit-km-expect-h">A pizza spot that used to be a Taco Bell.</h2>
+        <p id="edit-km-expect-p1">The drive-thru is gone. The slanted roof and stucco walls are still here. Inside it's tables, booths, ten taps lined up behind the counter, a wall of arcade machines and pinball, and a kitchen that runs the full Detroit-style menu seven days a week.</p>
+        <p id="edit-km-expect-p2">Order at the counter, grab a number, sit anywhere. We bring the pizza to you. Kids welcome — the arcade keeps them occupied while the pies bake. Adults, you've got beer, sports, and pinball.</p>
+        <p id="edit-km-expect-p3">It's the daytime, full-menu, family-friendly version. If Point Loma is the nighttime speakeasy, Kearny Mesa is where you bring the family for Sunday lunch — or where you grab a beer after work and accidentally stay for two hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="section menu-section">
+  <div class="container">
+    <div class="sec-header">
+      <div class="kicker">What's here</div>
+      <h2>Pizza is the headline. The supporting cast is good too.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-5);" class="amen-grid">
+      <div style="text-align:center;padding:var(--s-5);background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);">
+        <div style="font-family:var(--fh);font-size:32px;color:var(--red);margin-bottom:8px;">10</div>
+        <div style="font-family:var(--fa);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);">Craft Taps</div>
+        <p style="font-size:14px;color:var(--ink-3);margin-top:6px;">Rotating San Diego breweries</p>
+      </div>
+      <div style="text-align:center;padding:var(--s-5);background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);">
+        <div style="font-family:var(--fh);font-size:32px;color:var(--red);margin-bottom:8px;">12+</div>
+        <div style="font-family:var(--fa);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);">Arcade Games</div>
+        <p style="font-size:14px;color:var(--ink-3);margin-top:6px;">Pinball, classic cabinets, free play after $20 food</p>
+      </div>
+      <div style="text-align:center;padding:var(--s-5);background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);">
+        <div style="font-family:var(--fh);font-size:32px;color:var(--red);margin-bottom:8px;">★</div>
+        <div style="font-family:var(--fa);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);">Full Bar</div>
+        <p style="font-size:14px;color:var(--ink-3);margin-top:6px;">Wine, well cocktails, NA options</p>
+      </div>
+      <div style="text-align:center;padding:var(--s-5);background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);">
+        <div style="font-family:var(--fh);font-size:32px;color:var(--red);margin-bottom:8px;">∞</div>
+        <div style="font-family:var(--fa);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);">Free Parking</div>
+        <p style="font-size:14px;color:var(--ink-3);margin-top:6px;">In our own lot. Right off the 163.</p>
+      </div>
+    </div>
+    <style>@media(max-width:760px){.amen-grid{grid-template-columns:repeat(2,1fr) !important;}}</style>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="sec-header">
+      <div class="kicker">From the Kearny Mesa menu</div>
+      <h2>The full lineup of Detroit pans.</h2>
+      <p class="lede">Six signatures plus rotating specials, a kids' menu, salads, wings, and a Detroit-style hot dog section. Browse the full menu, or order pickup straight from Toast.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-card-img" style="background-image: url('../images/pizza-ezzo-pepperoni.jpg');"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Ezzo Pepperoni</div>
+          <div class="menu-card-desc">Cup-and-char pepperoni from Columbus. The favorite.</div>
+          <div class="menu-card-price">$22</div>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-card-img" style="background-image: url('../images/pizza-habanero-bbq.jpg');"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Habanero BBQ Chicken</div>
+          <div class="menu-card-desc">House BBQ + habanero, slow-cooked chicken, red onion, cilantro.</div>
+          <div class="menu-card-price">$24</div>
+        </div>
+      </article>
+      <article class="menu-card">
+        <div class="menu-card-img" style="background-image: url('../images/pizza-coney-dog.jpg');"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Coney Dog Pizza</div>
+          <div class="menu-card-desc">Coney dogs, Detroit chili, mustard, white onion. Sells out Fridays.</div>
+          <div class="menu-card-price">$25</div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:var(--s-6);">
+      <a href="../menu/" class="btn btn-dark">See the full Kearny Mesa menu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="section reviews-section">
+  <div class="container">
+    <div class="sec-header">
+      <div class="kicker">Catering</div>
+      <h2>Office lunches. Parties. Weddings.</h2>
+      <p class="lede">Detroit pizza travels well in foil. Minimum order is 4 pans. Call us with 24+ hours notice and we'll build a custom catering order for your group. Drop-off and pickup both available.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-6);max-width:840px;margin:0 auto;" class="cat-grid">
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--s-6);">
+        <h3 style="margin-bottom:var(--s-3);">Office &amp; corporate</h3>
+        <p style="color:var(--ink-2);margin-bottom:var(--s-3);">Drop-off lunches, sales kickoffs, all-hands. Per-person pricing available for 12+ people. Disposable serving setup included.</p>
+        <a href="tel:+16194153477" class="btn btn-dark">Call to plan →</a>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--s-6);">
+        <h3 style="margin-bottom:var(--s-3);">Parties &amp; weddings</h3>
+        <p style="color:var(--ink-2);margin-bottom:var(--s-3);">Birthday parties, rehearsal dinners, full weddings. We've fed groups up to 200. Custom menus available.</p>
+        <a href="tel:+16194153477" class="btn btn-dark">Call to plan →</a>
+      </div>
+    </div>
+    <style>@media(max-width:760px){.cat-grid{grid-template-columns:1fr !important;}}</style>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container-narrow">
+    <div class="sec-header">
+      <div class="kicker">Kearny Mesa — questions</div>
+      <h2>The honest answers.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is it really kid-friendly?</div>
+        <div class="faq-a">Yes — the arcade alone is worth bringing a kid. We have a kids' menu (Detroit-style cheese slice + side), high chairs, changing tables in the bathrooms, and most weekday afternoons there are families in here.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I watch the game?</div>
+        <div class="faq-a">We've got TVs around the dining room and at the bar. Major NFL, NBA, MLB, and any San Diego team always on. Bring a group — we'll find you a spot with a screen.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are the arcade games free?</div>
+        <div class="faq-a">Spend $20+ on food and we'll comp arcade tokens. Otherwise it's a buck a play. Pinball is always a quarter. The high score on the Pac-Man machine has been held by the same regular since 2023.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you do delivery?</div>
+        <div class="faq-a">Kearny Mesa is on DoorDash and Uber Eats. Honestly — Detroit-style is best eaten at the restaurant. The crispy cheese edge softens inside a delivery box. Pickup is the move if you have to take it home.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where do I park?</div>
+        <div class="faq-a">Free lot directly in front of the building. Off Overland Ave between Engineer and Convoy. The lot fits about 30 cars — even on a Friday night we usually have space.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container-narrow">
+    <h2>Pull up. The kitchen's open.</h2>
+    <p class="lede">Walk in, order pickup, or call for catering — all from one place.</p>
+    <div class="cta-actions">
+      <a href="https://order.toasttab.com/online/angry-petes-pizza" class="btn btn-dark">Order Pickup →</a>
+      <a href="tel:+16194153477" class="btn btn-ghost">Call (619) 415-3477</a>
+      <a href="../point-loma/" class="btn btn-ghost">Visit Point Loma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Angry <span>Pete's</span></div>
+        <p class="footer-tag">San Diego's Detroit-style pizza joint. 8×10 steel pans, caramelized cheese edges, and a Michigan attitude.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Point Loma</h4>
+        <ul>
+          <li>2734 Lytton St</li>
+          <li>San Diego, CA 92110</li>
+          <li><a href="tel:+16192246409">(619) 224-6409</a></li>
+          <li><a href="../point-loma/">Visit page →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kearny Mesa</h4>
+        <ul>
+          <li>5335 Overland Ave</li>
+          <li>San Diego, CA 92123</li>
+          <li><a href="tel:+16194153477">(619) 415-3477</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow / Order</h4>
+        <ul>
+          <li><a href="https://order.toasttab.com/online/angry-petes-pizza">Order Pickup</a></li>
+          <li><a href="https://www.instagram.com/angrypetespizza/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/angrypetespizza/">Facebook</a></li>
+          <li><a href="https://www.yelp.com/biz/angry-petes-pizza-san-diego-6">Yelp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Angry Pete's Pizza · San Diego, CA</div>
+      <div>Built fresh by <a href="https://tryrelaunch.com" style="color:var(--red-lt);">Relaunch</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-txt">Like this? <span>Swap it in for angrypetespizza.com.</span></div>
+  <a href="https://tryrelaunch.com/onboard?business=Angry+Pete%27s+Pizza&prospect=angry-petes" class="sticky-btn">Make this my site — $99/mo →</a>
+  <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
+</div>
+
+<!-- EDIT WIDGET -->
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+  <div class="edit-fab-dot"></div>
+  Edit this site
+</button>
+<div class="edit-panel" id="edit-panel">
+  <div class="edit-panel-header">
+    <div class="edit-panel-title">✏️ Edit your site</div>
+    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
+  </div>
+  <div class="edit-messages" id="edit-messages">
+    <div class="edit-msg claude">Editing Kearny Mesa. Try "change happy hour to 4-6pm" or "tweak the arcade section."</div>
+  </div>
+  <div class="edit-typing" id="edit-typing">Claude is thinking…</div>
+  <div class="edit-suggestions" id="edit-suggestions">
+    <div class="edit-sugg" onclick="fillSuggestion('Change happy hour to 4pm-6pm')">Update happy hour</div>
+    <div class="edit-sugg" onclick="fillSuggestion('Add a line about Sunday football specials')">Football special</div>
+  </div>
+  <div class="edit-input-row">
+    <textarea id="edit-input" class="edit-input" placeholder="Type a change… (Cmd+Enter to send)" rows="1"></textarea>
+    <button id="edit-send" class="edit-send" onclick="sendEdit()">Send</button>
+  </div>
+</div>
+
+<script src="../demo.js"></script>
+</body>
+</html>
