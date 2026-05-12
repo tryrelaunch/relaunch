@@ -275,6 +275,76 @@ nav {
 .aed-reset:hover { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.4); }
 .aed-state.aed-done .aed-state-title { color: #34d399; }
 
+/* ── INVITE CARD (right column of AI editor section) ── */
+.aed-invite { background: linear-gradient(135deg, var(--dark) 0%, #1E293B 100%); color: #fff; border-radius: 14px; padding: 36px 32px; text-align: center; box-shadow: var(--sh2); position: relative; overflow: hidden; }
+.aed-invite::before { content: ""; position: absolute; top: -50%; right: -20%; width: 280px; height: 280px; background: radial-gradient(circle, rgba(254,141,1,0.18) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+.aed-invite-icon { font-size: 36px; margin-bottom: 14px; position: relative; }
+.aed-invite-title { font-family: var(--fh); font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; position: relative; }
+.aed-invite-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.78); margin-bottom: 22px; max-width: 40ch; margin-left: auto; margin-right: auto; position: relative; }
+.aed-invite-text strong { color: var(--blue); font-weight: 700; }
+.aed-invite-btn { background: var(--blue); color: #fff; border: none; padding: 14px 28px; font-family: var(--fh); font-size: 15px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.15s; position: relative; box-shadow: 0 4px 16px rgba(254,141,1,0.32); }
+.aed-invite-btn:hover { background: #EA7C00; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(254,141,1,0.42); }
+.aed-invite-hint { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.4); position: relative; }
+
+/* ── FLOATING EDIT WIDGET ── */
+.ew-fab { position: fixed; right: 22px; bottom: 22px; z-index: 200; background: var(--dark); color: #fff; border: none; border-radius: 999px; padding: 14px 22px; font-family: var(--fh); font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.24); display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+.ew-fab:hover { background: #1E293B; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
+.ew-fab-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 0 0 rgba(52,211,153,0.7); animation: ewpulse 2s infinite; }
+@keyframes ewpulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.7); } 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+
+.ew-panel { position: fixed; right: 22px; bottom: 22px; z-index: 201; width: 420px; max-width: calc(100vw - 32px); height: 580px; max-height: calc(100vh - 60px); background: #fff; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.28); display: none; flex-direction: column; overflow: hidden; }
+.ew-panel.open { display: flex; }
+.ew-header { background: var(--dark); color: #fff; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+.ew-title { font-family: var(--fh); font-size: 15px; font-weight: 700; }
+.ew-title-dot { display: inline-block; width: 8px; height: 8px; background: #34d399; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.ew-close { background: transparent; border: none; color: rgba(255,255,255,0.65); font-size: 22px; cursor: pointer; padding: 0 4px; line-height: 1; }
+.ew-close:hover { color: #fff; }
+
+.ew-body { flex: 1; padding: 22px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; background: var(--off); }
+
+/* PIN screen */
+.ew-pin-screen { display: flex; flex-direction: column; gap: 14px; }
+.ew-pin-screen.hide { display: none; }
+.ew-pin-greet { font-family: var(--fh); font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.ew-pin-sub { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+.ew-pin-input { display: flex; gap: 8px; }
+.ew-pin-input input { flex: 1; background: #fff; border: 1px solid var(--border); color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.4em; text-align: center; padding: 12px 14px; border-radius: 7px; outline: none; min-height: 50px; }
+.ew-pin-input input:focus { border-color: var(--blue); }
+.ew-pin-input button { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 0 22px; font-family: var(--fh); font-size: 14px; font-weight: 700; cursor: pointer; }
+.ew-pin-input button:hover { background: #EA7C00; }
+.ew-pin-hint { font-size: 12px; color: var(--muted); font-style: italic; }
+
+/* Chat screen */
+.ew-chat-screen { display: none; flex-direction: column; gap: 12px; flex: 1; }
+.ew-chat-screen.show { display: flex; }
+.ew-msgs { display: flex; flex-direction: column; gap: 10px; flex: 1; overflow-y: auto; }
+.ew-msg { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.45; max-width: 88%; }
+.ew-msg.bot { background: #fff; border: 1px solid var(--border); color: var(--text); align-self: flex-start; }
+.ew-msg.user { background: var(--dark); color: #fff; align-self: flex-end; }
+.ew-msg.success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; align-self: flex-start; }
+.ew-msg.error { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; align-self: flex-start; }
+.ew-typing { font-size: 13px; color: var(--muted); font-style: italic; padding: 4px 14px; }
+.ew-suggestions { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.ew-suggestions button { background: #fff; border: 1px solid var(--border); color: var(--text-2); padding: 9px 12px; border-radius: 7px; font-family: var(--fb); font-size: 13px; text-align: left; cursor: pointer; transition: all 0.15s; }
+.ew-suggestions button:hover { background: var(--blue-lt); border-color: var(--blue); color: var(--text); }
+
+.ew-footer { padding: 12px 16px; border-top: 1px solid var(--border); background: #fff; display: flex; gap: 8px; }
+.ew-footer.hide { display: none; }
+.ew-input { flex: 1; border: 1px solid var(--border); background: #fff; border-radius: 7px; padding: 10px 12px; font-family: var(--fb); font-size: 14px; resize: none; min-height: 42px; max-height: 100px; outline: none; }
+.ew-input:focus { border-color: var(--blue); }
+.ew-send { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 0 16px; font-family: var(--fh); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.ew-send:hover { background: #EA7C00; }
+.ew-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Highlight flash for newly edited elements */
+.ew-flash { background: linear-gradient(90deg, transparent 0%, rgba(254,141,1,0.22) 50%, transparent 100%); background-size: 200% 100%; animation: ewflash 1.6s ease; }
+@keyframes ewflash { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+@media (max-width: 560px) {
+  .ew-panel { right: 8px; left: 8px; bottom: 8px; width: auto; max-height: calc(100vh - 16px); }
+  .ew-fab { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 13px; }
+}
+
 /* ── (legacy) SLACK SECTION (no longer rendered) ── */
 .slack-sec { background: var(--off); border-top: 1px solid var(--border); }
 .slack-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -431,8 +501,8 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   <div class="hero-inner">
     <div>
       <div class="hero-tag">Marine-tourism websites · Built by operators</div>
-      <h1>Your charter business deserves a better <span>website.</span></h1>
-      <p class="hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, mobile-first, SEO-optimized, FareHarbor flow tuned. Free to see. <strong>$99/month to keep it live.</strong> No contracts.</p>
+      <h1 id="edit-hero-h1">Your charter business deserves a better <span>website.</span></h1>
+      <p class="hero-sub" id="edit-hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, mobile-first, SEO-optimized, FareHarbor flow tuned. Free to see. $99/month to keep it live. No contracts.</p>
       <div class="hero-form" id="hero-form-wrap">
         <input type="url" id="hero-url" name="url" placeholder="yourcharterbusiness.com" autocomplete="url">
         <button onclick="submitHero()">Get free preview →</button>
@@ -700,53 +770,12 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
       </div>
 
       <div class="ai-edit-demo">
-        <!-- Browser frame with editable preview -->
-        <div class="aed-browser">
-          <div class="aed-bar">
-            <div class="aed-dots"><div class="aed-dot d-r"></div><div class="aed-dot d-y"></div><div class="aed-dot d-g"></div></div>
-            <div class="aed-addr">captainmikescharters.com</div>
-          </div>
-          <div class="aed-preview">
-            <h3 id="demo-headline">San Diego's Best Private Sunset Cruises</h3>
-            <p id="demo-desc">Up to 12 guests. BYOB. Two hours on the bay during golden hour. Captain Mike runs the boat, you bring the people.</p>
-            <span class="aed-hours" id="demo-hours">Open daily 11am – 8pm</span>
-          </div>
-        </div>
-
-        <!-- AI Editor widget -->
-        <div class="aed-editor">
-          <!-- PIN state -->
-          <div class="aed-state aed-pin show" id="aed-pin-state">
-            <div class="aed-state-title">🔒 Enter your 6-digit PIN to start editing</div>
-            <div class="aed-pin-input">
-              <input type="text" maxlength="6" placeholder="••••••" id="aed-pin-field" inputmode="numeric" autocomplete="off">
-              <button onclick="aedPinSubmit()">Unlock →</button>
-            </div>
-            <div class="aed-hint">(this is a demo — any 6 digits work)</div>
-          </div>
-
-          <!-- Chat state -->
-          <div class="aed-state aed-chat" id="aed-chat-state">
-            <div class="aed-state-title">✏️ Tell the AI what to change</div>
-            <div class="aed-suggestions">
-              <button onclick="aedApply('hours')">Change hours to 8am – 9pm daily</button>
-              <button onclick="aedApply('headline')">Update headline for Mother's Day weekend</button>
-              <button onclick="aedApply('description')">Add that we now offer bachelorette charters</button>
-            </div>
-          </div>
-
-          <!-- Loading state -->
-          <div class="aed-state aed-loading" id="aed-loading-state">
-            <div class="aed-state-title">💭 AI is editing your site…</div>
-            <div class="aed-progress"><div class="aed-progress-bar"></div></div>
-          </div>
-
-          <!-- Done state -->
-          <div class="aed-state aed-done" id="aed-done-state">
-            <div class="aed-state-title">✓ Done. Live in 6 seconds.</div>
-            <div class="aed-hint">That's it. No editor login. No CMS. Just type and it's live across every page that mentions it.</div>
-            <button onclick="aedReset()" class="aed-reset">Try another edit →</button>
-          </div>
+        <div class="aed-invite">
+          <div class="aed-invite-icon">✨</div>
+          <h3 class="aed-invite-title">Want to know how it works?</h3>
+          <p class="aed-invite-text">Pretend this is your website and make some changes. Go ahead — don't be scared. Edit headlines, swap copy, change the hero. <strong>Everything resets when you refresh.</strong></p>
+          <button class="aed-invite-btn" onclick="openEditWidget()">✏️ Edit this page →</button>
+          <div class="aed-invite-hint">No CMS. Type your 6-digit PIN, tell AI what to change, done in seconds.</div>
         </div>
       </div>
     </div>
@@ -761,26 +790,26 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
     <p class="sub">Preview is always free. You only pay when you decide to keep it live — and you can cancel anytime.</p>
     <div class="pricing-grid">
       <div class="pc">
-        <div class="pc-tier">Starter</div>
+        <div class="pc-tier" id="edit-price-starter-name">Starter</div>
         <div class="pc-price"><sup>$</sup>99</div>
         <div class="pc-period">/ month · cancel anytime</div>
-        <div class="pc-desc">A professionally built, fast marine-tourism website — kept live and managed every month.</div>
+        <div class="pc-desc" id="edit-price-starter-desc">A professionally built, fast marine-tourism website — kept live and managed every month.</div>
         <ul class="pc-list"><li>Custom HTML site</li><li>FareHarbor flow optimization</li><li>Landing pages per occasion</li><li>Google reviews on homepage</li><li>Same-day Slack edits</li><li>SEO + schema built in</li></ul>
         <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
       <div class="pc feat">
-        <div class="pc-tier">Growth</div>
+        <div class="pc-tier" id="edit-price-growth-name">Growth</div>
         <div class="pc-price"><sup>$</sup>299</div>
         <div class="pc-period">/ month · cancel anytime</div>
-        <div class="pc-desc">Everything in Starter, plus fresh seasonal content + active ranking work every month.</div>
+        <div class="pc-desc" id="edit-price-growth-desc">Everything in Starter, plus fresh seasonal content + active ranking work every month.</div>
         <ul class="pc-list"><li>Everything in Starter</li><li>New landing page each month</li><li>Seasonal campaign builds (Black Friday, summer, holidays)</li><li>GBP + review-capture monitoring</li><li>Monthly SEO report</li><li>Priority support</li></ul>
         <button class="pc-btn btn-feat" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
       <div class="pc">
-        <div class="pc-tier">Full Service</div>
+        <div class="pc-tier" id="edit-price-full-name">Full Service</div>
         <div class="pc-price"><sup>$</sup>499</div>
         <div class="pc-period">/ month · cancel anytime</div>
-        <div class="pc-desc">Full growth operating partner. The whole playbook installed and run for you.</div>
+        <div class="pc-desc" id="edit-price-full-desc">Full growth operating partner. The whole playbook installed and run for you.</div>
         <ul class="pc-list"><li>Everything in Growth</li><li>Email + SMS campaigns</li><li>Black Friday playbook installed</li><li>Review-capture automation</li><li>Quarterly strategy call</li><li>Direct access (text, not tickets)</li></ul>
         <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
       </div>
@@ -793,11 +822,11 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   <div class="trust-inner">
     <div>
       <div class="trust-photo" id="trust-photo" style="background-image:url('images/nate-headshot.jpg');background-size:cover;background-position:center;">N</div>
-      <h2>Built by someone who's actually run the boats.</h2>
+      <h2 id="edit-trust-h">Built by someone who's actually run the boats.</h2>
       <div class="trust-body">
-        <p>I'm <strong>Nate Sinisgalli</strong>, founder of Boatr Marketing. For the past several years I've served as CTO and CMO across marine-tourism brands doing <strong>$6M+ per year</strong> in bookings — Triton Charters, Malarky Charters, Alana Charters, and others.</p>
-        <p>What I kept seeing was the same problem everywhere: great charters, great reviews, websites built in 2015 by whoever was cheapest. Slow on mobile. No schema. Menu in a PDF. FareHarbor flow leaking 20% conversion. Generic agencies build "websites." I build the booking funnel underneath them.</p>
-        <p><strong>Boatr Marketing is the $99/mo version of having me on staff.</strong> I rebuild your site, optimize the FareHarbor flow, set up your schema and landing pages, and keep it managed every month. No contracts. Cancel anytime. (FareHarbor's also written a public case study on my work — happy to walk through that on a call if it's useful.)</p>
+        <p id="edit-trust-p1">I'm Nate Sinisgalli, founder of Boatr Marketing. For the past several years I've served as CTO and CMO across marine-tourism brands doing $6M+ per year in bookings — Triton Charters, Malarky Charters, Alana Charters, and others.</p>
+        <p id="edit-trust-p2">What I kept seeing was the same problem everywhere: great charters, great reviews, websites built in 2015 by whoever was cheapest. Slow on mobile. No schema. Menu in a PDF. FareHarbor flow leaking 20% conversion. Generic agencies build "websites." I build the booking funnel underneath them.</p>
+        <p id="edit-trust-p3">Boatr Marketing is the $99/mo version of having me on staff. I rebuild your site, optimize the FareHarbor flow, set up your schema and landing pages, and keep it managed every month. No contracts. Cancel anytime. (FareHarbor's also written a public case study on my work — happy to walk through that on a call if it's useful.)</p>
       </div>
       <div class="trust-sig">Nate Sinisgalli <span>Founder, Boatr Marketing · <a href="mailto:hello@boatrmarketing.com" style="color:var(--blue);">hello@boatrmarketing.com</a> · (858) 925-8977</span></div>
     </div>
@@ -871,6 +900,49 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
     <p class="cta-note">Free · No credit card · Preview lives for 30 days · Cancel anytime</p>
   </div>
 </section>
+
+<!-- FLOATING AI EDIT WIDGET -->
+<button class="ew-fab" id="ew-fab" onclick="openEditWidget()" aria-label="Edit this site">
+  <span class="ew-fab-dot"></span>
+  Edit this site
+</button>
+
+<div class="ew-panel" id="ew-panel">
+  <div class="ew-header">
+    <div class="ew-title"><span class="ew-title-dot"></span>Boatr · AI editor</div>
+    <button class="ew-close" onclick="closeEditWidget()" aria-label="Close">×</button>
+  </div>
+  <div class="ew-body">
+    <!-- PIN gate -->
+    <div class="ew-pin-screen" id="ew-pin-screen">
+      <div class="ew-pin-greet">🔒 Enter your 6-digit PIN</div>
+      <div class="ew-pin-sub">This is how every Boatr Marketing customer edits their site. Type any 6 digits to unlock the demo — your edits run on this real page, AI applies them, and everything resets on refresh.</div>
+      <div class="ew-pin-input">
+        <input type="text" maxlength="6" placeholder="••••••" id="ew-pin" inputmode="numeric" autocomplete="off">
+        <button onclick="ewPinSubmit()">Unlock →</button>
+      </div>
+      <div class="ew-pin-hint">(demo — any 6 digits work)</div>
+    </div>
+
+    <!-- Chat -->
+    <div class="ew-chat-screen" id="ew-chat-screen">
+      <div class="ew-msgs" id="ew-msgs">
+        <div class="ew-msg bot">Hey! Tell me what you'd like to change on this site — hero headline, pricing copy, what we offer, anything. I'll apply it instantly.</div>
+        <div class="ew-suggestions" id="ew-suggestions">
+          <button onclick="ewFill('Change the hero headline to highlight that we specialize in fishing charter websites')">Hero → fishing-charter focus</button>
+          <button onclick="ewFill('Make the founder section sound more casual and friendly')">Make founder bio friendlier</button>
+          <button onclick="ewFill('Change the pricing tiers to $149, $349, and $599')">Bump pricing to $149/$349/$599</button>
+          <button onclick="ewFill('Add that we now offer Spanish-language sites')">Add Spanish-language note</button>
+        </div>
+      </div>
+      <div class="ew-typing" id="ew-typing" style="display:none;">AI is editing your site…</div>
+    </div>
+  </div>
+  <div class="ew-footer" id="ew-footer" style="display:none;">
+    <textarea id="ew-input" class="ew-input" placeholder="Type any change… (Cmd+Enter to send)" rows="1"></textarea>
+    <button id="ew-send" class="ew-send" onclick="ewSend()">Send</button>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -957,69 +1029,124 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
 });
 
-// ─── AI EDITOR DEMO ──────────────────────────────────
-function aedShowState(state) {
-  ['pin', 'chat', 'loading', 'done'].forEach(s => {
-    document.getElementById('aed-' + s + '-state')?.classList.remove('show');
-  });
-  document.getElementById('aed-' + state + '-state')?.classList.add('show');
+// ─── FLOATING AI EDIT WIDGET — calls real /.netlify/functions/edit ───
+let ewLoading = false;
+
+function openEditWidget() {
+  document.getElementById('ew-panel')?.classList.add('open');
+  document.getElementById('ew-fab').style.display = 'none';
+  setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
+}
+function closeEditWidget() {
+  document.getElementById('ew-panel')?.classList.remove('open');
+  document.getElementById('ew-fab').style.display = 'flex';
 }
 
-function aedPinSubmit() {
-  const pin = document.getElementById('aed-pin-field').value.trim();
-  const input = document.getElementById('aed-pin-field');
+function ewPinSubmit() {
+  const pin = document.getElementById('ew-pin').value.trim();
+  const input = document.getElementById('ew-pin');
   if (pin.length !== 6 || !/^\d{6}$/.test(pin)) {
     input.style.borderColor = '#DC2626';
-    setTimeout(() => { input.style.borderColor = 'rgba(255,255,255,0.15)'; }, 1200);
+    setTimeout(() => { input.style.borderColor = 'var(--border)'; }, 1200);
     return;
   }
-  aedShowState('chat');
+  document.getElementById('ew-pin-screen').classList.add('hide');
+  document.getElementById('ew-chat-screen').classList.add('show');
+  document.getElementById('ew-footer').style.display = 'flex';
+  setTimeout(() => document.getElementById('ew-input')?.focus(), 100);
 }
 
-function aedApply(type) {
-  aedShowState('loading');
-  // Reset progress bar animation
-  const bar = document.querySelector('.aed-progress-bar');
-  if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+function ewFill(text) {
+  const input = document.getElementById('ew-input');
+  if (!input) return;
+  input.value = text;
+  document.getElementById('ew-suggestions').style.display = 'none';
+  input.focus();
+  ewSend();
+}
 
-  setTimeout(() => {
-    const headline = document.getElementById('demo-headline');
-    const desc = document.getElementById('demo-desc');
-    const hours = document.getElementById('demo-hours');
+function ewAddMsg(text, cls) {
+  const msgs = document.getElementById('ew-msgs');
+  const div = document.createElement('div');
+  div.className = 'ew-msg ' + cls;
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
 
-    if (type === 'hours') {
-      hours.textContent = 'Open daily 8am – 9pm';
-      hours.classList.add('aed-flash');
-      setTimeout(() => hours.classList.remove('aed-flash'), 1300);
-    } else if (type === 'headline') {
-      headline.textContent = "San Diego's Best Mother's Day Sunset Cruises";
-      headline.classList.add('aed-flash');
-      setTimeout(() => headline.classList.remove('aed-flash'), 1300);
-    } else if (type === 'description') {
-      desc.textContent = 'Up to 12 guests. BYOB. Now offering bachelorette charters — sound system, bar, the whole deck for your group. Captain Mike runs the boat, you bring the people.';
-      desc.classList.add('aed-flash');
-      setTimeout(() => desc.classList.remove('aed-flash'), 1300);
+async function ewSend() {
+  if (ewLoading) return;
+  const input = document.getElementById('ew-input');
+  const request = input.value.trim();
+  if (!request) return;
+
+  input.value = '';
+  document.getElementById('ew-suggestions').style.display = 'none';
+  ewAddMsg(request, 'user');
+
+  ewLoading = true;
+  document.getElementById('ew-send').disabled = true;
+  document.getElementById('ew-typing').style.display = 'block';
+
+  // Collect every editable element's current text
+  const content = {};
+  document.querySelectorAll('[id^="edit-"]').forEach(el => {
+    content[el.id] = el.textContent.trim();
+  });
+
+  try {
+    const response = await fetch('/.netlify/functions/edit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ request, content })
+    });
+
+    document.getElementById('ew-typing').style.display = 'none';
+
+    if (!response.ok) {
+      if (response.status === 429) {
+        ewAddMsg('Too many edits in a short window. Try again in a minute.', 'error');
+      } else {
+        ewAddMsg('Something went wrong. Try again or rephrase the request.', 'error');
+      }
+      ewLoading = false;
+      document.getElementById('ew-send').disabled = false;
+      return;
     }
 
-    aedShowState('done');
-  }, 1800);
+    const data = await response.json();
+
+    if (data.changes && data.changes.length > 0) {
+      data.changes.forEach(change => {
+        const el = document.getElementById(change.id);
+        if (el) {
+          el.textContent = change.text;
+          el.classList.add('ew-flash');
+          setTimeout(() => el.classList.remove('ew-flash'), 1700);
+        }
+      });
+      ewAddMsg(data.confirmation || 'Done! Changes applied to the page.', 'success');
+    } else {
+      ewAddMsg("Couldn't figure out what to change. Try being more specific — like \"change the hero headline to X\" or \"make the founder bio shorter.\"", 'bot');
+    }
+  } catch (err) {
+    document.getElementById('ew-typing').style.display = 'none';
+    ewAddMsg("Couldn't reach the server. Check your connection and try again.", 'error');
+  }
+
+  ewLoading = false;
+  document.getElementById('ew-send').disabled = false;
 }
 
-function aedReset() {
-  // Reset preview text
-  document.getElementById('demo-headline').textContent = "San Diego's Best Private Sunset Cruises";
-  document.getElementById('demo-desc').textContent = 'Up to 12 guests. BYOB. Two hours on the bay during golden hour. Captain Mike runs the boat, you bring the people.';
-  document.getElementById('demo-hours').textContent = 'Open daily 11am – 8pm';
-  aedShowState('chat');
-}
-
-// Enter key submits PIN
 document.addEventListener('DOMContentLoaded', () => {
-  const pinField = document.getElementById('aed-pin-field');
-  pinField?.addEventListener('keydown', e => { if (e.key === 'Enter') aedPinSubmit(); });
-  pinField?.addEventListener('input', e => {
-    // Restrict to digits only
-    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6);
+  const pinField = document.getElementById('ew-pin');
+  pinField?.addEventListener('keydown', e => { if (e.key === 'Enter') ewPinSubmit(); });
+  pinField?.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6); });
+
+  const inputField = document.getElementById('ew-input');
+  inputField?.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); ewSend(); }
   });
 });
 </script>
