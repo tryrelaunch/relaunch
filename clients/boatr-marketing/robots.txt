@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /edit
+Disallow: /edit/
+Disallow: /.netlify/
+
+Sitemap: https://boatrmarketing.com/sitemap.xml
