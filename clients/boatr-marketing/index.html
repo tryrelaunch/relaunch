@@ -428,6 +428,83 @@ nav {
 .aed-invite-btn:hover { background: #EA7C00; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(254,141,1,0.42); }
 .aed-invite-hint { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.4); position: relative; }
 
+/* ── TOOLTIP (pops out from the floating Edit button) ── */
+.ew-tooltip {
+  position: fixed;
+  right: 22px;
+  bottom: 90px;
+  z-index: 199;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  background: var(--dark);
+  color: #fff;
+  border: 1px solid rgba(254,141,1,0.32);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.ew-tooltip.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  animation: ewttbob 2.6s ease-in-out infinite;
+}
+@keyframes ewttbob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-4px) scale(1); }
+}
+.ew-tooltip-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.ew-tooltip-close:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.ew-tooltip-emoji { font-size: 26px; margin-bottom: 8px; }
+.ew-tooltip-text { font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
+.ew-tooltip-text strong { display: block; font-family: var(--fh); font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.ew-tooltip-text span { color: rgba(255,255,255,0.7); }
+.ew-tooltip-cta {
+  width: 100%;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: var(--fh);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.ew-tooltip-cta:hover { background: #EA7C00; }
+.ew-tooltip-arrow {
+  position: absolute;
+  bottom: -8px;
+  right: 38px;
+  width: 16px;
+  height: 16px;
+  background: var(--dark);
+  border-right: 1px solid rgba(254,141,1,0.32);
+  border-bottom: 1px solid rgba(254,141,1,0.32);
+  transform: rotate(45deg);
+}
+@media (max-width: 560px) {
+  .ew-tooltip { right: 12px; left: 12px; bottom: 80px; width: auto; }
+  .ew-tooltip-arrow { right: 28px; }
+}
+
 /* ── FLOATING EDIT WIDGET ── */
 .ew-fab { position: fixed; right: 22px; bottom: 22px; z-index: 200; background: var(--dark); color: #fff; border: none; border-radius: 999px; padding: 14px 22px; font-family: var(--fh); font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.24); display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
 .ew-fab:hover { background: #1E293B; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
@@ -664,18 +741,6 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <div class="hc"><div class="hc-dot">✓</div>FareHarbor flow optimization built in</div>
 <div class="hc"><div class="hc-dot">✓</div>Landing page per occasion (wedding, bachelorette, sunset, etc.)</div>
 <div class="hc"><div class="hc-dot">✓</div>Edit any text by typing what you want — no logging in, no finding pages</div>
-</div>
-</div>
-<!-- HERO DEMO CARD -->
-<div class="hcd-card">
-<div class="hcd-tag">✨ Want to see how it works?</div>
-<h2 class="hcd-headline">Feel free to <span id="edit-8">edit my website</span>.</h2>
-<p class="hcd-sub" id="edit-9">Click <strong>"Edit this site"</strong> bottom-right. Type what you want changed in plain English. AI applies it in seconds — across every page that mentions it. No logging in. No finding the right section. No webmaster.</p>
-<p class="hcd-bridge" id="edit-10">This is the same editor your $99/mo site gets. Change my headline if you want — refresh wipes it.</p>
-<button class="hcd-btn" id="edit-11" onclick="openEditWidget()">✏️ Edit this site →</button>
-<div class="hcd-footer">
-<span class="hcd-footer-dot"></span>
-<span id="edit-12">Plain English · 5-second edits · no signup · don't be scared</span>
 </div>
 </div>
 </div>
@@ -968,6 +1033,18 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <p class="cta-note" id="edit-89">Free · No credit card · Preview lives for 30 days · Cancel anytime</p>
 </div>
 </section>
+<!-- FLOATING AI EDIT WIDGET TOOLTIP -->
+<div class="ew-tooltip" id="ew-tooltip" role="dialog" aria-live="polite">
+  <button class="ew-tooltip-close" onclick="ewDismissTooltip()" aria-label="Dismiss">×</button>
+  <div class="ew-tooltip-emoji">👋</div>
+  <div class="ew-tooltip-text">
+    <strong>Feel free to edit my website.</strong>
+    <span>Type what you want changed in plain English — AI applies it in seconds. Changes reset on refresh.</span>
+  </div>
+  <button class="ew-tooltip-cta" onclick="ewTooltipClick()">Try the editor →</button>
+  <div class="ew-tooltip-arrow"></div>
+</div>
+
 <!-- FLOATING AI EDIT WIDGET -->
 <button aria-label="Edit this site" class="ew-fab" id="ew-fab" onclick="openEditWidget()">
 <span class="ew-fab-dot"></span>
@@ -1096,8 +1173,25 @@ document.addEventListener('DOMContentLoaded', () => {
 let ewLoading = false;
 let ewPin = '';          // Stored client-side; verified server-side on save
 let ewLastOps = [];      // Most-recent op batch (for "Save permanently")
+let ewTooltipShown = false;
+
+function ewShowTooltip() {
+  if (ewTooltipShown) return;
+  if (sessionStorage.getItem('ew-tooltip-dismissed')) return;
+  document.getElementById('ew-tooltip')?.classList.add('show');
+  ewTooltipShown = true;
+}
+function ewDismissTooltip() {
+  document.getElementById('ew-tooltip')?.classList.remove('show');
+  try { sessionStorage.setItem('ew-tooltip-dismissed', '1'); } catch (e) {}
+}
+function ewTooltipClick() {
+  ewDismissTooltip();
+  openEditWidget();
+}
 
 function openEditWidget() {
+  ewDismissTooltip();
   document.getElementById('ew-panel')?.classList.add('open');
   document.getElementById('ew-fab').style.display = 'none';
   setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
@@ -1281,5 +1375,11 @@ document.addEventListener('DOMContentLoaded', () => {
   inputField?.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); ewSend(); }
   });
+
+  // Pop the tooltip 2.5s after page load, auto-dismiss after 20s if untouched.
+  setTimeout(ewShowTooltip, 2500);
+  setTimeout(() => {
+    if (ewTooltipShown && !sessionStorage.getItem('ew-tooltip-dismissed')) ewDismissTooltip();
+  }, 22500);
 });
 </script>
