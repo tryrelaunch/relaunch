@@ -559,7 +559,10 @@ nav {
 .ew-flash { background: linear-gradient(90deg, transparent 0%, rgba(254,141,1,0.22) 50%, transparent 100%); background-size: 200% 100%; animation: ewflash 1.6s ease; }
 @keyframes ewflash { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 
-/* Save permanently button (appears after each AI edit) */
+/* Demo-mode note (public visitors after each AI edit, in place of save button) */
+.ew-demo-note { background: rgba(254,141,1,0.08); border: 1px dashed rgba(254,141,1,0.32); border-radius: 8px; padding: 9px 12px; font-size: 12px; color: var(--ink-2); align-self: stretch; line-height: 1.45; }
+
+/* Save permanently button (admin only, appears after each AI edit) */
 .ew-save-wrap { background: linear-gradient(135deg, var(--dark) 0%, #1E293B 100%); border: 1px solid rgba(254,141,1,0.32); border-radius: 10px; padding: 12px 14px; margin-top: 4px; align-self: stretch; }
 .ew-save-btn { width: 100%; background: var(--blue); color: #fff; border: none; padding: 11px 14px; font-family: var(--fh); font-size: 13px; font-weight: 800; letter-spacing: 0.02em; border-radius: 7px; cursor: pointer; transition: all 0.15s; }
 .ew-save-btn:hover:not(:disabled) { background: #EA7C00; transform: translateY(-1px); }
@@ -1069,7 +1072,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- Chat -->
 <div class="ew-chat-screen" id="ew-chat-screen">
 <div class="ew-msgs" id="ew-msgs">
-<div class="ew-msg bot">Hey! Tell me what you'd like to change on this site — hero headline, pricing copy, what we offer, anything. I'll apply it instantly.</div>
+<div class="ew-msg bot" id="ew-greet">Hey! Tell me what you'd like to change on this site — hero headline, pricing copy, what we offer, anything. I'll apply it instantly. Refresh wipes it.</div>
 <div class="ew-suggestions" id="ew-suggestions">
 <button onclick="ewFill('Change the hero headline to highlight that we specialize in fishing charter websites')">Hero → fishing-charter focus</button>
 <button onclick="ewFill('Make the founder section sound more casual and friendly')">Make founder bio friendlier</button>
@@ -1169,13 +1172,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
 });
 
-// ─── FLOATING AI EDIT WIDGET — session-only OR persistent depending on PIN ───
+// ─── FLOATING AI EDIT WIDGET — admin or demo mode ───
+// Public visitors get demo (no PIN, no save). Admin URL gets the full editor.
+const EW_IS_ADMIN = (
+  new URLSearchParams(location.search).has('admin') ||
+  /\/(admin|edit)(\/|$)/i.test(location.pathname)
+);
+
 let ewLoading = false;
-let ewPin = '';          // Stored client-side; verified server-side on save
-let ewLastOps = [];      // Most-recent op batch (for "Save permanently")
+let ewPin = '';          // Admin-only; verified server-side on save
+let ewLastOps = [];      // Most-recent op batch (admin save target)
 let ewTooltipShown = false;
 
 function ewShowTooltip() {
+  if (EW_IS_ADMIN) return;            // No friendly tooltip in admin mode
   if (ewTooltipShown) return;
   if (sessionStorage.getItem('ew-tooltip-dismissed')) return;
   document.getElementById('ew-tooltip')?.classList.add('show');
@@ -1194,7 +1204,17 @@ function openEditWidget() {
   ewDismissTooltip();
   document.getElementById('ew-panel')?.classList.add('open');
   document.getElementById('ew-fab').style.display = 'none';
-  setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
+
+  if (EW_IS_ADMIN) {
+    // Admin mode: show PIN gate
+    setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
+  } else {
+    // Public/demo mode: skip PIN, go straight to chat
+    document.getElementById('ew-pin-screen').classList.add('hide');
+    document.getElementById('ew-chat-screen').classList.add('show');
+    document.getElementById('ew-footer').style.display = 'flex';
+    setTimeout(() => document.getElementById('ew-input')?.focus(), 100);
+  }
 }
 function closeEditWidget() {
   document.getElementById('ew-panel')?.classList.remove('open');
@@ -1245,6 +1265,15 @@ function ewAddSaveButton(ops) {
   `;
   wrap.querySelector('[data-action="save"]').addEventListener('click', () => ewSaveOps(ops, wrap));
   msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function ewAddDemoNote() {
+  const msgs = document.getElementById('ew-msgs');
+  const div = document.createElement('div');
+  div.className = 'ew-demo-note';
+  div.textContent = '↻ Demo mode — changes reset on refresh. This is the editor every Boatr customer gets on their site.';
+  msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 }
 
@@ -1351,8 +1380,13 @@ async function ewSend() {
         setTimeout(() => el.classList.remove('ew-flash'), 1700);
       });
       ewLastOps = ops;
-      ewAddMsg(data.confirmation || 'Done! Changes applied locally.', 'success');
-      ewAddSaveButton(ops);
+      ewAddMsg(data.confirmation || 'Done! Changes applied.', 'success');
+      // Only admins see the "Save permanently" button. Public visitors get a friendly note.
+      if (EW_IS_ADMIN) {
+        ewAddSaveButton(ops);
+      } else {
+        ewAddDemoNote();
+      }
     } else {
       ewAddMsg("Couldn't figure out what to change. Try being more specific — like \"change the hero headline to X\" or \"make the founder bio shorter.\"", 'bot');
     }
@@ -1381,5 +1415,16 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     if (ewTooltipShown && !sessionStorage.getItem('ew-tooltip-dismissed')) ewDismissTooltip();
   }, 22500);
+
+  // Admin mode tweaks
+  if (EW_IS_ADMIN) {
+    const greet = document.getElementById('ew-greet');
+    if (greet) greet.textContent = 'Admin mode. Tell me what to change — I\'ll apply it locally, then you can Save permanently to commit to GitHub.';
+    const title = document.querySelector('.ew-title');
+    if (title) title.innerHTML = '<span class="ew-title-dot"></span>Boatr · AI editor <span style="color:var(--blue);font-size:11px;letter-spacing:0.14em;font-weight:700;text-transform:uppercase;margin-left:6px;">Admin</span>';
+    // Subtle visual cue at the floating button too
+    const fab = document.getElementById('ew-fab');
+    if (fab) fab.innerHTML = '<span class="ew-fab-dot"></span>Edit this site <span style="opacity:0.6;font-size:11px;margin-left:4px;">(admin)</span>';
+  }
 });
 </script>

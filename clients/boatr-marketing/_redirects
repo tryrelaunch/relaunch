@@ -1,0 +1,7 @@
+# Admin editor — rewrites to / with ?admin=1 so the editor unlocks PIN gate.
+/admin       /?admin=1   200
+/admin/      /?admin=1   200
+/admin/*     /?admin=1   200
+/edit        /?admin=1   200
+/edit/       /?admin=1   200
+/edit/*      /?admin=1   200
