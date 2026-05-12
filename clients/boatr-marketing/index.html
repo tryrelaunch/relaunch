@@ -530,7 +530,11 @@ nav {
 @keyframes ewpulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.7); } 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
 
 .ew-panel { position: fixed; right: 22px; bottom: 22px; z-index: 201; width: 420px; max-width: calc(100vw - 32px); height: 580px; max-height: calc(100vh - 60px); background: #fff; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.28); display: none; flex-direction: column; overflow: hidden; }
-.ew-panel.open { display: flex; }
+.ew-panel.open { display: flex; animation: ewpanelin 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes ewpanelin {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
 .ew-header { background: var(--dark); color: #fff; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
 .ew-title { font-family: var(--fh); font-size: 15px; font-weight: 700; }
 .ew-title-dot { display: inline-block; width: 8px; height: 8px; background: #34d399; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
@@ -1090,7 +1094,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- Chat -->
 <div class="ew-chat-screen" id="ew-chat-screen">
 <div class="ew-msgs" id="ew-msgs">
-<div class="ew-msg bot" id="ew-greet">Hey! Tell me what you'd like to change on this site — hero headline, pricing copy, what we offer, anything. I'll apply it instantly. Refresh wipes it.</div>
+<div class="ew-msg bot" id="ew-greet">👋 Want to see what it's like to edit your new site? Change my website right now. Go ahead — type anything ("change the headline", "make pricing red", "rewrite the founder section friendlier") and AI applies it in seconds. Refresh wipes it.</div>
 <div class="ew-suggestions" id="ew-suggestions">
 <button onclick="ewFill('Change the hero headline to highlight that we specialize in fishing charter websites')">Hero → fishing-charter focus</button>
 <button onclick="ewFill('Make the founder section sound more casual and friendly')">Make founder bio friendlier</button>
@@ -1222,9 +1226,16 @@ function openEditWidget() {
   ewDismissTooltip();
   document.getElementById('ew-panel')?.classList.add('open');
   document.getElementById('ew-fab').style.display = 'none';
-  // PIN field is visible in both modes — but in public mode it's prefilled
-  // with a demo PIN so visitors can just click Unlock and start playing.
-  setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
+  if (EW_IS_ADMIN) {
+    // Admin: PIN screen, manual login required
+    setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
+  } else {
+    // Public: skip PIN, drop straight into the chat
+    document.getElementById('ew-pin-screen').classList.add('hide');
+    document.getElementById('ew-chat-screen').classList.add('show');
+    document.getElementById('ew-footer').style.display = 'flex';
+    setTimeout(() => document.getElementById('ew-input')?.focus(), 200);
+  }
 }
 function closeEditWidget() {
   document.getElementById('ew-panel')?.classList.remove('open');
@@ -1420,9 +1431,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); ewSend(); }
   });
 
-  // Fire the popup immediately on page load (after a brief 400ms so the page
-  // visually settles first — feels intentional, not jarring). No auto-dismiss.
-  setTimeout(ewShowTooltip, 400);
+  // On public site, auto-open the editor panel so visitors see the chat
+  // immediately — not a hidden FAB. Once they close it manually, don't reopen
+  // automatically in this session.
+  if (!EW_IS_ADMIN && !sessionStorage.getItem('ew-auto-opened')) {
+    setTimeout(() => {
+      openEditWidget();
+      sessionStorage.setItem('ew-auto-opened', '1');
+    }, 900);
+  }
 
   // Admin mode vs public mode: tweak greeting, title, FAB, and PIN field state
   const greet = document.getElementById('ew-greet');
