@@ -1204,17 +1204,9 @@ function openEditWidget() {
   ewDismissTooltip();
   document.getElementById('ew-panel')?.classList.add('open');
   document.getElementById('ew-fab').style.display = 'none';
-
-  if (EW_IS_ADMIN) {
-    // Admin mode: show PIN gate
-    setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
-  } else {
-    // Public/demo mode: skip PIN, go straight to chat
-    document.getElementById('ew-pin-screen').classList.add('hide');
-    document.getElementById('ew-chat-screen').classList.add('show');
-    document.getElementById('ew-footer').style.display = 'flex';
-    setTimeout(() => document.getElementById('ew-input')?.focus(), 100);
-  }
+  // PIN field is visible in both modes — but in public mode it's prefilled
+  // with a demo PIN so visitors can just click Unlock and start playing.
+  setTimeout(() => document.getElementById('ew-pin')?.focus(), 100);
 }
 function closeEditWidget() {
   document.getElementById('ew-panel')?.classList.remove('open');
@@ -1416,15 +1408,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ewTooltipShown && !sessionStorage.getItem('ew-tooltip-dismissed')) ewDismissTooltip();
   }, 22500);
 
-  // Admin mode tweaks
+  // Admin mode vs public mode: tweak greeting, title, FAB, and PIN field state
+  const greet = document.getElementById('ew-greet');
+  const title = document.querySelector('.ew-title');
+  const fab = document.getElementById('ew-fab');
+  const pinScreenGreet = document.querySelector('.ew-pin-greet');
+  const pinScreenSub = document.querySelector('.ew-pin-sub');
+  const pinScreenHint = document.querySelector('.ew-pin-hint');
+  const pinFieldEl = document.getElementById('ew-pin');
+
   if (EW_IS_ADMIN) {
-    const greet = document.getElementById('ew-greet');
     if (greet) greet.textContent = 'Admin mode. Tell me what to change — I\'ll apply it locally, then you can Save permanently to commit to GitHub.';
-    const title = document.querySelector('.ew-title');
     if (title) title.innerHTML = '<span class="ew-title-dot"></span>Boatr · AI editor <span style="color:var(--blue);font-size:11px;letter-spacing:0.14em;font-weight:700;text-transform:uppercase;margin-left:6px;">Admin</span>';
-    // Subtle visual cue at the floating button too
-    const fab = document.getElementById('ew-fab');
     if (fab) fab.innerHTML = '<span class="ew-fab-dot"></span>Edit this site <span style="opacity:0.6;font-size:11px;margin-left:4px;">(admin)</span>';
+    if (pinScreenGreet) pinScreenGreet.textContent = '🔒 Enter admin PIN';
+    if (pinScreenSub) pinScreenSub.textContent = 'Admin login. Your edits will save to the live site.';
+    if (pinScreenHint) pinScreenHint.textContent = 'Saves commit to GitHub and deploy in ~60s.';
+    if (pinFieldEl) { pinFieldEl.value = ''; pinFieldEl.placeholder = 'Your admin PIN'; }
+  } else {
+    // Public/demo mode — prefill the PIN field so visitors can just click Unlock
+    if (pinScreenGreet) pinScreenGreet.textContent = '👇 Click Unlock to try the editor';
+    if (pinScreenSub) pinScreenSub.textContent = 'Demo mode. The PIN field is filled in for you — just hit Unlock and start editing. Your changes are local only; refresh resets them.';
+    if (pinScreenHint) pinScreenHint.textContent = 'Want to save edits permanently? That\'s an admin feature — every Boatr customer gets their own admin PIN.';
+    if (pinFieldEl) {
+      pinFieldEl.value = '123456';
+      pinFieldEl.placeholder = '123456';
+    }
   }
 });
 </script>
