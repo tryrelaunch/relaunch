@@ -890,6 +890,12 @@ nav {
   padding-bottom: 1px;
 }
 
+/* ── SECTION HEADER — centered by default ── */
+.section-header { text-align: center; }
+.section-header .kicker { justify-content: center; }
+.section-header .sec-title { text-align: center; max-width: 32ch; margin-left: auto; margin-right: auto; }
+.section-header .sec-lede { max-width: 62ch; margin-left: auto; margin-right: auto; }
+
 /* ── HOMEPAGE — MEET MALARKY GALLERY SLIDER ── */
 .gallery-section { padding: var(--s-9) 0 var(--s-6) 0; background: var(--paper); overflow: hidden; }
 .gallery-section .section-header { padding: 0 32px; }
