@@ -28,8 +28,11 @@ except ImportError:
 
 INDEX = Path(__file__).parent / 'index.html'
 
-# Tags worth making editable
-TARGET_TAGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'button', 'a', 'li', 'span'}
+# Tags worth making editable. Includes 'div' for leaf-text containers like
+# .pc-price ($99), .stat-n (big stat numbers), .foot-brand, .label kickers, etc.
+# The has_block_children check below ensures we only tag LEAF divs (no nested
+# block children), so structural layout divs stay untagged.
+TARGET_TAGS = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'button', 'a', 'li', 'span', 'div'}
 
 # IDs and classes whose subtree should be ignored (the editor widget itself,
 # the nav links wrapper, hidden Netlify form, etc.)
