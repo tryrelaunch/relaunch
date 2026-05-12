@@ -3,590 +3,957 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boatr Marketing — Websites, SEO &amp; Booking Growth for Marine-Tourism Operators</title>
-<meta name="description" content="Booking-ready websites and growth systems for boat charters, yacht rentals, and watersports operators. Built by an operator who's run $6M+ in marine-tourism — including the FareHarbor case study that did $250K in 6 days.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://boatrmarketing.com/">
-
-<meta property="og:title" content="Boatr Marketing — Marine-Tourism Growth, Built by Operators">
-<meta property="og:description" content="Websites, SEO, FareHarbor flows, and seasonal campaigns for boat charters and watersports operators. Same playbook that did $250K in 6 days, $500K–$700K in later campaigns.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://boatrmarketing.com/">
-<meta property="og:image" content="https://boatrmarketing.com/images/nate-on-boat.jpg">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Boatr Marketing",
-  "description": "Marine-tourism marketing service — websites, SEO, FareHarbor booking flow optimization, Google Business Profile, review strategy, and seasonal campaigns for boat charters, yacht rentals, and watersports operators.",
-  "url": "https://boatrmarketing.com/",
-  "areaServed": "United States",
-  "founder": {
-    "@type": "Person",
-    "name": "Nate Sinisgalli",
-    "jobTitle": "Founder, Operator",
-    "description": "CTO/CMO across marine-tourism brands doing $6M+ per year. Built the FareHarbor Black Friday playbook that generated $250,000 in 6 days at Triton Charters and scaled to $500K and $700K in later seasonal campaigns."
-  },
-  "serviceType": ["Web Design", "Search Engine Optimization", "Marketing Strategy", "Booking System Optimization"],
-  "audience": {
-    "@type": "BusinessAudience",
-    "audienceType": "Marine-tourism operators, boat charters, yacht rentals, watersports companies, fishing charters, whale watching, jet ski rentals, kayak/SUP rentals, parasailing, dive operators"
-  }
-}
-</script>
-
+<meta name="description" content="Boatr Marketing rebuilds marine-tourism websites. Free preview. $99/month to keep it live. Built by an operator who's run $6M+ in marine-tourism and $1.43M+ in verified Black Friday campaigns across 3 brands.">
+<title>Boatr Marketing — Websites for Boat Charters, Yacht Rentals &amp; Watersports Operators</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2026051200">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white:   #FFFFFF;
+  --off:     #F7F8FA;
+  --border:  #E5E7EB;
+  --text:    #111827;
+  --text-2:  #374151;
+  --muted:   #6B7280;
+  --dark:    #0F172A;
+  --dark-2:  #1E293B;
+  --blue:    #FE8D01;
+  --blue-lt: #FFF7ED;
+  --green:   #059669;
+  --green-lt:#ECFDF5;
+  --red:     #DC2626;
+  --brass:   #c8a44b;
+  --fh: 'Montserrat', sans-serif;
+  --fb: 'Manrope', sans-serif;
+  --sh: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.05);
+  --sh2: 0 8px 32px rgba(0,0,0,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: var(--white); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+/* ── NAV ─────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 66px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.logo { font-family: var(--fh); font-size: 20px; font-weight: 900; color: var(--text); letter-spacing: -0.03em; display: flex; align-items: center; gap: 7px; }
+.logo-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-btn { background: var(--dark); color: #fff !important; padding: 9px 20px; border-radius: 7px; font-family: var(--fh); font-size: 13px; font-weight: 700; transition: all 0.2s; }
+.nav-btn:hover { background: #EA7C00; }
+.nav-mobile-cta { display: none; background: var(--blue); color: #fff !important; padding: 8px 16px; border-radius: 7px; font-family: var(--fh); font-size: 13px; font-weight: 700; white-space: nowrap; }
+
+/* ── HERO ────────────────────────────── */
+.hero { padding: 120px 0 60px; background: var(--off); border-bottom: 1px solid var(--border); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.hero-tag { display: inline-block; background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue); border-radius: 999px; padding: 6px 14px; font-family: var(--fh); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 22px; }
+.hero h1 { font-family: var(--fh); font-size: 56px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 22px; }
+.hero h1 span { color: var(--blue); }
+.hero-sub { font-size: 18px; line-height: 1.6; color: var(--text-2); margin-bottom: 26px; max-width: 560px; }
+.hero-form { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 6px 6px 6px 18px; box-shadow: var(--sh); margin-bottom: 8px; }
+.hero-form input { flex: 1; border: none; outline: none; font-family: var(--fb); font-size: 15px; color: var(--text); background: transparent; min-height: 44px; }
+.hero-form input::placeholder { color: #9CA3AF; }
+.hero-form button { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 12px 22px; font-family: var(--fh); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.hero-form button:hover { background: #EA7C00; }
+.hero-note { font-size: 12px; color: #9CA3AF; margin-bottom: 28px; }
+.hero-checks { display: flex; flex-direction: column; gap: 9px; }
+.hc { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-2); }
+.hc-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--green-lt); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+
+/* ── BEFORE / AFTER ── */
+.ba-wrap { position: relative; padding-bottom: 14px; }
+.ba-browser { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--sh2); }
+.ba-bar { background: #F3F4F6; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
+.ba-dots { display: flex; gap: 5px; }
+.ba-dot { width: 10px; height: 10px; border-radius: 50%; }
+.ba-dot.d-r { background: #FF5F57; }
+.ba-dot.d-y { background: #FEBC2E; }
+.ba-dot.d-g { background: #28C840; }
+.ba-addr { flex: 1; background: #fff; border-radius: 5px; padding: 5px 10px; font-size: 11px; color: var(--muted); text-align: center; font-family: var(--fb); }
+.ba-tabs { display: flex; border-bottom: 1px solid var(--border); }
+.ba-tab { flex: 1; padding: 10px; font-family: var(--fh); font-size: 12px; font-weight: 700; text-align: center; cursor: pointer; color: var(--muted); transition: all 0.2s; user-select: none; }
+.ba-tab.on { color: var(--text); background: #fff; border-bottom: 2px solid var(--blue); }
+.ba-tab:not(.on) { background: #F9FAFB; }
+.ba-content { position: relative; height: 380px; overflow: hidden; }
+.ba-screen { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; overflow: hidden; }
+.ba-screen.show { opacity: 1; pointer-events: auto; }
+.ba-metric { position: absolute; bottom: -12px; right: 14px; background: var(--dark); color: #fff; border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--sh2); }
+.bm-val { font-family: var(--fh); font-size: 14px; font-weight: 800; color: #fff; }
+.bm-label { font-size: 10px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* BEFORE SITE (bad charter site sim) */
+.before-site { background: #fff; height: 100%; overflow: hidden; }
+.bs-nav { background: #0a1929; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; }
+.bs-nav-logo { color: #fff; font-family: 'Times New Roman', serif; font-size: 14px; font-weight: bold; }
+.bs-nav-links { display: flex; gap: 12px; color: rgba(255,255,255,0.6); font-size: 9px; }
+.bs-hero { background: #003366; padding: 20px 16px; text-align: center; }
+.bs-hero h2 { color: #fff; font-size: 16px; font-weight: bold; margin-bottom: 6px; font-family: 'Arial'; }
+.bs-hero p { color: rgba(255,255,255,0.6); font-size: 10px; margin-bottom: 10px; }
+.bs-hero-btn { background: #FF6600; color: #fff; border: none; padding: 6px 14px; font-size: 10px; font-weight: bold; cursor: pointer; border-radius: 2px; }
+.bs-body { padding: 14px 16px; }
+.bs-notice { background: #FFF7E0; border: 1px solid #FED7AA; padding: 6px 10px; font-size: 10px; color: #92400E; margin-bottom: 12px; border-radius: 3px; }
+.bs-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.bs-col-title { font-weight: bold; font-size: 10px; color: var(--text); margin-bottom: 4px; font-family: 'Arial'; }
+.bs-col-text { font-size: 9px; color: var(--muted); line-height: 1.4; }
+.bs-badge { background: #FEE2E2; color: #DC2626; font-size: 9px; padding: 3px 8px; border-radius: 3px; display: inline-block; font-weight: bold; }
+.bs-footer { text-align: center; padding: 8px; font-size: 9px; color: var(--muted); border-top: 1px solid var(--border); }
+
+/* AFTER SITE (rebuilt charter site sim) */
+.after-site { background: #fff; height: 100%; overflow: hidden; font-family: var(--fb); }
+.as-nav { background: #fff; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+.as-logo { font-family: var(--fh); font-size: 13px; font-weight: 900; color: var(--text); letter-spacing: -0.02em; }
+.as-nav-links { display: flex; gap: 12px; color: var(--text-2); font-size: 10px; font-weight: 600; }
+.as-nav-btn { background: var(--blue); color: #fff; border: none; padding: 5px 12px; font-size: 10px; font-weight: 700; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-hero { background: linear-gradient(135deg, #0F172A 0%, #1E40AF 100%); padding: 20px 16px; }
+.as-hero h2 { color: #fff; font-family: var(--fh); font-size: 16px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 5px; }
+.as-hero p { color: rgba(255,255,255,0.75); font-size: 9px; margin-bottom: 10px; line-height: 1.5; }
+.as-hero-btns { display: flex; gap: 6px; }
+.as-hero-btn1 { background: var(--blue); color: #fff; border: none; padding: 5px 12px; font-size: 9px; font-weight: 700; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-hero-btn2 { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.4); padding: 5px 12px; font-size: 9px; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: var(--fh); }
+.as-body { padding: 12px 16px; }
+.as-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.as-star-ico { color: #F59E0B; font-size: 11px; letter-spacing: 1px; }
+.as-star-txt { font-size: 9px; color: var(--text-2); font-weight: 600; }
+.as-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.as-card { background: var(--off); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+.as-card-title { font-family: var(--fh); font-size: 10px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.as-card-text { font-size: 8px; color: var(--muted); line-height: 1.3; margin-bottom: 6px; }
+.as-card-btn { background: var(--dark); color: #fff; border: none; font-size: 8px; padding: 3px 8px; border-radius: 3px; font-weight: 700; cursor: pointer; }
+
+/* ── STATS ── */
+.stats { background: var(--white); border-bottom: 1px solid var(--border); padding: 36px 0; }
+.stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+.stat { text-align: center; border-right: 1px solid var(--border); padding: 0 16px; }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: var(--fh); font-size: 36px; font-weight: 800; color: var(--muted); letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+.stat-n b { color: var(--text); font-weight: 900; }
+.stat-l { font-size: 13px; color: var(--muted); }
+
+/* ── SECTIONS ── */
+.sec { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+.label { display: inline-block; font-family: var(--fh); font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.title { font-family: var(--fh); font-size: 44px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--text); margin-bottom: 14px; }
+.title span { color: var(--blue); }
+.sub { font-size: 17px; line-height: 1.55; color: var(--text-2); max-width: 660px; }
+
+/* ── WHAT YOU GET ── */
+.wyg { background: var(--white); }
+.wyg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
+.wyg-card { background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: 24px; transition: all 0.2s; }
+.wyg-card:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: var(--sh); }
+.wyg-card h3 { font-family: var(--fh); font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.wyg-card p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+
+/* ── VERIFIED DATA SECTION (the unique marine asset) ── */
+.proof { background: var(--dark); color: #fff; }
+.proof .label { color: var(--brass); }
+.proof .title { color: #fff; }
+.proof .sub { color: rgba(255,255,255,0.65); }
+.proof-matrix { margin: 40px 0 28px; padding: 24px; background: var(--dark-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; }
+.proof-matrix-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1.2fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); align-items: baseline; }
+.proof-matrix-row.header { border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 8px; }
+.proof-matrix-row.total { border-top: 2px solid rgba(255,255,255,0.2); border-bottom: 0; padding-top: 14px; margin-top: 4px; }
+.pmh { font-family: var(--fh); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.pmh.r { text-align: right; }
+.pmb { font-family: var(--fh); font-size: 18px; font-weight: 700; color: #fff; }
+.pmn { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--brass); text-align: right; }
+.pmt { font-family: var(--fh); font-size: 22px; font-weight: 800; color: #FFD27A; text-align: right; }
+.pmt-label { font-family: var(--fh); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); }
+.pmtotal-row { font-family: var(--fh); font-size: 18px; color: #fff; text-align: right; font-weight: 700; }
+.pmtotal-big { font-family: var(--fh); font-size: 28px; color: #FFD27A; text-align: right; font-weight: 900; }
+
+.proof-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.pcard { background: var(--dark-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; }
+.pcard-header { padding: 12px 14px 10px; border-bottom: 1px solid rgba(255,255,255,0.1); background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%); }
+.pcard-brand { font-family: var(--fh); font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 2px; letter-spacing: -0.01em; }
+.pcard-year { font-family: var(--fh); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); }
+.pcard-product { padding: 8px 14px; font-size: 11px; color: rgba(255,255,255,0.55); border-bottom: 1px solid rgba(255,255,255,0.08); font-style: italic; min-height: 32px; }
+.pcard-data { display: grid; grid-template-columns: 1fr 1fr; }
+.pcard-cell { padding: 10px 14px; }
+.pcard-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+.pcard-cell:nth-child(1), .pcard-cell:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+.pcard-label { font-family: var(--fh); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 2px; }
+.pcard-value { font-family: var(--fh); font-size: 17px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+.pcard-value.brass { color: var(--brass); }
+.pcard-value.small { font-size: 12px; }
+.pcard-footer { padding: 8px 14px; background: rgba(0,0,0,0.18); font-family: var(--fh); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+.proof-foot { text-align: center; margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.45); }
+.proof-foot a { color: var(--brass); border-bottom: 1px solid var(--brass); }
+
+/* ── PAIN POINTS ── */
+.pain { background: var(--off); }
+.pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
+.pain-card { background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: 22px; }
+.pain-card h3 { font-family: var(--fh); font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.pain-card p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.pain-cta { background: var(--dark); border-radius: 12px; padding: 28px; margin-top: 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.pain-cta h3 { font-family: var(--fh); font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: -0.02em; }
+.pain-cta p { font-size: 14px; color: rgba(255,255,255,0.7); }
+.btn-w { background: var(--blue); color: #fff; border: none; padding: 14px 24px; font-family: var(--fh); font-size: 14px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.btn-w:hover { background: #EA7C00; }
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--white); }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 44px; }
+.step { background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: 28px; position: relative; }
+.step-n { font-family: var(--fh); font-size: 11px; font-weight: 800; letter-spacing: 0.16em; color: var(--blue); margin-bottom: 12px; }
+.step h3 { font-family: var(--fh); font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.02em; }
+.step p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.step-arrow { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--blue); display: none; }
+@media (min-width: 901px) { .step:not(:last-child) .step-arrow { display: block; } }
+
+/* ── SLACK SECTION ── */
+.slack-sec { background: var(--off); border-top: 1px solid var(--border); }
+.slack-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.slack-checks { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.sc { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-2); }
+.sc-chk { color: var(--blue); font-weight: 800; }
+.slack-mock { background: #1A1D21; border-radius: 12px; overflow: hidden; box-shadow: var(--sh2); }
+.sm-bar { background: #222529; padding: 10px 14px; display: flex; align-items: center; gap: 8px; }
+.sm-dot { width: 8px; height: 8px; background: #4ECCA3; border-radius: 50%; }
+.sm-name { font-family: var(--fh); font-size: 13px; color: #fff; font-weight: 700; }
+.sm-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.sm-msg { display: flex; gap: 10px; }
+.sm-av { width: 32px; height: 32px; border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--fh); font-weight: 800; font-size: 14px; }
+.sm-bub { padding: 8px 12px; border-radius: 8px; max-width: 80%; }
+.sm-bub.light { background: rgba(255,255,255,0.06); }
+.sm-bub.blue { background: rgba(254,141,1,0.12); border: 1px solid rgba(254,141,1,0.25); }
+.sm-from { font-family: var(--fh); font-size: 12px; color: #fff; font-weight: 700; margin-bottom: 2px; }
+.sm-from.b { color: var(--blue); }
+.sm-from span { color: rgba(255,255,255,0.4); font-weight: 400; }
+.sm-txt { color: rgba(255,255,255,0.85); font-size: 13px; line-height: 1.4; }
+.sm-note { text-align: center; font-size: 11px; color: rgba(255,255,255,0.35); font-family: monospace; margin-top: 8px; }
+
+/* ── PRICING ── */
+.pricing { padding: 80px 0; background: var(--off); border-top: 1px solid var(--border); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 44px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.pc { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; }
+.pc.feat { background: var(--dark); color: #fff; position: relative; }
+.pc.feat::before { content: "MOST OPERATORS"; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; font-family: var(--fh); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; padding: 5px 12px; border-radius: 0 0 6px 6px; }
+.pc-tier { font-family: var(--fh); font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.pc.feat .pc-tier { color: var(--blue); }
+.pc-price { font-family: var(--fh); font-size: 48px; font-weight: 900; color: var(--text); letter-spacing: -0.04em; line-height: 1; }
+.pc.feat .pc-price { color: #fff; }
+.pc-price sup { font-size: 22px; vertical-align: super; font-weight: 700; }
+.pc-period { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+.pc.feat .pc-period { color: rgba(255,255,255,0.55); }
+.pc-desc { font-size: 14px; color: var(--text-2); margin-bottom: 22px; line-height: 1.5; }
+.pc.feat .pc-desc { color: rgba(255,255,255,0.72); }
+.pc-list { list-style: none; margin-bottom: 24px; flex: 1; }
+.pc-list li { font-size: 13px; color: var(--text-2); padding: 7px 0 7px 22px; position: relative; }
+.pc.feat .pc-list li { color: rgba(255,255,255,0.85); }
+.pc-list li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 800; }
+.pc-btn { padding: 12px 18px; font-family: var(--fh); font-size: 13px; font-weight: 700; border-radius: 7px; cursor: pointer; border: 1.5px solid var(--text); background: transparent; color: var(--text); transition: all 0.2s; }
+.btn-feat { background: var(--blue); color: #fff !important; border-color: var(--blue) !important; }
+.btn-outline:hover { background: var(--text); color: #fff; }
+.btn-feat:hover { background: #EA7C00; border-color: #EA7C00; }
+
+/* ── TRUST / FOUNDER ── */
+.trust { background: #fff; border-top: 1px solid var(--border); }
+.trust-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
+.trust-photo { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), #EA7C00); display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--fh); font-size: 38px; font-weight: 900; margin-bottom: 22px; background-size: cover; background-position: center; }
+.trust h2 { font-family: var(--fh); font-size: 36px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--text); margin-bottom: 22px; }
+.trust-body p { font-size: 16px; line-height: 1.65; color: var(--text-2); margin-bottom: 14px; }
+.trust-body p strong { color: var(--text); }
+.trust-sig { margin-top: 20px; font-family: var(--fh); font-weight: 800; color: var(--text); font-size: 15px; }
+.trust-sig span { font-weight: 500; color: var(--muted); font-size: 13px; }
+.trust-cards { display: flex; flex-direction: column; gap: 14px; }
+.trust-card { background: var(--off); border: 1px solid var(--border); border-radius: 11px; padding: 22px; }
+.trust-card h4 { font-family: var(--fh); font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.trust-card p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+
+/* ── FAQ ── */
+.faq { background: var(--off); border-top: 1px solid var(--border); }
+.faq-list { max-width: 800px; margin: 40px auto 0; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; background: transparent; border: none; padding: 20px 0; font-family: var(--fh); font-size: 17px; font-weight: 700; color: var(--text); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-ico { font-family: var(--fh); font-size: 22px; color: var(--blue); transition: transform 0.2s; }
+.faq-q.open .faq-ico { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 15px; color: var(--text-2); line-height: 1.6; }
+.faq-a.open { max-height: 400px; padding-bottom: 22px; }
+
+/* ── CTA ── */
+.cta { background: var(--dark); color: #fff; padding: 90px 0; text-align: center; }
+.cta-inner { max-width: 520px; margin: 0 auto; padding: 0 24px; }
+.cta h2 { font-family: var(--fh); font-size: 36px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.1; }
+.cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 26px; }
+.cta-form { display: flex; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 6px 6px 6px 18px; margin-bottom: 12px; }
+.cta-input { flex: 1; background: transparent; border: none; outline: none; font-family: var(--fb); font-size: 15px; color: #fff; min-height: 44px; }
+.cta-input::placeholder { color: rgba(255,255,255,0.4); }
+.cta-btn { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 12px 22px; font-family: var(--fh); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.cta-btn:hover { background: #EA7C00; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+/* ── FOOTER ── */
+footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+.foot { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.foot-logo { font-family: var(--fh); font-size: 16px; font-weight: 900; color: #fff; letter-spacing: -0.02em; display: flex; align-items: center; gap: 6px; }
+.foot-dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-size: 13px; color: rgba(255,255,255,0.55); }
+.foot-links a:hover { color: var(--blue); }
+.foot-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 980px) {
+  nav { padding: 0 20px; }
+  .nav-links li:not(:last-child) { display: none; }
+  .nav-links li:last-child { display: none; }
+  .nav-mobile-cta { display: block; }
+  .hero { padding: 110px 0 50px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 38px; }
+  .hero-inner, .stats-inner, .sec, .slack-inner, .trust-inner, .foot { padding-left: 20px; padding-right: 20px; }
+  .wyg-grid, .pain-grid, .steps, .pricing-grid, .proof-cards { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px 0; }
+  .stat:nth-child(2) { border-right: none; }
+  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .stat:nth-child(3), .stat:nth-child(4) { padding-top: 24px; }
+  .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat:nth-child(even) { border-right: none; }
+  .slack-inner { grid-template-columns: 1fr; }
+  .trust-inner { grid-template-columns: 1fr; }
+  .title { font-size: 32px; }
+  .sec { padding-top: 60px; padding-bottom: 60px; }
+  .pain-cta { flex-direction: column; align-items: flex-start; }
+  .hero-form { flex-direction: column; padding: 10px; gap: 10px; }
+  .hero-form input { min-height: 48px; font-size: 16px; width: 100%; }
+  .hero-form button { width: 100%; padding: 14px; font-size: 15px; }
+  .cta-form { flex-direction: column; padding: 10px; gap: 10px; }
+  .cta-input { min-height: 48px; font-size: 16px; }
+  .proof-matrix-row { grid-template-columns: 1fr 60px 60px 60px 70px; gap: 6px; font-size: 12px; }
+  .pmh, .pmb, .pmn, .pmt, .pmt-label { font-size: 11px; }
+  .pmn, .pmt, .pmtotal-big { font-size: 13px; }
+  .pmb { font-size: 12px; }
+}
+</style>
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────────────────────── -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">Boatr <em>Marketing</em></a>
-    <button class="nav-burger" onclick="toggleNav()" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#proof">Proof</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#what-i-build">What I Build</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#preview" class="nav-cta">Get My Preview</a></li>
-    </ul>
-  </div>
+<!-- Netlify Forms detection -->
+<form name="lead-capture" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="url">
+  <input type="text" name="source">
+  <input type="text" name="referrer">
+  <input type="text" name="user_agent">
+  <input type="text" name="submitted_at">
+  <input type="text" name="bot-field">
+</form>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><div class="logo-dot"></div>Boatr Marketing</div>
+  <ul class="nav-links">
+    <li><a href="#proof">Verified Data</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#cta" class="nav-btn">Get my preview</a></li>
+  </ul>
+  <a href="#cta" class="nav-mobile-cta">Free preview →</a>
 </nav>
 
-<!-- ─── HERO ────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" style="background-image: url('images/nate-on-boat.jpg');"></div>
   <div class="hero-inner">
-    <div class="hero-grid">
-      <div>
-        <div class="kicker cream" style="margin-bottom: var(--s-4);">A specialized Relaunch service · Marine-tourism only</div>
-        <h1>Booking-ready websites, built by someone who's <em>actually run boats</em>.</h1>
-        <p class="hero-sub">Websites, SEO, FareHarbor optimization, and seasonal campaigns for boat charters, yacht rentals, and watersports operators. Same playbook I used inside marine-tourism brands doing $6M+/year — the Black Friday system that FareHarbor wrote a case study about, now <strong>$1.53M across three brands and nine verified campaigns</strong>.</p>
-        <div class="hero-cta">
-          <a href="#preview" class="btn btn-primary btn-lg">Get My Site Preview →</a>
-          <a href="#proof" class="btn btn-ghost btn-lg">See Operator Proof</a>
-        </div>
-
-        <div class="hero-trust">
-          <div class="hero-trust-label">Featured by</div>
-          <div class="hero-trust-logo">FareHarbor</div>
-          <div class="hero-trust-logo">+ five marine brands in the operator portfolio</div>
-        </div>
-      </div>
-      <div class="hero-img" style="background-image: url('images/nate-headshot.jpg');"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── BIG NUMBER PROOF BAND ──────────────────────── -->
-<section class="proof-band" id="proof">
-  <div class="proof-grid">
-    <div class="proof-item">
-      <div class="proof-num">$6<em>M+</em></div>
-      <div class="proof-label">Annual operator<br>experience</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">$1.53<em>M</em></div>
-      <div class="proof-label">Black Friday across<br>3 brands · 9 campaigns</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">+714<em>%</em></div>
-      <div class="proof-label">Malarky Black Friday<br>'23 → '25</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">2,000<em>+</em></div>
-      <div class="proof-label">Google reviews built<br>across operator brands</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">5</div>
-      <div class="proof-label">Marine brands in the<br>operator portfolio</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOUNDER SECTION ────────────────────────────── -->
-<section class="section founder-section">
-  <div class="container">
-    <div class="founder-grid">
-      <div class="founder-img" style="background-image: url('images/nate-headshot.jpg');"></div>
-      <div class="founder-prose">
-        <div class="kicker">Who's behind this</div>
-        <h2>I'm Nate. I've been <em>inside</em> marine-tourism, not just selling websites to it.</h2>
-        <p>I've served as CTO and CMO across marine-tourism brands doing over <strong>$6 million per year</strong> in bookings. I've worked the actual problems boat-tourism owners deal with — local SEO, Google Business Profile, review capture, FareHarbor flow optimization, SMS and email list growth, seasonal campaign timing, landing pages for high-intent search terms, ad creative, and the awkward middle ground between marketing and operations where most agencies have no clue what's going on.</p>
-        <p>At <strong>Triton Charters</strong> in San Diego, I helped build a Google review moat measured in thousands of reviews and ranked at or near the top for high-intent charter and event terms. The Black Friday playbook I wrote there is the one FareHarbor published a case study on. Three verified years of FareHarbor dashboard data since: <strong>$349K · $372K · $535K</strong>. That's <strong>$1.25M in gross bookings</strong> across three Black Fridays, 14,745 paid orders, refund rate under 0.2%.</p>
-        <p>I'm not a web designer guessing at your business. I've fought the booking, SEO, review, FareHarbor, and seasonal-revenue battles you're dealing with. I built a system that won them. I'd like to install it for you.</p>
-        <div class="founder-signature">
-          <div>
-            <div class="founder-name">Nate Sinisgalli</div>
-            <div class="founder-title">Founder · Boatr Marketing &nbsp;·&nbsp; Former CTO/CMO, marine-tourism portfolio</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PORTFOLIO / OPERATOR BRANDS ─────────────────── -->
-<section class="section portfolio-section" id="portfolio">
-  <div class="container">
-    <div class="sec-header">
-      <div class="kicker">Operator portfolio</div>
-      <h2>Five marine brands. <em>One playbook</em>.</h2>
-      <p class="lede">These are brands I've built or operated. They're not paying customers of a marketing agency. They're the proving ground where the playbook got refined — the system I now install for other marine-tourism operators.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <a href="https://triton-charters.com" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="portfolio-card-img" style="background-image: url('images/screenshot-triton.jpg');"></div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-card-name">Triton Charters</div>
-          <div class="portfolio-card-meta">San Diego · 100-guest charter</div>
-        </div>
-      </a>
-      <a href="https://malarkycharters.com" target="_blank" rel="noopener" class="portfolio-card">
-        <div class="portfolio-card-img" style="background-image: url('images/screenshot-malarky.jpg');"></div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-card-name">Malarky Charters</div>
-          <div class="portfolio-card-meta">San Diego · 12-guest catamaran</div>
-        </div>
-      </a>
-      <a href="#" class="portfolio-card">
-        <div class="portfolio-card-img" style="background-image: url('images/screenshot-athena.jpg');"></div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-card-name">Athena</div>
-          <div class="portfolio-card-meta">Marine-tourism brand</div>
-        </div>
-      </a>
-      <a href="#" class="portfolio-card">
-        <div class="portfolio-card-img" style="background-image: url('images/screenshot-alana.jpg');"></div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-card-name">Alana</div>
-          <div class="portfolio-card-meta">Marine-tourism brand</div>
-        </div>
-      </a>
-      <a href="#" class="portfolio-card">
-        <div class="portfolio-card-img" style="background-image: url('images/screenshot-aquata.jpg');"></div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-card-name">Aquata</div>
-          <div class="portfolio-card-meta">Marine-tourism brand</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── TRITON CASE STUDY ──────────────────────────── -->
-<section class="section case-section">
-  <div class="container">
-    <div class="case-grid">
-      <div class="case-prose">
-        <div class="kicker brass">The playbook · 3 brands · 9 campaigns · 3 years</div>
-        <h2>$1.53M across <em>three brands</em>. Same playbook. Same FareHarbor account architecture. Same operator.</h2>
-        <p>FareHarbor first wrote about this campaign when it hit $250,000 in six days at Triton. Since then I've run it nine more times across three different marine brands — Triton, Malarky, and Alana. Public-record FareHarbor dashboard data, three full years apiece. <strong>$1.53 million in gross revenue. ~14,900 paid orders. 32,900+ future guests booked.</strong> Refund rate averaging well under 0.5%.</p>
-        <p style="margin-top:var(--s-3);"><strong style="color:var(--brass);">The growth curves matter as much as the totals.</strong> Triton was already mature — the system grew it +53% over three years. Malarky started at <strong>$12K and grew to $96K (+714%)</strong>. Alana started at <strong>$15K and grew to $51K (+242%)</strong>. Three different brands, three different growth profiles, all positive. The playbook isn't just for optimizing mature operations. It builds them from low base.</p>
-        <p style="font-size:15px;color:rgba(245,239,225,0.65);font-style:italic;">Operator-level detail: Black Friday day itself does ~36–38% of the entire campaign at Triton. That's not a "Black Friday week" promotion — it's a one-day demand spike with a long tail. The system has to be ready for both.</p>
-        <p>That's the playbook I install. Not a generic agency package. The actual machine — the landing pages, the FareHarbor offer structure, the email/SMS sequences, the GBP work, the seasonal calendar — adapted to your specific operation.</p>
-
-        <div style="margin:var(--s-5) 0;padding:var(--s-5) 0;border-top:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk);">
-          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;gap:var(--s-3);align-items:baseline;padding-bottom:8px;border-bottom:1px solid var(--line-dk);margin-bottom:var(--s-3);">
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.5);">Brand</div>
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.5);text-align:right;">2023</div>
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.5);text-align:right;">2024</div>
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.5);text-align:right;">2025</div>
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.5);text-align:right;">3-yr total</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;gap:var(--s-3);align-items:baseline;padding:10px 0;">
-            <div style="font-family:var(--fh);font-size:18px;color:var(--cream);">Triton</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$349K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$374K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$535K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass-lt);text-align:right;font-weight:600;">$1.26M</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;gap:var(--s-3);align-items:baseline;padding:10px 0;border-top:1px solid var(--line-dk);">
-            <div style="font-family:var(--fh);font-size:18px;color:var(--cream);">Malarky</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$12K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$65K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$96K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass-lt);text-align:right;font-weight:600;">$173K</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;gap:var(--s-3);align-items:baseline;padding:10px 0;border-top:1px solid var(--line-dk);">
-            <div style="font-family:var(--fh);font-size:18px;color:var(--cream);">Alana</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$15K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$30K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass);text-align:right;">$51K</div>
-            <div style="font-family:var(--fh);font-size:22px;color:var(--brass-lt);text-align:right;font-weight:600;">$97K</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr;gap:var(--s-3);align-items:baseline;padding:12px 0 0;border-top:2px solid var(--line-dk);">
-            <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass);">Combined</div>
-            <div style="font-family:var(--fh);font-size:20px;color:var(--cream);text-align:right;">$376K</div>
-            <div style="font-family:var(--fh);font-size:20px;color:var(--cream);text-align:right;">$470K</div>
-            <div style="font-family:var(--fh);font-size:20px;color:var(--cream);text-align:right;">$683K</div>
-            <div style="font-family:var(--fh);font-size:28px;color:var(--brass-lt);text-align:right;font-weight:600;">$1.53M</div>
-          </div>
-        </div>
-
-        <div class="case-cite">
-          <span>↗</span>
-          <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener">Read the original FareHarbor case study</a>
-        </div>
-      </div>
-
-      <div>
-        <div style="font-family:var(--fa);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--brass);margin-bottom:var(--s-3);text-align:center;">Verified data · FareHarbor Sales Reports · 2023–2025</div>
-
-        <div class="report-grid">
-
-          <!-- TRITON -->
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Triton Charters</div><div class="report-card-year">2025 Black Friday</div></div>
-            <div class="report-card-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$534,996</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$522,968</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">6,204</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">12 · 0.19%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2025 – 12/08/2025</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Triton Charters</div><div class="report-card-year">2024 Black Friday</div></div>
-            <div class="report-card-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$374,088</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$365,668</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">4,360</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">4 · 0.09%</div></div>
-            </div>
-            <div class="report-card-footer">11/22/2024 – 12/07/2024 · 17,019 pax</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Triton Charters</div><div class="report-card-year">2023 Black Friday</div></div>
-            <div class="report-card-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$349,360</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$341,459</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">4,198</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">9 · 0.21%</div></div>
-            </div>
-            <div class="report-card-footer">11/21/2023 – 12/01/2023 · 15,890 pax</div>
-          </div>
-
-          <!-- MALARKY -->
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Malarky Charters</div><div class="report-card-year">2025 Black Friday</div></div>
-            <div class="report-card-product">Malarky Charters Black Friday Sale</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$96,250</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$94,371</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">167</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">1 · 0.60%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2025 – 12/08/2025</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Malarky Charters</div><div class="report-card-year">2024 Black Friday</div></div>
-            <div class="report-card-product">Malarky Charters Black Friday Sale</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$65,065</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$63,784</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">148</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">4 · 2.70%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2024 – 12/08/2024</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Malarky Charters</div><div class="report-card-year">2023 Black Friday</div></div>
-            <div class="report-card-product">Malarky Charters Black Friday Sale</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$11,624</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$11,397</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">18</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">0 · 0.00%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2023 – 12/08/2023 · first year</div>
-          </div>
-
-          <!-- ALANA -->
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Alana Charters</div><div class="report-card-year">2025 Black Friday</div></div>
-            <div class="report-card-product">Alana Private Charter Black Friday Sale</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$51,223</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$50,223</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">87</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">1 · 1.15%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2025 – 12/07/2025</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Alana Charters</div><div class="report-card-year">2024 Black Friday</div></div>
-            <div class="report-card-product">Alana Charter Sale + Cyber Monday Tickets</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$30,459</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$29,839</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">139</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">2 · 1.44%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2024 – 12/07/2024</div>
-          </div>
-
-          <div class="report-card">
-            <div class="report-card-header"><div class="report-card-brand">Alana Charters</div><div class="report-card-year">2023 Black Friday</div></div>
-            <div class="report-card-product">Alana Charter Sale + Cyber Monday Tickets</div>
-            <div class="report-card-data">
-              <div class="report-card-cell"><div class="report-card-label">Gross</div><div class="report-card-value brass">$15,001</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Net</div><div class="report-card-value">$14,698</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Payment Count</div><div class="report-card-value">61</div></div>
-              <div class="report-card-cell"><div class="report-card-label">Refund Count</div><div class="report-card-value small">1 · 1.64%</div></div>
-            </div>
-            <div class="report-card-footer">11/25/2023 – 12/07/2023</div>
-          </div>
-
-        </div>
-
-        <p style="font-family:var(--fa);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,225,0.35);text-align:center;margin-top:var(--s-4);">Data from FareHarbor Sales Reports · raw dashboard screenshots available on request</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHAT I BUILD (deliverables) ────────────────── -->
-<section class="section build-section" id="what-i-build">
-  <div class="container">
-    <div class="sec-header">
-      <div class="kicker">What gets installed</div>
-      <h2>The system, not just a <em>pretty website</em>.</h2>
-      <p class="lede">A new site is the wrapper. What actually moves bookings is the operating system underneath it. Here's what I install on every engagement.</p>
-    </div>
-
-    <div class="build-grid">
-      <div class="build-card">
-        <span class="build-card-num">01 · Site</span>
-        <h4>Custom-coded fast website</h4>
-        <p>Built around your actual booking flow — not a template. Hand-coded HTML/CSS, no WordPress bloat, 90+ PageSpeed mobile, schema markup baked in. The booking CTA is the focus of every page.</p>
-      </div>
-      <div class="build-card">
-        <span class="build-card-num">02 · SEO</span>
-        <h4>Local + intent-based SEO structure</h4>
-        <p>One page per high-intent search term ("private yacht charter [your city]", "sunset cruise [your city]", "[occasion] boat rental [your city]"). LocalBusiness + Service schema. Internal linking. Real-content metadata.</p>
-      </div>
-      <div class="build-card">
-        <span class="build-card-num">03 · GBP</span>
-        <h4>Google Business Profile rebuild</h4>
-        <p>Audit, rewrite, and optimize your GBP. Categories, services, attributes, photo strategy, Q&amp;A, posts. The single highest-leverage asset most marine operators leave on the table.</p>
-      </div>
-      <div class="build-card">
-        <span class="build-card-num">04 · Reviews</span>
-        <h4>Review capture system</h4>
-        <p>Post-charter SMS/email flow that asks at the right moment, makes Google the destination, and surfaces unhappy guests privately before they leave a bad public review. This is how you build a review moat.</p>
-      </div>
-      <div class="build-card">
-        <span class="build-card-num">05 · FareHarbor</span>
-        <h4>FareHarbor flow optimization</h4>
-        <p>I'll audit your existing FareHarbor setup — flows, item structure, add-ons, abandoned-cart, mobile checkout. Most operators leave 15–30% of conversion on the floor here. We close that gap.</p>
-      </div>
-      <div class="build-card">
-        <span class="build-card-num">06 · Campaigns</span>
-        <h4>Seasonal campaign system</h4>
-        <p>Black Friday, summer kickoff, holidays, off-season retention. Pre-built landing pages, email + SMS sequences, FareHarbor offer structure, ad creative. The exact stack that did $250K → $700K at Triton.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHAT AGENCIES MISS ─────────────────────────── -->
-<section class="section contrast-section">
-  <div class="container">
-    <div class="sec-header">
-      <div class="kicker">Why generic agencies miss</div>
-      <h2>A pretty boat site and one that gets <em>booked</em> are two different things.</h2>
-      <p class="lede">Tourists scan photos, price clues, group size, what's included, where to park, whether they can bring drinks, whether the captain is included, and whether the booking button feels safe. Most agencies build past every one of those signals.</p>
-    </div>
-
-    <div class="contrast-grid">
-      <div class="contrast-card bad">
-        <div class="contrast-card-title">Generic web agency</div>
-        <ul class="contrast-list">
-          <li>Pretty pages, vague copy</li>
-          <li>Template hero, template sections</li>
-          <li>Contact form as the conversion event</li>
-          <li>Broad "we do SEO" without intent targeting</li>
-          <li>No FareHarbor flow audit — bookings end up worse</li>
-          <li>One-size-fits-all monthly retainer</li>
-          <li>No idea what "Coney pizza" means, or what BYOB rules matter, or why your captain is hired separately</li>
-        </ul>
-      </div>
-      <div class="contrast-card good">
-        <div class="contrast-card-title">Boatr Marketing</div>
-        <ul class="contrast-list">
-          <li>Direct booking intent on every page</li>
-          <li>Group size, route, included items, parking — above the fold</li>
-          <li>FareHarbor booking CTA as the primary action</li>
-          <li>One landing page per high-intent search term in your city</li>
-          <li>FareHarbor flow audit + optimization built in</li>
-          <li>Review capture flow that builds a moat</li>
-          <li>I've operated this exact business model. The details show up in the work.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PRICING ────────────────────────────────────── -->
-<section class="section pricing-section" id="pricing">
-  <div class="container">
-    <div class="sec-header">
-      <div class="kicker brass">Engagement structure</div>
-      <h2>Most operators start with a <em>preview</em>.</h2>
-      <p class="lede">I rebuild your most important page first and show you the booking opportunities I see. If it lands, we build out the full site and turn on the growth system. If it doesn't, no hard feelings — the preview is yours either way.</p>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-name">Preview</div>
-        <div class="pricing-tag">Where every engagement starts</div>
-        <div class="pricing-price">Free<span class="pricing-price-sub">/ on accepted prospects</span></div>
-        <ul class="pricing-features">
-          <li>One key page rebuilt — homepage or top-booking landing page</li>
-          <li>Live URL you can click through and edit</li>
-          <li>Written audit of missed booking opportunities</li>
-          <li>FareHarbor flow review (high-level)</li>
-          <li>30-min call to walk through it</li>
-        </ul>
-        <a href="#preview" class="btn btn-ghost">Get My Preview →</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-name">Launch Build</div>
-        <div class="pricing-tag">Full site rebuild + growth system install</div>
-        <div class="pricing-price">$2,500<span class="pricing-price-sub">one-time setup</span></div>
-        <ul class="pricing-features">
-          <li>Full site rebuilt — homepage + service pages + occasion pages</li>
-          <li>LocalBusiness + Service + FAQ + Review schema</li>
-          <li>Google Business Profile rebuild</li>
-          <li>FareHarbor flow optimization</li>
-          <li>Review capture system installed</li>
-          <li>One seasonal campaign built (Black Friday or your peak)</li>
-          <li>Analytics + Search Console configured</li>
-        </ul>
-        <a href="#preview" class="btn btn-brass">Start with a Preview →</a>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-name">Growth Retainer</div>
-        <div class="pricing-tag">Ongoing operating partner</div>
-        <div class="pricing-price">$500–$1,500<span class="pricing-price-sub">/ month, scope dependent</span></div>
-        <ul class="pricing-features">
-          <li>Monthly new landing pages for emerging keywords</li>
-          <li>Seasonal campaign builds (4–6 per year)</li>
-          <li>GBP optimization + review-strategy monitoring</li>
-          <li>Monthly reporting (real numbers, not dashboards)</li>
-          <li>Priority text/email access</li>
-          <li>Cancel anytime</li>
-        </ul>
-        <a href="#preview" class="btn btn-ghost">Discuss Scope →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FORM CTA ────────────────────────────────────── -->
-<section class="section form-section" id="preview">
-  <div class="container">
-    <div class="form-card">
-      <div class="kicker" style="justify-content:center;margin-bottom:var(--s-3);display:flex;">Start here</div>
-      <h2>Send me your current site. I'll show you the booking opportunities I see.</h2>
-      <p class="lede">Drop your URL and I'll spend a few hours pulling your Ahrefs data, your Google Business Profile, your FareHarbor flow if I can see it, and your top organic + paid competitors. Then I'll rebuild one page and send it to you with a written audit. No charge, no obligation. If it lands, we keep going.</p>
-
-      <form class="form-grid" name="preview-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true">
-        <input type="hidden" name="form-name" value="preview-request">
-        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-        <div class="form-group">
-          <label class="form-label" for="name">Your name</label>
-          <input class="form-input" type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="company">Company name</label>
-          <input class="form-input" type="text" id="company" name="company" required>
-        </div>
-        <div class="form-group full">
-          <label class="form-label" for="website">Current website URL</label>
-          <input class="form-input" type="url" id="website" name="website" placeholder="https://yourcompany.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="email">Email</label>
-          <input class="form-input" type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="platform">Booking platform <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-4);">(optional)</span></label>
-          <select class="form-select" id="platform" name="booking_platform">
-            <option value="">— select —</option>
-            <option value="fareharbor">FareHarbor</option>
-            <option value="rezdy">Rezdy</option>
-            <option value="checkfront">Checkfront</option>
-            <option value="bookeo">Bookeo</option>
-            <option value="peek">Peek</option>
-            <option value="custom">Custom / in-house</option>
-            <option value="none">None yet</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group full" style="margin-top:var(--s-3);">
-          <label class="form-label" for="notes">What you'd want me to focus on <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-4);">(optional)</span></label>
-          <textarea class="form-input" id="notes" name="notes" rows="3" placeholder="e.g. our bachelorette market is huge but we don't rank for it. Or — Black Friday is in 90 days and I have nothing."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg form-submit">Send the URL → I'll respond within 24 hours</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─────────────────────────────────────── -->
-<footer>
-  <div class="foot-grid">
     <div>
-      <div class="foot-brand">Boatr <em>Marketing</em></div>
-      <p class="foot-tag">Websites, SEO, FareHarbor optimization, and seasonal campaigns for marine-tourism operators. Built by an operator who's run $6M+ in marine-tourism revenue.</p>
+      <div class="hero-tag">Marine-tourism websites · Built by operators</div>
+      <h1>Your charter business deserves a better <span>website.</span></h1>
+      <p class="hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, more bookings, FareHarbor-optimized, built by an operator who's done <strong>$1.43M in verified Black Friday revenue across 3 marine brands</strong>. Free to see. $99/month to keep it live. No contracts.</p>
+      <div class="hero-form" id="hero-form-wrap">
+        <input type="url" id="hero-url" name="url" placeholder="yourcharterbusiness.com" autocomplete="url">
+        <button onclick="submitHero()">Get free preview →</button>
+      </div>
+      <div class="hero-success" id="hero-success" style="display:none;background:#fff;border:1px solid #d1d5db;border-radius:10px;padding:18px 20px;margin-bottom:8px;color:#111827;font-size:15px;line-height:1.5;">
+        <strong style="display:block;margin-bottom:4px;color:#059669;">Got it. ✓</strong>
+        I'll build a free preview of your site and email it within 48 hours. Keep an eye on your inbox.
+      </div>
+      <p class="hero-note">Free · No credit card · Preview delivered in 48 hours</p>
+      <div class="hero-checks">
+        <div class="hc"><div class="hc-dot">✓</div>Hand-coded HTML — loads in under 1 second</div>
+        <div class="hc"><div class="hc-dot">✓</div>FareHarbor flow optimization built in</div>
+        <div class="hc"><div class="hc-dot">✓</div>Landing page per occasion (wedding, bachelorette, sunset, etc.)</div>
+        <div class="hc"><div class="hc-dot">✓</div>Same-day edits via Slack — included</div>
+      </div>
     </div>
-    <div class="foot-col">
-      <h4>Service</h4>
-      <ul>
-        <li><a href="#proof">Operator Proof</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#what-i-build">What I Build</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#preview">Get My Preview</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h4>Operator portfolio</h4>
-      <ul>
-        <li><a href="https://triton-charters.com" target="_blank" rel="noopener">Triton Charters</a></li>
-        <li><a href="https://malarkycharters.com" target="_blank" rel="noopener">Malarky Charters</a></li>
-        <li><a href="#portfolio">Athena</a></li>
-        <li><a href="#portfolio">Alana</a></li>
-        <li><a href="#portfolio">Aquata</a></li>
-      </ul>
+
+    <!-- BEFORE / AFTER -->
+    <div class="ba-wrap">
+      <div class="ba-browser">
+        <div class="ba-bar">
+          <div class="ba-dots"><div class="ba-dot d-r"></div><div class="ba-dot d-y"></div><div class="ba-dot d-g"></div></div>
+          <div class="ba-addr" id="ba-addr">captainmikescharters.com</div>
+        </div>
+        <div class="ba-tabs">
+          <div class="ba-tab on" onclick="showTab('before',this)">Before</div>
+          <div class="ba-tab" onclick="showTab('after',this)">After Boatr</div>
+        </div>
+        <div class="ba-content">
+          <!-- BEFORE — old charter site sim -->
+          <div class="ba-screen show" id="s-before">
+            <div class="before-site">
+              <div class="bs-nav">
+                <div class="bs-nav-logo">CAPTAIN MIKE'S CHARTERS</div>
+                <div class="bs-nav-links"><span>Home</span><span>Fleet</span><span>Contact</span></div>
+              </div>
+              <div class="bs-hero">
+                <h2>Welcome to Captain Mike's Charters!</h2>
+                <p>Fishing &amp; sunset cruises. Call today!</p>
+                <button class="bs-hero-btn">CLICK HERE</button>
+              </div>
+              <div class="bs-body">
+                <div class="bs-notice">⚠ Booking system on separate page (FareHarbor link below)</div>
+                <div class="bs-cols">
+                  <div class="bs-col"><div class="bs-col-title">Our Boats</div><div class="bs-col-text">We have boats for fishing, parties, and tours. See PDF brochure.</div></div>
+                  <div class="bs-col"><div class="bs-col-title">Hours</div><div class="bs-col-text">Daily 7am-7pm<br>Closed in winter<br>Call for holidays</div></div>
+                  <div class="bs-col"><div class="bs-col-title">Contact Us</div><div class="bs-col-text">Phone: (555) 000-0000<br>Marina B<br>San Diego, CA</div></div>
+                </div>
+                <div style="text-align:center;"><div class="bs-badge">Mobile: 31/100 · No SEO · No schema</div></div>
+              </div>
+              <div class="bs-footer">© 2014 Captain Mike's · Site by WebMaster Joe</div>
+            </div>
+          </div>
+
+          <!-- AFTER — rebuilt charter site sim -->
+          <div class="ba-screen" id="s-after" style="opacity:0;pointer-events:none;">
+            <div class="after-site">
+              <div class="as-nav">
+                <div class="as-logo">Captain Mike's</div>
+                <div class="as-nav-links"><span>Charters</span><span>Fishing</span><span>Sunset</span></div>
+                <button class="as-nav-btn">Book Now →</button>
+              </div>
+              <div class="as-hero">
+                <h2>San Diego's Best Private Charters</h2>
+                <p>Fishing, sunset, and private events. Hand-picked captains. Up to 12 guests. Book direct, save $$ vs the tour boats.</p>
+                <div class="as-hero-btns">
+                  <button class="as-hero-btn1">Book a Charter →</button>
+                  <button class="as-hero-btn2">See Pricing</button>
+                </div>
+              </div>
+              <div class="as-body">
+                <div class="as-stars">
+                  <span class="as-star-ico">★★★★★</span>
+                  <span class="as-star-txt">4.9 stars · 248 Google reviews · "Best charter in San Diego!"</span>
+                </div>
+                <div class="as-cards">
+                  <div class="as-card"><div class="as-card-title">Half-Day Fishing</div><div class="as-card-text">5 hours · up to 6 anglers · gear included</div><button class="as-card-btn">Book →</button></div>
+                  <div class="as-card"><div class="as-card-title">Sunset Cruise</div><div class="as-card-text">2 hours · up to 12 guests · BYOB</div><button class="as-card-btn">Book →</button></div>
+                  <div class="as-card"><div class="as-card-title">Bachelorette</div><div class="as-card-text">3 hours · 12 max · sound system + bar</div><button class="as-card-btn">Book →</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-metric">
+        <span style="font-size:18px;">⚡</span>
+        <div><div class="bm-val">9.2s → 0.6s</div><div class="bm-label">load time improvement</div></div>
+      </div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <div>© 2026 Boatr Marketing · Marine-tourism growth, built by operators</div>
-    <div>An internal Relaunch service</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n"><b>$0</b></div><div class="stat-l">to get your preview</div></div>
+    <div class="stat"><div class="stat-n">$99<b>/mo</b></div><div class="stat-l">to keep it live</div></div>
+    <div class="stat"><div class="stat-n"><b>48</b>hr</div><div class="stat-l">average delivery</div></div>
+    <div class="stat"><div class="stat-n">0</div><div class="stat-l">contracts. ever.</div></div>
+  </div>
+</div>
+
+<!-- OPERATOR TRUST STRIP -->
+<div style="background:var(--off);border-bottom:1px solid var(--border);padding:24px 0;">
+  <div class="us-grid" style="max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;gap:0;">
+    <div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
+      <span style="font-size:26px;flex-shrink:0;">🚤</span>
+      <div>
+        <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">Built by marine-tourism operators</div>
+        <div style="font-size:13px;color:var(--muted);">Not a generic agency guessing at your business</div>
+      </div>
+    </div>
+    <div class="us-divider" style="width:1px;height:40px;background:var(--border);"></div>
+    <div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
+      <span style="font-size:26px;flex-shrink:0;">⚓</span>
+      <div>
+        <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">FareHarbor &amp; booking-flow specialists</div>
+        <div style="font-size:13px;color:var(--muted);">Featured in FareHarbor's own case study</div>
+      </div>
+    </div>
+    <div class="us-divider" style="width:1px;height:40px;background:var(--border);"></div>
+    <div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
+      <span style="font-size:26px;flex-shrink:0;">📊</span>
+      <div>
+        <div style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">Verified, screenshot-backed numbers</div>
+        <div style="font-size:13px;color:var(--muted);">$1.43M Black Friday across 3 brands</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="wyg">
+  <div class="sec">
+    <div class="label">What's included</div>
+    <h2 class="title">Built better than what you have.<br><span>In every way that books charters.</span></h2>
+    <p class="sub">Every site comes with the marine-tourism specifics most agencies skip — because they've never run a charter business.</p>
+    <div class="wyg-grid">
+      <div class="wyg-card"><h3>FareHarbor flow optimization</h3><p>I audit your existing FareHarbor setup — items, flows, add-ons, abandoned cart, mobile checkout. Most operators leave 15–30% conversion on the floor. We close that gap during the rebuild.</p></div>
+      <div class="wyg-card"><h3>Landing page per occasion</h3><p>Wedding, bachelorette, sunset, corporate, fishing, whale watching, proposal. One page per high-intent search term in your city. Each one ranks separately. None of this works with a single "services" page.</p></div>
+      <div class="wyg-card"><h3>Your Google reviews on your homepage</h3><p>Your hard-earned reviews displayed front and center with AggregateRating schema so Google shows the stars in search results. Plus a review-capture system that builds the moat going forward.</p></div>
+      <div class="wyg-card"><h3>Local + intent SEO baked in</h3><p>LocalBusiness, Service, and FAQ schema. City + neighborhood targeting. Internal linking that funnels search traffic to the booking CTA. Real metadata — no template placeholders.</p></div>
+      <div class="wyg-card"><h3>Loads in under one second</h3><p>Hand-coded HTML. No WordPress. No Divi. No page builders. No plugins. Pure code that scores 95+ on Google PageSpeed every time. Mobile-first.</p></div>
+      <div class="wyg-card"><h3>Same-day edits via Slack</h3><p>Need to update hours, post a seasonal promotion, change pricing? Message me on Slack — done the same day. No tickets, no waiting, no extra charges.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERIFIED FAREHARBOR DATA (the unique credibility asset) -->
+<section class="proof" id="proof">
+  <div class="sec">
+    <div class="label">The playbook · verified data · 3 brands · 9 campaigns</div>
+    <h2 class="title">$1.53M in verified <span style="color:var(--brass);">Black Friday revenue</span>.<br>Same playbook. Three brands. Three years.</h2>
+    <p class="sub">FareHarbor first wrote about this system when it did $250,000 in six days at Triton. Since then I've run it nine more times across three different marine brands. Every number below is screenshot-verified directly from the FareHarbor dashboard — available on request.</p>
+
+    <div class="proof-matrix">
+      <div class="proof-matrix-row header">
+        <div class="pmh">Brand</div>
+        <div class="pmh r">2023</div>
+        <div class="pmh r">2024</div>
+        <div class="pmh r">2025</div>
+        <div class="pmh r">3-yr total</div>
+      </div>
+      <div class="proof-matrix-row">
+        <div class="pmb">Triton Charters</div>
+        <div class="pmn">$349K</div>
+        <div class="pmn">$374K</div>
+        <div class="pmn">$535K</div>
+        <div class="pmt">$1.26M</div>
+      </div>
+      <div class="proof-matrix-row">
+        <div class="pmb">Malarky Charters</div>
+        <div class="pmn">$12K</div>
+        <div class="pmn">$65K</div>
+        <div class="pmn">$96K</div>
+        <div class="pmt">$173K</div>
+      </div>
+      <div class="proof-matrix-row">
+        <div class="pmb">Alana Charters</div>
+        <div class="pmn">$15K</div>
+        <div class="pmn">$30K</div>
+        <div class="pmn">$51K</div>
+        <div class="pmt">$97K</div>
+      </div>
+      <div class="proof-matrix-row total">
+        <div class="pmt-label">Combined</div>
+        <div class="pmtotal-row">$376K</div>
+        <div class="pmtotal-row">$470K</div>
+        <div class="pmtotal-row">$683K</div>
+        <div class="pmtotal-big">$1.53M</div>
+      </div>
+    </div>
+
+    <div class="proof-cards">
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2025 Black Friday</div></div>
+        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$534,996</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$522,968</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">6,204</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">12 · 0.19%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2025 – 12/08/2025</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2024 Black Friday</div></div>
+        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$374,088</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$365,668</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">4,360</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">4 · 0.09%</div></div>
+        </div>
+        <div class="pcard-footer">11/22/2024 – 12/07/2024 · 17,019 pax</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2023 Black Friday</div></div>
+        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$349,360</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$341,459</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">4,198</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">9 · 0.21%</div></div>
+        </div>
+        <div class="pcard-footer">11/21/2023 – 12/01/2023 · 15,890 pax</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2025 Black Friday</div></div>
+        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$96,250</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$94,371</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">167</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 0.60%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2025 – 12/08/2025</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2024 Black Friday</div></div>
+        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$65,065</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$63,784</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">148</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">4 · 2.70%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2024 – 12/08/2024</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2023 Black Friday</div></div>
+        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$11,624</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$11,397</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">18</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">0 · 0.00%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2023 – 12/08/2023 · first year</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2025 Black Friday</div></div>
+        <div class="pcard-product">Alana Private Charter Black Friday Sale</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$51,223</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$50,223</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">87</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 1.15%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2025 – 12/07/2025</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2024 Black Friday</div></div>
+        <div class="pcard-product">Alana Charter Sale + Cyber Monday Tickets</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$30,459</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$29,839</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">139</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">2 · 1.44%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2024 – 12/07/2024</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2023 Black Friday</div></div>
+        <div class="pcard-product">Alana Charter Sale + Cyber Monday Tickets</div>
+        <div class="pcard-data">
+          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$15,001</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$14,698</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">61</div></div>
+          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 1.64%</div></div>
+        </div>
+        <div class="pcard-footer">11/25/2023 – 12/07/2023</div>
+      </div>
+    </div>
+
+    <p class="proof-foot">Data from FareHarbor Sales Reports · raw dashboard screenshots available on request · <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener">FareHarbor's published case study →</a></p>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="sec">
+    <div class="label">Is this you?</div>
+    <h2 class="title">Common charter-website problems<br>I fix for free</h2>
+    <p class="sub">I hear these from boat operators every week. If any sound familiar, I can help.</p>
+  </div>
+  <div class="sec" style="margin-top:0;padding-top:0;">
+    <div class="pain-grid">
+      <div class="pain-card"><h3>Your site is slow and dropping bookings</h3><p>Most charter sites I audit score under 40 on mobile PageSpeed. Tourists on their phones won't wait three seconds. Every slow load is a booking that went to Yelp or your competitor instead.</p></div>
+      <div class="pain-card"><h3>Your FareHarbor flow is leaking 15–30%</h3><p>Item structure, add-ons, abandoned cart, mobile checkout. Most operators have never had someone optimize this. I'll show you exactly where the leaks are during the preview.</p></div>
+      <div class="pain-card"><h3>No landing page for "bachelorette boat party"</h3><p>Or "wedding charter," or "sunset cruise," or "fishing charter." Tourists search by occasion. If you have one homepage trying to cover everything, you rank for nothing.</p></div>
+      <div class="pain-card"><h3>Black Friday with no playbook</h3><p>Most charters wing it or skip the season entirely. The Black Friday system I run did $535K at Triton last year, $96K at Malarky. I'll install yours during the build year-round prep.</p></div>
+      <div class="pain-card"><h3>Your Google reviews aren't on your site</h3><p>You've worked years for those stars. They should be on every page with AggregateRating schema so Google shows them in search results — not buried on a separate Yelp link.</p></div>
+      <div class="pain-card"><h3>Your old site is killing your Google rankings</h3><p>Missing schema, broken mobile, slow load, no review markup, no landing pages. Your competitors aren't winning because their business is better. Their site is set up better.</p></div>
+    </div>
+    <div class="pain-cta">
+      <div><h3>I'll rebuild it for free. You decide if you want to keep it.</h3><p>No credit card. No commitment. Live preview of your new site within 48 hours.</p></div>
+      <button class="btn-w" onclick="window.scrollTo({top:0,behavior:'smooth'})">Get my free preview →</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="sec">
+    <div class="label">How it works</div>
+    <h2 class="title">Three steps. 48 hours.<br>Zero risk.</h2>
+    <p class="sub">No meetings, no discovery calls, no contracts before I build anything.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">STEP 01</div>
+        <h3>I hand-pick your charter</h3>
+        <p>I only work with marine-tourism operators with real customers and reviews. If I reached out to you (or you find me), it's because I see specific booking opportunities your current site is missing — and I want to prove it.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step">
+        <div class="step-n">STEP 02</div>
+        <h3>I rebuild your site + FareHarbor flow</h3>
+        <p>Hand-coded HTML. Schema markup. Landing pages per occasion. Reviews surfaced. FareHarbor flow audited and optimized. Site delivered in 48 hours at a live preview URL you can share with your team.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step">
+        <div class="step-n">STEP 03</div>
+        <h3>You decide</h3>
+        <p>If you love it, $99/month keeps it live and managed. If not, no problem — your old site stays exactly where it is. The preview lives for 30 days then comes down. No pressure, no contract.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLACK -->
+<section class="slack-sec">
+  <div class="slack-inner">
+    <div>
+      <div class="label">Ongoing support</div>
+      <h2 class="title">Need a change?<br>Just message me.</h2>
+      <p class="sub">Every plan includes a shared Slack channel. Send me what you need — done the same day. No tickets, no phone calls, no extra invoices.</p>
+      <div class="slack-checks">
+        <div class="sc"><span class="sc-chk">✓</span>Update hours, prices, or seasonal closures</div>
+        <div class="sc"><span class="sc-chk">✓</span>Add new charter types or boats to the fleet</div>
+        <div class="sc"><span class="sc-chk">✓</span>Spin up a Black Friday or seasonal landing page</div>
+        <div class="sc"><span class="sc-chk">✓</span>Push FareHarbor item updates to the site</div>
+      </div>
+    </div>
+    <div class="slack-mock">
+      <div class="sm-bar"><div class="sm-dot"></div><div class="sm-name"># captain-mikes · Boatr Marketing</div></div>
+      <div class="sm-body">
+        <div class="sm-msg">
+          <div class="sm-av" style="background:linear-gradient(135deg,#4A90E2,#7B68EE);">M</div>
+          <div class="sm-bub light"><div class="sm-from">Captain Mike <span>· 9:14 AM</span></div><div class="sm-txt">Hey Nate! Can we add a "Memorial Day Weekend" landing page? Want to push the half-day fishing special.</div></div>
+        </div>
+        <div class="sm-msg">
+          <div class="sm-av" style="background:linear-gradient(135deg,#FE8D01,#EA7C00);">N</div>
+          <div class="sm-bub blue"><div class="sm-from b">Nate · Boatr <span>· 9:38 AM</span></div><div class="sm-txt">Done! Live at <strong style="color:var(--blue);">captainmikescharters.com/memorial-day-fishing/</strong> ✓ FareHarbor item linked. Want me to push the link to your email list?</div></div>
+        </div>
+        <div class="sm-note">// 24 minutes from request to live landing page</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="sec">
+    <div class="label">Pricing</div>
+    <h2 class="title">Simple pricing.<br>No surprises.</h2>
+    <p class="sub">Preview is always free. You only pay when you decide to keep it live — and you can cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="pc">
+        <div class="pc-tier">Starter</div>
+        <div class="pc-price"><sup>$</sup>99</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">A professionally built, fast marine-tourism website — kept live and managed every month.</div>
+        <ul class="pc-list"><li>Custom HTML site</li><li>FareHarbor flow optimization</li><li>Landing pages per occasion</li><li>Google reviews on homepage</li><li>Same-day Slack edits</li><li>SEO + schema built in</li></ul>
+        <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      </div>
+      <div class="pc feat">
+        <div class="pc-tier">Growth</div>
+        <div class="pc-price"><sup>$</sup>299</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">Everything in Starter, plus fresh seasonal content + active ranking work every month.</div>
+        <ul class="pc-list"><li>Everything in Starter</li><li>New landing page each month</li><li>Seasonal campaign builds (Black Friday, summer, holidays)</li><li>GBP + review-capture monitoring</li><li>Monthly SEO report</li><li>Priority support</li></ul>
+        <button class="pc-btn btn-feat" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      </div>
+      <div class="pc">
+        <div class="pc-tier">Full Service</div>
+        <div class="pc-price"><sup>$</sup>499</div>
+        <div class="pc-period">/ month · cancel anytime</div>
+        <div class="pc-desc">Full growth operating partner. The whole playbook installed and run for you.</div>
+        <ul class="pc-list"><li>Everything in Growth</li><li>Email + SMS campaigns</li><li>Black Friday playbook installed</li><li>Review-capture automation</li><li>Quarterly strategy call</li><li>Direct access (text, not tickets)</li></ul>
+        <button class="pc-btn btn-outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST / FOUNDER -->
+<section class="trust">
+  <div class="trust-inner">
+    <div>
+      <div class="trust-photo" id="trust-photo" style="background-image:url('images/nate-headshot.jpg');background-size:cover;background-position:center;">N</div>
+      <h2>Built by someone who's actually run the boats.</h2>
+      <div class="trust-body">
+        <p>I'm <strong>Nate Sinisgalli</strong>, founder of Boatr Marketing. For the past several years I've served as CTO and CMO across marine-tourism brands doing <strong>$6M+ per year</strong> in bookings — Triton Charters, Malarky Charters, Alana Charters, and others.</p>
+        <p>I built the FareHarbor Black Friday playbook that <strong>FareHarbor wrote a public case study about</strong>. That same playbook has now done <strong>$1.53M across nine verified campaigns</strong> on three different marine brands — screenshots above are pulled straight from the FareHarbor dashboard.</p>
+        <p>What I kept seeing was marine-tourism operators with great boats, great reviews, and websites that hadn't been updated since 2015. Generic agencies build "websites." I install a booking system. Boatr Marketing exists to do this for operators who aren't ready to hire a full-time CMO.</p>
+      </div>
+      <div class="trust-sig">Nate Sinisgalli <span>Founder, Boatr Marketing · <a href="mailto:hello@boatrmarketing.com" style="color:var(--blue);">hello@boatrmarketing.com</a> · (858) 925-8977</span></div>
+    </div>
+    <div class="trust-cards">
+      <div class="trust-card">
+        <h4>The playbook is portable across brands</h4>
+        <p>Triton (mature, 100-guest party boat) grew +53% over 3 years. Malarky (small catamaran) grew +714% from a near-zero base. Alana grew +242%. Same system. Three different audiences. All positive.</p>
+      </div>
+      <div class="trust-card">
+        <h4>Your existing site stays untouched</h4>
+        <p>I build separately. Your current site stays live the entire time. If you don't love the preview, nothing changes. There is no risk to your existing booking flow.</p>
+      </div>
+      <div class="trust-card">
+        <h4>No contracts. Ever.</h4>
+        <p>Month-to-month. Cancel anytime. If you leave, I point your domain back to your old site in minutes. I earn your business every month by actually moving bookings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK STRIP -->
+<div style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 0;">
+  <div class="risk-strip-grid" style="max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;">
+    <div style="padding:0 24px;text-align:center;">
+      <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px;">Your old site stays live</div>
+      <div style="font-size:12px;color:var(--muted);">I never touch it until you say so</div>
+    </div>
+    <div class="risk-strip-div" style="width:1px;height:36px;background:var(--border);"></div>
+    <div style="padding:0 24px;text-align:center;">
+      <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px;">Cancel and revert in minutes</div>
+      <div style="font-size:12px;color:var(--muted);">DNS flips back instantly</div>
+    </div>
+    <div class="risk-strip-div" style="width:1px;height:36px;background:var(--border);"></div>
+    <div style="padding:0 24px;text-align:center;">
+      <div style="font-family:var(--fh);font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px;">No card until you decide</div>
+      <div style="font-size:12px;color:var(--muted);">30-day free preview, no commitment</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="sec">
+    <div class="label">Questions</div>
+    <h2 class="title">Frequently asked</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What's the catch?<span class="faq-ico">+</span></button><div class="faq-a">There isn't one. I build your site for free because the preview is the pitch — if you love it, $99/month keeps it live. If not, the preview comes down after 30 days. I only make money if I build you something genuinely better than what you have.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What about my FareHarbor account?<span class="faq-ico">+</span></button><div class="faq-a">It stays exactly where it is. FareHarbor is your booking layer — I don't touch it without your explicit go-ahead. What I will do during the preview is audit your flow and show you specifically where conversions are leaking. You decide if you want me to clean that up too.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">What happens to my current website?<span class="faq-ico">+</span></button><div class="faq-a">Nothing — until you decide to switch. Your current site stays exactly where it is. I only move your domain when you give me the go-ahead. If you ever cancel after that, I point it straight back. Your old site is never touched or deleted.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">How long does the rebuild take?<span class="faq-ico">+</span></button><div class="faq-a">Most charter sites land within 48 hours. Larger operators (multiple boats, lots of charter types) take a bit longer. I'll give you a clear timeline before starting. Every preview comes with a written audit of what I changed and why.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Do I need to do anything?<span class="faq-ico">+</span></button><div class="faq-a">Very little. I pull your content, photos, and info from your current site and your Google Business profile. I'll watch your FareHarbor checkout flow as a test buyer to find the leaks. If you have updated photos or new charter types to launch, send them — but it's not required.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I cancel anytime?<span class="faq-ico">+</span></button><div class="faq-a">Yes. No contracts, no cancellation fees. If you cancel, I point your domain back to your old site within minutes. You're never locked in and you're never without a website.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Will the FareHarbor case study numbers apply to my charter?<span class="faq-ico">+</span></button><div class="faq-a">The system grew Triton (mature mid-7-figure brand) by 53%, Malarky (small catamaran starting near zero) by 714%, and Alana (small charter) by 242% — three completely different brands, three positive curves. Your numbers will be different, but the system is portable across marine-tourism formats. Refund rate at all three brands averaged under 0.5%.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="cta-inner">
+    <h2>See what your charter site could look like.</h2>
+    <p>Drop your URL. I'll build a free preview and email it within 48 hours. No credit card, no commitment.</p>
+    <div class="cta-form" id="cta-form-wrap">
+      <input type="url" class="cta-input" placeholder="yourcharter.com" id="cta-url" name="url" autocomplete="url">
+      <button class="cta-btn" onclick="submitCta()">Get my free preview →</button>
+    </div>
+    <div class="cta-success" id="cta-success" style="display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:18px 20px;margin-bottom:12px;color:rgba(255,255,255,0.92);font-size:15px;line-height:1.5;text-align:left;">
+      <strong style="display:block;margin-bottom:4px;color:#34d399;">Got it. ✓</strong>
+      I'll build a free preview of your site and email it within 48 hours.
+    </div>
+    <p class="cta-note">Free · No credit card · Preview lives for 30 days · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="foot-logo"><div class="foot-dot"></div>Boatr Marketing</div>
+    <div class="foot-links">
+      <a href="#proof">Verified Data</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:hello@boatrmarketing.com">Contact</a>
+    </div>
+    <div class="foot-copy">© 2026 Boatr Marketing · Built by operators, for operators</div>
   </div>
 </footer>
 
 <script>
-function toggleNav() {
-  document.getElementById('nav-links')?.classList.toggle('open');
+// Before/After tabs
+let curTab = 'before';
+function showTab(tab, el) {
+  curTab = tab;
+  document.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  const sb = document.getElementById('s-before');
+  const sa = document.getElementById('s-after');
+  if (tab === 'before') {
+    sb.style.opacity = '1'; sb.style.pointerEvents = 'auto';
+    sa.style.opacity = '0'; sa.style.pointerEvents = 'none';
+  } else {
+    sa.style.opacity = '1'; sa.style.pointerEvents = 'auto';
+    sb.style.opacity = '0'; sb.style.pointerEvents = 'none';
+  }
 }
+setInterval(() => {
+  const next = curTab === 'before' ? 'after' : 'before';
+  const tabs = document.querySelectorAll('.ba-tab');
+  showTab(next, next === 'before' ? tabs[0] : tabs[1]);
+}, 4500);
+
+// FAQ
+function faq(btn) {
+  const a = btn.nextElementSibling, o = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+  if (!o) { btn.classList.add('open'); a.classList.add('open'); }
+}
+
+// Forms — submits to Netlify Forms
+function submitHero() {
+  const u = document.getElementById('hero-url').value.trim();
+  if (!u) { document.getElementById('hero-url').style.outline = '2px solid #DC2626'; return; }
+  handle(u, 'hero', 'hero-form-wrap', 'hero-success');
+}
+function submitCta() {
+  const u = document.getElementById('cta-url').value.trim();
+  if (!u) { document.getElementById('cta-url').style.outline = '2px solid #DC2626'; return; }
+  handle(u, 'cta', 'cta-form-wrap', 'cta-success');
+}
+function handle(url, source, formId, successId) {
+  const formEl = document.getElementById(formId);
+  const successEl = document.getElementById(successId);
+  if (formEl) formEl.style.display = 'none';
+  if (successEl) successEl.style.display = 'block';
+
+  const payload = new URLSearchParams();
+  payload.append('form-name', 'lead-capture');
+  payload.append('url', url);
+  payload.append('source', source);
+  payload.append('referrer', document.referrer || '(direct)');
+  payload.append('user_agent', navigator.userAgent || '');
+  payload.append('submitted_at', new Date().toISOString());
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: payload.toString(),
+  }).catch(err => {
+    if (formEl) formEl.style.display = '';
+    if (successEl) successEl.style.display = 'none';
+    alert("Couldn't reach the server. Please try again, or email hello@boatrmarketing.com.");
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('hero-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitHero(); });
+  document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
+});
 </script>
 </body>
 </html>
