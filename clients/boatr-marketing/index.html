@@ -278,6 +278,16 @@ nav {
 .title span { color: var(--blue); }
 .sub { font-size: 17px; line-height: 1.55; color: var(--text-2); max-width: 660px; }
 
+/* ── YOU ALREADY HAVE A PREVIEW ── */
+.preview-sec { background: var(--white); }
+.preview-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: start; margin-top: 8px; }
+@media (max-width: 980px) { .preview-grid { grid-template-columns: 1fr; gap: 36px; } }
+.preview-sec .sub code { background: var(--off); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--blue); word-break: break-all; }
+.preview-checks { display: flex; flex-direction: column; gap: 18px; padding-top: 12px; }
+.pc-row { display: flex; gap: 16px; padding: 16px 18px; background: var(--off); border: 1px solid var(--border); border-radius: 11px; font-size: 15px; line-height: 1.55; color: var(--text-2); }
+.pc-row strong { color: var(--text); }
+.pc-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; font-family: var(--fh); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; letter-spacing: 0.02em; }
+
 /* ── WHAT YOU GET ── */
 .wyg { background: var(--white); }
 .wyg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
@@ -633,9 +643,9 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">Marine-tourism websites · Built by operators</div>
-      <h1 id="edit-hero-h1">Your charter business deserves a better <span>website.</span></h1>
-      <p class="hero-sub" id="edit-hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, mobile-first, SEO-optimized, FareHarbor flow tuned. Free to see. $99/month to keep it live. No contracts.</p>
+      <div class="hero-tag">If I emailed you · your preview is already built</div>
+      <h1 id="edit-hero-h1">I rebuild charter websites <span>before you pay for them.</span></h1>
+      <p class="hero-sub" id="edit-hero-sub">If I emailed you, your rebuilt site is already waiting — faster on mobile, SEO-ready, connected to your booking flow, and editable with plain-English AI. No design call. No mockup deck. The first version is built. You decide if it's worth launching.</p>
       <div class="hero-form" id="hero-form-wrap">
         <input type="url" id="hero-url" name="url" placeholder="yourcharterbusiness.com" autocomplete="url">
         <button onclick="submitHero()">Get free preview →</button>
@@ -655,10 +665,10 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 
     <!-- HERO DEMO CARD -->
     <div class="hcd-card">
-      <div class="hcd-tag">✨ The whole site is your demo</div>
+      <div class="hcd-tag">✨ Same editor your preview has</div>
       <h2 class="hcd-headline">Pretend this is <span>your website</span>.</h2>
-      <p class="hcd-sub">Go ahead. Click <strong>"Edit this site"</strong> bottom-right and edit Boatr like it's your own. Change the headline. Swap the copy. Bump the pricing. AI applies it instantly.</p>
-      <p class="hcd-bridge">This page is built the exact same way I'd build yours. Try the editor — it's the one your $99/month gets you.</p>
+      <p class="hcd-sub">Go ahead. Click <strong>"Edit this site"</strong> bottom-right and edit Boatr like it's yours. Change the headline. Swap copy. Bump pricing. AI applies it instantly — same way you'll edit your real preview.</p>
+      <p class="hcd-bridge">This page runs on the exact stack I build your charter site with. Try the editor — what works here is what works on your real preview.</p>
       <button class="hcd-btn" onclick="openEditWidget()">✏️ Try the editor →</button>
       <div class="hcd-footer">
         <span class="hcd-footer-dot"></span>
@@ -706,6 +716,25 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
     </div>
   </div>
 </div>
+
+<!-- YOU ALREADY HAVE A PREVIEW -->
+<section class="preview-sec">
+  <div class="sec">
+    <div class="preview-grid">
+      <div>
+        <div class="label">If I emailed you</div>
+        <h2 class="title">You already have a <span>preview</span>.</h2>
+        <p class="sub">If the email I sent included a link like <code>boatrmarketing.com/previews/your-business/</code> — that's your rebuilt site. Hand-coded. Hosted privately. Built from your real business info I pulled from your current site and Google Business profile. Nothing on your current site changes until you say so.</p>
+      </div>
+      <div class="preview-checks">
+        <div class="pc-row"><div class="pc-num">01</div><div><strong>Real, not a mockup.</strong> Live URL, real HTML, real schema. You can share it with your partner or team.</div></div>
+        <div class="pc-row"><div class="pc-num">02</div><div><strong>Custom to your business.</strong> Your name, your services, your reviews, your booking platform. Not a template.</div></div>
+        <div class="pc-row"><div class="pc-num">03</div><div><strong>Private until you approve.</strong> Indexed only by you. Your existing site stays untouched. No risk to current bookings.</div></div>
+        <div class="pc-row"><div class="pc-num">04</div><div><strong>Yours to edit.</strong> Type changes in plain English and AI applies them — same editor you can try below.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- WHAT YOU GET -->
 <section class="wyg">
@@ -773,52 +802,29 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   </div>
 </section>
 
-<!-- PAIN POINTS -->
-<section class="pain">
-  <div class="sec">
-    <div class="label">Is this you?</div>
-    <h2 class="title">Common charter-website problems<br>I fix for free</h2>
-    <p class="sub">I hear these from boat operators every week. If any sound familiar, I can help.</p>
-  </div>
-  <div class="sec" style="margin-top:0;padding-top:0;">
-    <div class="pain-grid">
-      <div class="pain-card"><h3>Your site is slow and dropping bookings</h3><p>Most charter sites I audit score under 40 on mobile PageSpeed. Tourists on their phones won't wait three seconds. Every slow load is a booking that went to Yelp or your competitor instead.</p></div>
-      <div class="pain-card"><h3>Your FareHarbor flow is leaking 15–30%</h3><p>Item structure, add-ons, abandoned cart, mobile checkout. Most operators have never had someone optimize this. I'll show you exactly where the leaks are during the preview.</p></div>
-      <div class="pain-card"><h3>No landing page for "bachelorette boat party"</h3><p>Or "wedding charter," or "sunset cruise," or "fishing charter." Tourists search by occasion. If you have one homepage trying to cover everything, you rank for nothing.</p></div>
-      <div class="pain-card"><h3>Black Friday with no playbook</h3><p>Most charters wing it or skip the season entirely. The Black Friday system I run did $535K at Triton last year, $96K at Malarky. I'll install yours during the build year-round prep.</p></div>
-      <div class="pain-card"><h3>Your Google reviews aren't on your site</h3><p>You've worked years for those stars. They should be on every page with AggregateRating schema so Google shows them in search results — not buried on a separate Yelp link.</p></div>
-      <div class="pain-card"><h3>Your old site is killing your Google rankings</h3><p>Missing schema, broken mobile, slow load, no review markup, no landing pages. Your competitors aren't winning because their business is better. Their site is set up better.</p></div>
-    </div>
-    <div class="pain-cta">
-      <div><h3>I'll rebuild it for free. You decide if you want to keep it.</h3><p>No credit card. No commitment. Live preview of your new site within 48 hours.</p></div>
-      <button class="btn-w" onclick="window.scrollTo({top:0,behavior:'smooth'})">Get my free preview →</button>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
+<!-- HOW IT GOES LIVE -->
 <section class="how" id="how">
   <div class="sec">
-    <div class="label">How it works</div>
-    <h2 class="title">Three steps. 48 hours.<br>Zero risk.</h2>
-    <p class="sub">No meetings, no discovery calls, no contracts before I build anything.</p>
+    <div class="label">How it goes live</div>
+    <h2 class="title">Three steps from preview<br>to <span>live booking site</span>.</h2>
+    <p class="sub">No discovery call. No mockup deck. No retainer to sign before you see the work.</p>
     <div class="steps">
       <div class="step">
         <div class="step-n">STEP 01</div>
-        <h3>I hand-pick your charter</h3>
-        <p>I only work with marine-tourism operators with real customers and reviews. If I reached out to you (or you find me), it's because I see specific booking opportunities your current site is missing — and I want to prove it.</p>
+        <h3>Review the preview</h3>
+        <p>Open the link I emailed you. Click through every page. Test the booking flow. Show it to your partner, your captain, your front-desk lead. This is what your site could be on Monday.</p>
         <div class="step-arrow">→</div>
       </div>
       <div class="step">
         <div class="step-n">STEP 02</div>
-        <h3>I rebuild your site + FareHarbor flow</h3>
-        <p>Hand-coded HTML. Schema markup. Landing pages per occasion. Reviews surfaced. FareHarbor flow audited and optimized. Site delivered in 48 hours at a live preview URL you can share with your team.</p>
+        <h3>Request changes in plain English</h3>
+        <p>"Make the bachelorette section sound more premium." "Swap in our sunset photos." "Change the pricing to $499." "Add a whale watching page." Type it, AI applies it, done in seconds. No webmaster.</p>
         <div class="step-arrow">→</div>
       </div>
       <div class="step">
         <div class="step-n">STEP 03</div>
-        <h3>You decide</h3>
-        <p>If you love it, $99/month keeps it live and managed. If not, no problem — your old site stays exactly where it is. The preview lives for 30 days then comes down. No pressure, no contract.</p>
+        <h3>Approve launch · connect your domain</h3>
+        <p>When you're happy, $99/month keeps it live. I handle the domain switch and FareHarbor connection — usually done same-day. If you cancel, I point your domain back to your old site in minutes.</p>
       </div>
     </div>
   </div>
@@ -959,8 +965,8 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- CTA -->
 <section class="cta" id="cta">
   <div class="cta-inner">
-    <h2>See what your charter site could look like.</h2>
-    <p>Drop your URL. I'll build a free preview and email it within 48 hours. No credit card, no commitment.</p>
+    <h2>Send me the preview link I emailed you — I'll make any change you want.</h2>
+    <p>Or if you didn't get an email yet: drop your URL and I'll build one within 48 hours. Either way: free, no commitment.</p>
     <div class="cta-form" id="cta-form-wrap">
       <input type="url" class="cta-input" placeholder="yourcharter.com" id="cta-url" name="url" autocomplete="url">
       <button class="cta-btn" onclick="submitCta()">Get my free preview →</button>
