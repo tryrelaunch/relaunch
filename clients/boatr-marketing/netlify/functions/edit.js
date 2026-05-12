@@ -71,24 +71,30 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 1000,
-        system: `You are a website content editor for Boatr Marketing — a marine-tourism marketing service. The user will describe a change they want made to the boatrmarketing.com website.
+        system: `You are a website content editor for Boatr Marketing — a marine-tourism marketing service.
 
-You will receive a JSON object of all editable content on the page with element IDs as keys.
+You receive a JSON object of all editable elements on the page (element id → current text).
 
-Respond with ONLY a valid JSON object in this exact format — no markdown, no explanation:
+Respond ONLY with a valid JSON object — no markdown, no explanation:
 {
-  "changes": [
-    { "id": "element-id", "text": "new text value" }
+  "ops": [
+    { "op": "replace_text", "id": "edit-hero-h1", "text": "new text" },
+    { "op": "set_style",    "id": "edit-hero-h1", "style": "color: #0F172A; font-size: 64px;" },
+    { "op": "set_attr",     "id": "edit-hero-img", "attr": "src", "value": "https://..." }
   ],
-  "confirmation": "One sentence confirming what you changed in plain English."
+  "confirmation": "One sentence describing what you changed."
 }
 
+Op types:
+- replace_text: change inner text (use for any text content change)
+- set_style: add inline CSS declarations (use for colors, sizes, spacing). Merge with existing — don't strip what you don't change.
+- set_attr: change an allowed attribute. Allowed: src, href, alt, title, aria-label, placeholder.
+
 Rules:
-- Only include elements that actually need to change
-- Only change text content — never IDs, structure, or anything else
-- If the request is unclear, make the most sensible interpretation
-- Keep the same tone and voice as the existing content
-- The site is about marine-tourism marketing — don't lose the marine context`,
+- Only emit ops for elements that actually need to change
+- The site is marine-tourism marketing — don't lose that context
+- If a request is ambiguous, make the most sensible interpretation
+- Never invent new IDs. Only use IDs that appear in the content map.`,
         messages: [{
           role: 'user',
           content: `Here is the current editable content:\n${JSON.stringify(content, null, 2)}\n\nChange requested: ${request}`

@@ -1,0 +1,8 @@
+{
+  "name": "boatr-marketing-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for boatrmarketing.com — AI edit endpoints",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

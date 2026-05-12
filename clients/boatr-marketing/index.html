@@ -56,8 +56,8 @@ nav {
 .hero { padding: 120px 0 60px; background: var(--off); border-bottom: 1px solid var(--border); }
 .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .hero-tag { display: inline-block; background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue); border-radius: 999px; padding: 6px 14px; font-family: var(--fh); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 22px; }
-.hero h1 { font-family: var(--fh); font-size: 56px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--blue); margin-bottom: 22px; }
-.hero h1 span { color: var(--blue); }
+.hero h1 { font-family: var(--fh); font-size: 56px; font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 22px; }
+.hero h1 span { color: var(--dark); }
 .hero-sub { font-size: 18px; line-height: 1.6; color: var(--text-2); margin-bottom: 26px; max-width: 560px; }
 .hero-form { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 6px 6px 6px 18px; box-shadow: var(--sh); margin-bottom: 8px; }
 .hero-form input { flex: 1; border: none; outline: none; font-family: var(--fb); font-size: 15px; color: var(--text); background: transparent; min-height: 44px; }
@@ -482,6 +482,16 @@ nav {
 /* Highlight flash for newly edited elements */
 .ew-flash { background: linear-gradient(90deg, transparent 0%, rgba(254,141,1,0.22) 50%, transparent 100%); background-size: 200% 100%; animation: ewflash 1.6s ease; }
 @keyframes ewflash { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+/* Save permanently button (appears after each AI edit) */
+.ew-save-wrap { background: linear-gradient(135deg, var(--dark) 0%, #1E293B 100%); border: 1px solid rgba(254,141,1,0.32); border-radius: 10px; padding: 12px 14px; margin-top: 4px; align-self: stretch; }
+.ew-save-btn { width: 100%; background: var(--blue); color: #fff; border: none; padding: 11px 14px; font-family: var(--fh); font-size: 13px; font-weight: 800; letter-spacing: 0.02em; border-radius: 7px; cursor: pointer; transition: all 0.15s; }
+.ew-save-btn:hover:not(:disabled) { background: #EA7C00; transform: translateY(-1px); }
+.ew-save-btn:disabled { opacity: 0.85; cursor: default; }
+.ew-save-btn.done { background: var(--green); }
+.ew-save-btn.done:hover { background: var(--green); }
+.ew-save-btn.locked { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.15); }
+.ew-save-hint { margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
 @media (max-width: 560px) {
   .ew-panel { right: 8px; left: 8px; bottom: 8px; width: auto; max-height: calc(100vh - 16px); }
@@ -993,13 +1003,13 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   <div class="ew-body">
     <!-- PIN gate -->
     <div class="ew-pin-screen" id="ew-pin-screen">
-      <div class="ew-pin-greet">🔒 Enter your 6-digit PIN</div>
-      <div class="ew-pin-sub">This is how every Boatr Marketing customer edits their site. Type any 6 digits to unlock the demo — your edits run on this real page, AI applies them, and everything resets on refresh.</div>
+      <div class="ew-pin-greet">🔒 Enter your PIN</div>
+      <div class="ew-pin-sub">This is the editor every Boatr customer gets. Type any 6+ characters to try the demo (edits stay local). Admins type their real PIN to save edits permanently to the live site.</div>
       <div class="ew-pin-input">
-        <input type="text" maxlength="6" placeholder="••••••" id="ew-pin" inputmode="numeric" autocomplete="off">
+        <input type="text" maxlength="64" placeholder="••••••" id="ew-pin" autocomplete="off">
         <button onclick="ewPinSubmit()">Unlock →</button>
       </div>
-      <div class="ew-pin-hint">(demo — any 6 digits work)</div>
+      <div class="ew-pin-hint">Try mode: 6+ chars · Admin: your real PIN saves to the live site</div>
     </div>
 
     <!-- Chat -->
@@ -1107,8 +1117,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
 });
 
-// ─── FLOATING AI EDIT WIDGET — calls real /.netlify/functions/edit ───
+// ─── FLOATING AI EDIT WIDGET — session-only OR persistent depending on PIN ───
 let ewLoading = false;
+let ewPin = '';          // Stored client-side; verified server-side on save
+let ewLastOps = [];      // Most-recent op batch (for "Save permanently")
 
 function openEditWidget() {
   document.getElementById('ew-panel')?.classList.add('open');
@@ -1123,11 +1135,12 @@ function closeEditWidget() {
 function ewPinSubmit() {
   const pin = document.getElementById('ew-pin').value.trim();
   const input = document.getElementById('ew-pin');
-  if (pin.length !== 6 || !/^\d{6}$/.test(pin)) {
+  if (pin.length < 6) {
     input.style.borderColor = '#DC2626';
     setTimeout(() => { input.style.borderColor = 'var(--border)'; }, 1200);
     return;
   }
+  ewPin = pin;
   document.getElementById('ew-pin-screen').classList.add('hide');
   document.getElementById('ew-chat-screen').classList.add('show');
   document.getElementById('ew-footer').style.display = 'flex';
@@ -1151,6 +1164,59 @@ function ewAddMsg(text, cls) {
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   return div;
+}
+
+function ewAddSaveButton(ops) {
+  const msgs = document.getElementById('ew-msgs');
+  const wrap = document.createElement('div');
+  wrap.className = 'ew-save-wrap';
+  wrap.innerHTML = `
+    <button class="ew-save-btn" data-action="save">💾 Save permanently</button>
+    <div class="ew-save-hint">Commits these edits to GitHub. Live on boatrmarketing.com in ~60s. Admin PIN required.</div>
+  `;
+  wrap.querySelector('[data-action="save"]').addEventListener('click', () => ewSaveOps(ops, wrap));
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+async function ewSaveOps(ops, wrap) {
+  const btn = wrap.querySelector('.ew-save-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Saving…';
+
+  try {
+    const r = await fetch('/.netlify/functions/edit-persistent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: ewPin, ops })
+    });
+
+    const data = await r.json().catch(() => ({}));
+
+    if (r.ok && data.success) {
+      btn.textContent = `✓ Saved · commit ${data.commit}`;
+      btn.classList.add('done');
+      const hint = wrap.querySelector('.ew-save-hint');
+      if (hint) hint.textContent = data.message || 'Live in ~60 seconds.';
+    } else if (r.status === 401) {
+      btn.disabled = false;
+      btn.textContent = '🔒 Demo mode — admin PIN needed to save';
+      btn.classList.add('locked');
+      const hint = wrap.querySelector('.ew-save-hint');
+      if (hint) hint.textContent = data.error || 'Your edits are local only. Refresh to reset.';
+    } else if (r.status === 429) {
+      btn.disabled = false;
+      btn.textContent = '⏱️ Too many save attempts — wait a minute';
+    } else {
+      btn.disabled = false;
+      btn.textContent = '⚠ Save failed — try again';
+      const hint = wrap.querySelector('.ew-save-hint');
+      if (hint) hint.textContent = data.error || `HTTP ${r.status}`;
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = '⚠ Network error — try again';
+  }
 }
 
 async function ewSend() {
@@ -1194,17 +1260,30 @@ async function ewSend() {
     }
 
     const data = await response.json();
+    // Support both new ops format and old changes format for back-compat
+    const ops = Array.isArray(data.ops) ? data.ops
+              : Array.isArray(data.changes) ? data.changes.map(c => ({ op: 'replace_text', id: c.id, text: c.text }))
+              : [];
 
-    if (data.changes && data.changes.length > 0) {
-      data.changes.forEach(change => {
-        const el = document.getElementById(change.id);
-        if (el) {
-          el.textContent = change.text;
-          el.classList.add('ew-flash');
-          setTimeout(() => el.classList.remove('ew-flash'), 1700);
+    if (ops.length > 0) {
+      ops.forEach(op => {
+        const el = document.getElementById(op.id);
+        if (!el) return;
+        if (op.op === 'replace_text' && typeof op.text === 'string') {
+          el.textContent = op.text;
+        } else if (op.op === 'set_style' && typeof op.style === 'string') {
+          el.style.cssText = (el.style.cssText ? el.style.cssText + ';' : '') + op.style;
+        } else if (op.op === 'set_attr' && op.attr && typeof op.value === 'string') {
+          if (['src','href','alt','title','aria-label','placeholder'].includes(op.attr)) {
+            el.setAttribute(op.attr, op.value);
+          }
         }
+        el.classList.add('ew-flash');
+        setTimeout(() => el.classList.remove('ew-flash'), 1700);
       });
-      ewAddMsg(data.confirmation || 'Done! Changes applied to the page.', 'success');
+      ewLastOps = ops;
+      ewAddMsg(data.confirmation || 'Done! Changes applied locally.', 'success');
+      ewAddSaveButton(ops);
     } else {
       ewAddMsg("Couldn't figure out what to change. Try being more specific — like \"change the hero headline to X\" or \"make the founder bio shorter.\"", 'bot');
     }
@@ -1220,7 +1299,8 @@ async function ewSend() {
 document.addEventListener('DOMContentLoaded', () => {
   const pinField = document.getElementById('ew-pin');
   pinField?.addEventListener('keydown', e => { if (e.key === 'Enter') ewPinSubmit(); });
-  pinField?.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6); });
+  // Allow letters + digits — admin PIN can be long alphanumeric
+  pinField?.addEventListener('input', e => { e.target.value = e.target.value.slice(0, 64); });
 
   const inputField = document.getElementById('ew-input');
   inputField?.addEventListener('keydown', e => {
