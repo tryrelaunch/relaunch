@@ -153,7 +153,21 @@ nav {
 .wyg-card h3 { font-family: var(--fh); font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
 .wyg-card p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
 
-/* ── VERIFIED DATA SECTION (the unique marine asset) ── */
+/* ── RECENT WORK (charter sites I've built) ── */
+.work { background: var(--white); }
+.work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
+.work-card { background: #fff; border: 1px solid var(--border); border-radius: 11px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: all 0.2s; }
+.work-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--sh); }
+.work-img { aspect-ratio: 4/3; background-size: cover; background-position: center; background-color: var(--off); }
+.work-body { padding: 20px 22px; }
+.work-name { font-family: var(--fh); font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; }
+.work-meta { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+.work-metrics { display: flex; flex-wrap: wrap; gap: 6px; }
+.work-metrics span { background: var(--off); border: 1px solid var(--border); padding: 4px 10px; font-size: 11px; font-family: var(--fh); font-weight: 700; color: var(--text-2); border-radius: 4px; letter-spacing: 0.02em; }
+.work-foot { text-align: center; margin-top: 36px; font-size: 16px; color: var(--text-2); max-width: 62ch; margin-left: auto; margin-right: auto; line-height: 1.55; }
+.work-foot strong { color: var(--text); }
+
+/* ── (legacy) VERIFIED DATA — kept for reference, no longer used in HTML ── */
 .proof { background: var(--dark); color: #fff; }
 .proof .label { color: var(--brass); }
 .proof .title { color: #fff; }
@@ -313,7 +327,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero h1 { font-size: 38px; }
   .hero-inner, .stats-inner, .sec, .slack-inner, .trust-inner, .foot { padding-left: 20px; padding-right: 20px; }
-  .wyg-grid, .pain-grid, .steps, .pricing-grid, .proof-cards { grid-template-columns: 1fr; }
+  .wyg-grid, .pain-grid, .steps, .pricing-grid, .work-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px 0; }
   .stat:nth-child(2) { border-right: none; }
   .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
@@ -353,7 +367,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <nav>
   <div class="logo"><div class="logo-dot"></div>Boatr Marketing</div>
   <ul class="nav-links">
-    <li><a href="#proof">Verified Data</a></li>
+    <li><a href="#work">Recent Work</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -368,7 +382,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
     <div>
       <div class="hero-tag">Marine-tourism websites · Built by operators</div>
       <h1>Your charter business deserves a better <span>website.</span></h1>
-      <p class="hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, more bookings, FareHarbor-optimized, built by an operator who's done <strong>$1.43M in verified Black Friday revenue across 3 marine brands</strong>. Free to see. $99/month to keep it live. No contracts.</p>
+      <p class="hero-sub">Boatr Marketing rebuilds marine-tourism websites — faster, mobile-first, SEO-optimized, FareHarbor flow tuned. Free to see. <strong>$99/month to keep it live.</strong> No contracts.</p>
       <div class="hero-form" id="hero-form-wrap">
         <input type="url" id="hero-url" name="url" placeholder="yourcharterbusiness.com" autocomplete="url">
         <button onclick="submitHero()">Get free preview →</button>
@@ -518,154 +532,52 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   </div>
 </section>
 
-<!-- VERIFIED FAREHARBOR DATA (the unique credibility asset) -->
-<section class="proof" id="proof">
+<!-- RECENT WORK — charter sites I've built -->
+<section class="work" id="work">
   <div class="sec">
-    <div class="label">The playbook · verified data · 3 brands · 9 campaigns</div>
-    <h2 class="title">$1.53M in verified <span style="color:var(--brass);">Black Friday revenue</span>.<br>Same playbook. Three brands. Three years.</h2>
-    <p class="sub">FareHarbor first wrote about this system when it did $250,000 in six days at Triton. Since then I've run it nine more times across three different marine brands. Every number below is screenshot-verified directly from the FareHarbor dashboard — available on request.</p>
-
-    <div class="proof-matrix">
-      <div class="proof-matrix-row header">
-        <div class="pmh">Brand</div>
-        <div class="pmh r">2023</div>
-        <div class="pmh r">2024</div>
-        <div class="pmh r">2025</div>
-        <div class="pmh r">3-yr total</div>
-      </div>
-      <div class="proof-matrix-row">
-        <div class="pmb">Triton Charters</div>
-        <div class="pmn">$349K</div>
-        <div class="pmn">$374K</div>
-        <div class="pmn">$535K</div>
-        <div class="pmt">$1.26M</div>
-      </div>
-      <div class="proof-matrix-row">
-        <div class="pmb">Malarky Charters</div>
-        <div class="pmn">$12K</div>
-        <div class="pmn">$65K</div>
-        <div class="pmn">$96K</div>
-        <div class="pmt">$173K</div>
-      </div>
-      <div class="proof-matrix-row">
-        <div class="pmb">Alana Charters</div>
-        <div class="pmn">$15K</div>
-        <div class="pmn">$30K</div>
-        <div class="pmn">$51K</div>
-        <div class="pmt">$97K</div>
-      </div>
-      <div class="proof-matrix-row total">
-        <div class="pmt-label">Combined</div>
-        <div class="pmtotal-row">$376K</div>
-        <div class="pmtotal-row">$470K</div>
-        <div class="pmtotal-row">$683K</div>
-        <div class="pmtotal-big">$1.53M</div>
-      </div>
+    <div class="label">Recent work</div>
+    <h2 class="title">Charter sites I've built<br><span>that actually rank</span>.</h2>
+    <p class="sub">Real marine-tourism websites, live in production, built from the same template I'd use for yours. Click any one to see the live site.</p>
+    <div class="work-grid">
+      <a href="https://malarkycharters.com" target="_blank" rel="noopener" class="work-card">
+        <div class="work-img" style="background-image: url('images/screenshot-malarky.jpg');"></div>
+        <div class="work-body">
+          <div class="work-name">Malarky Charters</div>
+          <div class="work-meta">12-guest catamaran · San Diego</div>
+          <div class="work-metrics">
+            <span>22 pages</span>
+            <span>Restaurant schema</span>
+            <span>Mobile 95+</span>
+            <span>Just launched</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://triton-charters.com" target="_blank" rel="noopener" class="work-card">
+        <div class="work-img" style="background-image: url('images/screenshot-triton.jpg');"></div>
+        <div class="work-body">
+          <div class="work-name">Triton Charters</div>
+          <div class="work-meta">100-guest party boat · San Diego</div>
+          <div class="work-metrics">
+            <span>2,000+ reviews</span>
+            <span>Schema markup</span>
+            <span>Page 1 rankings</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="work-card">
+        <div class="work-img" style="background-image: url('images/screenshot-alana.jpg');"></div>
+        <div class="work-body">
+          <div class="work-name">Alana Charters</div>
+          <div class="work-meta">Private charter · San Diego</div>
+          <div class="work-metrics">
+            <span>Mobile-first</span>
+            <span>FareHarbor optimized</span>
+            <span>Local SEO</span>
+          </div>
+        </div>
+      </a>
     </div>
-
-    <div class="proof-cards">
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2025 Black Friday</div></div>
-        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$534,996</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$522,968</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">6,204</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">12 · 0.19%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2025 – 12/08/2025</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2024 Black Friday</div></div>
-        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$374,088</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$365,668</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">4,360</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">4 · 0.09%</div></div>
-        </div>
-        <div class="pcard-footer">11/22/2024 – 12/07/2024 · 17,019 pax</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Triton Charters</div><div class="pcard-year">2023 Black Friday</div></div>
-        <div class="pcard-product">$20 Black Friday Vouchers Aboard Triton Charters</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$349,360</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$341,459</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">4,198</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">9 · 0.21%</div></div>
-        </div>
-        <div class="pcard-footer">11/21/2023 – 12/01/2023 · 15,890 pax</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2025 Black Friday</div></div>
-        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$96,250</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$94,371</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">167</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 0.60%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2025 – 12/08/2025</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2024 Black Friday</div></div>
-        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$65,065</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$63,784</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">148</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">4 · 2.70%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2024 – 12/08/2024</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Malarky Charters</div><div class="pcard-year">2023 Black Friday</div></div>
-        <div class="pcard-product">Malarky Charters Black Friday Sale</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$11,624</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$11,397</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">18</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">0 · 0.00%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2023 – 12/08/2023 · first year</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2025 Black Friday</div></div>
-        <div class="pcard-product">Alana Private Charter Black Friday Sale</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$51,223</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$50,223</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">87</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 1.15%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2025 – 12/07/2025</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2024 Black Friday</div></div>
-        <div class="pcard-product">Alana Charter Sale + Cyber Monday Tickets</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$30,459</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$29,839</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">139</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">2 · 1.44%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2024 – 12/07/2024</div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-header"><div class="pcard-brand">Alana Charters</div><div class="pcard-year">2023 Black Friday</div></div>
-        <div class="pcard-product">Alana Charter Sale + Cyber Monday Tickets</div>
-        <div class="pcard-data">
-          <div class="pcard-cell"><div class="pcard-label">Gross</div><div class="pcard-value brass">$15,001</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Net</div><div class="pcard-value">$14,698</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Payments</div><div class="pcard-value">61</div></div>
-          <div class="pcard-cell"><div class="pcard-label">Refunds</div><div class="pcard-value small">1 · 1.64%</div></div>
-        </div>
-        <div class="pcard-footer">11/25/2023 – 12/07/2023</div>
-      </div>
-    </div>
-
-    <p class="proof-foot">Data from FareHarbor Sales Reports · raw dashboard screenshots available on request · <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener">FareHarbor's published case study →</a></p>
+    <p class="work-foot">Each site was built from scratch — hand-coded HTML, schema markup, mobile-first, FareHarbor flow tuned. <strong>That's exactly what I'd build for you for $99/month.</strong></p>
   </div>
 </section>
 
@@ -794,8 +706,8 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
       <h2>Built by someone who's actually run the boats.</h2>
       <div class="trust-body">
         <p>I'm <strong>Nate Sinisgalli</strong>, founder of Boatr Marketing. For the past several years I've served as CTO and CMO across marine-tourism brands doing <strong>$6M+ per year</strong> in bookings — Triton Charters, Malarky Charters, Alana Charters, and others.</p>
-        <p>I built the FareHarbor Black Friday playbook that <strong>FareHarbor wrote a public case study about</strong>. That same playbook has now done <strong>$1.53M across nine verified campaigns</strong> on three different marine brands — screenshots above are pulled straight from the FareHarbor dashboard.</p>
-        <p>What I kept seeing was marine-tourism operators with great boats, great reviews, and websites that hadn't been updated since 2015. Generic agencies build "websites." I install a booking system. Boatr Marketing exists to do this for operators who aren't ready to hire a full-time CMO.</p>
+        <p>What I kept seeing was the same problem everywhere: great charters, great reviews, websites built in 2015 by whoever was cheapest. Slow on mobile. No schema. Menu in a PDF. FareHarbor flow leaking 20% conversion. Generic agencies build "websites." I build the booking funnel underneath them.</p>
+        <p><strong>Boatr Marketing is the $99/mo version of having me on staff.</strong> I rebuild your site, optimize the FareHarbor flow, set up your schema and landing pages, and keep it managed every month. No contracts. Cancel anytime. (FareHarbor's also written a public case study on my work — happy to walk through that on a call if it's useful.)</p>
       </div>
       <div class="trust-sig">Nate Sinisgalli <span>Founder, Boatr Marketing · <a href="mailto:hello@boatrmarketing.com" style="color:var(--blue);">hello@boatrmarketing.com</a> · (858) 925-8977</span></div>
     </div>
@@ -875,7 +787,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   <div class="foot">
     <div class="foot-logo"><div class="foot-dot"></div>Boatr Marketing</div>
     <div class="foot-links">
-      <a href="#proof">Verified Data</a>
+      <a href="#work">Recent Work</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
