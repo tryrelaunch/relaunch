@@ -113,7 +113,7 @@ h3 { font-size: clamp(22px, 3vw, 32px); letter-spacing: 0.02em; }
 }
 
 .nav {
-  position: sticky; top: 0; z-index: 90;
+  position: sticky; top: var(--seo-h, 60px); z-index: 90;
   background: var(--char);
   border-bottom: 1px solid var(--line-dk);
 }
@@ -675,6 +675,9 @@ h3 { font-size: clamp(22px, 3vw, 32px); letter-spacing: 0.02em; }
    SEO IMPROVEMENTS BANNER (top of every demo page)
    ────────────────────────────────────────────────────────── */
 .seo-banner {
+  position: sticky;
+  top: 0;
+  z-index: 95;
   background: var(--char);
   color: var(--cream);
   border-bottom: 2px solid var(--red);
