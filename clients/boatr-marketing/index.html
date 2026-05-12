@@ -225,7 +225,57 @@ nav {
 .step-arrow { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--blue); display: none; }
 @media (min-width: 901px) { .step:not(:last-child) .step-arrow { display: block; } }
 
-/* ── SLACK SECTION ── */
+/* ── AI EDITOR DEMO SECTION ── */
+.ai-edit-sec { background: var(--off); border-top: 1px solid var(--border); }
+.ai-edit-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+@media (max-width: 980px) { .ai-edit-grid { grid-template-columns: 1fr; gap: 36px; } }
+.ai-edit-prose .sub { margin-bottom: 24px; }
+.ai-edit-checks { display: flex; flex-direction: column; gap: 12px; }
+
+/* Demo browser preview */
+.ai-edit-demo { display: flex; flex-direction: column; gap: 12px; }
+.aed-browser { background: #fff; border: 1px solid var(--border); border-radius: 11px; overflow: hidden; box-shadow: var(--sh); }
+.aed-bar { background: #F3F4F6; padding: 9px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.aed-dots { display: flex; gap: 4px; }
+.aed-dot { width: 9px; height: 9px; border-radius: 50%; }
+.aed-dot.d-r { background: #FF5F57; }
+.aed-dot.d-y { background: #FEBC2E; }
+.aed-dot.d-g { background: #28C840; }
+.aed-addr { flex: 1; background: #fff; border-radius: 4px; padding: 4px 8px; font-size: 10px; color: var(--muted); text-align: center; font-family: var(--fb); }
+.aed-preview { padding: 22px 24px; }
+.aed-preview h3 { font-family: var(--fh); font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: -0.02em; line-height: 1.15; transition: background 0.4s ease; }
+.aed-preview p { font-size: 14px; color: var(--text-2); line-height: 1.55; margin-bottom: 12px; transition: background 0.4s ease; }
+.aed-preview .aed-hours { display: inline-block; background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue); border-radius: 5px; padding: 4px 10px; font-family: var(--fh); font-size: 12px; font-weight: 700; transition: all 0.4s ease; }
+.aed-flash { background: linear-gradient(90deg, transparent 0%, rgba(254,141,1,0.18) 50%, transparent 100%); background-size: 200% 100%; animation: flash 1.2s ease; }
+@keyframes flash {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* AI editor widget */
+.aed-editor { background: var(--dark); border-radius: 11px; padding: 18px 20px; min-height: 130px; position: relative; box-shadow: var(--sh); }
+.aed-state { display: none; }
+.aed-state.show { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.aed-state-title { font-family: var(--fh); font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: 0.01em; }
+.aed-pin-input { display: flex; gap: 8px; }
+.aed-pin-input input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.4em; text-align: center; padding: 10px 12px; border-radius: 6px; outline: none; min-height: 42px; }
+.aed-pin-input input::placeholder { color: rgba(255,255,255,0.3); }
+.aed-pin-input input:focus { border-color: var(--blue); }
+.aed-pin-input button { background: var(--blue); color: #fff; border: none; border-radius: 6px; padding: 0 18px; font-family: var(--fh); font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
+.aed-pin-input button:hover { background: #EA7C00; }
+.aed-hint { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 8px; font-style: italic; }
+.aed-suggestions { display: flex; flex-direction: column; gap: 7px; }
+.aed-suggestions button { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.92); padding: 9px 12px; border-radius: 6px; font-family: var(--fb); font-size: 13px; text-align: left; cursor: pointer; transition: all 0.15s; }
+.aed-suggestions button:hover { background: rgba(254,141,1,0.12); border-color: var(--blue); color: #fff; }
+.aed-progress { width: 100%; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+.aed-progress-bar { width: 0%; height: 100%; background: var(--blue); animation: progress 1.8s ease forwards; }
+@keyframes progress { 0% { width: 0%; } 100% { width: 100%; } }
+.aed-reset { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); padding: 7px 14px; border-radius: 6px; font-family: var(--fh); font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: all 0.15s; }
+.aed-reset:hover { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.4); }
+.aed-state.aed-done .aed-state-title { color: #34d399; }
+
+/* ── (legacy) SLACK SECTION (no longer rendered) ── */
 .slack-sec { background: var(--off); border-top: 1px solid var(--border); }
 .slack-inner { max-width: 1200px; margin: 0 auto; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .slack-checks { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
@@ -527,7 +577,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
       <div class="wyg-card"><h3>Your Google reviews on your homepage</h3><p>Your hard-earned reviews displayed front and center with AggregateRating schema so Google shows the stars in search results. Plus a review-capture system that builds the moat going forward.</p></div>
       <div class="wyg-card"><h3>Local + intent SEO baked in</h3><p>LocalBusiness, Service, and FAQ schema. City + neighborhood targeting. Internal linking that funnels search traffic to the booking CTA. Real metadata — no template placeholders.</p></div>
       <div class="wyg-card"><h3>Loads in under one second</h3><p>Hand-coded HTML. No WordPress. No Divi. No page builders. No plugins. Pure code that scores 95+ on Google PageSpeed every time. Mobile-first.</p></div>
-      <div class="wyg-card"><h3>Same-day edits via Slack</h3><p>Need to update hours, post a seasonal promotion, change pricing? Message me on Slack — done the same day. No tickets, no waiting, no extra charges.</p></div>
+      <div class="wyg-card"><h3>AI editor — type the change, done</h3><p>No CMS to log into. Type your PIN, tell the AI what to change in plain English, watch it go live in seconds. <a href="#ai-editor" style="color:var(--blue);font-weight:600;">Try the demo ↓</a></p></div>
     </div>
   </div>
 </section>
@@ -632,32 +682,72 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   </div>
 </section>
 
-<!-- SLACK -->
-<section class="slack-sec">
-  <div class="slack-inner">
-    <div>
-      <div class="label">Ongoing support</div>
-      <h2 class="title">Need a change?<br>Just message me.</h2>
-      <p class="sub">Every plan includes a shared Slack channel. Send me what you need — done the same day. No tickets, no phone calls, no extra invoices.</p>
-      <div class="slack-checks">
-        <div class="sc"><span class="sc-chk">✓</span>Update hours, prices, or seasonal closures</div>
-        <div class="sc"><span class="sc-chk">✓</span>Add new charter types or boats to the fleet</div>
-        <div class="sc"><span class="sc-chk">✓</span>Spin up a Black Friday or seasonal landing page</div>
-        <div class="sc"><span class="sc-chk">✓</span>Push FareHarbor item updates to the site</div>
+<!-- AI EDITOR DEMO -->
+<section class="ai-edit-sec" id="ai-editor">
+  <div class="sec">
+    <div class="ai-edit-grid">
+      <div class="ai-edit-prose">
+        <div class="label">Self-serve editing</div>
+        <h2 class="title">Type the change.<br><span>Done in seconds.</span></h2>
+        <p class="sub">Every plan comes with your own AI editor built into your site. No CMS to learn. No editor login to remember. Type your 6-digit PIN, describe the change in plain English, watch it go live — no waiting for a webmaster.</p>
+        <div class="ai-edit-checks">
+          <div class="sc"><span class="sc-chk">✓</span>Enter your 6-digit PIN — no email, no password, no SaaS dashboard</div>
+          <div class="sc"><span class="sc-chk">✓</span>Type the edit in plain English ("change Tuesday hours to 6pm")</div>
+          <div class="sc"><span class="sc-chk">✓</span>AI applies it across your site — live in 5–10 seconds</div>
+          <div class="sc"><span class="sc-chk">✓</span>For bigger changes (new pages, photos, redesigns) — Slack me, same-day, included</div>
+        </div>
+        <p style="margin-top:24px;font-size:14px;color:var(--muted);">↓ <strong style="color:var(--text);">Try it on this demo</strong> — type any 6 digits to unlock, then click an edit suggestion.</p>
       </div>
-    </div>
-    <div class="slack-mock">
-      <div class="sm-bar"><div class="sm-dot"></div><div class="sm-name"># captain-mikes · Boatr Marketing</div></div>
-      <div class="sm-body">
-        <div class="sm-msg">
-          <div class="sm-av" style="background:linear-gradient(135deg,#4A90E2,#7B68EE);">M</div>
-          <div class="sm-bub light"><div class="sm-from">Captain Mike <span>· 9:14 AM</span></div><div class="sm-txt">Hey Nate! Can we add a "Memorial Day Weekend" landing page? Want to push the half-day fishing special.</div></div>
+
+      <div class="ai-edit-demo">
+        <!-- Browser frame with editable preview -->
+        <div class="aed-browser">
+          <div class="aed-bar">
+            <div class="aed-dots"><div class="aed-dot d-r"></div><div class="aed-dot d-y"></div><div class="aed-dot d-g"></div></div>
+            <div class="aed-addr">captainmikescharters.com</div>
+          </div>
+          <div class="aed-preview">
+            <h3 id="demo-headline">San Diego's Best Private Sunset Cruises</h3>
+            <p id="demo-desc">Up to 12 guests. BYOB. Two hours on the bay during golden hour. Captain Mike runs the boat, you bring the people.</p>
+            <span class="aed-hours" id="demo-hours">Open daily 11am – 8pm</span>
+          </div>
         </div>
-        <div class="sm-msg">
-          <div class="sm-av" style="background:linear-gradient(135deg,#FE8D01,#EA7C00);">N</div>
-          <div class="sm-bub blue"><div class="sm-from b">Nate · Boatr <span>· 9:38 AM</span></div><div class="sm-txt">Done! Live at <strong style="color:var(--blue);">captainmikescharters.com/memorial-day-fishing/</strong> ✓ FareHarbor item linked. Want me to push the link to your email list?</div></div>
+
+        <!-- AI Editor widget -->
+        <div class="aed-editor">
+          <!-- PIN state -->
+          <div class="aed-state aed-pin show" id="aed-pin-state">
+            <div class="aed-state-title">🔒 Enter your 6-digit PIN to start editing</div>
+            <div class="aed-pin-input">
+              <input type="text" maxlength="6" placeholder="••••••" id="aed-pin-field" inputmode="numeric" autocomplete="off">
+              <button onclick="aedPinSubmit()">Unlock →</button>
+            </div>
+            <div class="aed-hint">(this is a demo — any 6 digits work)</div>
+          </div>
+
+          <!-- Chat state -->
+          <div class="aed-state aed-chat" id="aed-chat-state">
+            <div class="aed-state-title">✏️ Tell the AI what to change</div>
+            <div class="aed-suggestions">
+              <button onclick="aedApply('hours')">Change hours to 8am – 9pm daily</button>
+              <button onclick="aedApply('headline')">Update headline for Mother's Day weekend</button>
+              <button onclick="aedApply('description')">Add that we now offer bachelorette charters</button>
+            </div>
+          </div>
+
+          <!-- Loading state -->
+          <div class="aed-state aed-loading" id="aed-loading-state">
+            <div class="aed-state-title">💭 AI is editing your site…</div>
+            <div class="aed-progress"><div class="aed-progress-bar"></div></div>
+          </div>
+
+          <!-- Done state -->
+          <div class="aed-state aed-done" id="aed-done-state">
+            <div class="aed-state-title">✓ Done. Live in 6 seconds.</div>
+            <div class="aed-hint">That's it. No editor login. No CMS. Just type and it's live across every page that mentions it.</div>
+            <button onclick="aedReset()" class="aed-reset">Try another edit →</button>
+          </div>
         </div>
-        <div class="sm-note">// 24 minutes from request to live landing page</div>
       </div>
     </div>
   </div>
@@ -865,6 +955,72 @@ function handle(url, source, formId, successId) {
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hero-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitHero(); });
   document.getElementById('cta-url')?.addEventListener('keydown', e => { if (e.key === 'Enter') submitCta(); });
+});
+
+// ─── AI EDITOR DEMO ──────────────────────────────────
+function aedShowState(state) {
+  ['pin', 'chat', 'loading', 'done'].forEach(s => {
+    document.getElementById('aed-' + s + '-state')?.classList.remove('show');
+  });
+  document.getElementById('aed-' + state + '-state')?.classList.add('show');
+}
+
+function aedPinSubmit() {
+  const pin = document.getElementById('aed-pin-field').value.trim();
+  const input = document.getElementById('aed-pin-field');
+  if (pin.length !== 6 || !/^\d{6}$/.test(pin)) {
+    input.style.borderColor = '#DC2626';
+    setTimeout(() => { input.style.borderColor = 'rgba(255,255,255,0.15)'; }, 1200);
+    return;
+  }
+  aedShowState('chat');
+}
+
+function aedApply(type) {
+  aedShowState('loading');
+  // Reset progress bar animation
+  const bar = document.querySelector('.aed-progress-bar');
+  if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+
+  setTimeout(() => {
+    const headline = document.getElementById('demo-headline');
+    const desc = document.getElementById('demo-desc');
+    const hours = document.getElementById('demo-hours');
+
+    if (type === 'hours') {
+      hours.textContent = 'Open daily 8am – 9pm';
+      hours.classList.add('aed-flash');
+      setTimeout(() => hours.classList.remove('aed-flash'), 1300);
+    } else if (type === 'headline') {
+      headline.textContent = "San Diego's Best Mother's Day Sunset Cruises";
+      headline.classList.add('aed-flash');
+      setTimeout(() => headline.classList.remove('aed-flash'), 1300);
+    } else if (type === 'description') {
+      desc.textContent = 'Up to 12 guests. BYOB. Now offering bachelorette charters — sound system, bar, the whole deck for your group. Captain Mike runs the boat, you bring the people.';
+      desc.classList.add('aed-flash');
+      setTimeout(() => desc.classList.remove('aed-flash'), 1300);
+    }
+
+    aedShowState('done');
+  }, 1800);
+}
+
+function aedReset() {
+  // Reset preview text
+  document.getElementById('demo-headline').textContent = "San Diego's Best Private Sunset Cruises";
+  document.getElementById('demo-desc').textContent = 'Up to 12 guests. BYOB. Two hours on the bay during golden hour. Captain Mike runs the boat, you bring the people.';
+  document.getElementById('demo-hours').textContent = 'Open daily 11am – 8pm';
+  aedShowState('chat');
+}
+
+// Enter key submits PIN
+document.addEventListener('DOMContentLoaded', () => {
+  const pinField = document.getElementById('aed-pin-field');
+  pinField?.addEventListener('keydown', e => { if (e.key === 'Enter') aedPinSubmit(); });
+  pinField?.addEventListener('input', e => {
+    // Restrict to digits only
+    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6);
+  });
 });
 </script>
 </body>
