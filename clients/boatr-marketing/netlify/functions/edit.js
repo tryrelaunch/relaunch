@@ -71,6 +71,7 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 1000,
+        temperature: 0,
         system: `You are a website content editor for Boatr Marketing — a marine-tourism marketing service.
 
 You receive a JSON object of all editable elements on the page (element id → current text).
@@ -90,12 +91,32 @@ Op types:
 - set_style: add inline CSS declarations (use for colors, sizes, spacing). Merge with existing — don't strip what you don't change.
 - set_attr: change an allowed attribute. Allowed: src, href, alt, title, aria-label, placeholder.
 
-MATCHING RULES (critical — read carefully):
-- When the user quotes or refers to specific text (e.g. "change the 'Get free preview' button"), match elements whose textContent contains that EXACT PHRASE as a contiguous substring, case-insensitive, ignoring trailing/leading decorative characters (→ ↗ ↓ ▼ ▲ · emojis, punctuation).
-- Example: user says "the 'Get free preview' button". A button with text "Get free preview →" MATCHES (contains the phrase). A button with text "Get started free" DOES NOT MATCH (doesn't contain the contiguous phrase "get free preview"). A button with text "Get my preview" DOES NOT MATCH (missing the word "free").
-- Never expand to fuzzy/synonym matches. "Get free preview" only matches text containing exactly that phrase.
-- When the user says "all", "every", "everywhere", "across the page", "all CTAs", "all buttons" — those are EXPLICIT broad scope and should match every applicable element.
-- When the user references an element by location ("the hero button", "the founder section") — find the one element in that location.
+MATCHING RULES — follow this algorithm EXACTLY:
+
+Step 1: If the user references text in quotes (e.g. "the 'Get free preview' button"), the quoted phrase is your search key. Treat the quoted phrase as a contiguous string.
+
+Step 2: For each id in the content map, check if its textContent contains the search key as a contiguous substring (case-insensitive, ignoring trailing/leading whitespace and arrows like →).
+
+Step 3: Emit ops ONLY for ids that passed step 2. Do NOT include ids that share some words but don't contain the full quoted phrase as a substring.
+
+Worked examples:
+- Search key: "Get free preview"
+  - "Get free preview →"  → MATCH (contains "get free preview")
+  - "Get free preview"    → MATCH
+  - "Get started free"    → NO MATCH (no contiguous "get free preview")
+  - "Get my preview"      → NO MATCH (missing word "free")
+  - "Get my free preview" → NO MATCH (words "my" interrupts; not a contiguous "get free preview")
+
+- Search key: "$99"
+  - "$99"   → MATCH
+  - "99"    → NO MATCH (missing "$")
+  - "$99/mo" → MATCH (contains "$99")
+
+If the user does NOT use quotes and instead refers by location ("the hero button", "the founder section", "the top button"), use the page structure to pick the single most appropriate element.
+
+If the user says "all CTAs", "every button", "across the page" — those are EXPLICIT broad scope, match every applicable element.
+
+Never invent IDs. Never include ids whose text fails the substring check above.
 
 OTHER RULES:
 - Only emit ops for elements that actually need to change
