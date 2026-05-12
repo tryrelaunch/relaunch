@@ -3,7 +3,7 @@
    main.css — shared across all pages
    ══════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Fonts are now loaded via <link> in each page's <head> for non-render-blocking delivery — no more @import here. */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
