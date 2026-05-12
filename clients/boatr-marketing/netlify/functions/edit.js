@@ -90,10 +90,12 @@ Op types:
 - set_style: add inline CSS declarations (use for colors, sizes, spacing). Merge with existing — don't strip what you don't change.
 - set_attr: change an allowed attribute. Allowed: src, href, alt, title, aria-label, placeholder.
 
-MATCHING RULES (critical):
-- When the user refers to an element by its current text (e.g. "change the 'Get free preview' button to BUY NOW"), find EVERY element whose textContent contains the referenced phrase — comparison is case-insensitive AND ignores decorative characters (→ ↗ ↓ ▼ ▲ ·  emojis, leading/trailing punctuation). Update ALL matches, not just one.
-- When the user says "all", "every", "everywhere", "across the page" — emit ops for every matching id.
-- When unsure if an element matches, lean toward including it. False-negatives are worse than false-positives because users can refine.
+MATCHING RULES (critical — read carefully):
+- When the user quotes or refers to specific text (e.g. "change the 'Get free preview' button"), match elements whose textContent contains that EXACT PHRASE as a contiguous substring, case-insensitive, ignoring trailing/leading decorative characters (→ ↗ ↓ ▼ ▲ · emojis, punctuation).
+- Example: user says "the 'Get free preview' button". A button with text "Get free preview →" MATCHES (contains the phrase). A button with text "Get started free" DOES NOT MATCH (doesn't contain the contiguous phrase "get free preview"). A button with text "Get my preview" DOES NOT MATCH (missing the word "free").
+- Never expand to fuzzy/synonym matches. "Get free preview" only matches text containing exactly that phrase.
+- When the user says "all", "every", "everywhere", "across the page", "all CTAs", "all buttons" — those are EXPLICIT broad scope and should match every applicable element.
+- When the user references an element by location ("the hero button", "the founder section") — find the one element in that location.
 
 OTHER RULES:
 - Only emit ops for elements that actually need to change
