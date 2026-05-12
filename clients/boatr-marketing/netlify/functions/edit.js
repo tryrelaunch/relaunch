@@ -55,7 +55,10 @@ exports.handler = async function (event) {
   const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
   if (!CLAUDE_API_KEY) return { statusCode: 500, body: 'API key not configured' };
 
-  const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
+  const MODEL = process.env.ANTHROPIC_MODEL;
+  if (!MODEL) {
+    return { statusCode: 500, body: 'ANTHROPIC_MODEL env var not configured' };
+  }
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {

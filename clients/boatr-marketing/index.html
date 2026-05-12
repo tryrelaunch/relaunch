@@ -69,7 +69,140 @@ nav {
 .hc { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-2); }
 .hc-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--green-lt); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
 
-/* ── BEFORE / AFTER ── */
+/* ── HERO DEMO CARD (replaces Before/After) ── */
+.hcd-card {
+  background: linear-gradient(135deg, var(--dark) 0%, #1E293B 60%, #0F172A 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 36px 32px 28px;
+  box-shadow: 0 24px 64px rgba(15,23,42,0.28);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(254,141,1,0.18);
+}
+.hcd-card::before {
+  content: "";
+  position: absolute;
+  top: -40%; right: -25%;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(254,141,1,0.22) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hcd-card::after {
+  content: "";
+  position: absolute;
+  bottom: -30%; left: -15%;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(52,211,153,0.10) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hcd-tag {
+  display: inline-block;
+  background: rgba(254,141,1,0.16);
+  color: var(--blue);
+  border: 1px solid rgba(254,141,1,0.36);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: var(--fh);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  position: relative;
+}
+.hcd-headline {
+  font-family: var(--fh);
+  font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 18px;
+  position: relative;
+}
+.hcd-headline span {
+  color: var(--blue);
+  position: relative;
+}
+.hcd-headline span::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 2px; right: 0;
+  height: 8px;
+  background: rgba(254,141,1,0.22);
+  z-index: -1;
+}
+.hcd-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 14px;
+  position: relative;
+}
+.hcd-sub strong {
+  color: #fff;
+  background: rgba(254,141,1,0.18);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.hcd-bridge {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 24px;
+  font-style: italic;
+  position: relative;
+}
+.hcd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  font-family: var(--fh);
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 8px 24px rgba(254,141,1,0.34);
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+.hcd-btn:hover {
+  background: #EA7C00;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(254,141,1,0.45);
+}
+.hcd-footer {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  position: relative;
+}
+.hcd-footer-dot {
+  width: 7px; height: 7px;
+  background: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(52,211,153,0.7);
+  animation: ewpulse 2s infinite;
+}
+
+@media (max-width: 980px) {
+  .hcd-card { padding: 28px 24px 22px; }
+}
+
+/* ── (legacy) BEFORE / AFTER (no longer rendered) ── */
 .ba-wrap { position: relative; padding-bottom: 14px; }
 .ba-browser { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--sh2); }
 .ba-bar { background: #F3F4F6; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
@@ -520,77 +653,16 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
       </div>
     </div>
 
-    <!-- BEFORE / AFTER -->
-    <div class="ba-wrap">
-      <div class="ba-browser">
-        <div class="ba-bar">
-          <div class="ba-dots"><div class="ba-dot d-r"></div><div class="ba-dot d-y"></div><div class="ba-dot d-g"></div></div>
-          <div class="ba-addr" id="ba-addr">captainmikescharters.com</div>
-        </div>
-        <div class="ba-tabs">
-          <div class="ba-tab on" onclick="showTab('before',this)">Before</div>
-          <div class="ba-tab" onclick="showTab('after',this)">After Boatr</div>
-        </div>
-        <div class="ba-content">
-          <!-- BEFORE — old charter site sim -->
-          <div class="ba-screen show" id="s-before">
-            <div class="before-site">
-              <div class="bs-nav">
-                <div class="bs-nav-logo">CAPTAIN MIKE'S CHARTERS</div>
-                <div class="bs-nav-links"><span>Home</span><span>Fleet</span><span>Contact</span></div>
-              </div>
-              <div class="bs-hero">
-                <h2>Welcome to Captain Mike's Charters!</h2>
-                <p>Fishing &amp; sunset cruises. Call today!</p>
-                <button class="bs-hero-btn">CLICK HERE</button>
-              </div>
-              <div class="bs-body">
-                <div class="bs-notice">⚠ Booking system on separate page (FareHarbor link below)</div>
-                <div class="bs-cols">
-                  <div class="bs-col"><div class="bs-col-title">Our Boats</div><div class="bs-col-text">We have boats for fishing, parties, and tours. See PDF brochure.</div></div>
-                  <div class="bs-col"><div class="bs-col-title">Hours</div><div class="bs-col-text">Daily 7am-7pm<br>Closed in winter<br>Call for holidays</div></div>
-                  <div class="bs-col"><div class="bs-col-title">Contact Us</div><div class="bs-col-text">Phone: (555) 000-0000<br>Marina B<br>San Diego, CA</div></div>
-                </div>
-                <div style="text-align:center;"><div class="bs-badge">Mobile: 31/100 · No SEO · No schema</div></div>
-              </div>
-              <div class="bs-footer">© 2014 Captain Mike's · Site by WebMaster Joe</div>
-            </div>
-          </div>
-
-          <!-- AFTER — rebuilt charter site sim -->
-          <div class="ba-screen" id="s-after" style="opacity:0;pointer-events:none;">
-            <div class="after-site">
-              <div class="as-nav">
-                <div class="as-logo">Captain Mike's</div>
-                <div class="as-nav-links"><span>Charters</span><span>Fishing</span><span>Sunset</span></div>
-                <button class="as-nav-btn">Book Now →</button>
-              </div>
-              <div class="as-hero">
-                <h2>San Diego's Best Private Charters</h2>
-                <p>Fishing, sunset, and private events. Hand-picked captains. Up to 12 guests. Book direct, save $$ vs the tour boats.</p>
-                <div class="as-hero-btns">
-                  <button class="as-hero-btn1">Book a Charter →</button>
-                  <button class="as-hero-btn2">See Pricing</button>
-                </div>
-              </div>
-              <div class="as-body">
-                <div class="as-stars">
-                  <span class="as-star-ico">★★★★★</span>
-                  <span class="as-star-txt">4.9 stars · 248 Google reviews · "Best charter in San Diego!"</span>
-                </div>
-                <div class="as-cards">
-                  <div class="as-card"><div class="as-card-title">Half-Day Fishing</div><div class="as-card-text">5 hours · up to 6 anglers · gear included</div><button class="as-card-btn">Book →</button></div>
-                  <div class="as-card"><div class="as-card-title">Sunset Cruise</div><div class="as-card-text">2 hours · up to 12 guests · BYOB</div><button class="as-card-btn">Book →</button></div>
-                  <div class="as-card"><div class="as-card-title">Bachelorette</div><div class="as-card-text">3 hours · 12 max · sound system + bar</div><button class="as-card-btn">Book →</button></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ba-metric">
-        <span style="font-size:18px;">⚡</span>
-        <div><div class="bm-val">9.2s → 0.6s</div><div class="bm-label">load time improvement</div></div>
+    <!-- HERO DEMO CARD -->
+    <div class="hcd-card">
+      <div class="hcd-tag">✨ The whole site is your demo</div>
+      <h2 class="hcd-headline">Pretend this is <span>your website</span>.</h2>
+      <p class="hcd-sub">Go ahead. Click <strong>"Edit this site"</strong> bottom-right and edit Boatr like it's your own. Change the headline. Swap the copy. Bump the pricing. AI applies it instantly.</p>
+      <p class="hcd-bridge">This page is built the exact same way I'd build yours. Try the editor — it's the one your $99/month gets you.</p>
+      <button class="hcd-btn" onclick="openEditWidget()">✏️ Try the editor →</button>
+      <div class="hcd-footer">
+        <span class="hcd-footer-dot"></span>
+        <span>Changes reset on refresh · no signup · don't be scared</span>
       </div>
     </div>
   </div>
