@@ -596,6 +596,31 @@ nav {
 .ew-save-btn.locked { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.15); }
 .ew-save-hint { margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
+/* ── CLICK-TO-EDIT MODE ── */
+.ew-mode-toggle { background: var(--white); border: 1px solid var(--border); color: var(--text); padding: 9px 12px; border-radius: 7px; font-family: var(--fh); font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; margin: 0 0 14px; width: 100%; text-align: left; transition: all 0.15s; }
+.ew-mode-toggle:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); }
+.ew-mode-toggle.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.ew-mode-toggle .ew-mode-icon { font-size: 16px; }
+.ew-mode-toggle .ew-mode-sub { display: block; font-size: 11px; font-weight: 500; opacity: 0.7; margin-top: 1px; letter-spacing: 0; }
+
+body.ew-click-mode [id^="edit-"]:not(.ew-editing) { outline: 1px dashed rgba(254,141,1,0.45); outline-offset: 3px; cursor: text; transition: outline 0.12s, background 0.12s; }
+body.ew-click-mode [id^="edit-"]:hover:not(.ew-editing) { outline: 2px solid var(--blue); outline-offset: 3px; background: rgba(254,141,1,0.06); }
+body.ew-click-mode .ew-panel [id^="edit-"], body.ew-click-mode .ew-panel [id^="edit-"]:hover { outline: none; background: transparent; cursor: auto; }
+
+.ew-editing { outline: 2px solid var(--green) !important; outline-offset: 3px; background: rgba(5,150,105,0.06); }
+
+.ew-click-toolbar { position: absolute; z-index: 250; background: var(--dark); color: #fff; padding: 7px; border-radius: 8px; display: flex; gap: 6px; align-items: center; box-shadow: 0 10px 28px rgba(0,0,0,0.32); font-family: var(--fh); }
+.ew-click-toolbar button { background: rgba(255,255,255,0.12); color: #fff; border: none; padding: 7px 11px; border-radius: 5px; font-family: var(--fh); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.12s; }
+.ew-click-toolbar button:hover { background: rgba(255,255,255,0.22); }
+.ew-click-toolbar .ew-tb-save { background: var(--green); }
+.ew-click-toolbar .ew-tb-save:hover { background: #047857; }
+.ew-click-toolbar input[type="color"] { width: 30px; height: 30px; border: none; background: transparent; cursor: pointer; padding: 0; border-radius: 5px; overflow: hidden; }
+
+.ew-click-banner { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); z-index: 249; background: var(--blue); color: #fff; padding: 10px 16px; border-radius: 999px; font-family: var(--fh); font-size: 13px; font-weight: 700; box-shadow: 0 8px 24px rgba(254,141,1,0.36); display: none; align-items: center; gap: 12px; }
+.ew-click-banner.show { display: flex; }
+.ew-click-banner button { background: rgba(255,255,255,0.2); color: #fff; border: none; padding: 5px 10px; border-radius: 5px; font-family: var(--fh); font-size: 11px; font-weight: 700; cursor: pointer; }
+.ew-click-banner button:hover { background: rgba(255,255,255,0.32); }
+
 @media (max-width: 560px) {
   /* Mobile panel: bottom drawer ~55% of viewport so the site stays visible above
      and the visitor can watch edits apply live as they type prompts. */
@@ -1147,6 +1172,10 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- Chat -->
 <div class="ew-chat-screen" id="ew-chat-screen">
 <div class="ew-msgs" id="ew-msgs">
+<button class="ew-mode-toggle" id="ew-click-toggle" onclick="ewToggleClickMode()" type="button">
+<span class="ew-mode-icon">👆</span>
+<span>Or just click any text on the page to edit it<span class="ew-mode-sub">No prompt needed — point, click, type.</span></span>
+</button>
 <div class="ew-msg bot" id="ew-greet">👋 Want to see what it's like to edit your new site? Change my website right now. Go ahead! Don't be scared! Here's some prompts to try:</div>
 <div class="ew-suggestions" id="ew-suggestions">
 <button onclick="ewFill('Change the hero text to bright pink')">🎨 Change the hero text to bright pink</button>
@@ -1161,6 +1190,11 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <textarea class="ew-input" id="ew-input" placeholder="Type any change… (Cmd+Enter to send)" rows="1"></textarea>
 <button class="ew-send" id="ew-send" onclick="ewSend()">Send</button>
 </div>
+</div>
+<!-- Click-to-edit floating banner (only shows when click-mode is on) -->
+<div class="ew-click-banner" id="ew-click-banner">
+<span>👆 Click any text on the page to edit it</span>
+<button onclick="ewToggleClickMode()">Exit</button>
 </div>
 <!-- FOOTER -->
 <footer>
@@ -1524,5 +1558,191 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// ──────────────────────────────────────────────────────────────
+// CLICK-TO-EDIT MODE
+// User toggles into click-mode → every [id^="edit-"] on the page becomes
+// clickable. Clicking one turns it contenteditable + shows a small inline
+// toolbar (color picker, save, cancel). On save we record an op so admins
+// can persist it via the existing Save button.
+// ──────────────────────────────────────────────────────────────
+let ewClickMode = false;
+let ewCurrentEditing = null;
+let ewClickPendingOps = [];
+
+function ewToggleClickMode() {
+  if (ewClickMode) ewExitClickMode();
+  else ewEnterClickMode();
+}
+
+function ewEnterClickMode() {
+  ewClickMode = true;
+  document.body.classList.add('ew-click-mode');
+  document.getElementById('ew-click-banner')?.classList.add('show');
+  document.getElementById('ew-click-toggle')?.classList.add('active');
+  // Collapse the chat panel so the page is fully visible. User can re-open
+  // via the FAB or via the banner's "Open chat" affordance.
+  try { closeEditWidget(); } catch (e) {}
+  // Capture-phase listener so we intercept clicks BEFORE links/buttons navigate
+  document.addEventListener('click', ewClickHandler, true);
+}
+
+function ewExitClickMode() {
+  ewClickMode = false;
+  document.body.classList.remove('ew-click-mode');
+  document.getElementById('ew-click-banner')?.classList.remove('show');
+  document.getElementById('ew-click-toggle')?.classList.remove('active');
+  document.removeEventListener('click', ewClickHandler, true);
+  if (ewCurrentEditing) ewFinishEditing(ewCurrentEditing, true);
+}
+
+function ewClickHandler(e) {
+  // Don't interfere with the widget itself or its toolbar
+  if (e.target.closest('.ew-panel, .ew-fab, .ew-click-toolbar, .ew-click-banner')) return;
+
+  // Find the nearest editable ancestor
+  const target = e.target.closest('[id^="edit-"]');
+  if (!target) {
+    // Just suppress navigation in click-mode if user clicked something non-editable
+    e.preventDefault();
+    e.stopPropagation();
+    return;
+  }
+
+  // Don't re-open editing on the same element while it's already being edited
+  if (target.classList.contains('ew-editing')) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  // If user clicked a different element while one was being edited, save the previous
+  if (ewCurrentEditing && ewCurrentEditing !== target) {
+    ewFinishEditing(ewCurrentEditing, false);
+  }
+
+  ewSelectForEditing(target);
+}
+
+function ewSelectForEditing(el) {
+  ewCurrentEditing = el;
+  // Stash original text + color so cancel restores it
+  el.dataset.ewOrigText = el.textContent;
+  el.dataset.ewOrigColor = el.style.color || '';
+  el.classList.add('ew-editing');
+  el.contentEditable = 'true';
+  el.spellcheck = true;
+  el.focus();
+
+  // Cursor at end
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  range.collapse(false);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+
+  // Keydown for Esc/Enter
+  el.addEventListener('keydown', ewEditableKeydown);
+
+  ewShowToolbar(el);
+}
+
+function ewEditableKeydown(e) {
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    ewFinishEditing(ewCurrentEditing, true);
+  } else if (e.key === 'Enter' && !e.shiftKey) {
+    // For headlines/short elements, Enter saves. Shift+Enter = newline.
+    const tag = (ewCurrentEditing?.tagName || '').toLowerCase();
+    if (['h1','h2','h3','h4','h5','h6','span','button','a','li'].includes(tag)) {
+      e.preventDefault();
+      ewFinishEditing(ewCurrentEditing, false);
+    }
+  }
+}
+
+function ewShowToolbar(el) {
+  document.querySelector('.ew-click-toolbar')?.remove();
+  const tb = document.createElement('div');
+  tb.className = 'ew-click-toolbar';
+  tb.innerHTML =
+    '<input type="color" value="' + (rgbToHex(getComputedStyle(el).color) || '#0F172A') + '" title="Text color"/>' +
+    '<button class="ew-tb-cancel" type="button" title="Cancel (Esc)">✕</button>' +
+    '<button class="ew-tb-save" type="button" title="Save (Enter)">✓ Save</button>';
+  document.body.appendChild(tb);
+
+  const rect = el.getBoundingClientRect();
+  const tbRect = tb.getBoundingClientRect();
+  let top = rect.top + window.scrollY - tbRect.height - 10;
+  // If no room above, place below
+  if (top < window.scrollY + 70) top = rect.bottom + window.scrollY + 10;
+  let left = rect.left + window.scrollX;
+  // Keep within viewport
+  const maxLeft = window.scrollX + window.innerWidth - tbRect.width - 12;
+  if (left > maxLeft) left = maxLeft;
+  if (left < window.scrollX + 12) left = window.scrollX + 12;
+  tb.style.top = top + 'px';
+  tb.style.left = left + 'px';
+
+  tb.querySelector('input[type="color"]').addEventListener('input', e => {
+    el.style.color = e.target.value;
+  });
+  tb.querySelector('.ew-tb-cancel').addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    ewFinishEditing(el, true);
+  });
+  tb.querySelector('.ew-tb-save').addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    ewFinishEditing(el, false);
+  });
+}
+
+function rgbToHex(rgb) {
+  if (!rgb) return null;
+  const m = rgb.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+  if (!m) return null;
+  return '#' + [m[1], m[2], m[3]].map(n => parseInt(n).toString(16).padStart(2, '0')).join('');
+}
+
+function ewFinishEditing(el, cancelled) {
+  if (!el) return;
+  el.contentEditable = 'false';
+  el.classList.remove('ew-editing');
+  el.removeEventListener('keydown', ewEditableKeydown);
+  document.querySelector('.ew-click-toolbar')?.remove();
+
+  if (cancelled) {
+    // Restore original
+    if (el.dataset.ewOrigText !== undefined) el.textContent = el.dataset.ewOrigText;
+    el.style.color = el.dataset.ewOrigColor || '';
+  } else {
+    // Build ops describing what changed
+    const ops = [];
+    const newText = el.textContent.trim();
+    if (newText !== (el.dataset.ewOrigText || '').trim()) {
+      ops.push({ op: 'replace_text', id: el.id, text: newText });
+    }
+    const newColor = el.style.color || '';
+    if (newColor && newColor !== el.dataset.ewOrigColor) {
+      ops.push({ op: 'set_style', id: el.id, style: 'color: ' + newColor + ';' });
+    }
+    if (ops.length) {
+      ewClickPendingOps = ewClickPendingOps.concat(ops);
+      el.classList.add('ew-flash');
+      setTimeout(() => el.classList.remove('ew-flash'), 1500);
+      // Surface the change in the chat log so users see what happened
+      const summary = ops.find(o => o.op === 'replace_text')
+        ? '✏️ Updated "' + (el.dataset.ewOrigText || '').trim().slice(0, 40) + '..." → "' + newText.slice(0, 40) + '..."'
+        : '🎨 Updated color of ' + el.id;
+      ewAddMsg(summary, 'success');
+      // For admins, drop a Save button so they can commit the batch
+      if (EW_IS_ADMIN) ewAddSaveButton(ewClickPendingOps.slice());
+    }
+  }
+
+  delete el.dataset.ewOrigText;
+  delete el.dataset.ewOrigColor;
+  ewCurrentEditing = null;
+}
 </script>
 </body></html>
