@@ -20,6 +20,9 @@
 <meta name="twitter:image" content="https://malarkycharters.com/images/boat/boat-hero-skyline-group-27.webp">
 <meta name="facebook-domain-verification" content="nnw5dndjr0y8r1c19c1zdvqzfu0mr2">
 <meta name="google-site-verification" content="kMRpPsLThsS3ffyd6pkdk2hqA4Y71S87dvT-kXRoPqM">
+<!-- LCP hero image: preload so the browser fetches it on HTML parse, not after CSS resolves.
+     This is the #1 cure for Lighthouse "NO_LCP" errors when the hero is an <img>. -->
+<link rel="preload" as="image" href="images/boat/boat-hero-skyline-group-27.webp?v=2" fetchpriority="high" type="image/webp">
 <link rel="preconnect" href="https://my.matterport.com" crossorigin>
 <link rel="dns-prefetch" href="https://my.matterport.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -247,7 +250,7 @@
 <!-- ────────── SECTION 1: HERO ────────── -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/boat/boat-hero-skyline-group-27.webp?v=2" alt="Malarky &mdash; 47-foot Voyage catamaran sailing past the downtown San Diego skyline with a private group on the aft deck" fetchpriority="high">
+    <img src="images/boat/boat-hero-skyline-group-27.webp?v=2" alt="Malarky &mdash; 47-foot Voyage catamaran sailing past the downtown San Diego skyline with a private group on the aft deck" width="2400" height="1000" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-inner">
     <div class="hero-eyebrow">San Diego Bay &middot; Private Yacht Charter</div>
