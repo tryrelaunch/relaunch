@@ -526,7 +526,9 @@ nav {
 /* ── FLOATING EDIT WIDGET ── */
 .ew-fab { position: fixed; right: 22px; bottom: 22px; z-index: 200; background: var(--dark); color: #fff; border: none; border-radius: 999px; padding: 14px 22px; font-family: var(--fh); font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.24); display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
 .ew-fab:hover { background: #1E293B; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.28); }
-.ew-fab-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 0 0 rgba(52,211,153,0.7); animation: ewpulse 2s infinite; }
+.ew-fab-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 0 0 rgba(52,211,153,0.7); animation: ewpulse 2s infinite; flex-shrink: 0; }
+.ew-fab-label-mobile { display: none; }
+.ew-fab-label-desktop { display: inline; }
 @keyframes ewpulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.7); } 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
 
 .ew-panel { position: fixed; right: 22px; bottom: 22px; z-index: 201; width: 420px; max-width: calc(100vw - 32px); height: 580px; max-height: calc(100vh - 60px); background: #fff; border-radius: 16px; box-shadow: 0 24px 64px rgba(0,0,0,0.28); display: none; flex-direction: column; overflow: hidden; }
@@ -595,9 +597,29 @@ nav {
 .ew-save-hint { margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
 @media (max-width: 560px) {
-  /* Mobile: full-screen takeover, edge-to-edge, no rounded corners */
+  /* Mobile panel: full-screen takeover when opened */
   .ew-panel { right: 0; left: 0; bottom: 0; top: 0; width: 100%; max-width: 100%; height: 100vh; height: 100dvh; max-height: 100dvh; border-radius: 0; }
-  .ew-fab { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 13px; }
+
+  /* Mobile FAB: full-width sticky bar pinned to bottom edge */
+  .ew-fab {
+    left: 0; right: 0; bottom: 0; top: auto;
+    width: 100%;
+    padding: 16px 18px calc(16px + env(safe-area-inset-bottom)) 18px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    justify-content: center;
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.18);
+    gap: 8px;
+  }
+  .ew-fab:hover { background: #EA7C00; transform: none; box-shadow: 0 -6px 24px rgba(0,0,0,0.22); }
+  .ew-fab-label-desktop { display: none; }
+  .ew-fab-label-mobile { display: inline; }
+  /* Add bottom padding to body so sticky bar doesn't cover footer/CTA */
+  body { padding-bottom: 64px; }
 }
 
 /* ── (legacy) SLACK SECTION (no longer rendered) ── */
@@ -1042,7 +1064,8 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- FLOATING AI EDIT WIDGET -->
 <button aria-label="Edit this site" class="ew-fab" id="ew-fab" onclick="openEditWidget()">
 <span class="ew-fab-dot"></span>
-  Edit this site
+<span class="ew-fab-label ew-fab-label-desktop">Edit this site</span>
+<span class="ew-fab-label ew-fab-label-mobile">✨ TRY IT OUT — EDIT THIS SITE HERE</span>
 </button>
 <div class="ew-panel" id="ew-panel">
 <div class="ew-header">
@@ -1399,10 +1422,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); ewSend(); }
   });
 
-  // On public site, auto-open the editor panel so visitors see the chat
-  // immediately — not a hidden FAB. Once they close it manually, don't reopen
+  // On public site DESKTOP, auto-open the editor panel so visitors see the chat
+  // immediately. On mobile, leave the sticky "TRY IT OUT" bar visible at the
+  // bottom — opening it takes over the whole screen, so the visitor should
+  // choose to tap in. Once a user closes the panel manually, don't reopen
   // automatically in this session.
-  if (!EW_IS_ADMIN && !sessionStorage.getItem('ew-auto-opened')) {
+  const ewIsMobile = window.matchMedia('(max-width: 560px)').matches;
+  if (!EW_IS_ADMIN && !ewIsMobile && !sessionStorage.getItem('ew-auto-opened')) {
     setTimeout(() => {
       openEditWidget();
       sessionStorage.setItem('ew-auto-opened', '1');
