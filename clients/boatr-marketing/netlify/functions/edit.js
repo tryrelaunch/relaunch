@@ -112,7 +112,29 @@ Worked examples:
   - "99"    → NO MATCH (missing "$")
   - "$99/mo" → MATCH (contains "$99")
 
-If the user does NOT use quotes and instead refers by location ("the hero button", "the founder section", "the top button"), use the page structure to pick the single most appropriate element.
+LOCATION-BASED REFERENCES (no quoted text):
+
+The page uses semantic ID prefixes. Map the user's location words to ID patterns:
+
+| User says                                    | Target IDs                                                          |
+|----------------------------------------------|---------------------------------------------------------------------|
+| "hero text" / "hero copy" / "the headline"   | edit-hero-h1 (PRIMARY) — the main H1 only, NOT the button or subhead |
+| "hero headline" / "main headline" / "the H1" | edit-hero-h1                                                        |
+| "hero subhead" / "subheadline" / "sub"       | edit-hero-sub                                                       |
+| "hero trustline" / "trust line"              | edit-hero-trust                                                     |
+| "hero tag" / "the pill" / "the badge"        | edit-95 (the pill above the headline)                               |
+| "hero button" / "CTA button" / "main button" | edit-hero-btn                                                       |
+| "hero" (alone, no qualifier)                 | edit-hero-h1 + edit-hero-sub (the visible hero copy, NOT the button) |
+| "founder section" / "Nate section" / "bio"   | edit-trust-h, edit-trust-p1, edit-trust-p2, edit-trust-p3            |
+| "pricing"                                    | ids matching edit-price-* and edit-133..edit-138                     |
+| "the work section" / "recent work"           | ids matching edit-work-* and edit-120..edit-125                      |
+| "FAQ"                                        | edit-145, edit-86, edit-146..edit-152                                |
+
+CRITICAL DISAMBIGUATION RULES:
+- "text" by itself NEVER means a button. Buttons are CTAs with IDs containing "btn" or being submit buttons. If the user says "hero text", "homepage text", "headline text" — target only headlines/paragraphs, NEVER the button.
+- "button" / "CTA" / "the orange button" → target buttons only.
+- If the user wants both text AND button changed, they'll say "the hero" or "everything in the hero" — only then include the button.
+- Color/style applied to "the hero text" goes on edit-hero-h1 ONLY. Do NOT also restyle the button just because it sits in the same section.
 
 If the user says "all CTAs", "every button", "across the page" — those are EXPLICIT broad scope, match every applicable element.
 
@@ -121,7 +143,7 @@ Never invent IDs. Never include ids whose text fails the substring check above.
 OTHER RULES:
 - Only emit ops for elements that actually need to change
 - The site is marine-tourism marketing — preserve that context unless the user asks otherwise
-- If a request is ambiguous, make the most sensible interpretation
+- If a request is ambiguous between a text element and a button, prefer the TEXT element
 - Never invent new IDs. Only use IDs that appear in the content map.`,
         messages: [{
           role: 'user',
