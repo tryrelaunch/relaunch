@@ -753,6 +753,16 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
   .pmh, .pmb, .pmn, .pmt, .pmt-label { font-size: 11px; }
   .pmn, .pmt, .pmtotal-big { font-size: 13px; }
   .pmb { font-size: 12px; }
+  /* Operator credibility strip: stack photo above content on mobile */
+  .ts-grid { grid-template-columns: 1fr !important; text-align: center; gap: 20px !important; }
+  .ts-photo { margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  /* Tighter mobile padding so cards don't crowd the viewport edges */
+  .hero-inner, .stats-inner, .sec, .slack-inner, .trust-inner, .foot { padding-left: 16px; padding-right: 16px; }
+  .title { font-size: 28px; }
+  /* Prevent horizontal overflow from any wide inline content */
+  html, body { overflow-x: hidden; }
 }
 </style>
 <!-- Netlify Forms detection -->
@@ -813,7 +823,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <div class="label" id="edit-ts-label" style="margin-bottom:8px;">Built by an operator, not an agency</div>
 <h2 id="edit-ts-h" style="font-family:var(--fh);font-size:24px;font-weight:800;line-height:1.3;margin-bottom:12px;color:var(--text);">I'm not a random web designer. I've spent 12+ years operating and marketing marine-tourism businesses.</h2>
 <p id="edit-ts-p" style="font-size:15px;color:var(--text-2);line-height:1.6;margin-bottom:14px;">Former VP of Jetpack America (acquired by FlyDive). Now CMO across <strong>five San Diego boat brands</strong> doing <strong>$6M+/yr</strong> — Triton, Alana, Malarky, Athena, Disco. I own Malarky Charters and Disco Boat Rentals myself. <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener" style="color:var(--blue);">Featured by FareHarbor</a> — $1.5M+ in Black Friday sales across nine campaigns.</p>
-<div class="ts-bullets" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:13px;color:var(--muted);">
+<div class="ts-bullets" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;font-size:13px;color:var(--muted);">
 <div id="edit-ts-b1">✓ Operate FareHarbor, booking flows, reviews, SMS, SEO &amp; ads daily</div>
 <div id="edit-ts-b2">✓ Designed around how tourists actually book — not agency templates</div>
 <div id="edit-ts-b3">✓ Same playbook I run on my own boats every season</div>
@@ -826,10 +836,10 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <section class="breakthrough" style="background:var(--bg);padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
 <div class="sec">
 <div class="label" id="edit-pb-label" style="text-align:center;color:var(--red);font-weight:800;">⚠ The 2026 reality</div>
-<h2 class="title" style="text-align:center;"><span id="edit-pb-h1">Wix, Squarespace, GoDaddy Airo —</span><br/><span id="edit-pb-h2" style="color:var(--red);">these builders are now outdated.</span></h2>
+<h2 class="title" style="text-align:center;word-break:break-word;overflow-wrap:break-word;"><span id="edit-pb-h1">Wix, Squarespace, GoDaddy Airo</span> <span id="edit-pb-h2" style="color:var(--red);display:block;margin-top:6px;">are now outdated.</span></h2>
 <p class="sub" id="edit-pb-sub" style="text-align:center;max-width:740px;margin:0 auto 12px;">In 2026, hand-coded HTML is the fastest, most SEO-friendly stack on the web — and the only reason website builders existed was because it used to be hard to edit. AI just killed that excuse. Boatr is the new default: custom-coded site, edited in plain English.</p>
 <p style="text-align:center;max-width:680px;margin:0 auto 36px;font-size:13px;color:var(--muted);font-style:italic;" id="edit-pb-sub2">If your site loads in more than 1 second on mobile, Google is ranking your competitors above you. Page speed is a confirmed ranking signal — and AI overviews skip slow pages entirely.</p>
-<div class="pb-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;">
+<div class="pb-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1100px;margin:0 auto;">
 <div class="pb-card" style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;opacity:0.85;">
 <div id="edit-pb-c1-tag" style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Outdated · Wix / Squarespace / GoDaddy Airo</div>
 <h4 id="edit-pb-c1-h" style="font-family:var(--fh);font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px;">AI builders that ship slow sites</h4>
