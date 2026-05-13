@@ -271,7 +271,7 @@ nav {
 .stat-l { font-size: 13px; color: var(--muted); }
 
 /* ── SECTIONS ── */
-.sec { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+.sec { max-width: 1200px; margin: 0 auto; padding: 56px 48px; }
 .label { display: inline-block; font-family: var(--fh); font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
 .title { font-family: var(--fh); font-size: 44px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--text); margin-bottom: 14px; }
 .title span { color: var(--blue); }
@@ -297,7 +297,7 @@ nav {
 
 /* ── RECENT WORK (charter sites I've built) ── */
 .work { background: var(--white); }
-.work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 44px; }
 .work-card { background: #fff; border: 1px solid var(--border); border-radius: 11px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: all 0.2s; }
 .work-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--sh); }
 .work-img { aspect-ratio: 4/3; background-size: cover; background-position: center; background-color: var(--off); }
@@ -595,7 +595,8 @@ nav {
 .ew-save-hint { margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
 @media (max-width: 560px) {
-  .ew-panel { right: 8px; left: 8px; bottom: 8px; width: auto; max-height: calc(100vh - 16px); }
+  /* Mobile: full-screen takeover, edge-to-edge, no rounded corners */
+  .ew-panel { right: 0; left: 0; bottom: 0; top: 0; width: 100%; max-width: 100%; height: 100vh; height: 100dvh; max-height: 100dvh; border-radius: 0; }
   .ew-fab { right: 12px; bottom: 12px; padding: 12px 18px; font-size: 13px; }
 }
 
@@ -622,7 +623,7 @@ nav {
 .sm-note { text-align: center; font-size: 11px; color: rgba(255,255,255,0.35); font-family: monospace; margin-top: 8px; }
 
 /* ── PRICING ── */
-.pricing { padding: 80px 0; background: var(--off); border-top: 1px solid var(--border); }
+.pricing { padding: 56px 0; background: var(--off); border-top: 1px solid var(--border); }
 .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 44px; background: var(--border); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
 .pc { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; }
 .pc.feat { background: var(--dark); color: #fff; position: relative; }
@@ -749,25 +750,18 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <section class="hero">
 <div class="hero-inner">
 <div>
-<div class="hero-tag" id="edit-95">If I emailed you · your preview is already built</div>
-<h1 id="edit-hero-h1">Your rebuilt watersports or charter website is ready to review.</h1>
-<p class="hero-sub" id="edit-hero-sub">Built for boat charters, watersports rentals, fishing trips, jet ski operators, kayak and SUP tours, parasail and dive shops, and any business that sells experiences on the water. Hand-coded for speed, structured for local SEO, built around your booking flow, and editable in plain English. Your existing site stays untouched until you say so.</p>
-<p class="hero-trustline" id="edit-hero-trust" style="font-size:13px;color:var(--muted);margin-bottom:18px;max-width:560px;">Built by Nate Sinisgalli — former VP of Jetpack America (acquired by FlyDive) and CTO/CMO inside marine-tourism brands doing $10M+/year. <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener" style="color:var(--blue);">Featured by FareHarbor</a> for a $250K Black Friday campaign.</p>
+<div class="hero-tag" id="edit-95">Custom-coded preview · built before you pay</div>
+<h1 id="edit-hero-h1">Your boat rental website rebuilt before you pay.</h1>
+<p class="hero-sub" id="edit-hero-sub">I rebuild your current site into a faster, cleaner, booking-focused website — for boat charters, watersports rentals, fishing trips, jet ski operators, kayak tours, parasail and dive shops. You review the live preview first. If you like it, we launch.</p>
 <div class="hero-form" id="hero-form-wrap">
-<input autocomplete="url" id="hero-url" name="url" placeholder="yourwatertourismbusiness.com" type="url"/>
-<button onclick="submitHero()" id="edit-hero-btn">Get free preview →</button>
+<input autocomplete="url" id="hero-url" name="url" placeholder="Enter your current website URL" type="url"/>
+<button onclick="submitHero()" id="edit-hero-btn">Send me my rebuilt preview →</button>
 </div>
 <div class="hero-success" id="hero-success" style="display:none;background:#fff;border:1px solid #d1d5db;border-radius:10px;padding:18px 20px;margin-bottom:8px;color:#111827;font-size:15px;line-height:1.5;">
 <strong style="display:block;margin-bottom:4px;color:#059669;">Got it. ✓</strong>
-        I'll build a free preview of your site and email it within 48 hours. Keep an eye on your inbox.
+        I'll build your free preview and email it within 48 hours.
       </div>
-<p class="hero-note" id="edit-7">Free · No credit card · Preview delivered in 48 hours</p>
-<div class="hero-checks">
-<div class="hc"><div class="hc-dot">✓</div>Hand-coded HTML — loads in under 1 second</div>
-<div class="hc"><div class="hc-dot">✓</div>FareHarbor flow optimization built in</div>
-<div class="hc"><div class="hc-dot">✓</div>Landing page per occasion (wedding, bachelorette, sunset, etc.)</div>
-<div class="hc"><div class="hc-dot">✓</div>Edit any text by typing what you want — no logging in, no finding pages</div>
-</div>
+<p class="hero-note" id="edit-7">Free · No credit card · Preview delivered in 48 hours · Your existing site stays untouched</p>
 </div>
 </div>
 </section>
@@ -780,59 +774,30 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <div class="stat"><div class="stat-n">0</div><div class="stat-l" id="edit-102">contracts. ever.</div></div>
 </div>
 </div>
-<!-- OPERATOR TRUST STRIP -->
-<div style="background:var(--off);border-bottom:1px solid var(--border);padding:24px 0;">
-<div class="us-grid" style="max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;gap:0;">
-<div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
-<span style="font-size:26px;flex-shrink:0;">🚤</span>
-<div>
-<div id="edit-103" style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">Built by marine-tourism operators</div>
-<div id="edit-104" style="font-size:13px;color:var(--muted);">Not a generic agency guessing at your business</div>
-</div>
-</div>
-<div class="us-divider" style="width:1px;height:40px;background:var(--border);"></div>
-<div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
-<span style="font-size:26px;flex-shrink:0;">⚓</span>
-<div>
-<div id="edit-105" style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">FareHarbor &amp; booking-flow specialists</div>
-<div id="edit-106" style="font-size:13px;color:var(--muted);">Featured in FareHarbor's own case study</div>
-</div>
-</div>
-<div class="us-divider" style="width:1px;height:40px;background:var(--border);"></div>
-<div style="display:flex;align-items:center;gap:14px;padding:0 20px;justify-content:center;">
-<span style="font-size:26px;flex-shrink:0;">📊</span>
-<div>
-<div id="edit-107" style="font-family:var(--fh);font-size:14px;font-weight:800;color:var(--text);letter-spacing:-0.01em;margin-bottom:2px;">Verified, screenshot-backed numbers</div>
-<div id="edit-108" style="font-size:13px;color:var(--muted);">$1.5M+ in Black Friday · $10M+ in client revenue</div>
-</div>
-</div>
-</div>
-</div>
-<!-- TRUST / FOUNDER (moved up — meet Nate immediately after the offer) -->
-<!-- YOU ALREADY HAVE A PREVIEW -->
-<section class="preview-sec">
+<!-- OPERATOR CREDIBILITY STRIP — Nate immediately after the offer -->
+<section class="trust-strip" style="background:var(--white);padding:48px 0;border-bottom:1px solid var(--border);">
 <div class="sec">
-<div class="preview-grid">
+<div class="ts-grid" style="display:grid;grid-template-columns:120px 1fr;gap:36px;align-items:center;max-width:1000px;margin:0 auto;">
+<div class="ts-photo" id="ts-photo" style="width:120px;height:120px;border-radius:50%;background-image:url('images/nate-headshot.jpg');background-size:cover;background-position:center;border:3px solid var(--off);"></div>
 <div>
-<div class="label" id="edit-109">If I emailed you</div>
-<h2 class="title">You already have a <span id="edit-13">preview</span>.</h2>
-<p class="sub" id="edit-14">If the email I sent included a link like <code>boatrmarketing.com/previews/your-business/</code> — that's your rebuilt site. Hand-coded. Hosted privately. Built from your real business info I pulled from your current site and Google Business profile. Nothing on your current site changes until you say so.</p>
+<div class="label" id="edit-ts-label" style="margin-bottom:8px;">Built by an operator, not an agency</div>
+<h2 id="edit-ts-h" style="font-family:var(--fh);font-size:24px;font-weight:800;line-height:1.3;margin-bottom:12px;color:var(--text);">I'm not a random web designer. I've spent 12+ years operating and marketing marine-tourism businesses.</h2>
+<p id="edit-ts-p" style="font-size:15px;color:var(--text-2);line-height:1.6;margin-bottom:14px;">Former VP of Jetpack America (acquired by FlyDive). Now CMO across <strong>five San Diego boat brands</strong> doing <strong>$6M+/yr</strong> — Triton, Alana, Malarky, Athena, Disco. I own Malarky Charters and Disco Boat Rentals myself. <a href="https://fareharbor.com/blog/discover-how-one-fareharbor-client-made-over-250000-in-six-days/" target="_blank" rel="noopener" style="color:var(--blue);">Featured by FareHarbor</a> — $1.5M+ in Black Friday sales across nine campaigns.</p>
+<div class="ts-bullets" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:13px;color:var(--muted);">
+<div id="edit-ts-b1">✓ Operate FareHarbor, booking flows, reviews, SMS, SEO &amp; ads daily</div>
+<div id="edit-ts-b2">✓ Designed around how tourists actually book — not agency templates</div>
+<div id="edit-ts-b3">✓ Same playbook I run on my own boats every season</div>
 </div>
-<div class="preview-checks">
-<div class="pc-row"><div class="pc-num" id="edit-110">01</div><div id="edit-111"><strong>Real, not a mockup.</strong> Live URL, real HTML, real schema. You can share it with your partner or team.</div></div>
-<div class="pc-row"><div class="pc-num" id="edit-112">02</div><div id="edit-113"><strong>Custom to your business.</strong> Your name, your services, your reviews, your booking platform. Not a template.</div></div>
-<div class="pc-row"><div class="pc-num" id="edit-114">03</div><div id="edit-115"><strong>Private until you approve.</strong> Indexed only by you. Your existing site stays untouched. No risk to current bookings.</div></div>
-<div class="pc-row"><div class="pc-num" id="edit-116">04</div><div id="edit-117"><strong>Yours to edit.</strong> Type changes in plain English and AI applies them — same editor you can try below.</div></div>
 </div>
 </div>
 </div>
 </section>
 <!-- PRODUCT BREAKTHROUGH — the wedge -->
-<section class="breakthrough" style="background:var(--bg);padding:80px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<section class="breakthrough" style="background:var(--bg);padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
 <div class="sec">
 <div class="label" id="edit-pb-label" style="text-align:center;">The breakthrough</div>
 <h2 class="title" style="text-align:center;"><span id="edit-pb-h1">Custom-coded speed.</span><br/><span id="edit-pb-h2">CMS-level control.</span> <span id="edit-pb-h3" style="color:var(--blue);">No CMS.</span></h2>
-<p class="sub" id="edit-pb-sub" style="text-align:center;max-width:760px;margin:0 auto 48px;">Custom HTML is fast and clean — but normally impossible to edit without a developer. WordPress is editable, but slow, bloated, and a security maintenance tax. Boatr is the middle nobody's built yet: a hand-coded marine-tourism site with an AI editor layered on top. You get the performance of custom code and the control of a CMS, without the CMS.</p>
+<p class="sub" id="edit-pb-sub" style="text-align:center;max-width:680px;margin:0 auto 36px;">Custom HTML is fast but locked. WordPress is editable but slow. Boatr is the missing middle: hand-coded site + AI editor on top.</p>
 <div class="pb-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;">
 <div class="pb-card" style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;">
 <div id="edit-pb-c1-tag" style="font-family:var(--fh);font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">WordPress / Squarespace</div>
@@ -850,15 +815,14 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <p id="edit-pb-c3-p" style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;">Hand-coded HTML — sub-second loads, clean schema, no plugin tax. Your team edits anything by typing the change in plain English. AI applies it across every page that mentions it.</p>
 </div>
 </div>
-<p id="edit-pb-foot" style="text-align:center;font-size:14px;color:var(--muted);margin-top:36px;max-width:680px;margin-left:auto;margin-right:auto;">Treat it like the central product: this is what's been missing for marine-tourism operators. You finally get to own a serious site without owning a CMS.</p>
 </div>
 </section>
-<!-- WHAT YOU GET -->
+<!-- PROBLEM / SOLUTION -->
 <section class="wyg">
 <div class="sec">
-<div class="label" id="edit-118">What's included</div>
-<h2 class="title">Built better than what you have.<br/><span id="edit-15">In every way that books more trips.</span></h2>
-<p class="sub" id="edit-16">Every site comes with the marine-tourism and watersports specifics most agencies skip — because they've never operated a business that sells experiences on the water.</p>
+<div class="label" id="edit-118">What your current site is leaving on the floor</div>
+<h2 class="title">Your website is probably costing you bookings.<br/><span id="edit-15">Here's what I fix.</span></h2>
+<p class="sub" id="edit-16">Most marine-tourism websites were built by someone who's never set up a FareHarbor flow, never written a charter listing, and never run a Black Friday. The same five gaps show up every time.</p>
 <div class="wyg-grid">
 <div class="wyg-card"><h3 id="edit-17">FareHarbor flow optimization</h3><p id="edit-18">I audit your existing FareHarbor setup — items, flows, add-ons, abandoned cart, mobile checkout. Most operators leave 15–30% conversion on the floor. We close that gap during the rebuild.</p></div>
 <div class="wyg-card"><h3 id="edit-19">Landing page per occasion</h3><p id="edit-20">Wedding, bachelorette, sunset, corporate, fishing, whale watching, proposal. One page per high-intent search term in your city. Each one ranks separately. None of this works with a single "services" page.</p></div>
@@ -874,7 +838,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <div class="sec">
 <div class="label" id="edit-119">Recent work</div>
 <h2 class="title">Water-tourism sites built from this playbook<br/><span id="edit-29">that actually rank</span>.</h2>
-<p class="sub" id="edit-30">Real marine-tourism websites, live in production, built from the same template I'd use for yours. Click any one to see the live site.</p>
+<p class="sub" id="edit-30">Five San Diego marine brands I currently market — including two I own. Real production sites, same playbook I'd run on yours. Click any one to see it live.</p>
 <div class="work-grid">
 <a class="work-card" href="https://malarkycharters.com" rel="noopener" target="_blank">
 <div class="work-img" style="background-image: url('images/screenshot-malarky.jpg');"></div>
@@ -913,8 +877,32 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 </div>
 </div>
 </a>
+<a class="work-card" href="https://athenaboatrental.com" rel="noopener" target="_blank">
+<div class="work-img" style="background: linear-gradient(135deg, #1E40AF 0%, #0F172A 100%);"></div>
+<div class="work-body">
+<div class="work-name" id="edit-work-athena-name">Athena Boat Rental</div>
+<div class="work-meta" id="edit-work-athena-meta">Newest addition · San Diego</div>
+<div class="work-metrics">
+<span id="edit-work-athena-m1">Just launched</span>
+<span id="edit-work-athena-m2">FareHarbor wired</span>
+<span id="edit-work-athena-m3">Schema markup</span>
 </div>
-<p class="work-foot" id="edit-41">Each site was built from scratch — hand-coded HTML, schema markup, mobile-first, FareHarbor flow tuned. <strong>That's exactly what I'd build for you for $99/month.</strong></p>
+</div>
+</a>
+<a class="work-card" href="https://discoboatrentals.com" rel="noopener" target="_blank">
+<div class="work-img" style="background: linear-gradient(135deg, #FE8D01 0%, #EA580C 100%);"></div>
+<div class="work-body">
+<div class="work-name" id="edit-work-disco-name">Disco Boat Rentals</div>
+<div class="work-meta" id="edit-work-disco-meta">My own brand · San Diego</div>
+<div class="work-metrics">
+<span id="edit-work-disco-m1">Owner-operated</span>
+<span id="edit-work-disco-m2">Hand-coded</span>
+<span id="edit-work-disco-m3">Built on Boatr</span>
+</div>
+</div>
+</a>
+</div>
+<p class="work-foot" id="edit-41">Every one of these sites was built from scratch — hand-coded HTML, schema markup, mobile-first, FareHarbor flow tuned. Two of them (Malarky and Disco) are brands I own and operate myself. <strong>That's exactly what I'd build for you for $99/month.</strong></p>
 </div>
 </section>
 <!-- HOW IT GOES LIVE -->
@@ -944,93 +932,47 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 </div>
 </div>
 </section>
-<!-- AI EDITOR DEMO -->
-<section class="ai-edit-sec" id="ai-editor">
-<div class="sec">
-<div class="ai-edit-grid">
-<div class="ai-edit-prose">
-<div class="label" id="edit-130">Self-serve editing</div>
-<h2 class="title">Type the change.<br/><span id="edit-50">Done in seconds.</span></h2>
-<p class="sub" id="edit-51">Every plan comes with your own AI editor built into your site. No CMS to learn. No editor login to remember. Type your 6-digit PIN, describe the change in plain English, watch it go live — no waiting for a webmaster.</p>
-<div class="ai-edit-checks">
-<div class="sc"><span class="sc-chk">✓</span>Enter your 6-digit PIN — no email, no password, no SaaS dashboard</div>
-<div class="sc"><span class="sc-chk">✓</span>Type the edit in plain English ("change Tuesday hours to 6pm")</div>
-<div class="sc"><span class="sc-chk">✓</span>AI applies it across your site — live in 5–10 seconds</div>
-<div class="sc"><span class="sc-chk">✓</span>Updates apply across every page that mentions it — no chasing down 12 different sections</div>
+<!-- AI EDITOR — compact invite strip -->
+<section class="ai-edit-strip" id="ai-editor" style="background:var(--text);color:var(--white);padding:32px 0;">
+<div class="sec" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+<div style="flex:1;min-width:320px;">
+<div class="label" id="edit-130" style="color:var(--blue);margin-bottom:8px;">Self-serve editing — try it on this page</div>
+<h3 id="edit-50" style="font-family:var(--fh);font-size:22px;font-weight:800;line-height:1.3;margin-bottom:6px;color:var(--white);">Type the change in plain English. AI applies it in seconds.</h3>
+<p id="edit-51" style="font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5;">Every Hosting plan includes the same AI editor. Try it on this site right now — type any 6-digit PIN to unlock, change anything, refresh to reset.</p>
 </div>
-<p id="edit-52" style="margin-top:24px;font-size:14px;color:var(--muted);">↓ <strong style="color:var(--text);">Try it on this demo</strong> — type any 6 digits to unlock, then click an edit suggestion.</p>
-</div>
-<div class="ai-edit-demo">
-<div class="aed-invite">
-<div class="aed-invite-icon">✨</div>
-<h3 class="aed-invite-title" id="edit-53">Want to know how it works?</h3>
-<p class="aed-invite-text" id="edit-54">Pretend this is your website and make some changes. Go ahead — don't be scared. Edit headlines, swap copy, change the hero. <strong>Everything resets when you refresh.</strong></p>
-<button class="aed-invite-btn" id="edit-55" onclick="openEditWidget()">✏️ Edit this page →</button>
-<div class="aed-invite-hint" id="edit-131">No CMS. Type your 6-digit PIN, tell AI what to change, done in seconds.</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- OPERATOR PROOF — founder section, moved down after the product is clear -->
-<section class="trust">
-<div class="trust-inner">
-<div>
-<div class="trust-photo" id="trust-photo" style="background-image:url('images/nate-headshot.jpg');"></div>
-<h2 id="edit-trust-h">Built by someone who's actually operated marine-tourism and watersports businesses.</h2>
-<div class="trust-body">
-<p id="edit-trust-p1">I'm <strong>Nate Sinisgalli</strong>, founder of Boatr Marketing. Before Boatr, I was <strong>VP of Jetpack America</strong>, a water-jetpack experience company later acquired by <strong>FlyDive</strong>. Since then I've spent the last decade-plus as CTO and CMO across marine-tourism brands — companies that have crossed <strong>$10M+/year in combined bookings</strong>, generated <strong>$1.5M+ in Black Friday revenue alone</strong> (nine verified FareHarbor campaigns, screenshots on request), and built <strong>2,000+ five-star Google reviews</strong>. FareHarbor published a case study on the Black Friday playbook I wrote.</p>
-<p id="edit-trust-p2">I've been inside both sides of marine tourism: high-volume charter brands where the unit economics live or die on the cart, and watersports experiences where every booking depends on trust, timing, photos, reviews, weather, and a checkout flow that doesn't leak. What I kept seeing was the same problem everywhere — great operators, great reviews, websites built in 2015 by whoever was cheapest. Slow on mobile. No schema. Menu in a PDF. FareHarbor flow leaking 20% conversion. Generic agencies build "websites." I build the booking funnel underneath them.</p>
-<p id="edit-trust-p3">Boatr gives you the website system I wish every water-tourism operator had before peak season — a hand-coded site, an AI editor your front-desk lead can actually use, and an operator who's done this inside real marine-tourism P&amp;Ls. No contracts. Cancel anytime.</p>
-</div>
-<div class="trust-sig">Nate Sinisgalli <span>Founder, Boatr Marketing · <a href="mailto:hello@boatrmarketing.com" id="edit-79" style="color:var(--blue);">hello@boatrmarketing.com</a> · (858) 925-8977</span></div>
-</div>
-<div class="trust-cards">
-<div class="trust-card">
-<h4 id="edit-80">The playbook is portable across brands</h4>
-<p id="edit-81">Triton (mature, 100-guest party boat) grew +53% over 3 years. Malarky (small catamaran) grew +714% from a near-zero base. Alana grew +242%. Same system. Three different audiences. All positive.</p>
-</div>
-<div class="trust-card">
-<h4 id="edit-82">Your existing site stays untouched</h4>
-<p id="edit-83">I build separately. Your current site stays live the entire time. If you don't love the preview, nothing changes. There is no risk to your existing booking flow.</p>
-</div>
-<div class="trust-card">
-<h4 id="edit-84">No contracts. Ever.</h4>
-<p id="edit-85">Month-to-month. Cancel anytime. If you leave, I point your domain back to your old site in minutes. I earn your business every month by actually moving bookings.</p>
-</div>
-</div>
+<button class="aed-invite-btn" id="edit-55" onclick="openEditWidget()" style="white-space:nowrap;">✏️ Try the editor →</button>
 </div>
 </section>
 <!-- PRICING -->
 <section class="pricing" id="pricing">
 <div class="sec">
-<div class="label" id="edit-132">Pricing</div>
-<h2 class="title" id="edit-56">Simple pricing.<br/>No surprises.</h2>
-<p class="sub" id="edit-57">Preview is free. You only pay if you want to keep it live. No contract, cancel anytime.</p>
+<div class="label" id="edit-132">How it's priced</div>
+<h2 class="title" id="edit-56">A staged offer.<br/>You only pay when there's value.</h2>
+<p class="sub" id="edit-57">Three steps. You don't pay for step 2 until you've seen step 1. You don't pay step 3 until step 2 is done. No contracts at any stage.</p>
 <div class="pricing-grid">
 <div class="pc">
-<div class="pc-tier" id="edit-price-starter-name">Starter</div>
-<div class="pc-price" id="edit-133"><sup>$</sup>99</div>
-<div class="pc-period" id="edit-134">/ month · cancel anytime</div>
-<div class="pc-desc" id="edit-price-starter-desc">A professionally built, fast marine-tourism website — kept live and managed every month.</div>
-<ul class="pc-list"><li id="edit-58">Custom HTML site</li><li id="edit-59">FareHarbor flow optimization</li><li id="edit-60">Landing pages per occasion</li><li id="edit-61">Google reviews on homepage</li><li id="edit-62">AI editor — edit anything in plain English</li><li id="edit-63">SEO + schema built in</li></ul>
-<button class="pc-btn btn-outline" id="edit-64" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+<div class="pc-tier" id="edit-price-starter-name">01 · Preview</div>
+<div class="pc-price" id="edit-133">Free</div>
+<div class="pc-period" id="edit-134">Delivered in 48 hours</div>
+<div class="pc-desc" id="edit-price-starter-desc">I rebuild your homepage and key pages — hand-coded, mobile-first, FareHarbor-wired. You review the live URL before you pay anything.</div>
+<ul class="pc-list"><li id="edit-58">Full rebuilt homepage</li><li id="edit-59">Live URL you can share with your partner / team</li><li id="edit-60">FareHarbor flow audit included</li><li id="edit-61">Your existing site stays untouched</li><li id="edit-62">Preview stays live for 30 days</li><li id="edit-63">Zero commitment, no card on file</li></ul>
+<button class="pc-btn btn-outline" id="edit-64" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Send me my preview</button>
 </div>
 <div class="pc feat">
-<div class="pc-tier" id="edit-price-growth-name">Growth</div>
+<div class="pc-tier" id="edit-price-growth-name">02 · Launch</div>
 <div class="pc-price" id="edit-135"><sup>$</sup>299</div>
-<div class="pc-period" id="edit-136">/ month · cancel anytime</div>
-<div class="pc-desc" id="edit-price-growth-desc">Everything in Starter, plus fresh seasonal content + active ranking work every month.</div>
-<ul class="pc-list"><li id="edit-65">Everything in Starter</li><li id="edit-66">New landing page each month</li><li id="edit-67">Seasonal campaign builds (Black Friday, summer, holidays)</li><li id="edit-68">GBP + review-capture monitoring</li><li id="edit-69">Monthly SEO report</li><li id="edit-70">Priority support</li></ul>
-<button class="pc-btn btn-feat" id="edit-71" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+<div class="pc-period" id="edit-136">One-time setup · only when you say go</div>
+<div class="pc-desc" id="edit-price-growth-desc">You loved the preview. I connect your domain, finalize copy and photos, install schema, and push it live — usually same day.</div>
+<ul class="pc-list"><li id="edit-65">Domain handoff &amp; DNS migration</li><li id="edit-66">Final copy &amp; photo round</li><li id="edit-67">Schema markup &amp; SEO sweep</li><li id="edit-68">FareHarbor connection verified</li><li id="edit-69">Google Business sync</li><li id="edit-70">301 redirects from old URLs</li></ul>
+<button class="pc-btn btn-feat" id="edit-71" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Send me my preview</button>
 </div>
 <div class="pc">
-<div class="pc-tier" id="edit-price-full-name">Full Service</div>
-<div class="pc-price" id="edit-137"><sup>$</sup>499</div>
+<div class="pc-tier" id="edit-price-full-name">03 · Hosting + edits</div>
+<div class="pc-price" id="edit-137"><sup>$</sup>99</div>
 <div class="pc-period" id="edit-138">/ month · cancel anytime</div>
-<div class="pc-desc" id="edit-price-full-desc">Full growth operating partner. The whole playbook installed and run for you.</div>
-<ul class="pc-list"><li id="edit-72">Everything in Growth</li><li id="edit-73">Email + SMS campaigns</li><li id="edit-74">Black Friday playbook installed</li><li id="edit-75">Review-capture automation</li><li id="edit-76">Quarterly strategy call</li><li id="edit-77">Direct access (text, not tickets)</li></ul>
-<button class="pc-btn btn-outline" id="edit-78" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Get started free</button>
+<div class="pc-desc" id="edit-price-full-desc">Site stays live, gets maintained, and your team can edit anything by typing what they want. Includes my eyes on the funnel every month.</div>
+<ul class="pc-list"><li id="edit-72">Hosting + SSL + uptime</li><li id="edit-73">AI editor — edit anything in plain English</li><li id="edit-74">Text + photo changes I handle for you</li><li id="edit-75">Booking-flow &amp; speed monitoring</li><li id="edit-76">Seasonal copy refresh</li><li id="edit-77">Direct text access to me</li></ul>
+<button class="pc-btn btn-outline" id="edit-78" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Send me my preview</button>
 </div>
 </div>
 </div>
@@ -1066,18 +1008,18 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <div class="faq-item"><button class="faq-q" onclick="faq(this)">How long does the rebuild take?<span class="faq-ico">+</span></button><div class="faq-a" id="edit-149">Most water-tourism sites land within 48 hours. Larger operators (multiple boats, lots of trip or experience types) take a bit longer. I'll give you a clear timeline before starting. Every preview comes with a written audit of what I changed and why.</div></div>
 <div class="faq-item"><button class="faq-q" onclick="faq(this)">Do I need to do anything?<span class="faq-ico">+</span></button><div class="faq-a" id="edit-150">Very little. I pull your content, photos, and info from your current site and your Google Business profile. I'll watch your FareHarbor checkout flow as a test buyer to find the leaks. If you have updated photos or new trip or experience types to launch, send them — but it's not required.</div></div>
 <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I cancel anytime?<span class="faq-ico">+</span></button><div class="faq-a" id="edit-151">Yes. No contracts, no cancellation fees. If you cancel, I point your domain back to your old site within minutes. You're never locked in and you're never without a website.</div></div>
-<div class="faq-item"><button class="faq-q" onclick="faq(this)">Will the FareHarbor case study numbers apply to my business?<span class="faq-ico">+</span></button><div class="faq-a" id="edit-152">The system grew Triton (mature mid-7-figure brand) by 53%, Malarky (small catamaran starting near zero) by 714%, and Alana (small charter) by 242% — three completely different brands, three positive curves. Your numbers will be different, but the system is portable across marine-tourism formats. Refund rate at all three brands averaged under 0.5%.</div></div>
+<div class="faq-item"><button class="faq-q" onclick="faq(this)">Will the FareHarbor case study numbers apply to my business?<span class="faq-ico">+</span></button><div class="faq-a" id="edit-152">The system grew Triton (mature mid-7-figure party boat) +53%, Malarky (small catamaran I started from zero) +714%, and Alana +242% — and is now installed at Athena and Disco Boat Rentals (both mine). Five completely different brands, five positive curves. Your numbers will be different, but the system is portable across marine-tourism formats. Refund rate across the portfolio averaged under 0.5%.</div></div>
 </div>
 </div>
 </section>
 <!-- CTA -->
 <section class="cta" id="cta">
 <div class="cta-inner">
-<h2 id="edit-87">Send me the preview link I emailed you — I'll make any change you want.</h2>
-<p id="edit-88">Or if you didn't get an email yet: drop your URL and I'll build one within 48 hours. Either way: free, no commitment.</p>
+<h2 id="edit-87">Drop your URL. I'll send you a rebuilt preview within 48 hours.</h2>
+<p id="edit-88">Free. No card. No call required. Your existing site stays exactly where it is.</p>
 <div class="cta-form" id="cta-form-wrap">
-<input autocomplete="url" class="cta-input" id="cta-url" name="url" placeholder="yourwatertourism.com" type="url"/>
-<button class="cta-btn" onclick="submitCta()">Get my free preview →</button>
+<input autocomplete="url" class="cta-input" id="cta-url" name="url" placeholder="Enter your current website URL" type="url"/>
+<button class="cta-btn" onclick="submitCta()">Send me my rebuilt preview →</button>
 </div>
 <div class="cta-success" id="cta-success" style="display:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:18px 20px;margin-bottom:12px;color:rgba(255,255,255,0.92);font-size:15px;line-height:1.5;text-align:left;">
 <strong style="display:block;margin-bottom:4px;color:#34d399;">Got it. ✓</strong>
@@ -1121,7 +1063,7 @@ footer { background: var(--dark-2); padding: 36px 0; text-align: center; border-
 <!-- Chat -->
 <div class="ew-chat-screen" id="ew-chat-screen">
 <div class="ew-msgs" id="ew-msgs">
-<div class="ew-msg bot" id="ew-greet">👋 Want to see what it's like to edit your new site? Change my website right now. Go ahead — type anything ("change the headline", "make pricing red", "rewrite the founder section friendlier") and AI applies it in seconds. Refresh wipes it.</div>
+<div class="ew-msg bot" id="ew-greet">👋 Want to see what it's like to edit your new site? Change my website right now. Go ahead! Don't be scared! Here's some prompts to try:</div>
 <div class="ew-suggestions" id="ew-suggestions">
 <button onclick="ewFill('Change the hero text to bright pink')">🎨 Change the hero text to bright pink</button>
 <button onclick="ewFill('Change the $99 pricing to FREE')">💸 Change the $99 pricing to FREE</button>
