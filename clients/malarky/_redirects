@@ -20,3 +20,26 @@
 # Brief #13 — corporate page rename to executive (force flag so 301 wins over old file)
 /corporate-yacht-charter-san-diego/  /executive-yacht-charter-san-diego/  301!
 /corporate-yacht-charter-san-diego   /executive-yacht-charter-san-diego/  301!
+
+# Migration: WordPress legacy URLs
+# Old WP site used /wp-content/uploads/... for all images. Those URLs no longer
+# exist on the new static site. 410 = "Gone forever, deindex it." Cleaner SEO
+# signal to Google than letting them 404 indefinitely.
+/wp-content/*       /  410
+/wp-admin/*         /  410
+/wp-login.php       /  410
+/xmlrpc.php         /  410
+/wp-json/*          /  410
+/feed/              /  410
+/feed               /  410
+
+# WP homepage variants
+/index.php          /                                          301
+/home/              /                                          301
+/home               /                                          301
+
+# Old WP page slugs that may have been indexed
+/yacht-rental/      /yacht-rental-san-diego/                   301
+/yacht-rental       /yacht-rental-san-diego/                   301
+/private-charter/   /private-yacht-charter-san-diego/          301
+/private-charter    /private-yacht-charter-san-diego/          301

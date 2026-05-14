@@ -92,6 +92,26 @@
   ]
 }
 </script>
+<!-- TRACKING:START -->
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2V6LJXPSGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2V6LJXPSGY');
+</script>
+<!-- Meta (Facebook) Pixel — preserves ad attribution from previous WP site -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1341176882596057'); fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1341176882596057&ev=PageView&noscript=1"/></noscript>
+<!-- TRACKING:END -->
 </head>
 <body>
 <!-- NAV:START -->
@@ -166,6 +186,7 @@
     <a href="https://fareharbor.com/embeds/book/missionbaysportcenter/?full-items=yes&flow=1294652" class="btn-book" rel="noopener" style="margin-top:8px;display:inline-block;">Book Now</a>
   </nav>
 </nav>
+<main>
 <!-- NAV:END -->
 
 
@@ -396,6 +417,7 @@
   <a href="https://fareharbor.com/embeds/book/missionbaysportcenter/?full-items=yes&flow=1294652" class="btn-primary" rel="noopener">Reserve Your Private Charter &rarr;</a>
   <p style="margin-top:var(--s-5);font-size:14px;color:rgba(247,241,227,0.7);">Or call us directly at <a href="tel:+18447245787" style="color:var(--brass);border-bottom:1px solid var(--brass);">(844) 724-5787</a> &mdash; we usually respond within an hour during business hours.</p>
 </section>
+</main>
 <!-- FOOTER:START -->
 <footer>
   <div class="foot-grid">
@@ -451,5 +473,9 @@
 </footer>
 <!-- FOOTER:END -->
 <script src="../js/main.js"></script>
+<!-- FAREHARBOR-LIGHTFRAME:START -->
+<!-- FareHarbor Lightframe API — required for booking overlay -->
+<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+<!-- FAREHARBOR-LIGHTFRAME:END -->
 </body>
 </html>
