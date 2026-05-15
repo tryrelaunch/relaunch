@@ -143,6 +143,13 @@
   --line:     #e6dec8;
   --brass:    #c9a96a;
 
+  /* ── Boatr brand (for Boatr-owned surfaces only: banner, claim bar, edit widget) ── */
+  --b-dark:    #0F172A;
+  --b-dark-2:  #1E293B;
+  --b-orange:  #FE8D01;
+  --b-orange-d:#EA7C00;
+  --b-orange-l:#FFF7ED;
+
   --fh: 'Archivo', sans-serif;
   --fb: 'Manrope', sans-serif;
   --fs: 'Caveat', cursive;
@@ -153,41 +160,51 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; height: auto; }
 button, input, textarea { font-family: inherit; font-size: 16px; }
 
-/* ── SEO BANNER ─────────────────────── */
-.seo-banner { background: var(--navy); border-bottom: 2px solid var(--aqua); }
+/* ── BOATR SEO BANNER (Boatr-branded surface, NOT the page brand) ─────────────────────── */
+.seo-banner { background: var(--b-dark); border-bottom: 2px solid var(--b-orange); }
 .seo-top {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 24px; cursor: pointer; gap: 14px; flex-wrap: wrap;
+  padding: 12px 24px; cursor: pointer; gap: 14px; flex-wrap: wrap;
   max-width: 1280px; margin: 0 auto;
 }
+.boatr-mark {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--fh); font-size: 15px; font-weight: 900;
+  color: #fff; letter-spacing: -0.02em; line-height: 1;
+}
+.boatr-mark::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--b-orange); display: inline-block;
+}
 .seo-badge {
-  background: var(--aqua); color: var(--navy);
-  font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 5px 11px; border-radius: 3px; white-space: nowrap;
+  background: var(--b-orange-l); color: var(--b-orange-d);
+  font-family: var(--fh); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 3px; white-space: nowrap;
+  border: 1px solid rgba(254,141,1,0.35);
 }
 .seo-text { font-family: var(--fb); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); }
-.seo-text span { color: var(--aqua-lt); font-weight: 700; }
+.seo-text span { color: var(--b-orange); font-weight: 700; }
 .seo-toggle {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
-  color: rgba(255,255,255,0.85); padding: 6px 14px; border-radius: 4px;
-  font-family: var(--fb); font-size: 12px; font-weight: 600;
-  cursor: pointer; white-space: nowrap; transition: all 0.2s;
+  background: var(--b-orange); border: 1px solid var(--b-orange);
+  color: #fff; padding: 7px 16px; border-radius: 6px;
+  font-family: var(--fh); font-size: 12px; font-weight: 800;
+  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
 }
-.seo-toggle:hover { background: rgba(255,255,255,0.16); color: white; }
-.seo-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.seo-toggle:hover { background: var(--b-orange-d); border-color: var(--b-orange-d); }
+.seo-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: var(--b-dark-2); }
 .seo-panel.open { max-height: 1400px; overflow-y: auto; }
-.seo-panel-inner { padding: 28px 24px 32px; max-width: 1100px; margin: 0 auto; }
+.seo-panel-inner { padding: 32px 24px 36px; max-width: 1100px; margin: 0 auto; }
 .seo-greeting {
   font-family: var(--fb); font-size: 19px; line-height: 1.5;
   color: rgba(255,255,255,0.95); margin-bottom: 6px; max-width: 720px; font-weight: 500;
 }
-.seo-greeting strong { color: var(--aqua-lt); font-weight: 700; }
+.seo-greeting strong { color: var(--b-orange); font-weight: 700; }
 .seo-greeting-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
 .seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .seo-col-title {
   font-family: var(--fh); font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--aqua-lt); margin-bottom: 14px; font-weight: 800;
+  text-transform: uppercase; color: var(--b-orange); margin-bottom: 14px; font-weight: 800;
 }
 .seo-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; }
 .seo-ico {
@@ -196,17 +213,83 @@ button, input, textarea { font-family: inherit; font-size: 16px; }
   font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
 }
 .seo-ico.x { background: rgba(239,68,68,0.18); color: #f97171; }
-.seo-ico.c { background: rgba(45,212,191,0.22); color: var(--aqua-lt); }
-.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.seo-ico.c { background: rgba(254,141,1,0.22); color: var(--b-orange); }
+.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55; }
 .seo-row-text strong { color: white; font-weight: 700; }
 .seo-cta-row {
-  margin-top: 24px;
-  background: rgba(45,212,191,0.12); border: 1px solid rgba(45,212,191,0.35);
-  border-radius: 8px; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-top: 28px;
+  background: linear-gradient(135deg, var(--b-orange) 0%, var(--b-orange-d) 100%);
+  border-radius: 10px; padding: 22px 26px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+  box-shadow: 0 14px 40px -16px rgba(254,141,1,0.45);
 }
-.seo-cta-row-text { color: white; font-size: 14px; }
-.seo-cta-row-text strong { color: var(--aqua-lt); }
+.seo-cta-row-text { color: #fff; font-size: 15px; font-weight: 600; line-height: 1.45; max-width: 540px; }
+.seo-cta-row-text strong { color: #fff; font-weight: 800; }
+.seo-cta-price {
+  font-family: var(--fh); font-size: 22px; font-weight: 900;
+  color: #fff; letter-spacing: -0.01em;
+}
+.seo-cta-btn {
+  background: #fff; color: var(--b-orange-d) !important;
+  padding: 13px 22px; border-radius: 7px;
+  font-family: var(--fh); font-size: 13px; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: all 0.2s; white-space: nowrap;
+}
+.seo-cta-btn:hover { background: var(--b-dark); color: #fff !important; }
+
+/* ── ABOUT BOATR block (inside expanded banner) ─────── */
+.ab-block {
+  margin: 0 0 32px;
+  padding: 28px 28px 26px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  position: relative;
+}
+.ab-block::before {
+  content: ''; position: absolute; left: 0; top: 22px; bottom: 22px;
+  width: 3px; background: var(--b-orange); border-radius: 0 3px 3px 0;
+}
+.ab-eyebrow {
+  font-family: var(--fh); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--b-orange); margin-bottom: 10px;
+}
+.ab-title {
+  font-family: var(--fh); font-weight: 800; font-size: 22px;
+  color: #fff; margin-bottom: 6px; letter-spacing: -0.01em;
+}
+.ab-title strong { color: var(--b-orange); font-weight: 900; }
+.ab-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  margin: 20px 0 22px;
+  padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ab-stat-num {
+  font-family: var(--fh); font-weight: 900; font-size: 26px;
+  color: var(--b-orange); line-height: 1; letter-spacing: -0.02em;
+}
+.ab-stat-lbl {
+  font-family: var(--fh); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-top: 6px; line-height: 1.4;
+}
+.ab-bio {
+  font-family: var(--fb); font-size: 14px; line-height: 1.6;
+  color: rgba(255,255,255,0.78); margin-bottom: 14px;
+}
+.ab-creds { list-style: none; margin: 0; padding: 0; }
+.ab-creds li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 5px 0; font-size: 13px; color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+}
+.ab-creds li::before {
+  content: '→'; color: var(--b-orange); font-weight: 900; flex-shrink: 0;
+}
+.ab-creds li strong { color: #fff; font-weight: 700; }
 
 /* ── NAV ─────────────────────── */
 nav {
@@ -558,50 +641,53 @@ footer {
   font-size: 12px; color: rgba(255,255,255,0.4);
 }
 
-/* ── STICKY CLAIM BAR ─────────────────────── */
+/* ── BOATR STICKY CLAIM BAR (Boatr-owned surface) ─────────────────────── */
 .sticky-bar {
   position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
-  z-index: 99; background: var(--aqua); color: var(--navy);
-  padding: 14px 22px; border-radius: 8px;
-  display: flex; align-items: center; gap: 18px;
-  box-shadow: 0 18px 50px -10px rgba(45,212,191,0.55);
+  z-index: 99; background: var(--b-dark); color: #fff;
+  padding: 14px 18px 14px 22px; border-radius: 10px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 22px 60px -16px rgba(0,0,0,0.55);
+  border: 1px solid rgba(254,141,1,0.35);
   transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
   max-width: calc(100% - 32px);
 }
 .sticky-bar.show { transform: translate(-50%, 0); }
+.sticky-bar .boatr-mark { font-size: 13px; }
 .sticky-txt {
-  font-family: var(--fh); font-size: 14px; font-weight: 800;
-  letter-spacing: 0.02em; color: var(--navy); white-space: nowrap;
+  font-family: var(--fh); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.02em; color: rgba(255,255,255,0.92); white-space: nowrap;
 }
-.sticky-txt span { color: var(--navy-2); font-weight: 600; }
+.sticky-txt span { color: var(--b-orange); font-weight: 800; }
 .sticky-btn {
-  background: var(--navy); color: var(--aqua-lt) !important;
-  padding: 10px 18px; border-radius: 5px;
-  font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; transition: background 0.2s; white-space: nowrap;
+  background: var(--b-orange); color: #fff !important;
+  padding: 10px 18px; border-radius: 6px;
+  font-family: var(--fh); font-size: 13px; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: background 0.2s; white-space: nowrap;
 }
-.sticky-btn:hover { background: var(--navy-2); }
+.sticky-btn:hover { background: var(--b-orange-d); }
 .sticky-close {
-  background: rgba(0,0,0,0.1); border: none; color: var(--navy);
+  background: rgba(255,255,255,0.08); border: none; color: rgba(255,255,255,0.7);
   width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
   font-size: 18px; line-height: 1; flex-shrink: 0;
 }
-.sticky-close:hover { background: rgba(0,0,0,0.2); }
+.sticky-close:hover { background: rgba(255,255,255,0.16); color: #fff; }
 
-/* ── EDIT WIDGET ─────────────────────── */
+/* ── BOATR EDIT WIDGET (Boatr-owned surface) ─────────────────────── */
 .edit-fab {
   position: fixed; bottom: 24px; right: 24px; z-index: 998;
-  background: var(--navy); color: white;
+  background: var(--b-dark); color: white;
   padding: 12px 18px; border-radius: 999px;
   display: flex; align-items: center; gap: 10px;
   font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; border: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  letter-spacing: 0.04em; cursor: pointer; border: 1px solid rgba(254,141,1,0.45);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.32);
   transition: all 0.25s;
 }
-.edit-fab:hover { background: var(--navy-2); transform: translateY(-2px); }
+.edit-fab:hover { background: var(--b-dark-2); transform: translateY(-2px); border-color: var(--b-orange); }
 .edit-fab-dot {
-  width: 8px; height: 8px; background: var(--aqua); border-radius: 50%;
+  width: 8px; height: 8px; background: var(--b-orange); border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
@@ -612,10 +698,10 @@ footer {
   position: fixed; bottom: 86px; right: 24px; z-index: 999;
   width: min(380px, calc(100vw - 48px));
   max-height: 70vh;
-  background: var(--navy); color: white;
-  border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  background: var(--b-dark); color: white;
+  border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,0.5);
   display: none; flex-direction: column; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(254,141,1,0.32);
 }
 .edit-panel.open { display: flex; }
 .edit-panel-header {
@@ -636,13 +722,13 @@ footer {
   display: flex; flex-direction: column; gap: 10px;
 }
 .edit-msg { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.4; max-width: 86%; }
-.edit-msg.user { background: var(--aqua); color: var(--navy); align-self: flex-end; border-bottom-right-radius: 3px; font-weight: 600; }
+.edit-msg.user { background: var(--b-orange); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; font-weight: 600; }
 .edit-msg.claude { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); align-self: flex-start; border-bottom-left-radius: 3px; }
-.edit-msg.system { background: rgba(45,212,191,0.18); color: var(--aqua-lt); align-self: flex-start; border-bottom-left-radius: 3px; font-size: 13px; }
+.edit-msg.system { background: rgba(254,141,1,0.18); color: var(--b-orange); align-self: flex-start; border-bottom-left-radius: 3px; font-size: 13px; }
 .edit-msg.error { background: rgba(239,68,68,0.18); color: #f97171; align-self: flex-start; border-bottom-left-radius: 3px; }
 .edit-typing { padding: 8px 16px; display: none; gap: 4px; }
 .edit-typing.show { display: flex; }
-.edit-typing span { width: 6px; height: 6px; background: var(--aqua-lt); border-radius: 50%; animation: bounce 1.4s ease-in-out infinite; }
+.edit-typing span { width: 6px; height: 6px; background: var(--b-orange); border-radius: 50%; animation: bounce 1.4s ease-in-out infinite; }
 .edit-typing span:nth-child(2) { animation-delay: 0.15s; }
 .edit-typing span:nth-child(3) { animation-delay: 0.3s; }
 @keyframes bounce {
@@ -655,7 +741,7 @@ footer {
   color: rgba(255,255,255,0.6); border-radius: 16px;
   padding: 5px 11px; font-size: 11px; cursor: pointer; transition: all 0.2s;
 }
-.edit-chip:hover { background: rgba(45,212,191,0.18); color: var(--aqua-lt); border-color: var(--aqua); }
+.edit-chip:hover { background: rgba(254,141,1,0.18); color: var(--b-orange); border-color: var(--b-orange); }
 .edit-input-row { padding: 12px 14px 14px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; align-items: flex-end; }
 .edit-input {
   flex: 1; background: rgba(255,255,255,0.04);
@@ -665,14 +751,14 @@ footer {
   min-height: 40px; max-height: 100px; line-height: 1.4;
 }
 .edit-input::placeholder { color: rgba(255,255,255,0.3); }
-.edit-input:focus { border-color: var(--aqua); }
+.edit-input:focus { border-color: var(--b-orange); }
 .edit-send {
-  background: var(--aqua); color: var(--navy); border: none;
+  background: var(--b-orange); color: #fff; border: none;
   border-radius: 8px; width: 40px; height: 40px;
   cursor: pointer; font-size: 16px; flex-shrink: 0;
   font-weight: 900; transition: background 0.2s;
 }
-.edit-send:hover { background: var(--aqua-lt); }
+.edit-send:hover { background: var(--b-orange-d); }
 .edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
 
 /* ── RESPONSIVE ─────────────────────── */
@@ -696,6 +782,10 @@ footer {
   .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .seo-grid { grid-template-columns: 1fr; gap: 20px; }
   .seo-greeting { font-size: 17px; }
+  .ab-block { padding: 22px 22px 22px 26px; }
+  .ab-title { font-size: 19px; }
+  .ab-stats { grid-template-columns: 1fr; gap: 14px; padding: 16px 0; }
+  .ab-stat-num { font-size: 22px; }
   .sticky-bar { display: none; }
   .edit-panel { right: 12px; left: 12px; width: auto; }
 }
@@ -710,20 +800,48 @@ footer {
 <body>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  SEO IMPROVEMENTS BANNER                ║ -->
+<!-- ║  BOATR PREVIEW BANNER (Boatr-branded)   ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<div class="seo-banner">
+<div class="seo-banner" role="region" aria-label="Boatr preview information">
   <div class="seo-top" onclick="toggleSEO()">
-    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-      <span class="seo-badge">Boatr Preview</span>
-      <span class="seo-text">I rebuilt <span>redondogbb.com</span> — what changed inside →</span>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span class="boatr-mark">Boatr</span>
+      <span class="seo-badge">Free Preview</span>
+      <span class="seo-text">I rebuilt <span>redondogbb.com</span> — see what's different →</span>
     </div>
     <button class="seo-toggle" id="seo-btn">Read this first ▼</button>
   </div>
   <div class="seo-panel" id="seo-panel">
     <div class="seo-panel-inner">
       <p class="seo-greeting">Hey Captain Jake — <strong>this is a no-cost preview</strong> of redondogbb.com rebuilt from scratch. Same content, same FareHarbor, same URLs. Fixed: the things below.</p>
-      <p class="seo-greeting-sub">— Nate Sinisgalli, CMO of Triton Charters / Malarky / Athena · Boatr</p>
+      <p class="seo-greeting-sub">— Nate Sinisgalli · CMO of Triton, Malarky, Alana, Athena · Founder of Boatr</p>
+
+      <!-- About Boatr / Meet Nate -->
+      <div class="ab-block">
+        <div class="ab-eyebrow">About Boatr</div>
+        <div class="ab-title">Meet Nate, the founder of <strong>Boatr</strong>.</div>
+        <div class="ab-stats">
+          <div>
+            <div class="ab-stat-num">$6M+/yr</div>
+            <div class="ab-stat-lbl">Boat tourism scaled, San Diego portfolio</div>
+          </div>
+          <div>
+            <div class="ab-stat-num">$500K+</div>
+            <div class="ab-stat-lbl">Single-brand Black Friday · featured in news</div>
+          </div>
+          <div>
+            <div class="ab-stat-num">10 yrs</div>
+            <div class="ab-stat-lbl">In the water-tourism space</div>
+          </div>
+        </div>
+        <p class="ab-bio">Nate has scaled boat-tourism businesses from $0 to over $6M/year in San Diego, was featured in news articles for driving over $500,000 in sales on Black Friday for a single brand, and has spent 10 years inside the water-tourism space.</p>
+        <ul class="ab-creds">
+          <li><span><strong>Former VP, Jetpack America</strong> (acquired by FlyDive)</span></li>
+          <li><span><strong>CMO, Triton Charters</strong> — plus Malarky, Alana, and Athena Boat Rental</span></li>
+          <li><span><strong>Adviser to a dozen+ tourism brands</strong> at $1M+/year</span></li>
+        </ul>
+      </div>
+
       <div class="seo-grid">
         <div>
           <div class="seo-col-title">What I fixed</div>
@@ -745,8 +863,11 @@ footer {
         </div>
       </div>
       <div class="seo-cta-row">
-        <div class="seo-cta-row-text">Like what you see? Click the <strong>Edit this site</strong> button (bottom right) to change anything by typing.</div>
-        <a href="#book" class="btn-primary" style="font-size:12px;padding:11px 22px;">Skip to Book →</a>
+        <div>
+          <div class="seo-cta-row-text"><strong>Make this redondogbb.com.</strong> I'll move your domain over and you're live in 24 hours. $99/month — hosting, edits, my eyes on the funnel. Cancel anytime.</div>
+          <div class="seo-cta-price" style="margin-top:8px;">$99/mo · No setup fee for the preview · No contract</div>
+        </div>
+        <a href="https://boatrmarketing.com/#pricing" class="seo-cta-btn" rel="noopener" target="_blank">Make this my site →</a>
       </div>
     </div>
   </div>
@@ -1067,11 +1188,12 @@ footer {
 </footer>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  STICKY CLAIM BAR                        ║ -->
+<!-- ║  BOATR STICKY CLAIM BAR                  ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<div class="sticky-bar" id="sticky-bar">
-  <div class="sticky-txt">Like this? <span>Swap it in for redondogbb.com.</span></div>
-  <a href="https://boatrmarketing.com/#pricing" class="sticky-btn">Make this my site — $99/mo →</a>
+<div class="sticky-bar" id="sticky-bar" role="region" aria-label="Boatr offer">
+  <span class="boatr-mark">Boatr</span>
+  <div class="sticky-txt">Like this? <span>$99/mo</span> — I move your domain over.</div>
+  <a href="https://boatrmarketing.com/#pricing" class="sticky-btn" rel="noopener" target="_blank">Make this my site →</a>
   <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
 </div>
 
@@ -1085,7 +1207,7 @@ footer {
 
 <div class="edit-panel" id="edit-panel">
   <div class="edit-panel-header">
-    <div class="edit-panel-title">✏️ Edit your site</div>
+    <div class="edit-panel-title"><span class="boatr-mark">Boatr</span> <span style="opacity:0.55;font-weight:500;">· Edit your site</span></div>
     <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
   </div>
   <div class="edit-messages" id="edit-messages">
