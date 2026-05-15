@@ -11,7 +11,7 @@
 
 <meta property="og:title" content="Glass Bottom Boat LLC Redondo Beach – Explore Underwater Life">
 <meta property="og:description" content="Sightseeing tour in King Harbor, Redondo Beach. Wildlife Guarantee. USCG-inspected vessel. Family-owned since 1995.">
-<meta property="og:image" content="https://tryrelaunch.com/previews/redondo-glass-bottom-boat/images/hero.jpg">
+<meta property="og:image" content="https://boatrmarketing.com/previews/redondo-glass-bottom-boat/images/hero.jpg">
 <meta property="og:url" content="https://redondogbb.com/">
 <meta property="og:type" content="website">
 
@@ -26,7 +26,7 @@
   "url": "https://redondogbb.com/",
   "telephone": "+1-310-775-2733",
   "email": "redondogbb@gmail.com",
-  "image": "https://tryrelaunch.com/previews/redondo-glass-bottom-boat/images/hero.jpg",
+  "image": "https://boatrmarketing.com/previews/redondo-glass-bottom-boat/images/hero.jpg",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -64,7 +64,7 @@
   "@type": "Product",
   "name": "Glass Bottom Boat Ride — Redondo Beach",
   "description": "45-minute glass bottom boat tour in King Harbor with underwater viewing chamber and California Sea Lions on the top deck. Wildlife Guarantee — money back if no marine life seen.",
-  "image": "https://tryrelaunch.com/previews/redondo-glass-bottom-boat/images/hero.jpg",
+  "image": "https://boatrmarketing.com/previews/redondo-glass-bottom-boat/images/hero.jpg",
   "brand": { "@type": "Brand", "name": "Glass Bottom Boat LLC Redondo Beach" },
   "category": "Sightseeing Boat Tour",
   "offers": {
@@ -1183,168 +1183,4 @@ footer {
       <h4>Follow</h4>
       <a href="https://www.instagram.com/redondogbb" rel="noopener" target="_blank">Instagram</a>
       <a href="https://www.facebook.com/redondogbb" rel="noopener" target="_blank">Facebook</a>
-      <a href="https://www.tiktok.com/@redondogbb" rel="noopener" target="_blank">TikTok</a>
-      <a href="https://www.yelp.com/biz/glass-bottom-boat-redondo-beach" rel="noopener" target="_blank">Yelp</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 Glass Bottom Boat LLC Redondo Beach · All rights reserved.</div>
-    <div>This is a preview rebuild by <a href="https://boatrmarketing.com" rel="noopener" style="color:rgba(255,255,255,0.7);">Boatr</a> — not affiliated with this business.</div>
-  </div>
-</footer>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  BOATR STICKY CLAIM BAR                  ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<div class="sticky-bar" id="sticky-bar" role="region" aria-label="Boatr offer">
-  <span class="boatr-mark">Boatr</span>
-  <div class="sticky-txt">Like this? <span>$99/mo</span> — I move your domain over.</div>
-  <a href="https://boatrmarketing.com/#pricing" class="sticky-btn" rel="noopener" target="_blank">Make this my site →</a>
-  <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
-</div>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  EDIT WIDGET                             ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
-  <div class="edit-fab-dot"></div>
-  Edit this site
-</button>
-
-<div class="edit-panel" id="edit-panel">
-  <div class="edit-panel-header">
-    <div class="edit-panel-title"><span class="boatr-mark">Boatr</span> <span style="opacity:0.55;font-weight:500;">· Edit your site</span></div>
-    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
-  </div>
-  <div class="edit-messages" id="edit-messages">
-    <div class="edit-msg claude">Hey Captain Jake — type what you'd like to change. Prices, hours, the captain bio, phone number, anything. Updating existing copy works great; adding brand-new sections isn't supported yet.</div>
-  </div>
-  <div class="edit-typing" id="edit-typing">
-    <span></span><span></span><span></span>
-  </div>
-  <div class="edit-suggestions" id="edit-suggestions">
-    <div class="edit-chip" onclick="useChip(this)">Change adult price to $35</div>
-    <div class="edit-chip" onclick="useChip(this)">Update the captain bio</div>
-    <div class="edit-chip" onclick="useChip(this)">Add a Sunday-only discount</div>
-    <div class="edit-chip" onclick="useChip(this)">Change phone number</div>
-  </div>
-  <div class="edit-input-row">
-    <textarea class="edit-input" id="edit-input" placeholder="What would you like to change?" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
-  </div>
-</div>
-
-<!-- FareHarbor Lightframe API -->
-<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes" async></script>
-
-<script>
-// ── SEO panel ──
-function toggleSEO() {
-  const p = document.getElementById('seo-panel');
-  const b = document.getElementById('seo-btn');
-  p.classList.toggle('open');
-  b.textContent = p.classList.contains('open') ? 'Close ▲' : 'Read this first ▼';
-}
-
-// ── Sticky claim bar ──
-const bar = document.getElementById('sticky-bar');
-let barClosed = false;
-window.addEventListener('scroll', () => {
-  if (barClosed) return;
-  bar.classList.toggle('show', window.scrollY > 600);
-});
-function closeBar() { barClosed = true; bar.classList.remove('show'); }
-
-// ── Edit widget ──
-let isLoading = false;
-function toggleEditPanel() {
-  const panel = document.getElementById('edit-panel');
-  panel.classList.toggle('open');
-  if (panel.classList.contains('open')) {
-    setTimeout(() => document.getElementById('edit-input').focus(), 100);
-  }
-}
-function useChip(el) {
-  const input = document.getElementById('edit-input');
-  input.value = el.textContent;
-  input.focus();
-  autoResize(input);
-}
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-}
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendEdit();
-  }
-}
-function addMessage(text, type) {
-  const messages = document.getElementById('edit-messages');
-  const msg = document.createElement('div');
-  msg.className = `edit-msg ${type}`;
-  msg.textContent = text;
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
-  return msg;
-}
-async function sendEdit() {
-  if (isLoading) return;
-  const input = document.getElementById('edit-input');
-  const request = input.value.trim();
-  if (!request) return;
-
-  input.value = '';
-  autoResize(input);
-  document.getElementById('edit-suggestions').style.display = 'none';
-  addMessage(request, 'user');
-
-  isLoading = true;
-  document.getElementById('edit-send').disabled = true;
-  document.getElementById('edit-typing').classList.add('show');
-
-  const content = {};
-  document.querySelectorAll('[id^="edit-"]').forEach(el => {
-    content[el.id] = el.textContent.trim();
-  });
-
-  try {
-    const response = await fetch('/.netlify/functions/edit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ request, content })
-    });
-
-    document.getElementById('edit-typing').classList.remove('show');
-
-    if (!response.ok) {
-      addMessage('Something went wrong. Try again.', 'error');
-      isLoading = false;
-      document.getElementById('edit-send').disabled = false;
-      return;
-    }
-
-    const data = await response.json();
-
-    if (data.changes && data.changes.length > 0) {
-      data.changes.forEach(change => {
-        const el = document.getElementById(change.id);
-        if (el) el.textContent = change.text;
-      });
-      addMessage(data.confirmation || 'Done! Change applied.', 'system');
-    } else {
-      addMessage("I couldn't find what to change. Try being more specific.", 'claude');
-    }
-  } catch (err) {
-    document.getElementById('edit-typing').classList.remove('show');
-    addMessage("Couldn't connect. Check your internet and try again.", 'error');
-  }
-
-  isLoading = false;
-  document.getElementById('edit-send').disabled = false;
-}
-</script>
-
-</body>
-</html>
+      <a href="https://www.tiktok.com/@redondogbb" rel="noopen
