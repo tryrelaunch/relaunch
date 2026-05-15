@@ -192,8 +192,8 @@ button, input, textarea { font-family: inherit; font-size: 16px; }
   letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
 }
 .seo-toggle:hover { background: var(--b-orange-d); border-color: var(--b-orange-d); }
-.seo-panel { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; background: var(--b-dark-2); }
-.seo-panel.open { max-height: 1400px; overflow-y: auto; }
+.seo-panel { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(.2,.8,.2,1); background: var(--b-dark-2); }
+.seo-panel.open { max-height: 6000px; overflow: visible; }
 .seo-panel-inner { padding: 32px 24px 36px; max-width: 1100px; margin: 0 auto; }
 .seo-greeting {
   font-family: var(--fb); font-size: 19px; line-height: 1.5;
@@ -1259,8 +1259,16 @@ footer {
 function toggleSEO() {
   const p = document.getElementById('seo-panel');
   const b = document.getElementById('seo-btn');
+  const opened = !p.classList.contains('open');
   p.classList.toggle('open');
-  b.textContent = p.classList.contains('open') ? 'Close ▲' : 'Read this first ▼';
+  b.textContent = opened ? 'Close ▲' : 'Read this first ▼';
+  if (opened) {
+    // Wait for the height transition to finish, then scroll the panel content into view
+    setTimeout(() => {
+      const banner = document.querySelector('.seo-banner');
+      if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
 }
 
 // ── Sticky claim bar ──
