@@ -238,6 +238,29 @@ button, input, textarea { font-family: inherit; font-size: 16px; }
 }
 .seo-cta-btn:hover { background: var(--b-dark); color: #fff !important; }
 
+.seo-close-bottom {
+  margin-top: 26px; padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.seo-close-bottom button {
+  background: transparent; border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.78);
+  padding: 11px 24px; border-radius: 6px;
+  font-family: var(--fh); font-size: 12px; font-weight: 800;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+}
+.seo-close-bottom button:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.34);
+  color: #fff;
+}
+.seo-close-hint {
+  display: block; margin-top: 10px;
+  font-size: 12px; color: rgba(255,255,255,0.4);
+}
+
 /* ── ABOUT BOATR block (inside expanded banner) ─────── */
 .ab-block {
   margin: 0 0 32px;
@@ -887,6 +910,10 @@ footer {
         </div>
         <a href="https://boatrmarketing.com/#pricing" class="seo-cta-btn" rel="noopener" target="_blank">Make this my site →</a>
       </div>
+      <div class="seo-close-bottom">
+        <button type="button" onclick="closeSEO()">Close ▲</button>
+        <span class="seo-close-hint">Or scroll down to explore the rebuilt site</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1258,17 +1285,28 @@ footer {
 // ── SEO panel ──
 function toggleSEO() {
   const p = document.getElementById('seo-panel');
+  if (p.classList.contains('open')) closeSEO();
+  else openSEO();
+}
+function openSEO() {
+  const p = document.getElementById('seo-panel');
   const b = document.getElementById('seo-btn');
-  const opened = !p.classList.contains('open');
-  p.classList.toggle('open');
-  b.textContent = opened ? 'Close ▲' : 'Read this first ▼';
-  if (opened) {
-    // Wait for the height transition to finish, then scroll the panel content into view
-    setTimeout(() => {
-      const banner = document.querySelector('.seo-banner');
-      if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
-  }
+  p.classList.add('open');
+  b.textContent = 'Close ▲';
+  setTimeout(() => {
+    const banner = document.querySelector('.seo-banner');
+    if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
+function closeSEO() {
+  const p = document.getElementById('seo-panel');
+  const b = document.getElementById('seo-btn');
+  p.classList.remove('open');
+  b.textContent = 'Read this first ▼';
+  // Send the user to the top so they land at the hero of the rebuilt site
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 50);
 }
 
 // ── Sticky claim bar ──
