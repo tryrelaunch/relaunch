@@ -303,13 +303,11 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 32px; max-width: 100%;
 }
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand-mark {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--navy); color: var(--aqua);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--fh); font-weight: 900; font-size: 18px;
-  border: 2px solid var(--brass);
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand:hover .brand-name { color: var(--aqua-dk); }
+.brand-logo {
+  width: 52px; height: 52px; flex-shrink: 0;
+  display: block; object-fit: contain;
 }
 .brand-name {
   font-family: var(--fh); font-weight: 800; font-size: 16px;
@@ -490,16 +488,29 @@ nav {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 40px;
 }
 .price-card {
+  display: block; text-decoration: none; color: inherit;
   background: var(--cream); border: 1px solid var(--line);
-  border-radius: 6px; padding: 24px 18px; text-align: center;
-  transition: all 0.25s;
+  border-radius: 6px; padding: 24px 18px 26px; text-align: center;
+  transition: all 0.25s; cursor: pointer; position: relative;
 }
 .price-card.featured {
   background: var(--navy); border-color: var(--navy); color: white;
   transform: scale(1.04);
 }
-.price-card:hover { transform: translateY(-4px); border-color: var(--aqua); box-shadow: 0 18px 40px -16px rgba(10,37,64,0.18); }
-.price-card.featured:hover { transform: translateY(-4px) scale(1.04); }
+.price-card:hover { transform: translateY(-4px); border-color: var(--aqua); box-shadow: 0 22px 44px -16px rgba(10,37,64,0.22); }
+.price-card.featured:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 28px 50px -16px rgba(10,37,64,0.4); }
+.price-card:focus-visible { outline: 2px solid var(--aqua-dk); outline-offset: 3px; }
+.pc-book {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--aqua-dk);
+  transition: color 0.2s;
+}
+.price-card:hover .pc-book { color: var(--navy); }
+.price-card.featured .pc-book { color: var(--aqua-lt); border-top-color: rgba(255,255,255,0.14); }
+.price-card.featured:hover .pc-book { color: #fff; }
 .pc-name {
   font-family: var(--fh); font-weight: 800; font-size: 13px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy);
@@ -769,6 +780,7 @@ footer {
 @media (max-width: 980px) {
   nav { padding: 12px 18px; }
   .nav-links { display: none; }
+  .brand-logo { width: 42px; height: 42px; }
   .brand-name { font-size: 14px; }
   .brand-name small { font-size: 10px; }
   .btn-book { padding: 9px 14px; font-size: 12px; }
@@ -883,10 +895,10 @@ footer {
 <!-- ║  NAV                                     ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <nav>
-  <div class="brand">
-    <div class="brand-mark">GB</div>
+  <a href="#top" class="brand" aria-label="Glass Bottom Boat Redondo Beach — back to top">
+    <img src="images/logo.png" alt="Redondo Beach Glass Bottom Boat" class="brand-logo" width="52" height="52" loading="eager">
     <div class="brand-name" id="edit-brand-name">Glass Bottom Boat<small>Redondo Beach</small></div>
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#tour">The Tour</a>
     <a href="#gallery">Gallery</a>
@@ -1039,31 +1051,36 @@ footer {
     <h2 class="sec-title" id="edit-pricing-title">$13 to $33. 45 minutes. No hidden fees.</h2>
     <p class="sec-lede" id="edit-pricing-lede">Simple per-person pricing on every tour. Active military and seniors save automatically at checkout.</p>
     <div class="price-grid">
-      <div class="price-card">
+      <a class="price-card" href="https://fareharbor.com/embeds/book/redondogbb/?full-items=yes" rel="noopener" aria-label="Book a children's ticket — $13, ages 12 and under">
         <div class="pc-name" id="edit-price-1-name">Children</div>
         <div class="pc-price">$<span id="edit-price-1-amount">13</span></div>
         <div class="pc-age" id="edit-price-1-age">Ages 12 & under</div>
-      </div>
-      <div class="price-card">
+        <div class="pc-book">Book →</div>
+      </a>
+      <a class="price-card" href="https://fareharbor.com/embeds/book/redondogbb/?full-items=yes" rel="noopener" aria-label="Book a teen ticket — $23, ages 13 to 17">
         <div class="pc-name" id="edit-price-2-name">Teens</div>
         <div class="pc-price">$<span id="edit-price-2-amount">23</span></div>
         <div class="pc-age" id="edit-price-2-age">Ages 13–17</div>
-      </div>
-      <div class="price-card featured">
+        <div class="pc-book">Book →</div>
+      </a>
+      <a class="price-card featured" href="https://fareharbor.com/embeds/book/redondogbb/?full-items=yes" rel="noopener" aria-label="Book an adult ticket — $33, ages 18 to 64">
         <div class="pc-name" id="edit-price-3-name">Adults</div>
         <div class="pc-price">$<span id="edit-price-3-amount">33</span></div>
         <div class="pc-age" id="edit-price-3-age">Ages 18–64</div>
-      </div>
-      <div class="price-card">
+        <div class="pc-book">Book →</div>
+      </a>
+      <a class="price-card" href="https://fareharbor.com/embeds/book/redondogbb/?full-items=yes" rel="noopener" aria-label="Book a military ticket — $23, active and VFW">
         <div class="pc-name" id="edit-price-4-name">Military</div>
         <div class="pc-price">$<span id="edit-price-4-amount">23</span></div>
         <div class="pc-age" id="edit-price-4-age">Active & VFW</div>
-      </div>
-      <div class="price-card">
+        <div class="pc-book">Book →</div>
+      </a>
+      <a class="price-card" href="https://fareharbor.com/embeds/book/redondogbb/?full-items=yes" rel="noopener" aria-label="Book a senior ticket — $23, ages 65 and up">
         <div class="pc-name" id="edit-price-5-name">Seniors</div>
         <div class="pc-price">$<span id="edit-price-5-amount">23</span></div>
         <div class="pc-age" id="edit-price-5-age">Ages 65+</div>
-      </div>
+        <div class="pc-book">Book →</div>
+      </a>
     </div>
     <div class="price-note">
       <strong>Wildlife Guarantee:</strong> if we don't see at least one of: California Sea Lions, Garibaldi (CA State Saltwater Fish), Calico Bass, Sand Bass, Opaleye, smelt, perch, or pelicans — you get a full refund. We can't guarantee sharks or mermaids, but the other list rarely fails us.
