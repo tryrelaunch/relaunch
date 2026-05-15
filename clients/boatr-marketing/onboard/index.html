@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Get on Boatr — Make your preview your real site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:         #080B10;
+  --bg-2:       #0F172A;
+  --bg-3:       #1E293B;
+  --border:     rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.14);
+  --white:      #FFFFFF;
+  --off-white:  #E8EDF2;
+  --muted:      #5A6478;
+  --muted-2:    #8B96A8;
+  --orange:     #FE8D01;
+  --orange-d:   #EA7C00;
+  --orange-l:   #FFF7ED;
+  --orange-glow: rgba(254,141,1,0.14);
+  --green:      #2dd4bf;
+  --font-head:  'Archivo', sans-serif;
+  --font-body:  'Manrope', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--off-white); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* NAV */
+nav { padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: var(--bg); }
+.nav-logo { font-family: var(--font-head); font-size: 18px; font-weight: 900; color: var(--white); display: flex; align-items: center; gap: 8px; text-decoration: none; letter-spacing: -0.02em; }
+.nav-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 12px var(--orange); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+.nav-back { font-size: 13px; color: var(--muted-2); font-family: var(--font-mono); text-decoration: none; transition: color 0.2s; }
+.nav-back:hover { color: var(--white); }
+
+/* MAIN LAYOUT */
+.onboard-wrap { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 48px 24px 80px; }
+.onboard-card { width: 100%; max-width: 580px; }
+
+/* PROGRESS */
+.progress-wrap { margin-bottom: 40px; }
+.progress-steps { display: flex; align-items: center; gap: 0; margin-bottom: 12px; }
+.progress-step { display: flex; align-items: center; flex: 1; }
+.ps-dot { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--border-bright); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: var(--muted); flex-shrink: 0; transition: all 0.3s; background: var(--bg-2); }
+.ps-dot.active { border-color: var(--orange); color: var(--orange); background: var(--orange-glow); box-shadow: 0 0 20px rgba(254,141,1,0.22); }
+.ps-dot.done { border-color: var(--green); background: rgba(45,212,191,0.12); color: var(--green); font-size: 0; }
+.ps-dot.done::after { content: '✓'; font-size: 13px; font-weight: 900; }
+.ps-line { flex: 1; height: 1px; background: var(--border); margin: 0 6px; transition: background 0.3s; }
+.ps-line.done { background: var(--green); }
+.progress-labels { display: flex; justify-content: space-between; }
+.progress-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: center; width: 30px; }
+.progress-label.active { color: var(--orange); }
+.progress-label.done { color: var(--green); }
+
+/* STEP CARDS */
+.step-card { display: none; animation: fadeIn 0.3s ease; }
+.step-card.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.step-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+.step-title { font-family: var(--font-head); font-size: 30px; font-weight: 900; color: var(--white); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.15; }
+.step-sub { font-size: 14px; color: var(--muted-2); line-height: 1.6; margin-bottom: 32px; font-weight: 400; }
+
+/* FORM ELEMENTS */
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--off-white); margin-bottom: 7px; letter-spacing: 0.02em; }
+.form-label span { color: var(--muted); font-weight: 400; font-size: 11px; }
+.form-input {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(254,141,1,0.10); }
+.form-input.prefilled { border-color: rgba(45,212,191,0.32); background: rgba(45,212,191,0.04); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-hint { font-size: 11px; color: var(--muted); margin-top: 6px; font-family: var(--font-mono); }
+
+/* RADIO OPTIONS */
+.radio-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.radio-option { display: flex; align-items: center; gap: 14px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: all 0.2s; }
+.radio-option:hover { border-color: rgba(254,141,1,0.34); background: var(--bg-3); }
+.radio-option.selected { border-color: var(--orange); background: var(--orange-glow); }
+.radio-option input { display: none; }
+.radio-dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.radio-option.selected .radio-dot { border-color: var(--orange); background: var(--orange); }
+.radio-option.selected .radio-dot::after { content: ''; width: 6px; height: 6px; background: var(--bg); border-radius: 50%; }
+.radio-text { flex: 1; }
+.radio-title { font-size: 14px; font-weight: 700; color: var(--off-white); margin-bottom: 2px; font-family: var(--font-head); }
+.radio-desc { font-size: 12px; color: var(--muted-2); }
+
+/* PLAN CARDS */
+.plan-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.plan-card { display: flex; align-items: center; gap: 16px; background: var(--bg-2); border: 1px solid var(--border-bright); border-radius: 12px; padding: 20px 22px; cursor: pointer; transition: all 0.2s; position: relative; }
+.plan-card:hover { border-color: rgba(254,141,1,0.34); }
+.plan-card.selected { border-color: var(--orange); background: var(--orange-glow); }
+.plan-card.popular::before { content: 'MOST POPULAR'; position: absolute; top: -1px; right: 14px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; color: var(--orange); background: var(--bg-3); border: 1px solid rgba(254,141,1,0.32); padding: 3px 9px; border-radius: 0 0 6px 6px; }
+.plan-radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border-bright); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.plan-card.selected .plan-radio { border-color: var(--orange); background: var(--orange); }
+.plan-card.selected .plan-radio::after { content: ''; width: 6px; height: 6px; background: var(--bg); border-radius: 50%; }
+.plan-info { flex: 1; }
+.plan-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 4px; }
+.plan-features { font-size: 12.5px; color: var(--muted-2); line-height: 1.45; }
+.plan-price { text-align: right; flex-shrink: 0; }
+.plan-amount { font-family: var(--font-head); font-size: 22px; font-weight: 900; color: var(--white); line-height: 1; }
+.plan-card.selected .plan-amount { color: var(--orange); }
+.plan-period { font-size: 11px; color: var(--muted); font-family: var(--font-mono); margin-top: 2px; }
+
+/* CHECKOUT HANDOFF */
+.checkout-info { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; }
+.checkout-info-icon { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+.checkout-info-text { font-size: 12.5px; color: var(--muted-2); line-height: 1.55; }
+.checkout-info-text strong { color: var(--off-white); font-weight: 600; }
+
+/* CHECKBOX */
+.checkbox-wrap { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; cursor: pointer; }
+.checkbox-box { width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--border-bright); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.checkbox-box.checked { background: var(--orange); border-color: var(--orange); }
+.checkbox-box.checked::after { content: '✓'; font-size: 11px; color: var(--bg); font-weight: 800; }
+.checkbox-text { font-size: 13px; color: var(--muted-2); line-height: 1.55; }
+.checkbox-text strong { color: var(--off-white); font-weight: 600; }
+
+/* BUTTONS */
+.btn-next { width: 100%; background: var(--white); color: var(--bg); border: none; border-radius: 10px; padding: 15px; font-family: var(--font-head); font-size: 14px; font-weight: 800; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s; }
+.btn-next:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-next.accent { background: var(--orange); color: var(--white); }
+.btn-next.accent:hover { background: var(--orange-d); opacity: 1; }
+.btn-next:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.btn-back { background: none; border: 1px solid var(--border-bright); color: var(--muted-2); border-radius: 10px; padding: 11px 20px; font-family: var(--font-head); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-right: 10px; }
+.btn-back:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+.btn-row { display: flex; align-items: center; margin-top: 6px; }
+.btn-row .btn-next { flex: 1; }
+
+/* CONFIRMATION */
+.confirm-icon { width: 72px; height: 72px; background: rgba(254,141,1,0.12); border: 2px solid rgba(254,141,1,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 24px; }
+.confirm-title { font-family: var(--font-head); font-size: 32px; font-weight: 900; color: var(--white); text-align: center; letter-spacing: -0.02em; margin-bottom: 10px; }
+.confirm-sub { font-size: 15px; color: var(--muted-2); text-align: center; line-height: 1.65; margin-bottom: 36px; }
+.confirm-steps { display: flex; flex-direction: column; gap: 0; background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 28px; }
+.confirm-step { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.confirm-step:last-child { border-bottom: none; }
+.cs-num { font-family: var(--font-mono); font-size: 11px; color: var(--orange); flex-shrink: 0; width: 22px; margin-top: 2px; font-weight: 700; }
+.cs-text { flex: 1; }
+.cs-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; font-family: var(--font-head); }
+.cs-desc { font-size: 12.5px; color: var(--muted-2); line-height: 1.5; }
+
+/* ERROR */
+.error-msg { font-size: 12px; color: #FF5050; font-family: var(--font-mono); margin-top: 5px; display: none; }
+.error-msg.show { display: block; }
+.form-input.error { border-color: #FF5050; }
+
+/* CANCELLED BANNER */
+.cancelled-banner { background: rgba(255,80,80,0.08); border: 1px solid rgba(255,80,80,0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 20px; font-size: 13px; color: #FFB0B0; display: none; }
+.cancelled-banner.show { display: block; }
+
+/* PROSPECT BANNER (when arriving from a preview) */
+.prospect-banner {
+  background: linear-gradient(135deg, rgba(254,141,1,0.10), rgba(254,141,1,0.04));
+  border: 1px solid rgba(254,141,1,0.32);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+.prospect-banner.show { display: flex; }
+.prospect-banner-icon { font-size: 22px; flex-shrink: 0; }
+.prospect-banner-text { font-size: 13px; color: var(--off-white); line-height: 1.45; }
+.prospect-banner-text strong { color: var(--orange); font-weight: 700; }
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+  .onboard-wrap { padding: 32px 18px 60px; }
+  .step-title { font-size: 26px; }
+  .plan-card { padding: 18px 16px; gap: 12px; }
+  .plan-amount { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-dot"></div>
+    Boatr
+  </a>
+  <a href="/" class="nav-back">← Back to boatrmarketing.com</a>
+</nav>
+
+<div class="onboard-wrap">
+  <div class="onboard-card">
+
+    <!-- Prospect prefill banner -->
+    <div class="prospect-banner" id="prospect-banner">
+      <div class="prospect-banner-icon">⚓</div>
+      <div class="prospect-banner-text">Welcome — you came from your <strong id="prospect-name">Boatr preview</strong>. Pre-filled what I already have. Should take ~60 seconds.</div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrap">
+      <div class="progress-steps">
+        <div class="progress-step">
+          <div class="ps-dot active" id="dot-1">1</div>
+          <div class="ps-line" id="line-1"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-2">2</div>
+          <div class="ps-line" id="line-2"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-3">3</div>
+          <div class="ps-line" id="line-3"></div>
+        </div>
+        <div class="progress-step">
+          <div class="ps-dot" id="dot-4">4</div>
+        </div>
+      </div>
+      <div class="progress-labels">
+        <div class="progress-label active" id="label-1">You</div>
+        <div class="progress-label" id="label-2">Domain</div>
+        <div class="progress-label" id="label-3">Plan</div>
+        <div class="progress-label" id="label-4">Pay</div>
+      </div>
+    </div>
+
+    <!-- STEP 1 — DETAILS -->
+    <div class="step-card active" id="step-1">
+      <div class="step-eyebrow">// step 1 of 4</div>
+      <div class="step-title">Looking good, right?</div>
+      <div class="step-sub">Let's confirm the basics. This takes about 60 seconds — and your existing site stays untouched the whole time.</div>
+
+      <div class="form-group">
+        <label class="form-label">Business name</label>
+        <input type="text" class="form-input" id="business-name" placeholder="Glass Bottom Boat LLC Redondo Beach">
+        <div class="error-msg" id="err-business">Please enter your business name</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input type="text" class="form-input" id="first-name" placeholder="Jake">
+          <div class="error-msg" id="err-first">Required</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input type="text" class="form-input" id="last-name" placeholder="Mark">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email <span>(where I'll send Slack invite + receipts)</span></label>
+        <input type="email" class="form-input" id="email" placeholder="captain@redondogbb.com">
+        <div class="error-msg" id="err-email">Please enter a valid email</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone <span>(text-friendly, for urgent stuff only)</span></label>
+        <input type="tel" class="form-input" id="phone" placeholder="(310) 775-2733">
+        <div class="error-msg" id="err-phone">Required</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Booking platform <span>(I'm built around FareHarbor — Peek/Checkfront fine too)</span></label>
+        <select class="form-input" id="booking-platform" style="cursor:pointer;">
+          <option value="">Select your platform...</option>
+          <option>FareHarbor</option>
+          <option>Peek Pro</option>
+          <option>Checkfront</option>
+          <option>Rezdy</option>
+          <option>Xola</option>
+          <option>None yet</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <button class="btn-next" onclick="nextStep(1)">Looks good — next →</button>
+    </div>
+
+    <!-- STEP 2 — DOMAIN -->
+    <div class="step-card" id="step-2">
+      <div class="step-eyebrow">// step 2 of 4</div>
+      <div class="step-title">Your domain</div>
+      <div class="step-sub">This is what your customers type. I'll handle the DNS/SSL — you just tell me what you want.</div>
+
+      <div class="radio-group" id="domain-options">
+        <label class="radio-option selected" onclick="selectDomain(this, 'existing')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">Keep my existing domain</div>
+            <div class="radio-desc">I'll point your current domain at the new site — no change to your URL, no SEO loss.</div>
+          </div>
+        </label>
+        <label class="radio-option" onclick="selectDomain(this, 'new')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">Get a new domain</div>
+            <div class="radio-desc">I'll register a fresh domain for your boat operation — from $12/year.</div>
+          </div>
+        </label>
+        <label class="radio-option" onclick="selectDomain(this, 'none')">
+          <div class="radio-dot"></div>
+          <div class="radio-text">
+            <div class="radio-title">I don't have a domain yet</div>
+            <div class="radio-desc">No problem — we'll figure out a good one together during onboarding.</div>
+          </div>
+        </label>
+      </div>
+
+      <div id="domain-existing-fields">
+        <div class="form-group">
+          <label class="form-label">Your current domain <span>(e.g. redondogbb.com)</span></label>
+          <input type="text" class="form-input" id="current-domain" placeholder="yourboat.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Where's it registered? <span>(if you remember)</span></label>
+          <select class="form-input" id="registrar" style="cursor:pointer;">
+            <option value="">Select registrar...</option>
+            <option>GoDaddy</option>
+            <option>Namecheap</option>
+            <option>Hover</option>
+            <option>Google Domains / Squarespace</option>
+            <option>Network Solutions</option>
+            <option>Cloudflare</option>
+            <option>Other</option>
+            <option>Not sure</option>
+          </select>
+          <div class="form-hint">// I'll walk you through the nameserver change in Slack, step by step</div>
+        </div>
+      </div>
+
+      <div id="domain-new-fields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Preferred domain <span>(I'll check availability)</span></label>
+          <input type="text" class="form-input" id="new-domain" placeholder="yourboat.com">
+          <div class="form-hint">// .com first, then I'll suggest alternates if it's taken</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(2)">← Back</button>
+        <button class="btn-next" onclick="nextStep(2)">Perfect — next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 — PLAN -->
+    <div class="step-card" id="step-3">
+      <div class="step-eyebrow">// step 3 of 4</div>
+      <div class="step-title">Pick your path</div>
+      <div class="step-sub">Both options include the AI editor, FareHarbor wiring, mobile-first build, full schema, and same-day edits via Slack. No contracts. Cancel anytime.</div>
+
+      <div class="plan-grid">
+        <div class="plan-card" onclick="selectPlan(this, 'rebuild')" data-plan="rebuild">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Site Rebuild &amp; Hosting</div>
+            <div class="plan-features">Custom-coded site, mobile-first, FareHarbor wired, schema, hosting, SSL, same-day edits in Slack.</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$99</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+        <div class="plan-card popular selected" onclick="selectPlan(this, 'articles')" data-plan="articles">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Rebuild + Articles</div>
+            <div class="plan-features">Everything in Rebuild + monthly SEO articles tuned to your boat operation, written in your voice.</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$299</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+        <div class="plan-card" onclick="selectPlan(this, 'full')" data-plan="full">
+          <div class="plan-radio"></div>
+          <div class="plan-info">
+            <div class="plan-name">Rebuild + Articles + SMS + Email</div>
+            <div class="plan-features">Everything above + SMS + email campaigns. The full Boatr Black-Friday-grade operator stack.</div>
+          </div>
+          <div class="plan-price">
+            <div class="plan-amount">$499</div>
+            <div class="plan-period">/month</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:18px;">💬</span>
+        <div style="font-size:13px;color:var(--muted-2);">Every plan includes a <strong style="color:var(--white)">shared Slack channel</strong> with me. Edit requests done same day. Most operators send 2-3 a month.</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(3)">← Back</button>
+        <button class="btn-next" onclick="nextStep(3)">This works →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 — PAYMENT -->
+    <div class="step-card" id="step-4">
+      <div class="step-eyebrow">// step 4 of 4</div>
+      <div class="step-title">You're almost in</div>
+      <div class="step-sub">Last step — secure checkout via Stripe. Your plan starts today, your site goes live within 24 hours.</div>
+
+      <div class="cancelled-banner" id="cancelled-banner">
+        Checkout cancelled. No charges were made — your details are still here, ready to retry whenever you're set.
+      </div>
+
+      <!-- Order summary -->
+      <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <span style="font-size:13px;color:var(--muted-2);">Plan</span>
+          <span style="font-size:13px;font-weight:700;color:var(--white);" id="summary-plan">Boatr Bundle</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <span style="font-size:13px;color:var(--muted-2);">Business</span>
+          <span style="font-size:13px;font-weight:700;color:var(--white);" id="summary-business">—</span>
+        </div>
+        <div style="height:1px;background:var(--border);margin:12px 0;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:var(--muted-2);">Monthly subscription</span>
+          <span style="font-size:13px;font-weight:700;color:var(--off-white);" id="summary-monthly">$299/mo</span>
+        </div>
+        <div style="height:1px;background:var(--border);margin:12px 0;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:var(--muted-2);">Charged today</span>
+          <span style="font-family:var(--font-head);font-size:22px;font-weight:900;color:var(--orange);" id="summary-total">$299</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Slack email <span>(for your edit channel — leave blank to use email above)</span></label>
+        <input type="email" class="form-input" id="slack-email" placeholder="same email is fine">
+        <div class="form-hint">// I'll invite you to a shared Slack channel for same-day edits</div>
+      </div>
+
+      <div class="checkout-info">
+        <div class="checkout-info-icon">🔒</div>
+        <div class="checkout-info-text">
+          You'll be taken to <strong>Stripe's secure checkout</strong> to enter your card. Your card info never touches my servers. Once payment is confirmed, you'll come right back here.
+        </div>
+      </div>
+
+      <div class="checkbox-wrap" onclick="toggleCheck()">
+        <div class="checkbox-box" id="agree-box"></div>
+        <div class="checkbox-text">I understand the monthly plan is <strong>month-to-month, no contracts</strong>. Cancel anytime by messaging Nate on Slack or emailing nate@boatrmarketing.com.</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="prevStep(4)">← Back</button>
+        <button class="btn-next accent" onclick="submitPayment()" id="pay-btn">Continue to secure checkout →</button>
+      </div>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="step-card" id="step-confirm">
+      <div class="confirm-icon">⚓</div>
+      <div class="confirm-title">You're on Boatr. Welcome.</div>
+      <div class="confirm-sub">Your plan is active. Here's exactly what happens next — your site goes live within 24-48 hours.</div>
+      <div class="confirm-steps">
+        <div class="confirm-step">
+          <div class="cs-num">01</div>
+          <div class="cs-text">
+            <div class="cs-title">Slack invite incoming</div>
+            <div class="cs-desc">Check your email — you'll get a Slack invite to your dedicated edit channel within the hour.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">02</div>
+          <div class="cs-text">
+            <div class="cs-title">Domain connection</div>
+            <div class="cs-desc">I'll send you the DNS records via Slack. Usually 5 minutes on your end, then 15-60 mins of propagation.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">03</div>
+          <div class="cs-text">
+            <div class="cs-title">FareHarbor flow wired in</div>
+            <div class="cs-desc">I'll wire your real FareHarbor flow ID into every booking button on the new site.</div>
+          </div>
+        </div>
+        <div class="confirm-step">
+          <div class="cs-num">04</div>
+          <div class="cs-text">
+            <div class="cs-title">Site goes live</div>
+            <div class="cs-desc">Once DNS propagates, your new site is live at your real domain. I'll confirm in Slack the moment it's up.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:13px;color:var(--muted-2);margin-bottom:8px;">Questions? Reach me at</div>
+        <a href="mailto:nate@boatrmarketing.com" style="color:var(--orange);font-family:var(--font-mono);font-size:14px;">nate@boatrmarketing.com</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let currentStep = 1;
+let selectedPlan = 'articles';
+let selectedPlanName = 'Rebuild + Articles';
+let domainChoice = 'existing';
+let agreed = false;
+
+const PLAN_INFO = {
+  rebuild:  { name: 'Site Rebuild & Hosting',             monthly: 99,  dueToday: 99  },
+  articles: { name: 'Rebuild + Articles',                 monthly: 299, dueToday: 299 },
+  full:     { name: 'Rebuild + Articles + SMS + Email',   monthly: 499, dueToday: 499 }
+};
+
+// Read URL params to pre-fill or detect Stripe return
+const params = new URLSearchParams(window.location.search);
+const prospect = params.get('prospect');
+const prefillBusiness = params.get('business');
+const prefillEmail = params.get('email');
+const prefillUrl = params.get('url');
+const prefillPhone = params.get('phone');
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Stripe success return — jump straight to confirmation
+  if (params.get('paid') === 'true') {
+    goToStep(5);
+    return;
+  }
+
+  // Stripe cancel return — bring them back to step 4 with banner
+  if (params.get('cancelled') === 'true') {
+    restoreState();
+    goToStep(4);
+    document.getElementById('cancelled-banner').classList.add('show');
+    return;
+  }
+
+  // Prefill from URL params (preview handoff)
+  if (prospect || prefillBusiness || prefillEmail) {
+    document.getElementById('prospect-banner').classList.add('show');
+    if (prospect) {
+      const niceName = prospect.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      document.getElementById('prospect-name').textContent = niceName + ' preview';
+    }
+  }
+  if (prefillBusiness) {
+    const el = document.getElementById('business-name');
+    el.value = prefillBusiness;
+    el.classList.add('prefilled');
+  }
+  if (prefillEmail) {
+    const el = document.getElementById('email');
+    el.value = prefillEmail;
+    el.classList.add('prefilled');
+  }
+  if (prefillPhone) {
+    const el = document.getElementById('phone');
+    el.value = prefillPhone;
+    el.classList.add('prefilled');
+  }
+  if (prefillUrl) {
+    const el = document.getElementById('current-domain');
+    el.value = prefillUrl;
+    el.classList.add('prefilled');
+  }
+});
+
+function saveState() {
+  const state = {
+    businessName: document.getElementById('business-name').value,
+    firstName: document.getElementById('first-name').value,
+    lastName: document.getElementById('last-name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    bookingPlatform: document.getElementById('booking-platform').value,
+    domainChoice,
+    currentDomain: document.getElementById('current-domain').value,
+    registrar: document.getElementById('registrar').value,
+    newDomain: document.getElementById('new-domain').value,
+    slackEmail: document.getElementById('slack-email').value,
+    selectedPlan,
+    selectedPlanName
+  };
+  try { sessionStorage.setItem('boatr_onboard', JSON.stringify(state)); } catch (e) {}
+}
+
+function restoreState() {
+  try {
+    const raw = sessionStorage.getItem('boatr_onboard');
+    if (!raw) return;
+    const s = JSON.parse(raw);
+    if (s.businessName) document.getElementById('business-name').value = s.businessName;
+    if (s.firstName) document.getElementById('first-name').value = s.firstName;
+    if (s.lastName) document.getElementById('last-name').value = s.lastName;
+    if (s.email) document.getElementById('email').value = s.email;
+    if (s.phone) document.getElementById('phone').value = s.phone;
+    if (s.bookingPlatform) document.getElementById('booking-platform').value = s.bookingPlatform;
+    if (s.currentDomain) document.getElementById('current-domain').value = s.currentDomain;
+    if (s.registrar) document.getElementById('registrar').value = s.registrar;
+    if (s.newDomain) document.getElementById('new-domain').value = s.newDomain;
+    if (s.slackEmail) document.getElementById('slack-email').value = s.slackEmail;
+    if (s.selectedPlan) {
+      selectedPlan = s.selectedPlan;
+      selectedPlanName = s.selectedPlanName || PLAN_INFO[selectedPlan].name;
+      document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+      const target = document.querySelector('.plan-card[data-plan="' + selectedPlan + '"]');
+      if (target) target.classList.add('selected');
+      updateSummary();
+    }
+  } catch (e) {}
+}
+
+// STEP NAVIGATION
+function nextStep(from) {
+  if (!validate(from)) return;
+  saveState();
+  if (from === 3) updateSummary();
+  goToStep(from + 1);
+}
+function prevStep(from) { goToStep(from - 1); }
+
+function goToStep(n) {
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  if (n === 5) {
+    document.getElementById('step-confirm').classList.add('active');
+    [1,2,3,4].forEach(i => {
+      const d = document.getElementById('dot-' + i);
+      d.classList.remove('active'); d.classList.add('done');
+      const l = document.getElementById('line-' + i);
+      if (l) l.classList.add('done');
+      document.getElementById('label-' + i).classList.remove('active');
+      document.getElementById('label-' + i).classList.add('done');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  document.getElementById('step-' + n).classList.add('active');
+  currentStep = n;
+  // Progress dots
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById('dot-' + i);
+    const lab = document.getElementById('label-' + i);
+    const line = document.getElementById('line-' + i);
+    dot.classList.remove('active','done');
+    lab.classList.remove('active','done');
+    if (line) line.classList.remove('done');
+    if (i < n) {
+      dot.classList.add('done');
+      lab.classList.add('done');
+      if (line) line.classList.add('done');
+    } else if (i === n) {
+      dot.classList.add('active');
+      lab.classList.add('active');
+    }
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// VALIDATION
+function validate(step) {
+  let ok = true;
+  const show = (id, v) => document.getElementById(id).classList.toggle('show', !v);
+  if (step === 1) {
+    const b = document.getElementById('business-name').value.trim();
+    const f = document.getElementById('first-name').value.trim();
+    const e = document.getElementById('email').value.trim();
+    const p = document.getElementById('phone').value.trim();
+    show('err-business', b);
+    show('err-first', f);
+    show('err-email', /.+@.+\..+/.test(e));
+    show('err-phone', p);
+    if (!b || !f || !/.+@.+\..+/.test(e) || !p) ok = false;
+  }
+  return ok;
+}
+
+// DOMAIN SELECTION
+function selectDomain(el, choice) {
+  document.querySelectorAll('#domain-options .radio-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  domainChoice = choice;
+  document.getElementById('domain-existing-fields').style.display = (choice === 'existing') ? 'block' : 'none';
+  document.getElementById('domain-new-fields').style.display = (choice === 'new') ? 'block' : 'none';
+}
+
+// PLAN SELECTION
+function selectPlan(el, plan) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPlan = plan;
+  selectedPlanName = PLAN_INFO[plan].name;
+}
+
+function updateSummary() {
+  const info = PLAN_INFO[selectedPlan];
+  document.getElementById('summary-plan').textContent = info.name;
+  document.getElementById('summary-business').textContent = document.getElementById('business-name').value || '—';
+  document.getElementById('summary-monthly').textContent = '$' + info.monthly + '/mo';
+  document.getElementById('summary-total').textContent = '$' + info.dueToday;
+}
+
+// CHECKBOX
+function toggleCheck() {
+  agreed = !agreed;
+  document.getElementById('agree-box').classList.toggle('checked', agreed);
+}
+
+// PAYMENT
+async function submitPayment() {
+  if (!agreed) {
+    alert('Please confirm you understand this is month-to-month with no contracts.');
+    return;
+  }
+  const btn = document.getElementById('pay-btn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Redirecting to checkout...';
+  btn.disabled = true;
+
+  saveState();
+  const s = JSON.parse(sessionStorage.getItem('boatr_onboard') || '{}');
+
+  try {
+    const response = await fetch('/.netlify/functions/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        plan: selectedPlan,
+        email: s.email,
+        businessName: s.businessName,
+        firstName: s.firstName,
+        lastName: s.lastName,
+        phone: s.phone,
+        bookingPlatform: s.bookingPlatform,
+        slackEmail: s.slackEmail || s.email,
+        domainChoice: s.domainChoice,
+        currentDomain: s.currentDomain,
+        registrar: s.registrar,
+        newDomain: s.newDomain,
+        prospect: prospect || ''
+      })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text().catch(() => '');
+      console.error('Checkout session failed:', response.status, errText);
+      throw new Error('Could not start checkout');
+    }
+    const { url } = await response.json();
+    if (!url) throw new Error('No checkout URL returned');
+    window.location.href = url;
+  } catch (err) {
+    console.error('Payment error:', err);
+    alert('Something went wrong starting checkout. Please try again, or email nate@boatrmarketing.com if it keeps failing.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
