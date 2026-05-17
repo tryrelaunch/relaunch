@@ -1195,3 +1195,29 @@ footer {
 @media (max-width: 640px) {
   .facts-grid { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr; grid-template-row
+/* Nav phone CTA — make it visually prominent next to Book Now */
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  margin-right: 8px;
+  background: transparent;
+  color: var(--teal-deep, #0e2a36);
+  border: 1.5px solid var(--teal-deep, #0e2a36);
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.btn-call:hover {
+  background: var(--teal-deep, #0e2a36);
+  color: var(--cream, #f7f1e3);
+}
+@media (max-width: 900px) {
+  .btn-call { display: none; }
+}
