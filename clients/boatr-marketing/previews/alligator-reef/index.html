@@ -11,7 +11,7 @@
 
 <meta property="og:title" content="Boat Rental Islamorada · Alligator Reef Boat Rentals">
 <meta property="og:description" content="10-boat fleet at Breezy Palms marina. Self-drive rentals + captained sunset cruises. Alligator Reef Lighthouse, the sandbar, the Gulf of America.">
-<meta property="og:image" content="https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1200,h:1200,cg:true,m/cr=w:1200,h:1200">
+<meta property="og:image" content="https://boatrmarketing.com/previews/alligator-reef/images/hero.jpg">
 <meta property="og:url" content="https://alligatorreefboats.com/">
 <meta property="og:type" content="website">
 
@@ -25,7 +25,7 @@
   "description": "Self-drive boat rentals and captained sunset cruises out of Breezy Palms marina in Islamorada, Florida Keys. 10-boat fleet from 21-foot Sea Fox center consoles to 26-foot Hurricane deck boats. Easy access to Alligator Reef Lighthouse, the Islamorada sandbar, and the Gulf of America.",
   "url": "https://alligatorreefboats.com/",
   "telephone": "+1-305-990-5207",
-  "image": "https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1200,h:1200,cg:true,m/cr=w:1200,h:1200",
+  "image": "https://boatrmarketing.com/previews/alligator-reef/images/hero.jpg",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -61,7 +61,7 @@
   "@type": "Product",
   "name": "Boat Rental — Islamorada · Alligator Reef Boat Rentals",
   "description": "Self-drive rental boats from 21' Sea Fox to 26' Sea Fox center console. Half-day, full-day, and weekly rentals out of Breezy Palms marina in Islamorada. Easy access to Alligator Reef, the sandbar, and Hawk Channel.",
-  "image": "https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1200,h:1200,cg:true,m/cr=w:1200,h:1200",
+  "image": "https://boatrmarketing.com/previews/alligator-reef/images/hero.jpg",
   "brand": { "@type": "Brand", "name": "Alligator Reef Boat Rentals" },
   "category": "Boat Rental",
   "offers": {
@@ -82,7 +82,7 @@
   "@type": "Product",
   "name": "Islamorada Sunset Cruise",
   "description": "Private captained sunset cruise from Breezy Palms marina, 6:00pm to 8:30pm. Florida Keys waters into the Gulf of America for the Golden Hour. Up to 10 guests.",
-  "image": "https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1200,h:1200,cg:true,m/cr=w:1200,h:1200",
+  "image": "https://boatrmarketing.com/previews/alligator-reef/images/hero.jpg",
   "brand": { "@type": "Brand", "name": "Alligator Reef Boat Rentals" },
   "category": "Sunset Cruise",
   "offers": {
@@ -148,7 +148,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1800,h:1800,cg:true,m/cr=w:1800,h:1800" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -293,12 +293,8 @@ nav {
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
 .brand:hover .brand-name { color: var(--aqua-dk); }
 .brand-mark {
-  width: 44px; height: 44px; flex-shrink: 0;
-  background: var(--navy); color: var(--aqua-lt);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--fh); font-weight: 900; font-size: 17px;
-  letter-spacing: 0.04em;
+  width: 48px; height: 48px; flex-shrink: 0;
+  display: block; object-fit: contain;
 }
 .brand-name {
   font-family: var(--fh); font-weight: 800; font-size: 16px;
@@ -331,9 +327,9 @@ nav {
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 1;
-  background-image: url('https://img1.wsimg.com/isteam/ip/b83aad29-ca8a-4d27-9072-bcffae91ee91/IMG_1506.jpeg/:/rs=w:1800,h:1800,cg:true,m/cr=w:1800,h:1800');
+  background-image: url('images/hero.jpg');
   background-size: cover; background-position: center;
-  filter: brightness(0.5) saturate(1.15);
+  filter: brightness(0.55) saturate(1.1);
 }
 .hero-grad {
   position: absolute; inset: 0; z-index: 2;
@@ -444,9 +440,14 @@ nav {
 }
 .about-card {
   background: var(--navy); color: white; border-radius: 8px;
-  padding: 36px 32px;
+  overflow: hidden;
   box-shadow: 0 22px 50px -22px rgba(10,37,64,0.4);
 }
+.about-card-photo {
+  width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--navy-2);
+}
+.about-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-card-body { padding: 30px 32px 32px; }
 .about-card-eyebrow {
   font-family: var(--fh); font-size: 11px; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -581,6 +582,28 @@ nav {
 .dest-light .dest-fact-row { border-bottom-color: var(--line); }
 .dest-light .dest-fact-row .lbl { color: var(--ink-3); }
 .dest-light .dest-fact-row .val { color: var(--navy); }
+
+/* Destination image banner */
+.dest-image {
+  margin-top: 28px; border-radius: 10px; overflow: hidden;
+  aspect-ratio: 16/6; background: var(--navy-2);
+  box-shadow: 0 22px 50px -22px rgba(0,0,0,0.5);
+}
+.dest-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* On the water / guest gallery */
+.guests { background: var(--cream); }
+.guests-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin-top: 40px;
+}
+.guest-card {
+  border-radius: 6px; overflow: hidden; aspect-ratio: 3/4;
+  background: var(--navy); position: relative;
+  box-shadow: 0 14px 36px -18px rgba(10,37,64,0.3);
+}
+.guest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.guest-card:hover img { transform: scale(1.04); }
 
 /* ── BOOKING ────────── */
 .booking { background: white; text-align: center; }
@@ -832,6 +855,8 @@ footer {
   .hs-num { font-size: 22px; }
   .about-grid, .loc-grid, .dest-grid, .fleet-intro { grid-template-columns: 1fr; gap: 36px; }
   .fleet-grid { grid-template-columns: 1fr 1fr; }
+  .guests-grid { grid-template-columns: 1fr 1fr; }
+  .dest-image { aspect-ratio: 16/9; }
   .guarantee-inner { grid-template-columns: 1fr; gap: 22px; }
   .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .seo-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -912,7 +937,7 @@ footer {
 <!-- ╚══════════════════════════════════════════╝ -->
 <nav>
   <a href="#top" class="brand" aria-label="Alligator Reef Boat Rentals — back to top">
-    <div class="brand-mark" aria-hidden="true">AR</div>
+    <img class="brand-mark" src="images/logo.png" alt="Alligator Reef Boat Rentals logo" width="48" height="48">
     <div class="brand-name" id="edit-brand-name">Alligator Reef<small>Boat Rentals · Islamorada</small></div>
   </a>
   <div class="nav-links">
@@ -920,7 +945,7 @@ footer {
     <a href="#lighthouse">Alligator Reef</a>
     <a href="#sandbar">Sandbar</a>
     <a href="#sunset">Sunset</a>
-    <a href="#about">About</a>
+    <a href="#guests">On the water</a>
     <a href="#visit">Visit</a>
   </div>
   <button class="btn-book" onclick="openBookModal()">Book Now</button>
@@ -1010,15 +1035,20 @@ footer {
         </ul>
       </div>
       <div class="about-card">
-        <div class="about-card-eyebrow">Owner-operators</div>
-        <div class="about-card-name" id="edit-owner-1-name">Mitchell Cole</div>
-        <div class="about-card-role" id="edit-owner-1-role">Founder · Boats &amp; bookings · 305-990-5207</div>
+        <div class="about-card-photo">
+          <img src="images/owners.jpg" alt="Mitchell Cole and Michael Richards at the Breezy Palms dock" loading="lazy">
+        </div>
+        <div class="about-card-body">
+          <div class="about-card-eyebrow">Owner-operators</div>
+          <div class="about-card-name" id="edit-owner-1-name">Mitchell Cole &amp; Michael Richards</div>
+          <div class="about-card-role" id="edit-owner-1-role">Founder + Coast Guard veteran · 305-990-5207</div>
 
-        <div class="about-card-row" id="edit-owner-2"><strong>Michael Richards —</strong> Retired U.S. Coast Guard. Handles dock orientation, safety briefings, and on-water support. Coast Guard plus a real operator is the right team for Florida Keys boating.</div>
+          <div class="about-card-row" id="edit-owner-2"><strong>Michael Richards —</strong> Retired U.S. Coast Guard. Handles dock orientation, safety briefings, and on-water support. Coast Guard plus a real operator is the right team for Florida Keys boating.</div>
 
-        <div class="about-card-row" id="edit-owner-3"><strong>Where we are —</strong> 80015 Overseas Highway, Breezy Palms Resort marina, Islamorada FL 33036 · Mile Marker 80, bay side.</div>
+          <div class="about-card-row" id="edit-owner-3"><strong>Where we are —</strong> 80015 Overseas Highway, Breezy Palms Resort marina, Islamorada FL 33036 · Mile Marker 80, bay side.</div>
 
-        <div class="about-card-row" id="edit-owner-4"><strong>Booking —</strong> Online through Peek, by phone at 305-990-5207, or walk-up at the dock when boats are available.</div>
+          <div class="about-card-row" id="edit-owner-4"><strong>Booking —</strong> Online through Peek, by phone at 305-990-5207, or walk-up at the dock when boats are available.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1167,6 +1197,8 @@ footer {
     <h2 class="sec-title" id="edit-light-title">Alligator Reef Lighthouse — by boat from Islamorada.</h2>
     <p class="sec-lede" id="edit-light-lede">A working screw-pile lighthouse from 1873 standing in four feet of water on Alligator Reef — one of the most protected, beginner-friendly snorkel spots in the Florida Keys. Our marina at Breezy Palms is the closest rental dock to the reef.</p>
 
+    <div class="dest-image"><img src="images/lighthouse.jpg" alt="Alligator Reef Lighthouse with rental boats anchored at the reef" loading="lazy"></div>
+
     <div class="dest-grid">
       <div class="dest-body">
         <p id="edit-light-p1">Alligator Reef sits about four nautical miles southeast of Indian Key Channel, just outside the Hawk Channel reef line. From our dock at Breezy Palms, it's a <strong>20 to 25 minute run</strong> in any of the fleet — protected water the whole way, no big crossings.</p>
@@ -1194,6 +1226,8 @@ footer {
     <div class="sec-eyebrow">The Sandbar · 15 Minutes Out</div>
     <h2 class="sec-title" id="edit-sand-title">The Islamorada sandbar — bay side, anchor up, get in.</h2>
     <p class="sec-lede" id="edit-sand-lede">A wide shallow flat off Holiday Isle on the bay side, about 15 minutes from our marina. The sandbar is where Islamorada spends Saturday — boats anchored stem to stern at slack tide, coolers out, music going. Weekdays are quiet enough to bring kids.</p>
+
+    <div class="dest-image"><img src="images/sandbar.jpg" alt="The Islamorada sandbar — boats anchored together in shallow turquoise water" loading="lazy"></div>
 
     <div class="dest-grid">
       <div class="dest-body">
@@ -1223,6 +1257,8 @@ footer {
     <h2 class="sec-title" id="edit-sun-title">Islamorada sunset cruise, captain on the wheel.</h2>
     <p class="sec-lede" id="edit-sun-lede">A private, captained sunset cruise from Breezy Palms — up to 10 guests, Florida Keys waters, into the Gulf of America for the Golden Hour. No license, no orientation, no setup. You step on, we go.</p>
 
+    <div class="dest-image"><img src="images/sunset.jpg" alt="Breezy Palms marina at sunset — Islamorada Florida Keys" loading="lazy"></div>
+
     <div class="dest-grid">
       <div class="dest-body">
         <p id="edit-sun-p1">The cruise departs the marina at 6:00 PM and returns by 8:30 PM. <strong>Arrive 2 hours prior</strong> with everything you want on the boat — drinks, light food, a sweater if it's breezy — and we'll handle the rest. The captain runs the route based on the wind and where the sky is firing that day.</p>
@@ -1238,6 +1274,24 @@ footer {
         <div class="dest-fact-row"><span class="lbl">License needed</span><span class="val">No</span></div>
         <div class="dest-fact-row"><span class="lbl">BYOB</span><span class="val">Welcome</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  ON THE WATER · GUEST GALLERY            ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec guests" id="guests">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">On the water</div>
+    <h2 class="sec-title" id="edit-guests-title">Recent days off the dock.</h2>
+    <p class="sec-lede" id="edit-guests-lede">Real guests, real boats, real Florida Keys water. If you've got a photo you'd like us to feature, send it to Mitch — we love seeing where the boats go.</p>
+
+    <div class="guests-grid">
+      <div class="guest-card"><img src="images/guest-1.jpg" alt="Guests on the Islamorada sandbar" loading="lazy"></div>
+      <div class="guest-card"><img src="images/guest-2.jpg" alt="Family fishing day on a rental boat" loading="lazy"></div>
+      <div class="guest-card"><img src="images/guest-3.jpg" alt="Young anglers with their catch at the Alligator Reef dock" loading="lazy"></div>
+      <div class="guest-card"><img src="images/guest-4.jpg" alt="Couple at the sandbar with the rental boat" loading="lazy"></div>
     </div>
   </div>
 </section>
