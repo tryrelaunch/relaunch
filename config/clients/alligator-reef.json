@@ -1,0 +1,12 @@
+{
+  "slug": "alligator-reef",
+  "pin_hash": "$2b$10$kk.BSC2eyw27F6gPoIP2OOQMu8V5IQYFuq4vfk71Iz0GGSRw2N8Ui",
+  "owner_email": "bmcadvisorsllc@gmail.com",
+  "allowed_origins": [
+    "https://client-alligator-reef.netlify.app",
+    "https://alligatorreefboats.com",
+    "https://www.alligatorreefboats.com"
+  ],
+  "created_at": "2026-05-19T17:46:32Z",
+  "pin_rotated_at": "2026-05-19T17:46:32Z"
+}
