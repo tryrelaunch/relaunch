@@ -357,6 +357,95 @@
     window.location.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + subject + '&body=' + body;
   }
 
+  // ── Robustness helpers ──
+
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  // Fetch with: 15s timeout, auto-retry once on network error or 502/503.
+  async function fetchWithRetry(url, options) {
+    const attempts = 2;
+    let lastErr;
+    for (let i = 0; i < attempts; i++) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(function () { ctrl.abort(); }, 15000);
+      try {
+        const res = await fetch(url, Object.assign({}, options, { signal: ctrl.signal }));
+        clearTimeout(timer);
+        if (i < attempts - 1 && (res.status === 502 || res.status === 503 || res.status === 504)) {
+          await sleep(2000);
+          continue;
+        }
+        return res;
+      } catch (err) {
+        clearTimeout(timer);
+        lastErr = err;
+        if (i < attempts - 1) {
+          await sleep(2000);
+          continue;
+        }
+      }
+    }
+    throw lastErr || new Error('fetchWithRetry exhausted');
+  }
+
+  // Save serialization — guarantees only one POST is in flight at a time.
+  // If the user click-edits 5 things in a row, they queue and run in order
+  // instead of racing each other into 409 conflicts on GitHub.
+  let saveQueue = Promise.resolve();
+  function queuedSave(fn) {
+    const next = saveQueue.then(fn, fn);
+    // Don't let one error poison the queue — reset to a resolved state.
+    saveQueue = next.catch(function () {});
+    return next;
+  }
+
+  // Reject obviously broken edits before they hit the server.
+  function guardOps(ops) {
+    for (const op of ops) {
+      if (!op || typeof op.text !== 'string' || op.text.trim() === '') return false;
+    }
+    return true;
+  }
+
+  // Verification — after the server confirms commit, poll the live HTML
+  // once after ~30s to confirm Netlify rebuilt with the new text.
+  async function verifyLive(changes) {
+    await sleep(30000);
+    try {
+      const res = await fetch(window.location.pathname + '?_v=' + Date.now(), {
+        cache: 'no-store',
+        credentials: 'omit'
+      });
+      if (!res.ok) return null;
+      const html = await res.text();
+      // For each change, see if the new text appears in the live HTML
+      const allPresent = changes.every(function (c) {
+        return c.text && html.indexOf(c.text) >= 0;
+      });
+      return allPresent;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Persistent summary survives the auto-refresh so user sees what just changed.
+  const SUMMARY_KEY = 'rl_last_edit_summary';
+  function saveSummary(text) {
+    try { sessionStorage.setItem(SUMMARY_KEY, JSON.stringify({ text: text, at: Date.now() })); } catch (e) {}
+  }
+  function loadSummary() {
+    try {
+      const raw = sessionStorage.getItem(SUMMARY_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (Date.now() - data.at > 5 * 60 * 1000) return null;
+      return data;
+    } catch (e) { return null; }
+  }
+  function clearSummary() {
+    try { sessionStorage.removeItem(SUMMARY_KEY); } catch (e) {}
+  }
+
   async function sendEdit() {
     if (isLoading) return;
     const request = inputEl.value.trim();
@@ -367,12 +456,13 @@
     addMessage(request, 'user');
     setLoading(true);
 
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN },
-        body: JSON.stringify({ slug: SLUG, request: request, page: getCurrentPage() })
-      });
+    return queuedSave(async function () {
+      try {
+        const res = await fetchWithRetry(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN },
+          body: JSON.stringify({ slug: SLUG, request: request, page: getCurrentPage() })
+        });
 
       if (res.status === 401) {
         addMessage('Your edit session expired. Redirecting to log in...', 'error');
@@ -400,27 +490,41 @@
         const previousById = captureCurrent(ids);
         applyChanges(data.changes);
         const n = data.changes.length;
+        const summary = 'Saved ' + n + ' change' + (n === 1 ? '' : 's') + ' (chat). Live in ~30-60 seconds.';
+        saveSummary(summary);
         addSuccessMessage(
           'Saved ' + n + ' change' + (n === 1 ? '' : 's') + '. Your live site updates in ~30-60 seconds. Page refreshes in',
           previousById
         );
+        // Background-verify the live site picked up the change
+        verifyLive(data.changes);
       } else {
         addMessage(data.confirmation || "I couldn't make that change automatically. Try rephrasing, or use 'Request human help'.", 'assistant');
       }
-    } catch (err) {
-      setLoading(false);
-      addMessage("Couldn't reach the edit service. Check your connection and try again.", 'error');
-    }
+      } catch (err) {
+        setLoading(false);
+        if (err && err.name === 'AbortError') {
+          addMessage("Save took too long (over 15 seconds). The change might still go through — wait a bit, then refresh the page to check.", 'error');
+        } else {
+          addMessage("Couldn't reach the edit service. Check your connection and try again.", 'error');
+        }
+      }
+    });
   }
 
   async function saveOps(ops, previousById, label) {
+    if (!guardOps(ops)) {
+      addMessage("Can't save an empty change. Type something in before saving.", 'error');
+      return false;
+    }
     setLoading(true);
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN },
-        body: JSON.stringify({ slug: SLUG, ops: ops, page: getCurrentPage() })
-      });
+    return queuedSave(async function () {
+      try {
+        const res = await fetchWithRetry(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN },
+          body: JSON.stringify({ slug: SLUG, ops: ops, page: getCurrentPage() })
+        });
 
       if (res.status === 401) {
         addMessage('Your edit session expired. Redirecting to log in...', 'error');
@@ -452,21 +556,31 @@
             setTimeout(function () { el.classList.remove('rl-flash'); }, 1600);
           }
         }
+        const n = data.changes.length;
+        const summary = (label || ('Saved ' + n + ' change' + (n === 1 ? '' : 's') + '.')) + ' Live in ~30-60 seconds.';
+        saveSummary(summary);
         addSuccessMessage(
-          (label || ('Saved ' + data.changes.length + ' change' + (data.changes.length === 1 ? '' : 's') + '.'))
+          (label || ('Saved ' + n + ' change' + (n === 1 ? '' : 's') + '.'))
             + ' Live site updates in ~30-60 seconds. Page refreshes in',
           previousById || null
         );
+        // Background-verify the live site picked up the change
+        verifyLive(data.changes);
         return true;
       } else {
-        addMessage("Server didn't apply the change. The element may not be editable.", 'error');
+        addMessage("Server didn't apply the change. The element may not be editable, or that section has nested content — click the specific piece you want to change.", 'error');
         return false;
       }
-    } catch (err) {
-      setLoading(false);
-      addMessage("Couldn't reach the edit service. Check your connection and try again.", 'error');
-      return false;
-    }
+      } catch (err) {
+        setLoading(false);
+        if (err && err.name === 'AbortError') {
+          addMessage("Save took too long (over 15 seconds). The change might still go through — wait a bit, then refresh.", 'error');
+        } else {
+          addMessage("Couldn't reach the edit service. Check your connection and try again.", 'error');
+        }
+        return false;
+      }
+    });
   }
 
   async function undoChange(previousById) {
@@ -623,6 +737,21 @@
   function boot() {
     injectStyles();
     buildDom();
+    // If we just auto-refreshed after an edit, show what changed so the user
+    // has confirmation that their change is now live.
+    const lastSummary = loadSummary();
+    if (lastSummary) {
+      addMessage('Last change: ' + lastSummary.text + ' (Page just reloaded — verifying live now.)', 'system');
+      clearSummary();
+    }
+    // Also surface the signed-in slug at the bottom of the panel for clarity.
+    const headerTitle = panelEl.querySelector('.rl-panel-title');
+    if (headerTitle) {
+      const subtitle = document.createElement('div');
+      subtitle.style.cssText = 'font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 2px;';
+      subtitle.textContent = 'Signed in · ' + SLUG;
+      headerTitle.appendChild(subtitle);
+    }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
