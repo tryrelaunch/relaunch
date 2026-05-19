@@ -186,7 +186,6 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; height: auto; }
 button, input, textarea { font-family: inherit; font-size: 16px; }
 
-/* ── BOATR SEO BANNER ─────── */
 .seo-banner { background: var(--b-dark); border-bottom: 2px solid var(--b-orange); }
 .seo-top {
   display: flex; align-items: center; justify-content: space-between;
@@ -756,63 +755,6 @@ footer {
 </style>
 </head>
 <body>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  BOATR PREVIEW BANNER                    ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<div class="seo-banner" role="region" aria-label="Boatr preview information">
-  <div class="seo-top" onclick="toggleSEO()">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-      <span class="boatr-mark">Boatr</span>
-      <span class="seo-badge">Preview</span>
-      <span class="seo-text">Here's the rebuild of <span>alligatorreefboats.com</span> →</span>
-    </div>
-    <button class="seo-toggle" id="seo-btn">What changed ▼</button>
-  </div>
-  <div class="seo-panel" id="seo-panel">
-    <div class="seo-panel-inner">
-      <p class="seo-greeting"><strong>This is the no-cost preview</strong> from our call. Same domain (alligatorreefboats.com), same Peek booking, same fleet — rebuilt around the keyword people actually type: "Boat Rental Islamorada."</p>
-      <p class="seo-greeting-sub">— Nate Sinisgalli · CMO of Triton, Malarky, Alana, Athena · Founder of Boatr</p>
-
-      <div class="seo-grid">
-        <div>
-          <div class="seo-col-title">What I fixed</div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>H1 targets the money keyword.</strong> "Boat Rental Islamorada · Alligator Reef Boat Rentals." Was a sentence — "Explore Islamorada & Alligator Reef by boat" — that doesn't match what guests search.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>The actual fleet is on the page.</strong> All 10 boats with passenger counts and HP — pulled from your Peek booking. Your current homepage hides the fleet behind the booking widget.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Full JSON-LD schema.</strong> LocalBusiness, TouristAttraction, Product/AggregateOffer for rentals, Product for Sunset Cruise, 8-question FAQPage. Your GoDaddy site has a broken schema block.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Alligator Reef Lighthouse content page.</strong> 1,900 monthly searches, low competition. Your brand name matches the reef — owning that keyword is free TOFU traffic.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Islamorada Sandbar + Sunset Cruise sections.</strong> Each targets a real-volume keyword with a difficulty score of 2. These rank fast.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Book Now is a modal, not a new tab.</strong> Guests stay on alligatorreefboats.com — Google rewards on-site conversions and penalizes new-tab redirects.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>The new-ownership story is front and center.</strong> You + Michael (Coast Guard) above the fold — the reason guests should book with you instead of the old Sand Dollar reviews.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Mobile-first hand-coded HTML.</strong> No GoDaddy Airo bloat. Should hit Lighthouse 90+ on mobile (current site is too slow to even finish a Lighthouse audit).</div></div>
-        </div>
-        <div>
-          <div class="seo-col-title">What's still on alligatorreefboats.com</div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>H1 reads "Explore Islamorada &amp; Alligator Reef by boat."</strong> Sentence, not keyword. Won't rank for "Boat Rental Islamorada."</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>The "Now offering SUNSET CRUISES" headline is duplicated 3 times in a row.</strong> Template placeholder left in production.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>"Explore Our Fleet" section has no fleet rendered.</strong> Just four trip-type bullets — no actual boats, no specs, no passenger counts.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No meta description, no canonical tag.</strong> Google has nothing to display in search results and no clear authority signal.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>JSON-LD <code>@id</code> is broken</strong> — it's a GoDaddy asset UUID, not your business URL. Schema doesn't get crawled.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>"Powered by GoDaddy Website Builder" footer.</strong> Free brand placement to GoDaddy from your homepage.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Book Now opens a new tab to book.peek.com.</strong> Guests leave your domain mid-funnel — measurable conversion loss.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>20 spammy backlinks from Fiverr-tier SEO services.</strong> Worth disavowing in Search Console — risks penalty if it grows.</div></div>
-        </div>
-      </div>
-
-      <div class="seo-cta-row">
-        <div>
-          <div class="seo-cta-row-text"><strong>Like it? I'll make this alligatorreefboats.com.</strong> Domain stays, GoDaddy site gets replaced, Peek wires in cleanly. 24 hours to live.</div>
-          <div class="seo-cta-price" style="margin-top:8px;">No contract · Cancel anytime · Same-day edits</div>
-        </div>
-        <a href="/onboard/?prospect=alligator-reef&business=Alligator+Reef+Boat+Rentals&url=alligatorreefboats.com&phone=305-990-5207" class="seo-cta-btn" rel="noopener">Make this my site →</a>
-      </div>
-      <div class="seo-close-bottom">
-        <button onclick="closeSEO()">Got it — show me the site ↓</button>
-        <span class="seo-close-hint">Or scroll down to explore the rebuilt site</span>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  NAV                                     ║ -->
