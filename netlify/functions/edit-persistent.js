@@ -331,16 +331,29 @@ exports.handler = async function (event) {
   } catch {
     return jsonResponse(400, { error: 'invalid_json' }, origin);
   }
-  const { slug, request, page = '' } = body;
-  if (!slug || !request) {
+  const { slug, request, ops, page = '' } = body;
+  if (!slug || (!request && !ops)) {
     return jsonResponse(400, { error: 'missing_fields' }, origin);
   }
   const cleanPage = sanitizePage(page);
   if (cleanPage === null) {
     return jsonResponse(400, { error: 'invalid_page' }, origin);
   }
-  if (typeof request !== 'string' || request.length > MAX_REQUEST_LENGTH) {
+  if (request !== undefined && (typeof request !== 'string' || request.length > MAX_REQUEST_LENGTH)) {
     return jsonResponse(400, { error: 'request_invalid' }, origin);
+  }
+  if (ops !== undefined) {
+    if (!Array.isArray(ops) || ops.length === 0 || ops.length > 20) {
+      return jsonResponse(400, { error: 'ops_invalid' }, origin);
+    }
+    for (const op of ops) {
+      if (!op || op.op !== 'replace_text' || typeof op.id !== 'string' || typeof op.text !== 'string') {
+        return jsonResponse(400, { error: 'ops_invalid' }, origin);
+      }
+      if (op.text.length > 2000) {
+        return jsonResponse(400, { error: 'ops_text_too_long' }, origin);
+      }
+    }
   }
   if (slug !== payload.slug) {
     return jsonResponse(403, { error: 'slug_mismatch' }, origin);
@@ -399,19 +412,28 @@ exports.handler = async function (event) {
       return jsonResponse(500, { error: 'no_editable_elements' }, origin);
     }
 
-    const claudeResp = await callClaude(request, editableMap);
-    const validated = validateChanges(claudeResp.changes, allowlist);
+    let validated;
+    let claudeResp = null;
+    if (ops) {
+      const directChanges = ops.map(o => ({ id: o.id, text: o.text }));
+      validated = validateChanges(directChanges, allowlist);
+    } else {
+      claudeResp = await callClaude(request, editableMap);
+      validated = validateChanges(claudeResp.changes, allowlist);
+    }
 
     if (validated.length === 0) {
       return jsonResponse(200, {
         success: true,
         changes: [],
-        confirmation: claudeResp.confirmation
-          || "I couldn't make that change automatically. Try being more specific, or use 'Request human help' for changes the AI can't handle."
+        confirmation: (claudeResp && claudeResp.confirmation)
+          || "I couldn't apply that change. The element ID may not be editable, or the new text is invalid."
       }, origin);
     }
 
-    const truncated = request.length > 80 ? request.slice(0, 80) + '...' : request;
+    const truncated = ops
+      ? `inline edit (${validated.length} change${validated.length === 1 ? '' : 's'})`
+      : (request.length > 80 ? request.slice(0, 80) + '...' : request);
     const pageLabel = cleanPage ? `/${cleanPage}` : '';
     const commitMessage = `AI edit by ${slug}${pageLabel}: ${truncated}`;
     await commitWithRetry(slug, cleanPage, validated, commitMessage);
@@ -419,8 +441,8 @@ exports.handler = async function (event) {
     return jsonResponse(200, {
       success: true,
       changes: validated,
-      confirmation: claudeResp.confirmation
-        || `Saved ${validated.length} change${validated.length === 1 ? '' : 's'}. Your live site updates within a minute or two.`
+      confirmation: (claudeResp && claudeResp.confirmation)
+        || `Saved ${validated.length} change${validated.length === 1 ? '' : 's'}. Your live site updates in ~30-60 seconds.`
     }, origin);
 
   } catch (e) {
