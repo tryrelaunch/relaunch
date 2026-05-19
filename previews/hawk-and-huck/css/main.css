@@ -172,7 +172,7 @@ nav.main-nav {
 }
 .nav-cta {
   background: var(--ink);
-  color: var(--bone);
+  color: #fff !important;
   padding: 12px 24px;
   font-family: var(--font-body);
   font-size: 12px;
@@ -181,7 +181,7 @@ nav.main-nav {
   text-transform: uppercase;
   transition: background 0.2s;
 }
-.nav-cta:hover { background: var(--rust); }
+.nav-cta:hover { background: var(--rust); color: #fff !important; }
 
 /* ── HAMBURGER ── */
 .hamburger {
