@@ -513,6 +513,14 @@
     if (target.classList.contains('rl-editing')) return;
     e.preventDefault();
     e.stopPropagation();
+    if (target.children.length > 0) {
+      panelEl.classList.add('rl-open');
+      addMessage(
+        "That section has multiple editable parts inside it (like a headline plus a subtitle). Click the specific piece you want to change.",
+        'assistant'
+      );
+      return;
+    }
     if (currentEditing && currentEditing !== target) {
       finishEditing(currentEditing, false);
     }
