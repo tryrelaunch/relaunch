@@ -1,0 +1,372 @@
+<!--
+================================================================================
+RELAUNCH SEO BANNER — Hidden Bridge Golf Club (hidden-bridge)
+Generated 2026-05-19 from real audit data in prospect_hidden_bridge.md.
+
+Self-contained: <style> + markup + <script>. Same Spork-pattern structure as
+hawk-and-huck-banner.html, palette adapted to Hidden Bridge (maroon + cream
++ gold from the pheasant logo).
+
+Data sources:
+  - Ahrefs MCP, 2026-05-19: DR 20, 10 organic keywords, 4 in pos 1-3,
+    109 organic visits/mo — ALL to homepage (only indexed page)
+  - audit.py 2026-05-19 against live site:
+    Wix.com Website Builder template. Title 97 chars (truncates SERPs).
+    Footer "©2019". Wix-default social links. Schema gaps:
+    OpeningHours, AggregateRating, Review, Service, FAQPage, BreadcrumbList,
+    plus zero GolfCourse markup.
+  - Live page scrape, 2026-05-19: confirmed Wix CDN social-icon URLs point to
+    facebook.com/wix, twitter.com/Wix, linkedin.com/company/wix-com.
+================================================================================
+-->
+<style>
+:root {
+  --hb-banner-maroon:  #6f2a22;
+  --hb-banner-maroon-2:#4d1c17;
+  --hb-banner-cream:   #f5ead0;
+  --hb-banner-cream-2: #d4c39b;
+  --hb-banner-cream-3: #8a7d62;
+  --hb-banner-gold:    #c9933a;
+  --hb-banner-gold-2:  #d9a850;
+  --hb-banner-ink:     #1c1612;
+  --hb-banner-ink-2:   #2a1f1a;
+  --hb-banner-fire:    #b8311c;
+  --hb-banner-line:    #3a2c24;
+}
+
+.seo-banner {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, var(--hb-banner-ink) 0%, var(--hb-banner-maroon-2) 100%);
+  color: var(--hb-banner-cream);
+  border-bottom: 2px solid var(--hb-banner-gold);
+  position: relative;
+  z-index: 50;
+}
+.seo-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.seo-top-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.seo-badge {
+  display: inline-block;
+  background: var(--hb-banner-gold);
+  color: var(--hb-banner-ink);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.seo-headline {
+  font-size: 14px;
+  color: var(--hb-banner-cream);
+  line-height: 1.4;
+  margin: 0;
+}
+.seo-headline strong { color: var(--hb-banner-gold-2); font-weight: 600; }
+.seo-toggle {
+  background: transparent;
+  color: var(--hb-banner-cream);
+  border: 1px solid var(--hb-banner-gold);
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.seo-toggle:hover { background: var(--hb-banner-gold); color: var(--hb-banner-ink); }
+.seo-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+  background: var(--hb-banner-ink-2);
+  border-top: 1px solid var(--hb-banner-line);
+}
+.seo-panel.open { max-height: 4400px; }
+.seo-panel-inner { max-width: 1200px; margin: 0 auto; padding: 32px 24px 36px; }
+.seo-greeting {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--hb-banner-cream);
+  margin: 0 0 28px;
+  padding-left: 16px;
+  border-left: 3px solid var(--hb-banner-gold);
+}
+.seo-greeting strong { color: var(--hb-banner-gold-2); font-style: normal; font-weight: 600; }
+.seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.seo-col h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hb-banner-cream-3);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hb-banner-line);
+}
+.seo-col.bad h3 { color: #e89888; }
+.seo-col.good h3 { color: var(--hb-banner-gold); }
+.seo-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 44, 36, 0.5);
+  align-items: flex-start;
+}
+.seo-row:last-child { border-bottom: none; }
+.seo-ico {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.seo-ico.x { background: rgba(184, 49, 28, 0.22); color: #e89888; }
+.seo-ico.c { background: rgba(201, 147, 58, 0.22); color: var(--hb-banner-gold-2); }
+.seo-row p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--hb-banner-cream); }
+.seo-row p strong { color: #fff; font-weight: 600; }
+.seo-row p em {
+  color: var(--hb-banner-cream-2);
+  font-style: normal;
+  font-size: 12.5px;
+  display: block;
+  margin-top: 4px;
+}
+.seo-cta-row {
+  margin-top: 32px;
+  padding: 22px 24px;
+  background: var(--hb-banner-ink);
+  border: 1px solid var(--hb-banner-gold);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.seo-cta-text { flex: 1; min-width: 240px; }
+.seo-cta-text .seo-cta-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--hb-banner-cream);
+  letter-spacing: -0.01em;
+}
+.seo-cta-text .seo-cta-price span { color: var(--hb-banner-gold-2); font-size: 14px; font-weight: 500; }
+.seo-cta-text .seo-cta-sub {
+  font-size: 12.5px;
+  color: var(--hb-banner-cream-2);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.seo-cta-btn {
+  background: var(--hb-banner-gold);
+  color: var(--hb-banner-ink);
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  border: 1px solid var(--hb-banner-gold);
+}
+.seo-cta-btn:hover {
+  background: var(--hb-banner-gold-2);
+  border-color: var(--hb-banner-gold-2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(201, 147, 58, 0.4);
+}
+.seo-footnote {
+  font-size: 11px;
+  color: var(--hb-banner-cream-3);
+  text-align: center;
+  margin-top: 18px;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 760px) {
+  .seo-top { padding: 12px 16px; }
+  .seo-headline { font-size: 13px; }
+  .seo-grid { grid-template-columns: 1fr; gap: 8px; }
+  .seo-panel-inner { padding: 24px 16px 28px; }
+  .seo-cta-row { padding: 18px; flex-direction: column; align-items: stretch; text-align: center; }
+  .seo-cta-btn { text-align: center; }
+}
+</style>
+
+<div class="seo-banner" id="seo-banner">
+  <div class="seo-top">
+    <div class="seo-top-left">
+      <span class="seo-badge">Built by Relaunch</span>
+      <p class="seo-headline">
+        This is what your website could look like. <strong>Real audit inside</strong> on why your footer still says 2019 and your Facebook icon links to Wix.
+      </p>
+    </div>
+    <button class="seo-toggle" onclick="toggleSEO()" id="seo-toggle-btn">Show audit ▼</button>
+  </div>
+
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+
+      <p class="seo-greeting">
+        Your course is <strong>open for the 2026 season</strong> &mdash; great views of the Big Horns, a real par-72 layout, water on the back nine, sunsets people drive out to see. <strong>None of that shows up</strong> when somebody opens Google and types &ldquo;Sheridan golf course.&rdquo; You're losing them to the other course in town on a homepage that hasn't been touched since 2019.
+      </p>
+
+      <div class="seo-grid">
+
+        <div class="seo-col bad">
+          <h3>What the current site is leaving on the table</h3>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>Your footer says &ldquo;©2019.&rdquo; Your body copy says &ldquo;open for the 2026 season.&rdquo;</strong>
+              <em>Seven years of staleness on the page Google decides whether to trust you with.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>The Facebook icon in your footer links to facebook.com/wix. Twitter goes to twitter.com/Wix. LinkedIn goes to Wix's company page.</strong>
+              <em>The Wix template's placeholder social URLs never got replaced. Click your own social icons and you'll land on Wix's marketing page, not yours.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>You rank #1 for &ldquo;Hidden Bridge Golf Club&rdquo; — and #4-7 for every &ldquo;Sheridan golf course&rdquo; variant.</strong>
+              <em>People who already know your name find you. People searching for <em>a</em> Sheridan golf course see competitors first. You have one page on your entire site trying to compete.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>Your scorecard, your course map, and your daily rates only exist as JPEGs and PDFs.</strong>
+              <em>Google can't index a JPEG of your yardages or a PDF of your green fees the way it can index a real HTML page. Someone searching &ldquo;hidden bridge green fees&rdquo; gets your homepage — not a rates page, because you don't have one.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>No GolfCourse schema. No opening hours, no aggregate rating, no review markup.</strong>
+              <em>Google has structured-data slots specifically for golf courses — par, holes, yardage, slope, designer. You have a generic &ldquo;LocalBusiness&rdquo; tag that could be a deli. AI Overviews skip you for Yelp.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>Zero online tee-time booking. Phone-only in 2026.</strong>
+              <em>Travelers and Sheridan visitors searching at 11pm aren't going to call. They book the course that lets them tap and reserve.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">✕</div>
+            <p>
+              <strong>&ldquo;Tee Box Yardage&rdquo; and &ldquo;Hidden Bridge Map&rdquo; are headings on your homepage with nothing under them.</strong>
+              <em>Empty sections. The real yardage chart and course map exist as photos buried in your gallery — they should be the main attraction.</em>
+            </p>
+          </div>
+        </div>
+
+        <div class="seo-col good">
+          <h3>What this rebuild fixes</h3>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>Seven indexable pages instead of one.</strong>
+              <em>Home / The Course / Rates &amp; Tee Times / Membership / Tournaments &amp; Events / Pro Shop / Contact. Each one targets the keyword it should — not the homepage doing every job badly.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>Real rates page with current daily, 9-hole, cart, junior, and season-pass pricing in HTML.</strong>
+              <em>Crawlable, share-able, updatable. Not a PDF. Not a guess.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>Full scorecard, hole-by-hole, and course map rendered as proper HTML.</strong>
+              <em>The par-72 layout, the 4685–6600 yard tee sets, the 71.1/119 rating — all surfaced so Google and AI search can read them. Today they're trapped in a 670-pixel JPEG.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>GolfCourse + LocalBusiness + OpeningHours + AggregateRating + FAQPage schema baked in.</strong>
+              <em>Google starts treating you as a golf course in structured terms. Your star rating shows up under your search result. AI Overviews start citing you when somebody asks &ldquo;best golf in Sheridan.&rdquo;</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>Online tee-time request form, mountain-view hero, real photos at full size.</strong>
+              <em>The mountain-and-water shot currently buried as a 120×90 thumbnail becomes your hero. Sunset shot becomes a section. Your course finally looks as good on screen as it does in person.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">✓</div>
+            <p>
+              <strong>Edit anything by just asking.</strong>
+              <em>Type &ldquo;move opening day to April 18&rdquo; or &ldquo;raise the 18-hole rate to $42&rdquo; into the chat widget and it's live. No webmaster, no Wix dashboard.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-cta-row">
+        <div class="seo-cta-text">
+          <div class="seo-cta-price">$99<span>/month — no contract, cancel anytime</span></div>
+          <div class="seo-cta-sub">Site goes live in under a week. We do the migration.</div>
+        </div>
+        <a class="seo-cta-btn" href="https://tryrelaunch.com/onboard?business=Hidden%20Bridge%20Golf%20Club">Make this site mine →</a>
+      </div>
+
+      <p class="seo-footnote">
+        Audit pulled from Ahrefs (DR, ranked keywords) + a scrape of your live site on May 19, 2026. Numbers above are real, not illustrative.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSEO() {
+  var p = document.getElementById('seo-panel');
+  var b = document.getElementById('seo-toggle-btn');
+  var isOpen = p.classList.toggle('open');
+  b.innerHTML = isOpen ? 'Hide audit ▲' : 'Show audit ▼';
+}
+</script>
