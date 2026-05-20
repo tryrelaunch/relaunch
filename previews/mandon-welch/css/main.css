@@ -202,10 +202,17 @@ p { margin: 0 0 1em; }
 /* Headshot variant — taller, top-cropped so face stays visible */
 .media-card .headshot { height: 260px; object-position: center 25%; }
 
-/* Therapist card */
-.therapist { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 18px; grid-template-columns: 1fr; }
-@media (min-width: 600px) { .therapist { grid-template-columns: 220px 1fr; align-items: start; } }
+/* Therapist card — single-column on the team page so bios get room to breathe */
+.grid-2:has(> .therapist) { grid-template-columns: 1fr; gap: 32px; }
+.therapist { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) {
+  .therapist { grid-template-columns: 260px 1fr; gap: 36px; padding: 36px; align-items: start; }
+}
+@media (min-width: 1000px) {
+  .therapist { grid-template-columns: 300px 1fr; gap: 44px; padding: 40px; }
+}
 .therapist img { border-radius: 14px; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 30%; }
+.therapist .bio { font-size: 1.02rem; line-height: 1.7; }
 .therapist .meta { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .therapist .meta h3 { margin: 0; font-size: 1.4rem; }
 .therapist .creds { color: var(--blue); font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
