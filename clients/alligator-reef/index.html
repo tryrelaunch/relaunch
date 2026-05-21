@@ -1230,34 +1230,6 @@ footer {
 </footer>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  EDIT WIDGET                             ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-
-
-<div class="edit-panel" id="edit-panel">
-  <div class="edit-panel-header">
-    <div class="edit-panel-title"><span class="boatr-mark">Boatr</span> <span style="opacity:0.55;font-weight:500;">· Edit your site</span></div>
-    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
-  </div>
-  <div class="edit-messages" id="edit-messages">
-    <div class="edit-msg claude">Hey — type any change you want. Boat names, the hero copy, the phone number, the sunset hours — whatever. Updating existing text works great; brand-new sections aren't supported yet.</div>
-  </div>
-  <div class="edit-typing" id="edit-typing">
-    <span></span><span></span><span></span>
-  </div>
-  <div class="edit-suggestions" id="edit-suggestions">
-    <div class="edit-chip" onclick="useChip(this)">Change boat #04 to 250hp Yamaha</div>
-    <div class="edit-chip" onclick="useChip(this)">Update sunset cruise hours</div>
-    <div class="edit-chip" onclick="useChip(this)">Add Michael's Coast Guard service years</div>
-    <div class="edit-chip" onclick="useChip(this)">Change the phone number</div>
-  </div>
-  <div class="edit-input-row">
-    <textarea class="edit-input" id="edit-input" placeholder="What would you like to change?" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
-  </div>
-</div>
-
-<!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  BOOKING MODAL (Peek iframe)             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <div class="book-modal" id="book-modal" role="dialog" aria-modal="true" aria-label="Reserve a boat">
@@ -1278,47 +1250,6 @@ footer {
 </div>
 
 
-
-
-<!-- Relaunch production edit widget bootstrap (auto-generated) -->
-<script>
-(function () {
-  var SLUG = "alligator-reef";
-  var FN_BASE = "https://tryrelaunch.netlify.app/.netlify/functions";
-  var WIDGET_URL = "https://tryrelaunch.netlify.app/widget.js";
-  var token;
-  try { token = localStorage.getItem("relaunch_jwt"); } catch (e) { return; }
-  if (!token) return;
-
-  var payload;
-  try {
-    var parts = token.split(".");
-    if (parts.length !== 3) return;
-    var b64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
-    while (b64.length % 4) b64 += "=";
-    payload = JSON.parse(atob(b64));
-  } catch (e) { return; }
-
-  if (payload.exp && payload.exp * 1000 < Date.now()) {
-    try { localStorage.removeItem("relaunch_jwt"); } catch (e) {}
-    return;
-  }
-  if (payload.slug !== SLUG) return;
-
-  window.__relaunchWidgetConfig = {
-    slug: SLUG,
-    token: token,
-    endpoint: FN_BASE + "/edit-persistent",
-    editPageUrl: "/edit/",
-    supportEmail: "support@tryrelaunch.com"
-  };
-
-  var s = document.createElement("script");
-  s.src = WIDGET_URL;
-  s.async = true;
-  document.head.appendChild(s);
-})();
-</script>
 
 
 
