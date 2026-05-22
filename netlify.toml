@@ -10,6 +10,16 @@
 [functions."edit-persistent"]
   timeout = 26
 
+# Public URL spec: previews live at /preview/[slug]/ (singular).
+# Repo folder stays /previews/ (plural) to preserve git history.
+# Rewrite (status=200) keeps /preview/... in the browser address bar,
+# but serves content from /previews/...
+[[redirects]]
+  from = "/preview/*"
+  to = "/previews/:splat"
+  status = 200
+  force = true
+
 # Block public access to internal paths.
 # config/clients/*.json contains bcrypt-hashed PINs and allowed_origins —
 # must never be served as static content from tryrelaunch.com.

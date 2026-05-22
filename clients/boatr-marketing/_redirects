@@ -1,3 +1,8 @@
+# Public URL spec: previews live at /preview/[slug]/ (singular).
+# Repo folder stays /previews/ (plural). Rewrite keeps /preview/... in browser,
+# serves content from /previews/...
+/preview/*   /previews/:splat   200!
+
 # Admin editor — rewrites to / with ?admin=1 so the editor unlocks PIN gate.
 /admin       /?admin=1   200
 /admin/      /?admin=1   200
