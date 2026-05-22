@@ -46,8 +46,10 @@ San Diego's only BYOB private yacht charter. 47ft sailing catamaran, captain & c
 ## H1 (single, on page)
 
 ```
-San Diego's Most Intimate Yacht Charter — Just 12 Guests, BYOB Welcome
+San Diego's Finest Yacht Charter — 12 Guests, BYOB Welcome
 ```
+
+*(Updated 2026-05-21: "Finest" replaces "Most Intimate" per operator decision. The intimate/exclusive framing still drives all H2/body copy; the H1 leans on "Finest" as the headline lane.)*
 
 ---
 

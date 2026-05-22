@@ -21,6 +21,14 @@
 /corporate-yacht-charter-san-diego/  /executive-yacht-charter-san-diego/  301!
 /corporate-yacht-charter-san-diego   /executive-yacht-charter-san-diego/  301!
 
+# Fleet rule §10 — Malarky off-territory page kills (audit 2026-05-21)
+# /party-yacht-rental-san-diego/ — "party boat" framing is Alana/Triton territory per §3
+# /sailboat-charters-san-diego/  — catamaran > sailboat in search volume; consolidate
+/party-yacht-rental-san-diego/  /bachelorette-yacht-charters-san-diego/  301!
+/party-yacht-rental-san-diego   /bachelorette-yacht-charters-san-diego/  301!
+/sailboat-charters-san-diego/   /private-catamaran-charter-san-diego/    301!
+/sailboat-charters-san-diego    /private-catamaran-charter-san-diego/    301!
+
 # Migration: WordPress legacy URLs
 # Old WP site used /wp-content/uploads/... for all images. Those URLs no longer
 # exist on the new static site. 410 = "Gone forever, deindex it." Cleaner SEO
@@ -31,15 +39,4 @@
 /xmlrpc.php         /  410
 /wp-json/*          /  410
 /feed/              /  410
-/feed               /  410
-
-# WP homepage variants
-/index.php          /                                          301
-/home/              /                                          301
-/home               /                                          301
-
-# Old WP page slugs that may have been indexed
-/yacht-rental/      /yacht-rental-san-diego/                   301
-/yacht-rental       /yacht-rental-san-diego/                   301
-/private-charter/   /private-yacht-charter-san-diego/          301
-/private-charter    /private-yacht-charter-san-diego/          301
+/
