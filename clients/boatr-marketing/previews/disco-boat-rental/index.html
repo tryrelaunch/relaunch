@@ -430,15 +430,17 @@ nav {
   .slide { flex-basis: 46%; }        /* tablet: 2-up with peek */
 }
 @media (min-width: 1100px) {
-  .hero-slider { padding: 36px 0 48px; }
+  .hero-slider { padding: 28px 0 36px; }
   .slider-track {
-    gap: 22px;
+    gap: 18px;
     padding-left: 32px; padding-right: 32px;
     scroll-padding-left: 32px;
   }
   .slide {
-    flex-basis: calc((100% - 22px * 2.4) / 2.4);  /* ~2 slides + a peek of the 3rd */
-    padding-bottom: 60%;                          /* shorter on desktop — less wall-of-portrait */
+    flex-basis: calc((100% - 18px * 4.3) / 4.3);  /* 4 visible + peek of 5th */
+    padding-bottom: 125%;                          /* back to 4:5 portrait */
+    box-shadow: 0 6px 0 0 var(--navy);
+    border-radius: 12px;
   }
 }
 
