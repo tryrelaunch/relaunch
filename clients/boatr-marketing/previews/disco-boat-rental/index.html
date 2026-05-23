@@ -886,16 +886,6 @@ footer {
 </header>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  HERO PHOTO BAND (KD-227, golden hour)   ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="hero-photo" aria-label="The Disco Boat on San Diego Bay at golden hour">
-  <img src="images/hero.webp"
-       alt="The Disco Boat on San Diego Bay at golden hour — guests on the rooftop deck around the mirrored disco ball, more guests inside the leopard-walled lounge, marina and palm trees in the background"
-       width="2000" height="1333"
-       fetchpriority="high">
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  GUARANTEE STRIP                         ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <section class="guarantee">
@@ -1216,16 +1206,6 @@ footer {
 </footer>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  STICKY CLAIM BAR                        ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<div class="sticky-bar" id="sticky-bar" role="region" aria-label="Boatr offer">
-  <span class="boatr-mark">Boatr</span>
-  <div class="sticky-txt">Like this? <span>Boatr builds these for every marine business.</span></div>
-  <a href="/onboard/?prospect=disco-boat-rental&business=Disco+Boat+Rentals&url=discoboatrentals.com&phone=855-782-3988" class="sticky-btn" rel="noopener">See how Boatr builds them →</a>
-  <button class="sticky-close" onclick="closeBar()" aria-label="Close">×</button>
-</div>
-
-<!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  BOOKING MODAL (Peek iframe)             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <div class="book-modal" id="book-modal" role="dialog" aria-modal="true" aria-label="Join the Disco Boat waiting list">
@@ -1249,15 +1229,6 @@ footer {
 </div>
 
 <script>
-// ── Sticky claim bar ──
-const bar = document.getElementById('sticky-bar');
-let barClosed = false;
-window.addEventListener('scroll', () => {
-  if (barClosed) return;
-  bar.classList.toggle('show', window.scrollY > 600);
-});
-function closeBar() { barClosed = true; bar.classList.remove('show'); }
-
 // ── Booking modal (GHL waiting-list form iframe) ──
 const PEEK_BOOKING_URL = 'https://link.boatrmarketing.com/widget/form/UKKEdzivMdsNJ2b5tZHI';
 let bookModalLoadTimer = null;
