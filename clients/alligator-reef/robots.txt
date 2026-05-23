@@ -1,0 +1,39 @@
+# robots.txt for alligatorreefboats.com
+# Default: allow all crawlers. Explicit allow for AI search bots per AI Overview readiness.
+
+User-agent: *
+Allow: /
+
+# AI search crawlers — explicit allow
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block the PIN edit flow from indexing — admin-only
+User-agent: *
+Disallow: /edit/
+
+Sitemap: https://alligatorreefboats.com/sitemap.xml

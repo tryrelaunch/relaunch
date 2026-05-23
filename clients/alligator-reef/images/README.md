@@ -37,9 +37,9 @@ Just commit and push:
 
 ```
 cd C:\Users\Nsini\Code\relaunch\relaunch-website
-git add clients/boatr-marketing/previews/alligator-reef/images/
-git commit -m "Add real Alligator Reef photos to preview"
+git add clients/alligator-reef/images/
+git commit -m "Add real Alligator Reef photos"
 git push origin main
 ```
 
-Netlify rebuilds in ~60s and the preview gets the real photos. URL stays the same: `https://boatrmarketing.com/previews/alligator-reef/`
+Netlify rebuilds in ~60s. Live URL: `https://alligatorreefboats.com/` (preview at `https://client-alligator-reef.netlify.app/`).

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+
+  <url>
+    <loc>https://alligatorreefboats.com/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://alligatorreefboats.com/images/hero.jpg</image:loc>
+      <image:title>Alligator Reef Boat Rentals — Islamorada, Florida Keys</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://alligatorreefboats.com/alligator-reef-lighthouse/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alligatorreefboats.com/images/lighthouse.jpg</image:loc>
+      <image:title>Alligator Reef Lighthouse, Florida Keys</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://alligatorreefboats.com/islamorada-sandbar/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://alligatorreefboats.com/images/sandbar.jpg</image:loc>
+      <image:title>The Islamorada Sandbar, Florida Keys</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://alligatorreefboats.com/sunset-cruise/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://alligatorreefboats.com/images/sunset.jpg</image:loc>
+      <image:title>Islamorada Sunset Cruise — Breezy Palms Marina</image:title>
+    </image:image>
+  </url>
+
+</urlset>
