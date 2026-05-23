@@ -430,17 +430,18 @@ nav {
   .slide { flex-basis: 46%; }        /* tablet: 2-up with peek */
 }
 @media (min-width: 1100px) {
-  .hero-slider { padding: 28px 0 36px; }
+  .hero-slider { padding: 24px 0 28px; }
   .slider-track {
-    gap: 18px;
+    gap: 14px;
     padding-left: 32px; padding-right: 32px;
     scroll-padding-left: 32px;
   }
   .slide {
-    flex-basis: calc((100% - 18px * 4.3) / 4.3);  /* 4 visible + peek of 5th */
-    padding-bottom: 125%;                          /* back to 4:5 portrait */
-    box-shadow: 0 6px 0 0 var(--navy);
-    border-radius: 12px;
+    flex-basis: calc((100% - 14px * 4.3) / 4.3);  /* 4 visible + peek of 5th */
+    padding-bottom: 66.67%;                        /* 3:2 landscape — card-sized, not tall */
+    border: 0;
+    box-shadow: 0 4px 14px -4px rgba(0,0,0,0.18);
+    border-radius: 10px;
   }
 }
 
