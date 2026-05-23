@@ -430,7 +430,7 @@ nav {
   .slide { flex-basis: 46%; }        /* tablet: 2-up with peek */
 }
 @media (min-width: 1100px) {
-  .hero-slider { padding: 24px 0 28px; }
+  .hero-slider { padding: 20px 0 24px; }
   .slider-track {
     gap: 14px;
     padding-left: 32px; padding-right: 32px;
@@ -438,7 +438,8 @@ nav {
   }
   .slide {
     flex-basis: calc((100% - 14px * 4.3) / 4.3);  /* 4 visible + peek of 5th */
-    padding-bottom: 66.67%;                        /* 3:2 landscape — card-sized, not tall */
+    padding-bottom: 0;                            /* kill the percentage-aspect */
+    height: 200px;                                /* explicit short card height */
     border: 0;
     box-shadow: 0 4px 14px -4px rgba(0,0,0,0.18);
     border-radius: 10px;
