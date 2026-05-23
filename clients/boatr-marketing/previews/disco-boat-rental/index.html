@@ -445,9 +445,14 @@ nav {
   box-shadow: 0 18px 50px -22px rgba(0,0,0,0.22);
 }
 .about-card-photo {
-  width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--cream-2);
+  width: 100%; position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden; background: var(--cream-2);
 }
-.about-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-card-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 .about-card-body { padding: 30px 32px 32px; }
 .about-card-eyebrow {
   font-family: var(--fs); font-size: 22px; font-weight: 400;
@@ -503,11 +508,15 @@ nav {
 }
 .fleet-card:hover { transform: translateY(-4px); }
 .fc-image {
-  width: 100%; aspect-ratio: 1; overflow: hidden;
-  border-radius: 12px; background: var(--cream-2);
+  width: 100%; position: relative;
+  padding-top: 100%; /* 1:1 aspect, padding-top fallback for iOS Safari */
+  overflow: hidden; border-radius: 12px; background: var(--cream-2);
   margin-bottom: 22px;
 }
-.fc-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fc-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 .fc-num { display: none; }
 .fc-name {
   font-family: var(--fs); font-weight: 400; font-size: 26px;
@@ -592,10 +601,15 @@ nav {
 /* Destination image banner */
 .dest-image {
   margin-top: 28px; border-radius: 14px; overflow: hidden;
-  aspect-ratio: 16/6; background: var(--cream-2);
+  width: 100%; position: relative;
+  padding-top: 37.5%; /* 16:6 */
+  background: var(--cream-2);
   box-shadow: 0 22px 50px -22px rgba(0,0,0,0.35);
 }
-.dest-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dest-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 
 /* On the bay / guest gallery */
 .guests { background: var(--sunshine); }
@@ -604,11 +618,15 @@ nav {
   margin-top: 40px;
 }
 .guest-card {
-  border-radius: 12px; overflow: hidden; aspect-ratio: 3/4;
-  background: var(--cream); position: relative;
+  border-radius: 12px; overflow: hidden;
+  position: relative; padding-top: 133.33%; /* 3:4 */
+  background: var(--cream);
   box-shadow: 0 12px 32px -16px rgba(0,0,0,0.32);
 }
-.guest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.guest-card img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+}
 .guest-card:hover img { transform: scale(1.04); }
 
 /* ── BOOKING (inline GHL form embed) ────────── */
@@ -813,7 +831,7 @@ footer {
   .about-grid, .loc-grid, .dest-grid, .fleet-intro { grid-template-columns: 1fr; gap: 36px; }
   .fleet-grid { grid-template-columns: 1fr 1fr; }
   .guests-grid { grid-template-columns: 1fr 1fr; }
-  .dest-image { aspect-ratio: 16/9; }
+  .dest-image { padding-top: 56.25%; /* 16:9 on mobile */ }
   .guarantee-inner { grid-template-columns: 1fr; gap: 22px; }
   .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .sticky-bar { display: none; }
