@@ -273,13 +273,16 @@ nav {
 
 /* ── HERO (matches live discoboatrentals.com WP theme exactly) ────────── */
 .hero {
-  position: relative; min-height: 516px;
+  position: relative; min-height: 620px;
   display: flex; align-items: center;
   background-color: var(--sunshine);
-  background-image: url('images/decor-arches.png');
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: auto;
+  background-image:
+    url('images/decor-arches.png'),
+    linear-gradient(180deg, rgba(248,202,90,0.92) 0%, rgba(248,202,90,0.70) 50%, rgba(248,202,90,0.85) 100%),
+    url('images/hero.webp');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: left top, center, center 35%;
+  background-size: auto, cover, cover;
   overflow: hidden;
   padding-top: 84px; padding-bottom: 54px;
 }
