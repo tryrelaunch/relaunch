@@ -39,4 +39,15 @@
 /xmlrpc.php         /  410
 /wp-json/*          /  410
 /feed/              /  410
-/
+/feed               /  410
+
+# WP homepage variants
+/index.php          /                                          301
+/home/              /                                          301
+/home               /                                          301
+
+# Old WP page slugs that may have been indexed
+/yacht-rental/      /yacht-rental-san-diego/                   301
+/yacht-rental       /yacht-rental-san-diego/                   301
+/private-charter/   /private-yacht-charter-san-diego/          301
+/private-charter    /private-yacht-charter-san-diego/          301

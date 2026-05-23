@@ -1221,3 +1221,15 @@ footer {
 @media (max-width: 900px) {
   .btn-call { display: none; }
 }
+
+
+/* ── #11: bump section eyebrows + titles on mobile for readability ── */
+@media (max-width: 768px) {
+  .kicker {
+    font-size: 13px;
+    letter-spacing: 0.24em;
+  }
+  .sec-title {
+    font-size: clamp(32px, 7vw, 44px);
+  }
+}
