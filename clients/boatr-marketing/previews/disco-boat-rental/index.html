@@ -286,14 +286,7 @@ nav {
 /* Yellow gradient overlay (sits ON TOP of the photo, BELOW the content) */
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(248,202,90,0.55) 0%, rgba(248,202,90,0.30) 50%, rgba(248,202,90,0.55) 100%);
-  pointer-events: none;
-}
-/* Retro arches at top-left (sits ON TOP of gradient, BELOW the content) */
-.hero::after {
-  content: ''; position: absolute; top: 0; left: 0; z-index: 2;
-  width: min(60vw, 720px); height: 70%;
-  background: url('images/decor-arches.png') left top / contain no-repeat;
+  background: linear-gradient(180deg, rgba(248,202,90,0.35) 0%, rgba(248,202,90,0.15) 50%, rgba(248,202,90,0.35) 100%);
   pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 3; }
@@ -428,7 +421,7 @@ nav {
 /* ── OWNERSHIP / ABOUT ────────── */
 .about { background: var(--sunshine); }
 .about-grid {
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center;
+  display: block; max-width: 820px; margin: 0 auto;
 }
 .about-emoji-h2 {
   font-family: var(--fb); font-weight: 700;
@@ -946,22 +939,6 @@ footer {
           <p id="edit-about-p4">You choose how long you want to cruise and any fun add-ons. The Disco Boat is a captained vessel — one of our captains drives so your group can stay on the dance floor and the rooftop the whole time. It's your party, your way.</p>
           <p id="edit-about-p5">Whether it's a birthday bash, bachelorette party, or just a day you want to make special, the Disco Boat is here to make it extra fun, extra bright, and extra memorable.</p>
           <p class="about-tagline">Let's cruise. Let's vibe. Let's party on the bay.</p>
-        </div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-photo">
-          <img src="images/about.webp" alt="The Disco Boat on San Diego Bay — full boat view with the rooftop disco ball, rainbow striped hull, palm trees and Shelter Island in the background" loading="lazy">
-        </div>
-        <div class="about-card-body">
-          <div class="about-card-eyebrow">Built &amp; operated by</div>
-          <div class="about-card-name" id="edit-owner-1-name">Nate Sinisgalli</div>
-          <div class="about-card-role" id="edit-owner-1-role">Owner · Founder of Boatr Marketing · 855-782-3988</div>
-
-          <div class="about-card-row" id="edit-owner-2"><strong>The build —</strong> 32-foot Suntracker Party Cruiser fitted out from the studs as a 1970s lounge: rainbow bar, dance pole, mirrored ceiling, leopard interior, rooftop deck with a full-size mirrored disco ball.</div>
-
-          <div class="about-card-row" id="edit-owner-3"><strong>Where we are —</strong> 2700 Shelter Island Drive, Point Loma, San Diego, CA 92106 — on San Diego Bay, short hop from downtown and Coronado.</div>
-
-          <div class="about-card-row" id="edit-owner-4"><strong>How it works —</strong> Captained charter — add a Disco Boat captain for <strong>$50/hour</strong>. Waiting list open now via the form on this page. Direct line: 855-782-3988. Email: <a href="mailto:hello@discoboatrentals.com" style="color:var(--aqua-dk);">hello@discoboatrentals.com</a>.</div>
         </div>
       </div>
     </div>
