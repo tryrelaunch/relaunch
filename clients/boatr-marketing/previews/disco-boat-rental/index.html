@@ -233,106 +233,10 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; height: auto; }
 button, input, textarea { font-family: inherit; font-size: 16px; }
 
-/* ── BOATR SEO BANNER ─────── */
-.seo-banner { background: var(--b-dark); border-bottom: 2px solid var(--b-orange); }
-.seo-top {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 24px; cursor: pointer; gap: 14px; flex-wrap: wrap;
-  max-width: 1280px; margin: 0 auto;
-}
-.boatr-mark {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--fh); font-size: 15px; font-weight: 900;
-  color: #fff; letter-spacing: -0.02em; line-height: 1;
-}
-.boatr-mark::before {
-  content: ''; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--b-orange); display: inline-block;
-}
-.seo-badge {
-  background: var(--b-orange-l); color: var(--b-orange-d);
-  font-family: var(--fh); font-size: 10px; font-weight: 800;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 4px 9px; border-radius: 3px; white-space: nowrap;
-  border: 1px solid rgba(254,141,1,0.35);
-}
-.seo-text { font-family: var(--fb); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); }
-.seo-text span { color: var(--b-orange); font-weight: 700; }
-.seo-toggle {
-  background: var(--b-orange); border: 1px solid var(--b-orange);
-  color: #fff; padding: 7px 16px; border-radius: 6px;
-  font-family: var(--fh); font-size: 12px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; transition: all 0.2s;
-}
-.seo-toggle:hover { background: var(--b-orange-d); border-color: var(--b-orange-d); }
-.seo-panel { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(.2,.8,.2,1); background: var(--b-dark-2); }
-.seo-panel.open { max-height: 6000px; overflow: visible; }
-.seo-panel-inner { padding: 32px 24px 36px; max-width: 1100px; margin: 0 auto; }
-.seo-greeting {
-  font-family: var(--fb); font-size: 19px; line-height: 1.5;
-  color: rgba(255,255,255,0.95); margin-bottom: 6px; max-width: 720px; font-weight: 500;
-}
-.seo-greeting strong { color: var(--b-orange); font-weight: 700; }
-.seo-greeting-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
-.seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.seo-col-title {
-  font-family: var(--fh); font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--b-orange); margin-bottom: 14px; font-weight: 800;
-}
-.seo-row { display: flex; align-items: flex-start; gap: 11px; margin-bottom: 11px; }
-.seo-ico {
-  width: 18px; height: 18px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
-}
-.seo-ico.x { background: rgba(239,68,68,0.18); color: #f97171; }
-.seo-ico.c { background: rgba(254,141,1,0.22); color: var(--b-orange); }
-.seo-row-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55; }
-.seo-row-text strong { color: white; font-weight: 700; }
-.seo-cta-row {
-  margin-top: 28px;
-  background: linear-gradient(135deg, var(--b-orange) 0%, var(--b-orange-d) 100%);
-  border-radius: 10px; padding: 22px 26px;
-  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
-  box-shadow: 0 14px 40px -16px rgba(254,141,1,0.45);
-}
-.seo-cta-row-text { color: #fff; font-size: 15px; font-weight: 600; line-height: 1.45; max-width: 540px; }
-.seo-cta-row-text strong { color: #fff; font-weight: 800; }
-.seo-cta-btn {
-  background: #fff; color: var(--b-orange-d) !important;
-  padding: 13px 22px; border-radius: 7px;
-  font-family: var(--fh); font-size: 13px; font-weight: 900;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  transition: all 0.2s; white-space: nowrap;
-}
-.seo-cta-btn:hover { background: var(--b-dark); color: #fff !important; }
-.seo-close-bottom {
-  margin-top: 26px; padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
-}
-.seo-close-bottom button {
-  background: transparent; border: 1px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.78);
-  padding: 11px 24px; border-radius: 6px;
-  font-family: var(--fh); font-size: 12px; font-weight: 800;
-  letter-spacing: 0.10em; text-transform: uppercase;
-  cursor: pointer; transition: all 0.2s;
-}
-.seo-close-bottom button:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.34);
-  color: #fff;
-}
-.seo-close-hint {
-  display: block; margin-top: 10px;
-  font-size: 12px; color: rgba(255,255,255,0.4);
-}
-
 /* ── NAV ─────────── */
 nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(245,204,63,0.97); backdrop-filter: blur(10px);
+  background: var(--sunshine);
   border-bottom: 3px solid var(--coral);
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 32px; max-width: 100%;
@@ -763,6 +667,17 @@ footer {
 }
 .foot-bottom a { color: var(--coral-d); text-decoration: underline; }
 
+/* ── BOATR MARK (used by sticky claim bar) ────────── */
+.boatr-mark {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--fh); font-size: 15px; font-weight: 900;
+  color: #fff; letter-spacing: -0.02em; line-height: 1;
+}
+.boatr-mark::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--b-orange); display: inline-block;
+}
+
 /* ── STICKY CLAIM BAR ────────── */
 .sticky-bar {
   position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
@@ -796,94 +711,7 @@ footer {
 }
 .sticky-close:hover { background: rgba(255,255,255,0.16); color: #fff; }
 
-/* ── EDIT WIDGET ────────── */
-.edit-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 998;
-  background: var(--b-dark); color: white;
-  padding: 12px 18px; border-radius: 999px;
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; border: 1px solid rgba(254,141,1,0.45);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.32);
-  transition: all 0.25s;
-}
-.edit-fab:hover { background: var(--b-dark-2); transform: translateY(-2px); border-color: var(--b-orange); }
-.edit-fab-dot {
-  width: 8px; height: 8px; background: var(--b-orange); border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-}
-.edit-panel {
-  position: fixed; bottom: 86px; right: 24px; z-index: 999;
-  width: min(380px, calc(100vw - 48px));
-  max-height: 70vh;
-  background: var(--b-dark); color: white;
-  border-radius: 12px; box-shadow: 0 24px 70px rgba(0,0,0,0.5);
-  display: none; flex-direction: column; overflow: hidden;
-  border: 1px solid rgba(254,141,1,0.32);
-}
-.edit-panel.open { display: flex; }
-.edit-panel-header {
-  padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,0.08);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.edit-panel-title {
-  font-family: var(--fh); font-size: 14px; font-weight: 800;
-  letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px;
-}
-.edit-panel-close {
-  background: none; border: none; color: rgba(255,255,255,0.6);
-  font-size: 22px; cursor: pointer; line-height: 1;
-}
-.edit-panel-close:hover { color: white; }
-.edit-messages {
-  flex: 1; overflow-y: auto; padding: 16px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.edit-msg { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.4; max-width: 86%; }
-.edit-msg.user { background: var(--b-orange); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; font-weight: 600; }
-.edit-msg.claude { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.92); align-self: flex-start; border-bottom-left-radius: 3px; }
-.edit-msg.system { background: rgba(254,141,1,0.18); color: var(--b-orange); align-self: flex-start; border-bottom-left-radius: 3px; font-size: 13px; }
-.edit-msg.error { background: rgba(239,68,68,0.18); color: #f97171; align-self: flex-start; border-bottom-left-radius: 3px; }
-.edit-typing { padding: 8px 16px; display: none; gap: 4px; }
-.edit-typing.show { display: flex; }
-.edit-typing span { width: 6px; height: 6px; background: var(--b-orange); border-radius: 50%; animation: bounce 1.4s ease-in-out infinite; }
-.edit-typing span:nth-child(2) { animation-delay: 0.15s; }
-.edit-typing span:nth-child(3) { animation-delay: 0.3s; }
-@keyframes bounce {
-  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
-  40% { opacity: 1; transform: translateY(-4px); }
-}
-.edit-suggestions { padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-.edit-chip {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6); border-radius: 16px;
-  padding: 5px 11px; font-size: 11px; cursor: pointer; transition: all 0.2s;
-}
-.edit-chip:hover { background: rgba(254,141,1,0.18); color: var(--b-orange); border-color: var(--b-orange); }
-.edit-input-row { padding: 12px 14px 14px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; align-items: flex-end; }
-.edit-input {
-  flex: 1; background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
-  padding: 10px 12px; font-family: var(--fb); font-size: 16px;
-  color: white; outline: none; resize: none;
-  min-height: 40px; max-height: 100px; line-height: 1.4;
-}
-.edit-input::placeholder { color: rgba(255,255,255,0.3); }
-.edit-input:focus { border-color: var(--b-orange); }
-.edit-send {
-  background: var(--b-orange); color: #fff; border: none;
-  border-radius: 8px; width: 40px; height: 40px;
-  cursor: pointer; font-size: 16px; flex-shrink: 0;
-  font-weight: 900; transition: background 0.2s;
-}
-.edit-send:hover { background: var(--b-orange-d); }
-.edit-send:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
-
-/* ── BOOKING MODAL (on-page Peek iframe — replaces new-tab redirect) ────────── */
+/* ── BOOKING MODAL (on-page GHL waiting-list iframe) ────────── */
 .book-modal {
   position: fixed; inset: 0; z-index: 2000;
   background: rgba(10,37,64,0.85); backdrop-filter: blur(6px);
@@ -949,10 +777,7 @@ footer {
   .dest-image { aspect-ratio: 16/9; }
   .guarantee-inner { grid-template-columns: 1fr; gap: 22px; }
   .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .seo-grid { grid-template-columns: 1fr; gap: 20px; }
-  .seo-greeting { font-size: 17px; }
   .sticky-bar { display: none; }
-  .edit-panel { right: 12px; left: 12px; width: auto; }
   .book-modal { padding: 0; }
   .book-modal-inner { border-radius: 0; height: 100vh; max-height: 100vh; }
 }
@@ -964,63 +789,6 @@ footer {
 </style>
 </head>
 <body>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  BOATR PREVIEW BANNER                    ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<div class="seo-banner" role="region" aria-label="Boatr preview information">
-  <div class="seo-top" onclick="toggleSEO()">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-      <span class="boatr-mark">Boatr</span>
-      <span class="seo-badge">Preview</span>
-      <span class="seo-text">Here's the rebuild of <span>discoboatrentals.com</span> →</span>
-    </div>
-    <button class="seo-toggle" id="seo-btn">What changed ▼</button>
-  </div>
-  <div class="seo-panel" id="seo-panel">
-    <div class="seo-panel-inner">
-      <p class="seo-greeting"><strong>This is the Boatr rebuild of discoboatrentals.com</strong> — same domain, same boat, same waiting-list form, rebuilt around the keywords San Diego is actually typing: "party boat rental San Diego," "bachelorette boat charter," "disco boat."</p>
-      <p class="seo-greeting-sub">— Nate Sinisgalli · Founder of Boatr · Owner of the Disco Boat</p>
-
-      <div class="seo-grid">
-        <div>
-          <div class="seo-col-title">What I fixed</div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Footer address is correct now.</strong> 2700 Shelter Island Dr, Point Loma, 92106. The current WordPress footer links to Bahia Resort Hotel in Mission Bay (92109) — wrong neighborhood, wrong zip, wrong Google Maps pin.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Real schema, validates clean.</strong> LocalBusiness + TouristAttraction (with the actual Point Loma coordinates), Product for the charter, Service for bachelorette + themed, TouristTrip for the sunset cruise, 8-question FAQPage. The WP site has zero schema visible in the HTML.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>H1 targets a money keyword.</strong> "Disco Boat Rentals · San Diego Party Boat." The current site H1 is "Disco Boat Rental San Diego" plus an H2 that buries the use case — not what bachelorette planners type.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Bachelorette, Themed, and Sunset get their own sections.</strong> Bachelorette planners search "bachelorette boat san diego," not "party boat." Themed gets the Pride and disco-night audience. Sunset gets the golden-hour disco-ball moment. Each one targets a real-volume long-tail.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Captain-or-self-drive decision is on the page.</strong> The current site doesn't mention self-drive at all — it's the marketing angle that distinguishes the Disco Boat from captain-only competitors (Maverick, Pink Duffy). Now it's named and explained.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>The broken internal link gets resolved.</strong> The current Disco Party Planning Guide post links to <code>/disco-party-decor-rentals/</code> — which 404s. Rebuild plan either creates that page or redirects to themed charters.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Mobile-first pure HTML, no WP plugin bloat.</strong> The current site runs WordPress with the performance-lab plugin doing damage control on top of a theme. This rebuild is hand-coded HTML — should hit Lighthouse 90+ on mobile.</div></div>
-          <div class="seo-row"><div class="seo-ico c">✓</div><div class="seo-row-text"><strong>Waiting-list form opens on-page, not a new tab.</strong> Boatr's GHL form embeds inline. Visitors stay on discoboatrentals.com through the conversion — measurable lift on form completion.</div></div>
-        </div>
-        <div>
-          <div class="seo-col-title">What's still on the WP discoboatrentals.com</div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Footer address links to the wrong building.</strong> "San Diego, CA 92109" with a Google Maps link to Bahia Resort Hotel in Mission Bay. Actual operation is Point Loma 92106. NAP inconsistency tanks local pack rankings.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>No schema in the HTML scrape.</strong> No LocalBusiness, no FAQ, no Product. Nothing for Google to use in rich results or AI Overviews.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>One landing page + a blog with 2 posts.</strong> Total indexable URLs: 4. No bachelorette page, no themed page, no FAQ, no contact, no about, no captain bio. Every long-tail keyword goes uncaptured.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>"Coming soon..." placeholder on /articles/.</strong> Production text that telegraphs "this site isn't really maintained."</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>The Mission Bay blog post ends with a malformed link</strong> — <code>/boat-rental-mission-bay/www.discoboatrentals.com</code>. The closing CTA points at itself instead of the boat.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Disco Party Planning Guide links to a page that doesn't exist.</strong> Internal link to <code>/disco-party-decor-rentals/</code> 404s. Wasted link equity, broken UX.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>Fixed-scale viewport on mobile.</strong> <code>maximum-scale=1.0, user-scalable=0</code> blocks pinch-zoom — accessibility yellow flag and a Lighthouse SEO ding.</div></div>
-          <div class="seo-row"><div class="seo-ico x">×</div><div class="seo-row-text"><strong>~70 Amazon affiliate links with placeholder ASINs</strong> in the disco-party guide. <code>B07XYZ1234</code>, <code>B08ABC3456</code> — most look auto-generated. Either real ASINs or strip them; placeholders read as deceptive content.</div></div>
-        </div>
-      </div>
-
-      <div class="seo-cta-row">
-        <div>
-          <div class="seo-cta-row-text"><strong>This is the rebuild going live on discoboatrentals.com.</strong> Same domain, same waiting-list form, same Disco Boat — rebuilt the way Boatr builds them for every marine client.</div>
-          <div class="seo-cta-price" style="margin-top:8px;">Pure HTML · Real schema · AI-editor for instant changes</div>
-        </div>
-        <a href="/onboard/?prospect=disco-boat-rental&business=Disco+Boat+Rentals&url=discoboatrentals.com&phone=855-782-3988" class="seo-cta-btn" rel="noopener">See how Boatr builds these →</a>
-      </div>
-      <div class="seo-close-bottom">
-        <button onclick="closeSEO()">Got it — show me the site ↓</button>
-        <span class="seo-close-hint">Or scroll down to explore the rebuilt site</span>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  NAV                                     ║ -->
@@ -1421,37 +1189,6 @@ footer {
 </div>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  EDIT WIDGET                             ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
-  <div class="edit-fab-dot"></div>
-  Edit this site
-</button>
-
-<div class="edit-panel" id="edit-panel">
-  <div class="edit-panel-header">
-    <div class="edit-panel-title"><span class="boatr-mark">Boatr</span> <span style="opacity:0.55;font-weight:500;">· Edit your site</span></div>
-    <button class="edit-panel-close" onclick="toggleEditPanel()" aria-label="Close">×</button>
-  </div>
-  <div class="edit-messages" id="edit-messages">
-    <div class="edit-msg claude">Hey — type any change you want. Hero copy, the bachelorette section, captain bio, pricing once it's live, the waiting-list link — whatever. Updating existing text works great; brand-new sections aren't supported yet.</div>
-  </div>
-  <div class="edit-typing" id="edit-typing">
-    <span></span><span></span><span></span>
-  </div>
-  <div class="edit-suggestions" id="edit-suggestions">
-    <div class="edit-chip" onclick="useChip(this)">Update the boat capacity</div>
-    <div class="edit-chip" onclick="useChip(this)">Swap the waiting-list URL</div>
-    <div class="edit-chip" onclick="useChip(this)">Add hourly pricing to the booking section</div>
-    <div class="edit-chip" onclick="useChip(this)">Change the captain's bio</div>
-  </div>
-  <div class="edit-input-row">
-    <textarea class="edit-input" id="edit-input" placeholder="What would you like to change?" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-    <button class="edit-send" id="edit-send" onclick="sendEdit()">→</button>
-  </div>
-</div>
-
-<!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  BOOKING MODAL (Peek iframe)             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <div class="book-modal" id="book-modal" role="dialog" aria-modal="true" aria-label="Join the Disco Boat waiting list">
@@ -1475,32 +1212,6 @@ footer {
 </div>
 
 <script>
-// ── SEO panel ──
-function toggleSEO() {
-  const p = document.getElementById('seo-panel');
-  if (p.classList.contains('open')) closeSEO();
-  else openSEO();
-}
-function openSEO() {
-  const p = document.getElementById('seo-panel');
-  const b = document.getElementById('seo-btn');
-  p.classList.add('open');
-  b.textContent = 'Close ▲';
-  setTimeout(() => {
-    const banner = document.querySelector('.seo-banner');
-    if (banner) banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 50);
-}
-function closeSEO() {
-  const p = document.getElementById('seo-panel');
-  const b = document.getElementById('seo-btn');
-  p.classList.remove('open');
-  b.textContent = 'What changed ▼';
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 50);
-}
-
 // ── Sticky claim bar ──
 const bar = document.getElementById('sticky-bar');
 let barClosed = false;
@@ -1546,107 +1257,6 @@ document.getElementById('book-modal').addEventListener('click', (e) => {
   if (e.target.id === 'book-modal') closeBookModal();
 });
 
-// ── Edit widget ──
-let isLoading = false;
-function toggleEditPanel() {
-  const panel = document.getElementById('edit-panel');
-  panel.classList.toggle('open');
-  if (panel.classList.contains('open')) {
-    setTimeout(() => document.getElementById('edit-input').focus(), 100);
-  }
-}
-function useChip(el) {
-  const input = document.getElementById('edit-input');
-  input.value = el.textContent;
-  input.focus();
-  autoResize(input);
-}
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
-}
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendEdit();
-  }
-}
-function addMessage(text, type) {
-  const messages = document.getElementById('edit-messages');
-  const msg = document.createElement('div');
-  msg.className = `edit-msg ${type}`;
-  msg.textContent = text;
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
-  return msg;
-}
-async function sendEdit() {
-  if (isLoading) return;
-  const input = document.getElementById('edit-input');
-  const request = input.value.trim();
-  if (!request) return;
-
-  input.value = '';
-  autoResize(input);
-  document.getElementById('edit-suggestions').style.display = 'none';
-  addMessage(request, 'user');
-
-  isLoading = true;
-  document.getElementById('edit-send').disabled = true;
-  document.getElementById('edit-typing').classList.add('show');
-
-  const content = {};
-  document.querySelectorAll('[id^="edit-"]').forEach(el => {
-    content[el.id] = el.textContent.trim();
-  });
-
-  try {
-    const response = await fetch('/.netlify/functions/edit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ request, content })
-    });
-
-    document.getElementById('edit-typing').classList.remove('show');
-
-    if (!response.ok) {
-      addMessage('Something went wrong. Try again.', 'error');
-      isLoading = false;
-      document.getElementById('edit-send').disabled = false;
-      return;
-    }
-
-    const data = await response.json();
-    const ops = Array.isArray(data.ops) ? data.ops
-              : Array.isArray(data.changes) ? data.changes.map(c => ({ op: 'replace_text', id: c.id, text: c.text }))
-              : [];
-
-    if (ops.length > 0) {
-      ops.forEach(op => {
-        const el = document.getElementById(op.id);
-        if (!el) return;
-        if (op.op === 'replace_text' && typeof op.text === 'string') {
-          el.textContent = op.text;
-        } else if (op.op === 'set_style' && typeof op.style === 'string') {
-          el.style.cssText = (el.style.cssText ? el.style.cssText + ';' : '') + op.style;
-        } else if (op.op === 'set_attr' && op.attr && typeof op.value === 'string') {
-          if (['src','href','alt','title','aria-label','placeholder'].includes(op.attr)) {
-            el.setAttribute(op.attr, op.value);
-          }
-        }
-      });
-      addMessage(data.confirmation || 'Done! Change applied.', 'system');
-    } else {
-      addMessage("I couldn't figure out what to change. Try being more specific.", 'claude');
-    }
-  } catch (err) {
-    document.getElementById('edit-typing').classList.remove('show');
-    addMessage("Couldn't connect. Check your internet and try again.", 'error');
-  }
-
-  isLoading = false;
-  document.getElementById('edit-send').disabled = false;
-}
 </script>
 
 </body>
