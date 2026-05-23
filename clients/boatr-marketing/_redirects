@@ -1,6 +1,15 @@
 # Public URL spec: previews live at /preview/[slug]/ (singular).
 # Repo folder stays /previews/ (plural). Rewrite keeps /preview/... in browser,
 # serves content from /previews/...
+
+# Common Disco Boat typo URLs — redirect to the canonical slug + trailing slash
+# so relative image paths resolve correctly. Listed BEFORE the generic /preview/*
+# rewrite so they fire first.
+/preview/discoboatrental.com    /preview/disco-boat-rental/   301
+/preview/discoboatrental.com/   /preview/disco-boat-rental/   301
+/preview/discoboatrentals.com   /preview/disco-boat-rental/   301
+/preview/discoboatrentals.com/  /preview/disco-boat-rental/   301
+
 /preview/*   /previews/:splat   200!
 
 # Admin editor — rewrites to / with ?admin=1 so the editor unlocks PIN gate.
