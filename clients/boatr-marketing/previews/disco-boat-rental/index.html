@@ -382,34 +382,59 @@ nav {
   object-position: center 38%;
 }
 
-/* ── HERO PHOTO SLIDER (right under hero) ────────── */
+/* ── HERO PHOTO SLIDER (right under hero — 4:5 portrait, peek-style) ── */
 .hero-slider {
   background: var(--sunshine);
-  padding: 0;
+  padding: 28px 0 36px;
   overflow: hidden;
   border-bottom: 4px solid var(--coral);
+  position: relative;
+}
+.slider-hint {
+  text-align: center;
+  font-family: var(--fs); color: var(--coral);
+  font-size: 22px; line-height: 1; margin-bottom: 16px;
+  letter-spacing: 0.02em;
 }
 .slider-track {
   display: flex;
+  gap: 16px;
+  padding: 4px 20px 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 .slider-track::-webkit-scrollbar { display: none; }
-.slider-track img {
-  flex: 0 0 100%;
-  width: 100%;
-  height: clamp(280px, 56vw, 560px);
-  object-fit: cover;
-  object-position: center 40%;
+.slide {
+  flex: 0 0 80%;                     /* MOBILE: 80% of viewport — next slide peeks on right */
+  position: relative;
+  padding-top: 100%;                 /* 4:5 portrait = height/width 125%... wait, this overrides */
   scroll-snap-align: start;
-  display: block;
+  border-radius: 16px;
+  border: 3px solid var(--navy);
+  box-shadow: 0 8px 0 0 var(--navy);
+  overflow: hidden;
+  background: var(--cream-2);
 }
-@media (min-width: 981px) {
-  /* On desktop, show 2 at a time for richer above-fold pacing */
-  .slider-track img { flex-basis: 50%; }
+/* Use padding-bottom so width drives height (4:5 portrait = h is 125% of w) */
+.slide {
+  padding-top: 0;
+  padding-bottom: 125%;
+}
+.slide img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+@media (min-width: 700px) {
+  .slide { flex-basis: 48%; }       /* tablet: 2-up with peek */
+}
+@media (min-width: 1100px) {
+  .slide { flex-basis: 32%; }       /* desktop: 3-up with peek */
+  .slider-track { padding-left: 40px; padding-right: 40px; scroll-padding-left: 40px; }
 }
 
 /* ── TEAL ACCENT BAND (matches live site's "Meet our newest..." section) ── */
@@ -941,14 +966,15 @@ footer {
 <!-- ║  PHOTO SLIDER (right under the hero)     ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <section class="hero-slider" aria-label="Photos of the Disco Boat">
+  <div class="slider-hint">Swipe →</div>
   <div class="slider-track">
-    <img src="images/about.jpg"            alt="The Disco Boat on San Diego Bay — full boat with guests on the rooftop and palm trees behind">
-    <img src="images/sunset.jpg"           alt="The Disco Boat at sunset on San Diego Bay — rooftop mirror ball lit up, guest waving from the upper deck" loading="lazy">
-    <img src="images/bachelorette.jpg"     alt="Bachelorette party of six posing at the bow of the Disco Boat under the yellow Disco Boat sign" loading="lazy">
-    <img src="images/feature-interior.jpg" alt="Disco Boat 1970s interior — psychedelic helm, leopard walls, mirrored ceiling, checkerboard floor" loading="lazy">
-    <img src="images/gal-1-drone.jpg"      alt="Aerial view of the Disco Boat cruising on San Diego Bay" loading="lazy">
-    <img src="images/feature-rooftop.jpg"  alt="Rooftop deck of the Disco Boat with open-air lounge seating and view across the bay" loading="lazy">
-    <img src="images/themed.jpg"           alt="Themed cruise on the Disco Boat — guests on the rooftop with arms raised under the mirrored disco ball" loading="lazy">
+    <div class="slide"><img src="images/slider-1.jpg" width="1080" height="1350" alt="The Disco Boat on San Diego Bay — guests on the rooftop with palm trees behind"></div>
+    <div class="slide"><img src="images/slider-2.jpg" width="1080" height="1350" alt="The Disco Boat at sunset — rooftop disco ball lit up, guest waving from the upper deck" loading="lazy"></div>
+    <div class="slide"><img src="images/slider-3.jpg" width="1080" height="1350" alt="Bachelorette party of six posing at the bow of the Disco Boat" loading="lazy"></div>
+    <div class="slide"><img src="images/slider-4.jpg" width="1080" height="1350" alt="Disco Boat 1970s interior — psychedelic helm, leopard walls, checkerboard floor" loading="lazy"></div>
+    <div class="slide"><img src="images/slider-5.jpg" width="1080" height="1350" alt="Aerial view of the Disco Boat cruising on San Diego Bay" loading="lazy"></div>
+    <div class="slide"><img src="images/slider-6.jpg" width="1080" height="1350" alt="Rooftop deck of the Disco Boat with open-air lounge seating and view across the bay" loading="lazy"></div>
+    <div class="slide"><img src="images/slider-7.jpg" width="1080" height="1350" alt="Themed cruise on the Disco Boat — guests on the rooftop with arms raised under the mirrored disco ball" loading="lazy"></div>
   </div>
 </section>
 
