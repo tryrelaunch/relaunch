@@ -276,16 +276,27 @@ nav {
   position: relative; min-height: 620px;
   display: flex; align-items: center;
   background-color: transparent;
-  background-image:
-    url('images/decor-arches.png'),
-    linear-gradient(180deg, rgba(248,202,90,0.55) 0%, rgba(248,202,90,0.30) 50%, rgba(248,202,90,0.55) 100%),
-    url('images/hero.webp');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: left top, center, center 35%;
-  background-size: auto, cover, cover;
+  background-image: url('images/hero.webp');
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  background-size: cover;
   overflow: hidden;
   padding-top: 84px; padding-bottom: 54px;
 }
+/* Yellow gradient overlay (sits ON TOP of the photo, BELOW the content) */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(248,202,90,0.55) 0%, rgba(248,202,90,0.30) 50%, rgba(248,202,90,0.55) 100%);
+  pointer-events: none;
+}
+/* Retro arches at top-left (sits ON TOP of gradient, BELOW the content) */
+.hero::after {
+  content: ''; position: absolute; top: 0; left: 0; z-index: 2;
+  width: min(60vw, 720px); height: 70%;
+  background: url('images/decor-arches.png') left top / contain no-repeat;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 3; }
 /* Legacy hero-bg / hero-grad layers — keep but make them transparent so the section-level bg shows through */
 .hero-bg { display: none; }
 .hero-grad { display: none; }
