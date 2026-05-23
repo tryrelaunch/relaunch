@@ -174,28 +174,46 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&family=Lobster&family=Fira+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
 <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy:     #0a2540;
+  /* ── Disco Boat palette (sampled from the live site's actual CSS — matches WP theme exactly) ── */
+  --coral:    #E74D43;   /* primary CTA / accent — live site button bg */
+  --coral-d:  #C13A30;
+  --coral-l:  #F08075;
+  --coral-2:  #E74E44;   /* footer link color from live CSS */
+  --sunshine: #F8CA5A;   /* live site section background */
+  --sunshine-d: #E8BC2A;
+  --teal:     #74CBD1;   /* live site button bg (Disco teal) */
+  --teal-d:   #4FB4BA;
+  --teal-l:   #9ADADF;
+  --salmon:   #F2B0A0;
+  --navy:     #0A2540;   /* high-contrast surfaces only */
   --navy-2:   #143256;
   --navy-3:   #1d4170;
-  --aqua:     #2dd4bf;
-  --aqua-lt:  #5eead4;
-  --aqua-dk:  #14b8a6;
-  --sand:     #f4e4c1;
-  --sand-2:   #ead8a8;
-  --cream:    #fdfbf6;
-  --cream-2:  #f5efe2;
-  --ink:      #0f172a;
-  --ink-2:    #3f4a5f;
-  --ink-3:    #6b7689;
-  --line:     #e6dec8;
+  --cream:    #FDFBF6;
+  --cream-2:  #FFF6E0;
+  --ink:      #1A1A1F;
+  --ink-2:    #3F4A5F;
+  --ink-3:    #6B7689;
+  --line:     #EDD79E;
   --brass:    #c9a96a;
+
+  /* Rainbow accent (Pride / bachelorette stripe — kept for use-case sections) */
+  --rb-1: #E84B3C; --rb-2: #F08A2E; --rb-3: #F8CA5A; --rb-4: #6BBE6E; --rb-5: #3F9DD4; --rb-6: #A06DBF;
+
+  /* Legacy aqua-* aliases — point at the live-site teal */
+  --aqua:     #74CBD1;
+  --aqua-lt:  #9ADADF;
+  --aqua-dk:  #4FB4BA;
+
+  /* Legacy sand-* aliases */
+  --sand:     #F8CA5A;
+  --sand-2:   #F2B0A0;
 
   /* Boatr brand (for Boatr-owned surfaces only: banner, claim bar, edit widget) */
   --b-dark:    #0F172A;
@@ -204,12 +222,13 @@
   --b-orange-d:#EA7C00;
   --b-orange-l:#FFF7ED;
 
-  --fh: 'Archivo', sans-serif;
-  --fb: 'Manrope', sans-serif;
-  --fs: 'Caveat', cursive;
+  --fh: 'Archivo Black', 'Archivo', sans-serif;        /* H2s + buttons + eyebrows */
+  --fb: 'Poppins', 'Manrope', Helvetica, sans-serif;   /* body — matches live site exactly */
+  --fs: 'Lobster', cursive;                             /* chunky retro display (H1, feature subheads, footer headings) — matches live site exactly */
+  --fc: 'Fira Sans', sans-serif;                        /* CTA button text — matches live site exactly */
 }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { font-family: var(--fb); background: var(--cream); color: var(--ink); line-height: 1.55; overflow-x: hidden; font-size: 16px; }
+body { font-family: var(--fb); background: var(--sunshine); color: var(--ink); line-height: 1.55; overflow-x: hidden; font-size: 16px; font-weight: 400; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; height: auto; }
 button, input, textarea { font-family: inherit; font-size: 16px; }
@@ -313,393 +332,436 @@ button, input, textarea { font-family: inherit; font-size: 16px; }
 /* ── NAV ─────────── */
 nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(253,251,246,0.97); backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(245,204,63,0.97); backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--coral);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 32px; max-width: 100%;
+  padding: 12px 32px; max-width: 100%;
 }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-.brand:hover .brand-name { color: var(--aqua-dk); }
+.brand:hover .brand-name { color: var(--coral-d); }
 .brand-mark {
-  width: 48px; height: 48px; flex-shrink: 0;
+  width: 56px; height: 56px; flex-shrink: 0;
   display: block; object-fit: contain;
 }
 .brand-name {
   font-family: var(--fh); font-weight: 800; font-size: 16px;
   color: var(--navy); letter-spacing: 0.02em; line-height: 1.1;
 }
-.brand-name small { display: block; font-size: 11px; font-weight: 600; color: #4b5567; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
-.nav-links { display: flex; gap: 28px; align-items: center; }
+.brand-name small { display: block; font-size: 11px; font-weight: 600; color: var(--coral-d); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
-  font-family: var(--fh); font-size: 13px; font-weight: 700;
-  color: var(--navy); letter-spacing: 0.04em;
+  font-family: var(--fh); font-size: 12px; font-weight: 700;
+  color: var(--navy); letter-spacing: 0.10em;
   transition: color 0.2s; text-transform: uppercase;
 }
-.nav-links a:hover { color: var(--aqua-dk); }
+.nav-links a:hover { color: var(--coral); }
 .btn-book {
-  background: var(--navy); color: var(--cream) !important;
-  padding: 11px 20px; border-radius: 4px;
-  font-family: var(--fh); font-weight: 800; font-size: 13px;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  transition: all 0.2s; display: inline-block;
+  background: var(--coral); color: #fff !important;
+  padding: 11px 22px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 14px;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  transition: background 0.2s; display: inline-block;
   border: none; cursor: pointer;
 }
-.btn-book:hover { background: var(--aqua-dk); color: white !important; }
+.btn-book:hover { background: var(--coral-d); }
 
-/* ── HERO ────────── */
+/* ── HERO (matches live discoboatrentals.com WP theme exactly) ────────── */
 .hero {
-  position: relative; min-height: 78vh;
+  position: relative; min-height: 516px;
   display: flex; align-items: center;
-  background: var(--navy);
+  background-color: var(--sunshine);
+  background-image: url('images/decor-arches.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto;
   overflow: hidden;
+  padding-top: 84px; padding-bottom: 54px;
 }
-.hero-bg {
-  position: absolute; inset: 0; z-index: 1;
-  background-image: url('images/hero.jpg');
-  background-size: cover; background-position: center;
-  filter: brightness(0.55) saturate(1.1);
-}
-.hero-grad {
-  position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(135deg, rgba(10,37,64,0.7) 0%, rgba(10,37,64,0.2) 100%);
-}
+/* Legacy hero-bg / hero-grad layers — keep but make them transparent so the section-level bg shows through */
+.hero-bg { display: none; }
+.hero-grad { display: none; }
 .hero-inner {
   position: relative; z-index: 3;
-  max-width: 1280px; margin: 0 auto; padding: 80px 32px;
-  width: 100%;
+  max-width: 1140px; margin: 0 auto; padding: 0 32px;
+  width: 100%; text-align: center;
 }
 .hero-eyebrow {
   display: inline-block;
-  background: rgba(45,212,191,0.18); border: 1px solid var(--aqua);
-  color: var(--aqua-lt); padding: 7px 14px; border-radius: 999px;
+  background: rgba(255,255,255,0.45);
+  color: #fff; padding: 6px 16px; border-radius: 999px;
   font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  margin-bottom: 22px;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 .hero h1 {
-  font-family: var(--fh); font-weight: 900; font-size: clamp(38px, 6vw, 64px);
-  color: white; line-height: 1.05; letter-spacing: -0.01em;
-  max-width: 880px; margin-bottom: 22px;
+  font-family: var(--fs); font-weight: 400;
+  font-size: clamp(48px, 8.5vw, 87px);
+  color: #FFFFFF; line-height: 1.0;
+  max-width: 1080px; margin: 0 auto 26px;
+  text-shadow: 0em 0.1em 0.1em rgba(0,0,0,0.4);
+  letter-spacing: 0; -webkit-text-stroke: 0;
 }
-.hero h1 span { color: var(--aqua-lt); display: block; font-size: 0.55em; font-weight: 700; margin-top: 10px; letter-spacing: 0.01em; }
+.hero h1 span {
+  font-family: var(--fb); color: #fff; display: block;
+  font-size: clamp(20px, 2.4vw, 30px); font-weight: 300;
+  margin-top: 18px; line-height: 1.4em; letter-spacing: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.25); -webkit-text-stroke: 0;
+  max-width: 820px; margin-left: auto; margin-right: auto;
+}
 .hero p.lede {
-  font-family: var(--fb); font-size: clamp(17px, 1.6vw, 20px);
-  color: rgba(255,255,255,0.88); max-width: 640px; margin-bottom: 36px;
-  line-height: 1.55;
+  font-family: var(--fb); font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 300; color: #fff;
+  max-width: 760px; margin: 0 auto 36px; line-height: 1.55;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.22);
 }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
+/* Primary CTA — matches the live site's teal button exactly */
 .btn-primary {
-  background: var(--aqua); color: var(--navy) !important;
-  padding: 16px 30px; border-radius: 4px;
-  font-family: var(--fh); font-weight: 900; font-size: 14px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  transition: all 0.25s; display: inline-block;
-  box-shadow: 0 10px 30px -8px rgba(45,212,191,0.5);
-  border: none; cursor: pointer;
-}
-.btn-primary:hover { background: var(--aqua-lt); transform: translateY(-2px); }
-.btn-secondary {
-  background: transparent; color: white !important;
-  padding: 14px 26px; border-radius: 4px;
-  font-family: var(--fh); font-weight: 700; font-size: 13px;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  background: var(--teal); color: #fff !important;
+  padding: 14px 32px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 17px;
+  letter-spacing: 0.02em;
   transition: all 0.2s; display: inline-block;
+  border: 0; cursor: pointer;
 }
-.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
+.btn-primary:hover { background: var(--teal-d); transform: translateY(-1px); }
+/* Secondary CTA — matches live site's coral button (used for "WAITING LIST" header) */
+.btn-secondary {
+  background: var(--coral); color: #fff !important;
+  padding: 12px 26px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 15px;
+  letter-spacing: 0.02em;
+  border: 0; cursor: pointer;
+  transition: background 0.2s; display: inline-block;
+}
+.btn-secondary:hover { background: var(--coral-d); }
 .hero-stats {
-  display: flex; gap: 36px; margin-top: 56px; flex-wrap: wrap;
-  border-top: 1px solid rgba(255,255,255,0.18); padding-top: 30px; max-width: 880px;
+  display: flex; gap: 36px; margin-top: 48px; flex-wrap: wrap; justify-content: center;
+  padding-top: 26px; max-width: 920px; margin-left: auto; margin-right: auto;
+  border-top: 1px solid rgba(255,255,255,0.4);
 }
-.hs-item { display: flex; flex-direction: column; gap: 4px; }
+.hs-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .hs-num {
-  font-family: var(--fh); font-weight: 900; font-size: 28px;
-  color: var(--aqua-lt); line-height: 1;
+  font-family: var(--fs); font-weight: 400; font-size: 36px;
+  color: #fff; line-height: 1; text-shadow: 0 1px 4px rgba(0,0,0,0.25);
 }
 .hs-lbl {
-  font-family: var(--fh); font-size: 11px; font-weight: 700;
-  color: rgba(255,255,255,0.65); letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  color: #fff; opacity: 0.92; letter-spacing: 0.06em; text-transform: uppercase;
 }
 
-/* ── GUARANTEE STRIP ────────── */
+/* ── TEAL ACCENT BAND (matches live site's "Meet our newest..." section) ── */
 .guarantee {
-  background: var(--sand); border-bottom: 1px solid var(--line);
-  padding: 28px 32px;
+  background: var(--teal);
+  padding: 56px 32px;
 }
 .guarantee-inner {
-  max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px; align-items: center;
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; align-items: flex-start;
 }
-.g-block { display: flex; gap: 18px; align-items: flex-start; }
+.g-block { text-align: center; }
 .g-ico {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--navy); color: var(--aqua-lt);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 24px; flex-shrink: 0;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.18); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 28px; flex-shrink: 0;
+  margin-bottom: 14px;
 }
 .g-text { flex: 1; }
 .g-title {
-  font-family: var(--fh); font-weight: 800; font-size: 15px;
-  color: var(--navy); margin-bottom: 4px; letter-spacing: 0.02em;
+  font-family: var(--fs); font-weight: 400; font-size: 22px;
+  color: #fff; margin-bottom: 6px; line-height: 1.1;
 }
-.g-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+.g-desc { font-size: 14px; color: rgba(255,255,255,0.92); line-height: 1.55; font-weight: 300; }
 
 /* ── SECTIONS ────────── */
-.sec { padding: 84px 32px; }
-.sec-inner { max-width: 1280px; margin: 0 auto; }
+.sec { padding: 70px 32px; }
+.sec-inner { max-width: 1140px; margin: 0 auto; }
 .sec-eyebrow {
-  font-family: var(--fh); font-size: 12px; font-weight: 800;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: #0d8074; margin-bottom: 14px;
+  font-family: var(--fs); font-weight: 400; font-size: 26px;
+  color: var(--coral); margin-bottom: 4px; line-height: 1.1;
 }
 .sec-title {
-  font-family: var(--fh); font-weight: 900; font-size: clamp(30px, 4vw, 44px);
-  color: var(--navy); line-height: 1.12; margin-bottom: 16px; letter-spacing: -0.01em;
+  font-family: var(--fs); font-weight: 400; font-size: clamp(36px, 5vw, 51px);
+  color: var(--navy); line-height: 1.1; margin-bottom: 18px; letter-spacing: 0;
 }
 .sec-lede {
-  font-family: var(--fb); font-size: 17px; color: var(--ink-2);
-  line-height: 1.6; max-width: 720px;
+  font-family: var(--fb); font-size: 18px; font-weight: 300; color: var(--ink);
+  line-height: 1.55; max-width: 760px;
 }
 
 /* ── OWNERSHIP / ABOUT ────────── */
-.about { background: var(--cream-2); }
+.about { background: var(--sunshine); }
 .about-grid {
   display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center;
 }
 .about-card {
-  background: var(--navy); color: white; border-radius: 8px;
+  background: var(--cream); color: var(--ink); border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 22px 50px -22px rgba(10,37,64,0.4);
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.22);
 }
 .about-card-photo {
-  width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--navy-2);
+  width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--cream-2);
 }
 .about-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-card-body { padding: 30px 32px 32px; }
 .about-card-eyebrow {
-  font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--aqua-lt); margin-bottom: 12px;
+  font-family: var(--fs); font-size: 22px; font-weight: 400;
+  color: var(--coral); margin-bottom: 8px;
 }
 .about-card-name {
   font-family: var(--fh); font-weight: 900; font-size: 26px;
   margin-bottom: 6px; letter-spacing: -0.01em;
+  color: var(--navy);
 }
 .about-card-role {
-  font-size: 14px; color: rgba(255,255,255,0.72);
-  letter-spacing: 0.04em; margin-bottom: 22px;
+  font-size: 14px; color: var(--ink-2);
+  letter-spacing: 0.02em; margin-bottom: 22px;
 }
 .about-card-row {
-  padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 0; border-top: 1px dashed var(--line);
   display: flex; gap: 14px; align-items: flex-start;
-  font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.55;
+  font-size: 14px; color: var(--ink-2); line-height: 1.55;
 }
-.about-card-row strong { color: var(--aqua-lt); font-weight: 700; }
+.about-card-row strong { color: var(--coral-d); font-weight: 800; }
 .about-bullets { margin-top: 28px; }
 .about-bullets li {
-  list-style: none; padding: 14px 0; border-bottom: 1px solid var(--line);
+  list-style: none; padding: 14px 0; border-bottom: 1px dashed rgba(10,37,64,0.18);
   display: flex; gap: 14px; align-items: flex-start;
-  font-size: 15px; color: var(--ink-2); line-height: 1.5;
+  font-size: 15px; color: var(--ink); line-height: 1.5;
 }
 .about-bullets li::before {
-  content: '✓'; color: var(--aqua-dk); font-weight: 900; font-size: 18px; flex-shrink: 0; line-height: 1;
+  content: '🪩'; font-size: 18px; flex-shrink: 0; line-height: 1.2;
 }
-.about-bullets li strong { color: var(--navy); font-weight: 700; }
+.about-bullets li strong { color: var(--coral-d); font-weight: 800; }
 
-/* ── FLEET GRID ────────── */
-.fleet { background: white; }
+/* ── FLEET GRID (renamed: "The Boat" feature cards) ────────── */
+.fleet { background: var(--sunshine); position: relative; }
 .fleet-intro {
   display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end;
   margin-bottom: 48px;
 }
 .fleet-summary {
-  background: var(--cream); border: 1px solid var(--line);
-  border-radius: 8px; padding: 22px 26px;
-  font-size: 14px; color: var(--ink-2); line-height: 1.6;
+  background: rgba(255,255,255,0.55); border-radius: 12px; padding: 22px 26px;
+  font-size: 14px; color: var(--ink); line-height: 1.6;
+  font-weight: 300;
 }
-.fleet-summary strong { color: var(--navy); font-weight: 700; }
+.fleet-summary strong { color: var(--coral-d); font-weight: 600; }
 .fleet-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
 }
 .fleet-card {
-  background: var(--cream); border: 1px solid var(--line);
-  border-radius: 8px; padding: 24px 22px 22px;
-  transition: all 0.25s; cursor: pointer; display: block;
-  text-align: left; text-decoration: none; color: inherit;
-  border-left: 4px solid var(--aqua-dk);
+  background: transparent; border: 0;
+  border-radius: 0; padding: 0;
+  transition: transform 0.25s; cursor: pointer; display: flex; flex-direction: column;
+  text-align: center; text-decoration: none; color: inherit;
+  overflow: hidden;
 }
-.fleet-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--aqua);
-  border-left-color: var(--aqua);
-  box-shadow: 0 22px 44px -16px rgba(10,37,64,0.18);
+.fleet-card:hover { transform: translateY(-4px); }
+.fc-image {
+  width: 100%; aspect-ratio: 1; overflow: hidden;
+  border-radius: 12px; background: var(--cream-2);
+  margin-bottom: 22px;
 }
-.fc-num {
-  font-family: var(--fh); font-weight: 900; font-size: 13px;
-  letter-spacing: 0.10em; color: var(--aqua-dk);
-  margin-bottom: 8px;
-}
+.fc-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fc-num { display: none; }
 .fc-name {
-  font-family: var(--fh); font-weight: 800; font-size: 17px;
-  color: var(--navy); margin-bottom: 8px; line-height: 1.3;
-  letter-spacing: -0.01em;
+  font-family: var(--fs); font-weight: 400; font-size: 26px;
+  color: var(--coral); margin: 0 0 12px; line-height: 1.1;
+  padding: 0;
 }
+.fc-body {
+  padding: 0;
+  font-family: var(--fb); font-size: 15px; color: var(--ink); font-weight: 300;
+  line-height: 1.6;
+  flex: 1;
+}
+/* legacy fc-meta — kept for backwards compat on other previews */
 .fc-meta {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  margin-top: 12px; padding-top: 12px;
-  border-top: 1px solid var(--line);
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin: 18px 24px 0; padding: 18px 0 0;
+  border-top: 1px dashed var(--line);
 }
 .fc-meta-item {
   font-family: var(--fb); font-size: 12px;
   color: var(--ink-2);
 }
-.fc-meta-item strong { color: var(--navy); font-weight: 700; }
+.fc-meta-item strong { color: var(--coral-d); font-weight: 800; }
 .fc-book {
-  margin-top: 14px;
-  font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.10em; text-transform: uppercase;
-  color: var(--aqua-dk);
+  margin: 16px 0 0;
+  font-family: var(--fc); font-size: 14px; font-weight: 400;
+  color: var(--teal-d);
 }
 .fleet-note {
-  margin-top: 36px; padding: 20px 24px;
-  background: var(--cream); border-left: 3px solid var(--aqua);
-  border-radius: 4px; font-size: 14px; color: var(--ink-2); line-height: 1.55;
+  margin-top: 48px; padding: 26px 28px;
+  background: rgba(255,255,255,0.55); border-radius: 12px;
+  font-size: 15px; color: var(--ink); line-height: 1.6; font-weight: 300;
 }
-.fleet-note strong { color: var(--navy); }
+.fleet-note strong { color: var(--coral-d); font-weight: 600; }
+.fleet-note a { color: var(--coral-d); text-decoration: underline; }
 
-/* ── DESTINATION CONTENT BLOCKS (Lighthouse, Sandbar, Sunset) ────────── */
-.dest { background: var(--navy); color: white; }
-.dest .sec-title { color: white; }
-.dest .sec-eyebrow { color: var(--aqua-lt); }
-.dest .sec-lede { color: rgba(255,255,255,0.78); }
+/* ── USE-CASE CONTENT BLOCKS (Bachelorette, Themed, Sunset) ────────── */
+.dest { background: var(--coral); color: var(--cream); }
+.dest .sec-title { color: var(--cream); }
+.dest .sec-eyebrow { color: var(--sunshine); }
+.dest .sec-lede { color: rgba(253,251,246,0.92); }
 .dest-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
   margin-top: 48px;
 }
 .dest-body p {
-  font-family: var(--fb); font-size: 15.5px; color: rgba(255,255,255,0.82);
+  font-family: var(--fb); font-size: 15.5px; color: rgba(253,251,246,0.92);
   line-height: 1.7; margin-bottom: 18px;
 }
-.dest-body p strong { color: white; font-weight: 700; }
+.dest-body p strong { color: var(--sunshine); font-weight: 800; }
 .dest-fact-card {
-  background: var(--navy-2); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px; padding: 30px 28px;
+  background: var(--cream); color: var(--ink);
+  border-radius: 16px; padding: 30px 28px;
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.28);
 }
 .dest-fact-eyebrow {
-  font-family: var(--fh); font-size: 11px; font-weight: 800;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--aqua-lt); margin-bottom: 14px;
+  font-family: var(--fs); font-size: 26px; font-weight: 400;
+  color: var(--coral); margin-bottom: 14px; line-height: 1.1;
 }
 .dest-fact-row {
   display: flex; justify-content: space-between; gap: 18px;
-  padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 14px 0; border-bottom: 1px dashed var(--line);
   font-size: 14px;
 }
 .dest-fact-row:last-child { border-bottom: 0; padding-bottom: 0; }
-.dest-fact-row .lbl { color: rgba(255,255,255,0.55); font-weight: 500; }
-.dest-fact-row .val { color: var(--aqua-lt); font-weight: 700; text-align: right; font-family: var(--fh); }
+.dest-fact-row .lbl { color: var(--ink-3); font-weight: 500; }
+.dest-fact-row .val { color: var(--coral-d); font-weight: 800; text-align: right; font-family: var(--fh); }
 
-.dest-light { background: var(--cream-2); color: var(--navy); }
-.dest-light .sec-title { color: var(--navy); }
-.dest-light .sec-eyebrow { color: var(--aqua-dk); }
-.dest-light .sec-lede { color: var(--ink-2); }
-.dest-light .dest-body p { color: var(--ink-2); }
-.dest-light .dest-body p strong { color: var(--navy); }
-.dest-light .dest-fact-card { background: white; border-color: var(--line); }
-.dest-light .dest-fact-eyebrow { color: var(--aqua-dk); }
+/* Themed section: teal background variant */
+.dest-light { background: var(--teal); color: var(--cream); }
+.dest-light .sec-title { color: var(--cream); }
+.dest-light .sec-eyebrow { color: var(--sunshine); }
+.dest-light .sec-lede { color: rgba(253,251,246,0.95); }
+.dest-light .dest-body p { color: rgba(253,251,246,0.92); }
+.dest-light .dest-body p strong { color: var(--sunshine); }
+.dest-light .dest-fact-card { background: var(--cream); color: var(--ink); border-color: var(--navy); }
+.dest-light .dest-fact-eyebrow { color: var(--coral); }
 .dest-light .dest-fact-row { border-bottom-color: var(--line); }
 .dest-light .dest-fact-row .lbl { color: var(--ink-3); }
-.dest-light .dest-fact-row .val { color: var(--navy); }
+.dest-light .dest-fact-row .val { color: var(--coral-d); }
 
 /* Destination image banner */
 .dest-image {
-  margin-top: 28px; border-radius: 10px; overflow: hidden;
-  aspect-ratio: 16/6; background: var(--navy-2);
-  box-shadow: 0 22px 50px -22px rgba(0,0,0,0.5);
+  margin-top: 28px; border-radius: 14px; overflow: hidden;
+  aspect-ratio: 16/6; background: var(--cream-2);
+  box-shadow: 0 22px 50px -22px rgba(0,0,0,0.35);
 }
 .dest-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* On the water / guest gallery */
-.guests { background: var(--cream); }
+/* On the bay / guest gallery */
+.guests { background: var(--sunshine); }
 .guests-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
   margin-top: 40px;
 }
 .guest-card {
-  border-radius: 6px; overflow: hidden; aspect-ratio: 3/4;
-  background: var(--navy); position: relative;
-  box-shadow: 0 14px 36px -18px rgba(10,37,64,0.3);
+  border-radius: 12px; overflow: hidden; aspect-ratio: 3/4;
+  background: var(--cream); position: relative;
+  box-shadow: 0 12px 32px -16px rgba(0,0,0,0.32);
 }
 .guest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .guest-card:hover img { transform: scale(1.04); }
 
-/* ── BOOKING ────────── */
-.booking { background: white; text-align: center; }
+/* ── BOOKING (inline GHL form embed) ────────── */
+.booking { background: var(--sunshine); text-align: center; }
 .booking-card {
-  max-width: 760px; margin: 0 auto;
-  background: var(--cream); border: 2px solid var(--navy);
-  border-radius: 8px; padding: 56px 40px;
-  box-shadow: 0 22px 60px -22px rgba(10,37,64,0.22);
+  max-width: 720px; margin: 0 auto;
+  background: var(--cream);
+  border-radius: 18px; padding: 50px 40px 40px;
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.32);
 }
+.booking-card .sec-eyebrow { color: var(--coral); text-align: center; }
 .booking-card .sec-title { color: var(--navy); margin-bottom: 18px; }
-.booking-card .sec-lede { color: var(--ink-2); margin: 0 auto 30px; }
-.booking-phone {
-  display: block; margin-top: 18px;
-  font-family: var(--fh); font-weight: 800; font-size: 18px;
-  color: var(--navy);
+.booking-card .sec-lede { color: var(--ink); margin: 0 auto 28px; }
+.booking-form-wrap {
+  margin: 28px auto 0; max-width: 560px;
+  border-radius: 12px; overflow: hidden;
+  background: var(--cream-2);
+  min-height: 520px; position: relative;
 }
-.booking-phone a { color: var(--aqua-dk); }
+.booking-form-wrap iframe {
+  width: 100%; border: 0; display: block; min-height: 520px;
+}
+.booking-form-fallback {
+  padding: 36px 24px; text-align: center;
+  display: none;
+}
+.booking-form-fallback.show { display: block; }
+.booking-form-fallback a {
+  display: inline-block; margin-top: 14px;
+  background: var(--coral); color: #fff !important;
+  padding: 14px 28px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 15px;
+}
+.booking-phone {
+  display: block; margin-top: 22px;
+  font-family: var(--fh); font-weight: 800; font-size: 15px;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+.booking-phone a { color: var(--coral-d); text-decoration: underline; }
 
 /* ── LOCATION ────────── */
-.location { background: var(--cream); }
+.location { background: var(--cream-2); }
 .loc-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
 }
 .loc-info {
-  background: white; border-radius: 6px; padding: 36px;
-  border: 1px solid var(--line);
+  background: var(--cream); border-radius: 16px; padding: 36px;
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.22);
 }
-.loc-row { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.loc-row { padding: 18px 0; border-bottom: 1px dashed var(--line); }
 .loc-row:last-child { border-bottom: 0; }
 .loc-row-lbl {
   font-family: var(--fh); font-size: 11px; font-weight: 800;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-3); margin-bottom: 6px;
+  color: var(--coral-d); margin-bottom: 6px;
 }
 .loc-row-val { font-size: 15px; color: var(--navy); font-weight: 600; line-height: 1.5; }
-.loc-row-val a { color: var(--aqua-dk); }
+.loc-row-val a { color: var(--coral-d); text-decoration: underline; }
 .loc-map {
-  border-radius: 6px; overflow: hidden; min-height: 360px;
+  border-radius: 16px; overflow: hidden; min-height: 360px;
   background: var(--navy);
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.28);
 }
 .loc-map iframe { width: 100%; height: 100%; border: 0; min-height: 360px; }
 
 /* ── FOOTER ────────── */
 footer {
-  background: var(--navy); color: rgba(255,255,255,0.7);
+  background: var(--sunshine); color: var(--ink);
   padding: 64px 32px 28px;
+  border-top: 4px solid var(--coral);
 }
-.foot-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
-.foot-brand { font-family: var(--fh); font-weight: 800; color: white; font-size: 18px; margin-bottom: 12px; }
-.foot-tag { font-size: 14px; line-height: 1.5; max-width: 300px; }
+.foot-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
+.foot-brand-block { display: flex; gap: 16px; align-items: flex-start; }
+.foot-brand-mark { width: 78px; height: 78px; flex-shrink: 0; }
+.foot-brand { font-family: var(--fh); font-weight: 900; color: var(--navy); font-size: 20px; margin-bottom: 8px; }
+.foot-tag { font-size: 13.5px; line-height: 1.55; max-width: 320px; color: var(--ink-2); }
 .foot-col h3 {
-  font-family: var(--fh); font-size: 12px; font-weight: 800;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--aqua-lt); margin-bottom: 16px;
+  font-family: var(--fs); font-size: 26px; font-weight: 400;
+  color: var(--coral); margin-bottom: 12px; line-height: 1.1;
+  text-transform: none; letter-spacing: 0;
 }
 .foot-col a, .foot-col button {
-  display: block; padding: 6px 0; font-size: 14px;
-  color: rgba(255,255,255,0.6); transition: color 0.2s;
+  display: block; padding: 5px 0; font-size: 14px;
+  color: var(--navy); transition: color 0.2s;
   background: none; border: none; cursor: pointer;
-  font-family: inherit; text-align: left;
+  font-family: inherit; font-weight: 600; text-align: left;
 }
-.foot-col a:hover, .foot-col button:hover { color: var(--aqua-lt); }
+.foot-col a:hover, .foot-col button:hover { color: var(--coral-d); }
 .foot-bottom {
   max-width: 1280px; margin: 48px auto 0;
-  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px; border-top: 2px dashed rgba(10,37,64,0.18);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  font-size: 12px; color: rgba(255,255,255,0.4);
+  font-size: 12px; color: var(--ink-2);
 }
+.foot-bottom a { color: var(--coral-d); text-decoration: underline; }
 
 /* ── STICKY CLAIM BAR ────────── */
 .sticky-bar {
@@ -1099,37 +1161,28 @@ footer {
     </div>
 
     <div class="fleet-grid">
-      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="See the Rooftop Disco Ball deck">
-        <div class="fc-num">🪩 ROOFTOP DECK</div>
-        <div class="fc-name" id="edit-boat-1-name">Disco ball + bean-bag turf + sip bar</div>
-        <div class="fc-meta">
-          <div class="fc-meta-item"><strong>Full-size</strong> mirror ball</div>
-          <div class="fc-meta-item"><strong>Open-air</strong> lounge</div>
-          <div class="fc-meta-item"><strong>Golden hour</strong> magic</div>
-        </div>
-        <div class="fc-book">Join the waitlist →</div>
+      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Retro Rooftop Deck">
+        <div class="fc-image"><img src="images/hero.jpg" alt="Disco Boat rooftop deck with mirrored disco ball above San Diego Bay" loading="lazy"></div>
+        <div class="fc-num">Feature 01</div>
+        <div class="fc-name" id="edit-boat-1-name">Retro Rooftop Deck</div>
+        <div class="fc-body" id="edit-boat-1-body">Take the party upstairs to the retro rooftop — an open-air lounge above San Diego Bay. Fluffy turf with oversized bean-bags, a rooftop bartop, and a giant mirrored disco ball scattering sparkle across the water at sunset. Best seat on the boat for photos, birthdays, bachelorettes, and golden-hour vibes.</div>
+        <div class="fc-book">Get on the list →</div>
       </a>
 
-      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="See the 1970s lounge interior">
-        <div class="fc-num">💎 INTERIOR LOUNGE</div>
-        <div class="fc-name" id="edit-boat-2-name">Chrome pole, rainbow bar, leopard walls</div>
-        <div class="fc-meta">
-          <div class="fc-meta-item"><strong>5-seat</strong> rainbow bar</div>
-          <div class="fc-meta-item"><strong>Chrome</strong> dance pole</div>
-          <div class="fc-meta-item"><strong>Mirrored</strong> ceiling</div>
-        </div>
-        <div class="fc-book">Join the waitlist →</div>
+      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Privacy Fold-Down Windows">
+        <div class="fc-image"><img src="images/fold-down.jpg" alt="Disco Boat fold-down windows open over San Diego Bay" loading="lazy"></div>
+        <div class="fc-num">Feature 02</div>
+        <div class="fc-name" id="edit-boat-2-name">Privacy Fold-Down Windows</div>
+        <div class="fc-body" id="edit-boat-2-body">Choose your vibe with the fold-down windows. Open them wide for fresh bay breeze and open-air groove at the 5-seat bar, or close them down for a cozy lounge when the marine layer rolls in. The clear panels keep panoramic views and great lighting either way.</div>
+        <div class="fc-book">Get on the list →</div>
       </a>
 
-      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="See the fold-down windows">
-        <div class="fc-num">🪟 FOLD-DOWN WINDOWS</div>
-        <div class="fc-name" id="edit-boat-3-name">Open the cabin to the bay (or close it)</div>
-        <div class="fc-meta">
-          <div class="fc-meta-item"><strong>Open-air</strong> party mode</div>
-          <div class="fc-meta-item"><strong>Weather-tight</strong> lounge</div>
-          <div class="fc-meta-item"><strong>Clear</strong> panoramic views</div>
-        </div>
-        <div class="fc-book">Join the waitlist →</div>
+      <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Throwback Interior">
+        <div class="fc-image"><img src="images/interior.jpg" alt="Disco Boat interior — chrome dance pole, leopard-print walls, mirrored ceiling, rainbow bar"></div>
+        <div class="fc-num">Feature 03</div>
+        <div class="fc-name" id="edit-boat-3-name">Throwback Interior</div>
+        <div class="fc-body" id="edit-boat-3-body">Step into a 1970s lounge brought back to life — leopard-print walls, a retro-wrapped helm with psychedelic swirls, black-and-white checkerboard flooring, mirrored ceiling panels, and a chrome dance pole at center. The 5-seat rainbow bar pops with jewel-tone stools and rich green tile.</div>
+        <div class="fc-book">Get on the list →</div>
       </a>
     </div>
 
@@ -1253,11 +1306,23 @@ footer {
 <section class="sec booking" id="book">
   <div class="sec-inner">
     <div class="booking-card">
-      <div class="sec-eyebrow">Waiting list · sailings open soon</div>
+      <div class="sec-eyebrow">Don't miss the boat</div>
       <h2 class="sec-title" id="edit-book-title">Get on the list. First in line gets launch week.</h2>
-      <p class="sec-lede" id="edit-book-lede">The Disco Boat is launching. Drop your email and we'll send the moment bookings open — waiting-list members get first-pick on dates before public availability. Bachelorette, Pride weekend, milestone birthdays, sunset cruises — every category has a date that books fast.</p>
-      <button class="btn-primary" onclick="openBookModal()">Join the Waiting List →</button>
-      <span class="booking-phone">Or call direct: <a href="tel:8557823988">855-782-3988</a> · <a href="mailto:hello@discoboatrentals.com">hello@discoboatrentals.com</a></span>
+      <p class="sec-lede" id="edit-book-lede">Drop your name, email, and phone. We'll send the moment bookings open — waiting-list members get first-pick on dates before public availability. Bachelorette, Pride weekend, milestone birthdays, sunset cruises: every category has a date that books fast.</p>
+
+      <div class="booking-form-wrap">
+        <iframe
+          src="https://link.boatrmarketing.com/widget/form/UKKEdzivMdsNJ2b5tZHI"
+          loading="lazy"
+          title="Disco Boat Rentals — waiting-list signup form"
+          allow="clipboard-write"></iframe>
+        <div class="booking-form-fallback" id="booking-form-fallback">
+          <p style="font-size:15px;color:var(--ink-2);line-height:1.5;margin-bottom:6px;">If the form isn't loading, open it in a new tab:</p>
+          <a href="https://link.boatrmarketing.com/widget/form/UKKEdzivMdsNJ2b5tZHI" target="_blank" rel="noopener">Open the waiting list →</a>
+        </div>
+      </div>
+
+      <span class="booking-phone">Or call direct: <a href="tel:8557823988">855-782-3988</a> · email <a href="mailto:hello@discoboatrentals.com">hello@discoboatrentals.com</a></span>
     </div>
   </div>
 </section>
@@ -1313,9 +1378,12 @@ footer {
 <!-- ╚══════════════════════════════════════════╝ -->
 <footer>
   <div class="foot-inner">
-    <div>
-      <div class="foot-brand">Disco Boat Rentals</div>
-      <div class="foot-tag">San Diego's party boat charter. 32' Suntracker with a chrome dance pole, rainbow bar, and a rooftop disco ball. Out of Shelter Island in Point Loma. Bachelorette, themed, sunset — captained or self-drive.</div>
+    <div class="foot-brand-block">
+      <img class="foot-brand-mark" src="images/logo-ball.png" alt="Disco Boat Rentals — disco ball logo">
+      <div>
+        <div class="foot-brand">Disco Boat Rentals</div>
+        <div class="foot-tag">San Diego's party boat charter. 32' Suntracker with a chrome dance pole, rainbow bar, and a rooftop disco ball. Out of Shelter Island in Point Loma. Bachelorette, themed, sunset — captained or self-drive.</div>
+      </div>
     </div>
     <div class="foot-col">
       <h3>The boat</h3>
