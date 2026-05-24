@@ -298,19 +298,30 @@ fbq('init','1341176882596057'); fbq('track','PageView');
 </section>
 
 <!-- ────────── PAGE TABLE OF CONTENTS ────────── -->
-<section class="sec" style="padding-top:var(--s-6);padding-bottom:var(--s-6);background:var(--paper);border-top:1px solid var(--brass);border-bottom:1px solid var(--brass);">
-  <div style="text-align:center;margin-bottom:var(--s-4);">
-    <div class="kicker" style="justify-content:center;">On This Page</div>
-  </div>
-  <nav aria-label="Page sections" style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0 16px;">
-    <a href="#yacht" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">The Boat</a>
-    <a href="#included" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">What's Included</a>
-    <a href="#occasions" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">Occasions</a>
-    <a href="#water-toys" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">Water Toys</a>
-    <a href="#catering" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">Catering</a>
-    <a href="#pricing" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">Pricing</a>
-    <a href="#departure" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">Departure</a>
-    <a href="#faq" style="display:inline-block;padding:9px 18px;border:1px solid var(--brass);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--cream);font-family:var(--ff-display);font-size:14px;font-weight:500;letter-spacing:0.02em;transition:background 0.15s,color 0.15s;white-space:nowrap;">FAQ</a>
+<section id="page-toc" class="sec" style="padding-top:var(--s-8);padding-bottom:var(--s-8);background:var(--cream);">
+  <style>
+    #page-toc .toc-eyebrow { font-family: var(--ff-display); font-size: 11px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--brass); text-align: center; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+    #page-toc .toc-eyebrow::before, #page-toc .toc-eyebrow::after { content: ''; display: inline-block; width: 36px; height: 1px; background: var(--brass); }
+    #page-toc .toc-grid { max-width: 880px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 36px; row-gap: 18px; padding: 0 16px; }
+    #page-toc .toc-link { display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--ff-display); font-size: 16px; font-weight: 500; letter-spacing: 0.005em; padding: 4px 0; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    #page-toc .toc-link .num { color: var(--brass); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; font-variant-numeric: tabular-nums; }
+    #page-toc .toc-link:hover { color: var(--brass); border-bottom-color: var(--brass); }
+    #page-toc .toc-link:hover .num { color: var(--ink); }
+    @media (max-width: 640px) {
+      #page-toc .toc-grid { column-gap: 24px; row-gap: 14px; }
+      #page-toc .toc-link { font-size: 15px; }
+    }
+  </style>
+  <div class="toc-eyebrow">On This Page</div>
+  <nav class="toc-grid" aria-label="Page sections">
+    <a href="#yacht" class="toc-link"><span class="num">01</span><span>The Boat</span></a>
+    <a href="#included" class="toc-link"><span class="num">02</span><span>What&rsquo;s Included</span></a>
+    <a href="#occasions" class="toc-link"><span class="num">03</span><span>Occasions</span></a>
+    <a href="#water-toys" class="toc-link"><span class="num">04</span><span>Water Toys</span></a>
+    <a href="#catering" class="toc-link"><span class="num">05</span><span>Catering</span></a>
+    <a href="#pricing" class="toc-link"><span class="num">06</span><span>Pricing</span></a>
+    <a href="#departure" class="toc-link"><span class="num">07</span><span>Departure</span></a>
+    <a href="#faq" class="toc-link"><span class="num">08</span><span>FAQ</span></a>
   </nav>
 </section>
 
