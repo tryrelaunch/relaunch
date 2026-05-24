@@ -1193,8 +1193,9 @@ footer {
   .breadcrumb { padding-left: 24px; padding-right: 24px; }
 }
 @media (max-width: 640px) {
-  .facts-grid { grid-template-columns: 1fr; }
-  .photo-grid { grid-template-columns: 1fr; grid-template-row
+  .facts-grid { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+}
 /* Nav phone CTA — make it visually prominent next to Book Now */
 .btn-call {
   display: inline-flex;
