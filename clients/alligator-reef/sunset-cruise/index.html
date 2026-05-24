@@ -217,7 +217,13 @@ footer { background: var(--navy); color: rgba(253,251,246,0.85); padding: 48px 3
 .foot-bottom { max-width: 1100px; margin: 36px auto 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; color: rgba(253,251,246,0.55); }
 @media (max-width: 760px) {
   nav { padding: 12px 18px; flex-wrap: wrap; }
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle {
+    display: inline-flex;
+    order: 99;
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
   .nav-links {
     display: none;
     position: absolute; top: 100%; left: 0; right: 0;

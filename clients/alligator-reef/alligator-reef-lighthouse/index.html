@@ -318,7 +318,13 @@ footer {
 
 @media (max-width: 760px) {
   nav { padding: 12px 18px; flex-wrap: wrap; }
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle {
+    display: inline-flex;
+    order: 99;
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
   .nav-links {
     display: none;
     position: absolute; top: 100%; left: 0; right: 0;
