@@ -170,7 +170,15 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 64px 32
 .edit-input { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 12px; font-family: var(--fb); font-size: 16px; color: white; outline: none; resize: none; min-height: 40px; }
 .edit-send { background: var(--b-orange); color: #fff; border: none; border-radius: 8px; width: 40px; height: 40px; cursor: pointer; font-weight: 900; }
 
-@media (max-width: 980px) { .nav-links { display: none; } .strains-grid { grid-template-columns: 1fr 1fr; } .why-grid, .foot-inner { grid-template-columns: 1fr; gap: 32px; } .handoff-inner { flex-direction: column; align-items: flex-start; } .sticky-bar { display: none; } .page-hero, .strains, .why, .law, .handoff { padding-left: 22px; padding-right: 22px; } }
+.nav-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--navy); width: 40px; height: 40px; border-radius: 6px; font-size: 20px; cursor: pointer; line-height: 1; align-items: center; justify-content: center; margin-left: 6px; }
+.nav-toggle:hover { background: var(--cream-2); }
+nav.open .nav-toggle { background: var(--navy); color: white; border-color: var(--navy); }
+
+@media (max-width: 980px) { .nav-toggle { display: flex; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--line); box-shadow: 0 22px 40px -22px rgba(30,86,49,0.18); flex-direction: column; gap: 0; padding: 8px 22px 16px; z-index: 49; }
+  nav.open .nav-links { display: flex; }
+  .nav-links a { padding: 14px 4px; border-bottom: 1px solid var(--line); width: 100%; }
+  .nav-links a:last-child { border-bottom: 0; } .strains-grid { grid-template-columns: 1fr 1fr; } .why-grid, .foot-inner { grid-template-columns: 1fr; gap: 32px; } .handoff-inner { flex-direction: column; align-items: flex-start; } .sticky-bar { display: none; } .page-hero, .strains, .why, .law, .handoff { padding-left: 22px; padding-right: 22px; } }
 @media (max-width: 560px) { .strains-grid, .foot-inner { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -207,6 +215,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 64px 32
     <a href="clones-new-mexico.html" class="current">New Mexico</a>
     <a href="index.html#faq">FAQ</a>
   </div>
+  <button class="nav-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">☰</button>
   <a href="https://calendly.com/phoenix-clones-and-seeds/2hr" class="btn-book" rel="noopener">Book Clone Appt</a>
 </nav>
 
@@ -312,6 +321,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 64px 32
 </div>
 
 <script>
+function toggleMenu() { const n = document.querySelector('nav'); n.classList.toggle('open'); const t = n.querySelector('.nav-toggle'); if (t) t.setAttribute('aria-expanded', n.classList.contains('open')); }
 function toggleSEO() { const p = document.getElementById('seo-panel'); const b = document.getElementById('seo-btn'); if (p.classList.contains('open')) { p.classList.remove('open'); b.textContent = 'Why this matters ▼'; } else { p.classList.add('open'); b.textContent = 'Close ▲'; } }
 const bar = document.getElementById('sticky-bar'); let barClosed = false;
 window.addEventListener('scroll', () => { if (barClosed) return; bar.classList.toggle('show', window.scrollY > 600); });

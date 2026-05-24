@@ -9,7 +9,7 @@
 
 <meta property="og:title" content="Islamorada Sunset Cruise · Captained, BYOB, 10 Guests">
 <meta property="og:description" content="Private captained sunset cruise from Breezy Palms marina, 6:00 to 8:30 PM. Up to 10 guests, BYOB welcome, no license needed.">
-<meta property="og:image" content="https://alligatorreefboats.com/images/sunset.jpg">
+<meta property="og:image" content="https://alligatorreefboats.com/images/sunset.webp">
 <meta property="og:url" content="https://alligatorreefboats.com/sunset-cruise/">
 <meta property="og:type" content="article">
 
@@ -21,7 +21,7 @@
   "name": "Islamorada Sunset Cruise",
   "serviceType": "Sunset Cruise",
   "description": "Private captained sunset cruise from Breezy Palms marina in Islamorada, Florida. 6:00 PM to 8:30 PM. Up to 10 guests. BYOB welcome, no boating license needed.",
-  "image": "https://alligatorreefboats.com/images/sunset.jpg",
+  "image": "https://alligatorreefboats.com/images/sunset.webp",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Alligator Reef Boat Rentals",
@@ -105,7 +105,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="../images/sunset.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="../images/sunset.webp" fetchpriority="high">
 
 <!-- PEEK BOOKING WIDGET LOADER -->
 <script type="text/javascript">
@@ -166,7 +166,7 @@ nav { position: sticky; top: 0; z-index: 50; background: rgba(253,251,246,0.97);
   transition: transform 0.22s ease, opacity 0.22s ease;
 }
 .hero { position: relative; min-height: 60vh; display: flex; align-items: center; background: var(--navy); overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; z-index: 1; background-image: url('../images/sunset.jpg'); background-size: cover; background-position: center; filter: brightness(0.55) saturate(1.1); }
+.hero-bg { position: absolute; inset: 0; z-index: 1; background-image: url('../images/sunset.webp'); background-size: cover; background-position: center; filter: brightness(0.55) saturate(1.1); }
 .hero-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(135deg, rgba(10,37,64,0.7) 0%, rgba(10,37,64,0.2) 100%); }
 .hero-inner { position: relative; z-index: 3; max-width: 1100px; margin: 0 auto; padding: 80px 32px; width: 100%; color: var(--cream); }
 .hero-eyebrow { display: inline-block; font-family: var(--fh); font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aqua); margin-bottom: 18px; }
@@ -307,7 +307,7 @@ footer { background: var(--navy); color: rgba(253,251,246,0.85); padding: 48px 3
 </section>
 
 <div class="banner-img">
-  <img src="../images/sunset.jpg" alt="Sunset over the water near Breezy Palms marina, Islamorada Florida Keys" loading="lazy">
+  <img src="../images/sunset.webp" alt="Sunset over the water near Breezy Palms marina, Islamorada Florida Keys" loading="lazy">
 </div>
 
 <section class="sec">
@@ -396,56 +396,4 @@ footer { background: var(--navy); color: rgba(253,251,246,0.85); padding: 48px 3
         <h4>Alligator Reef Lighthouse</h4>
         <p>10-minute run offshore. Snorkel at the 1873 iron lighthouse inside the Florida Keys National Marine Sanctuary.</p>
       </a>
-      <a class="related-card" href="/islamorada-sandbar/">
-        <h4>The Islamorada Sandbar</h4>
-        <p>20 minutes north, bay-side. Shallow flat, anchor up, get in. Weekend party, weekday quiet.</p>
-      </a>
-      <a class="related-card" href="/#fleet">
-        <h4>The full fleet</h4>
-        <p>10 boats, 6 to 12 passengers. Sea Fox center consoles, Hurricane deck boats, Aqua Sport.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-inner">
-    <div>
-      <div class="foot-brand">Alligator Reef Boat Rentals</div>
-      <div class="foot-tag">Owner-operated boat rentals out of Breezy Palms marina in Islamorada, Florida Keys. Self-drive rentals, sunset cruises, and runs to Alligator Reef Lighthouse.</div>
-    </div>
-    <div class="foot-col">
-      <h3>Rent a boat</h3>
-      <a href="/#fleet">The fleet</a>
-      <a href="https://book.peek.com/w/f0cb38da-35a4-4c84-8aa0-ec545811ae6b/A0mLO">Book a boat</a>
-      <a href="tel:3059905207">305-990-5207</a>
-    </div>
-    <div class="foot-col">
-      <h3>The water</h3>
-      <a href="/alligator-reef-lighthouse/">Alligator Reef</a>
-      <a href="/islamorada-sandbar/">Islamorada sandbar</a>
-      <a href="/sunset-cruise/">Sunset cruise</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    © 2026 Alligator Reef Boat Rentals · All rights reserved.
-  </div>
-</footer>
-
-<script>
-function toggleNav(btn) {
-  var nav = btn.closest('nav');
-  var open = nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded', open);
-  if (open) {
-    nav.querySelectorAll('.nav-links a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }, { once: true });
-    });
-  }
-}
-</script>
-
-</body></html>
+      <a class="related-card" 

@@ -1,0 +1,380 @@
+<!--
+================================================================================
+RELAUNCH SEO BANNER - CH Steak Lounge (ch-steak-lounge)
+Generated 2026-05-24 from real audit data in prospect_chsteaklounge.md.
+
+Self-contained: <style> + markup + <script>. Same Spork-pattern as the
+Hidden Bridge banner; palette adapted to CH (oxblood + cream + brass).
+
+Data sources:
+  - audit.py 2026-05-24 against live site:
+    Elementor 4.0.9 (major version old). Title 67 chars. 6 H1 tags.
+    Missing: meta description, OG tags, ALL structured data.
+  - Live page scrape, 2026-05-24:
+    Homepage survey lists MySpace as an option (shut down 2019).
+    "Magzine" typo (sic). Sliders dated /2016/.
+    Contact page has zero phone/address/email - just a form.
+    Phone (931) 520-2427 only on /location/. Not in any tel: link.
+    Brand split: site says "CH Steak Lounge", FB says "CharCookeville",
+    Restaurant Guru badge links to /Char-Cookeville.
+================================================================================
+-->
+<style>
+:root {
+  --ch-banner-oxblood:  #6e1f1f;
+  --ch-banner-oxblood-2:#4d1414;
+  --ch-banner-cream:    #f3e7c8;
+  --ch-banner-cream-2:  #d4c08e;
+  --ch-banner-cream-3:  #8c7a5a;
+  --ch-banner-brass:    #c19a3c;
+  --ch-banner-brass-2:  #d4ae54;
+  --ch-banner-ink:      #1a1310;
+  --ch-banner-ink-2:    #2a201b;
+  --ch-banner-ember:    #b8311c;
+  --ch-banner-line:     #3a2c24;
+}
+
+.seo-banner {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, var(--ch-banner-ink) 0%, var(--ch-banner-oxblood-2) 100%);
+  color: var(--ch-banner-cream);
+  border-bottom: 2px solid var(--ch-banner-brass);
+  position: relative;
+  z-index: 50;
+}
+.seo-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.seo-top-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.seo-badge {
+  display: inline-block;
+  background: var(--ch-banner-brass);
+  color: var(--ch-banner-ink);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.seo-headline {
+  font-size: 14px;
+  color: var(--ch-banner-cream);
+  line-height: 1.4;
+  margin: 0;
+}
+.seo-headline strong { color: var(--ch-banner-brass-2); font-weight: 600; }
+.seo-toggle {
+  background: transparent;
+  color: var(--ch-banner-cream);
+  border: 1px solid var(--ch-banner-brass);
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.seo-toggle:hover { background: var(--ch-banner-brass); color: var(--ch-banner-ink); }
+.seo-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+  background: var(--ch-banner-ink-2);
+  border-top: 1px solid var(--ch-banner-line);
+}
+.seo-panel.open { max-height: 4800px; }
+.seo-panel-inner { max-width: 1200px; margin: 0 auto; padding: 32px 24px 36px; }
+.seo-greeting {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ch-banner-cream);
+  margin: 0 0 28px;
+  padding-left: 16px;
+  border-left: 3px solid var(--ch-banner-brass);
+}
+.seo-greeting strong { color: var(--ch-banner-brass-2); font-style: normal; font-weight: 600; }
+.seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.seo-col h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ch-banner-cream-3);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ch-banner-line);
+}
+.seo-col.bad h3 { color: #e89888; }
+.seo-col.good h3 { color: var(--ch-banner-brass); }
+.seo-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 44, 36, 0.5);
+  align-items: flex-start;
+}
+.seo-row:last-child { border-bottom: none; }
+.seo-ico {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.seo-ico.x { background: rgba(184, 49, 28, 0.22); color: #e89888; }
+.seo-ico.c { background: rgba(193, 154, 60, 0.22); color: var(--ch-banner-brass-2); }
+.seo-row p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ch-banner-cream); }
+.seo-row p strong { color: #fff; font-weight: 600; }
+.seo-row p em {
+  color: var(--ch-banner-cream-2);
+  font-style: normal;
+  font-size: 12.5px;
+  display: block;
+  margin-top: 4px;
+}
+.seo-cta-row {
+  margin-top: 32px;
+  padding: 22px 24px;
+  background: var(--ch-banner-ink);
+  border: 1px solid var(--ch-banner-brass);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.seo-cta-text { flex: 1; min-width: 240px; }
+.seo-cta-text .seo-cta-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ch-banner-cream);
+  letter-spacing: -0.01em;
+}
+.seo-cta-text .seo-cta-price span { color: var(--ch-banner-brass-2); font-size: 14px; font-weight: 500; }
+.seo-cta-text .seo-cta-sub {
+  font-size: 12.5px;
+  color: var(--ch-banner-cream-2);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.seo-cta-btn {
+  background: var(--ch-banner-brass);
+  color: var(--ch-banner-ink);
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  border: 1px solid var(--ch-banner-brass);
+}
+.seo-cta-btn:hover {
+  background: var(--ch-banner-brass-2);
+  border-color: var(--ch-banner-brass-2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(193, 154, 60, 0.4);
+}
+.seo-footnote {
+  font-size: 11px;
+  color: var(--ch-banner-cream-3);
+  text-align: center;
+  margin-top: 18px;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 760px) {
+  .seo-top { padding: 12px 16px; }
+  .seo-headline { font-size: 13px; }
+  .seo-grid { grid-template-columns: 1fr; gap: 8px; }
+  .seo-panel-inner { padding: 24px 16px 28px; }
+  .seo-cta-row { padding: 18px; flex-direction: column; align-items: stretch; text-align: center; }
+  .seo-cta-btn { text-align: center; }
+}
+</style>
+
+<div class="seo-banner" id="seo-banner">
+  <div class="seo-top">
+    <div class="seo-top-left">
+      <span class="seo-badge">Built by Relaunch</span>
+      <p class="seo-headline">
+        This is what your website could look like. <strong>Real audit inside</strong> on why your homepage survey still lists MySpace as an option.
+      </p>
+    </div>
+    <button class="seo-toggle" onclick="toggleSEO()" id="seo-toggle-btn">Show audit &#9660;</button>
+  </div>
+
+  <div class="seo-panel" id="seo-panel">
+    <div class="seo-panel-inner">
+
+      <p class="seo-greeting">
+        Your steakhouse <strong>has been on the square in Cookeville for years</strong> &mdash; smoked wings, Rattlesnake Pasta, the best steaks in town, live music most nights. <strong>None of that is doing what it should</strong> when somebody opens Google and types &ldquo;steakhouse cookeville tn.&rdquo; The website still asks if customers found you on MySpace. The Contact page doesn't even have your phone number.
+      </p>
+
+      <div class="seo-grid">
+
+        <div class="seo-col bad">
+          <h3>What the current site is leaving on the table</h3>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>Your homepage survey asks how customers found you. The options include MySpace. And &ldquo;Magzine&rdquo; (sic).</strong>
+              <em>MySpace shut down social profiles in 2019. The typo on &ldquo;Magazine&rdquo; has been live since at least 2016. Anybody under 35 looking at your homepage thinks the place closed years ago.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>Your Contact page has no phone, no address, no email. Just a form.</strong>
+              <em>Your phone number (931) 520-2427 only exists on the /location/ page &mdash; one page out of five. A customer who lands on your homepage cannot find a way to call you.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>Your phone number is not a tap-to-call link anywhere on the site.</strong>
+              <em>On a phone, that means nobody calling your restaurant just got handed a button to call you. They have to read the digits, switch apps, type them in.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>Zero structured data on the page. Google can't tell this is a restaurant.</strong>
+              <em>No Restaurant schema, no Menu schema, no opening hours, no events for the live music, no review markup. Other Cookeville restaurants show up in Google with menu items, star ratings, and event carousels. You show up as a generic blue link.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>You're CH Steak Lounge on the website &mdash; and &ldquo;Char&rdquo; on Facebook, Twitter, and Restaurant Guru.</strong>
+              <em>Two brands fighting each other for the same searches. Google Reviews fragmented across two business identities. Customers who hear &ldquo;Char&rdquo; from a friend can't find your website. Customers who know &ldquo;CH Steak Lounge&rdquo; land on a Facebook page branded differently.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>Six H1 tags on your homepage. No meta description. No Open Graph image.</strong>
+              <em>Six H1s means Google can't tell what your page is about. No meta description means Google writes its own SERP snippet. No Open Graph means every text message, every Facebook share, every iMessage of your URL looks broken &mdash; no image, no description.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico x">&#10007;</div>
+            <p>
+              <strong>&ldquo;upcoming events&rdquo; and &ldquo;chef specials&rdquo; are H1 headers on your homepage with no content under them.</strong>
+              <em>Empty sections. Meanwhile your live-music calendar (&ldquo;most nights after 9pm&rdquo;) is invisible to Google &mdash; no Event schema, no calendar page, no way for somebody searching &ldquo;live music cookeville this weekend&rdquo; to ever find you.</em>
+            </p>
+          </div>
+        </div>
+
+        <div class="seo-col good">
+          <h3>What this rebuild fixes</h3>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Six indexable pages instead of one homepage doing every job.</strong>
+              <em>Home / Menu / Live Music / Hours &amp; Location / Reservations / Contact &mdash; each one targets the keyword it should, with real content for Google to crawl.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Real Menu page with every item, every price, marked up in Menu schema.</strong>
+              <em>The Smoked Chicken Wings, Pizza Rockafella, Rattlesnake Pasta, your steaks &mdash; all in HTML, all readable by Google. Menu items can start appearing directly in search results.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Live Music page with weekly schedule and Event schema baked in.</strong>
+              <em>Every act, every date, marked up so Google's event carousel surfaces you when somebody searches &ldquo;live music cookeville this weekend.&rdquo; Free traffic you're not currently capturing.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Restaurant + LocalBusiness + OpeningHours + Menu + Event + AggregateRating + FAQPage schema.</strong>
+              <em>Every standard schema Google has for a restaurant, in place. Your star rating shows under your result. Your hours show on the side panel. AI Overviews start citing you when somebody asks &ldquo;best steakhouse in Cookeville.&rdquo;</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Tap-to-call phone on every page, address in the footer, real Contact page with NAP + map + form.</strong>
+              <em>One tap from any page and the phone is dialing. No more hunting through your own site for your own phone number.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Reservation request form &mdash; not just a generic contact form.</strong>
+              <em>Date, time, party size, special occasion, requests. Goes straight to your inbox or POS. The 11pm reservation searches you're losing today &mdash; captured.</em>
+            </p>
+          </div>
+
+          <div class="seo-row">
+            <div class="seo-ico c">&#10003;</div>
+            <p>
+              <strong>Edit anything by just asking.</strong>
+              <em>Type &ldquo;move Friday's band to The Whiskey Dogs&rdquo; or &ldquo;raise the ribeye to $44&rdquo; into the chat widget and it's live. No webmaster, no Elementor dashboard.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seo-cta-row">
+        <div class="seo-cta-text">
+          <div class="seo-cta-price">$99<span>/month &mdash; no contract, cancel anytime</span></div>
+          <div class="seo-cta-sub">Site goes live in under a week. We do the migration.</div>
+        </div>
+        <a class="seo-cta-btn" href="https://tryrelaunch.com/onboard?business=CH%20Steak%20Lounge">Make this site mine &rarr;</a>
+      </div>
+
+      <p class="seo-footnote">
+        Audit pulled from a scrape of chsteaklounge.com on May 24, 2026. Every claim above is real, not illustrative &mdash; you can verify each one on your live site right now.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSEO() {
+  var p = document.getElementById('seo-panel');
+  var b = document.getElementById('seo-toggle-btn');
+  var isOpen = p.classList.toggle('open');
+  b.innerHTML = isOpen ? 'Hide audit &#9650;' : 'Show audit &#9660;';
+}
+</script>
