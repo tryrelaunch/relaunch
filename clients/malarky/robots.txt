@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /edit/
 Disallow: /SEO-BRIEFS/
+Disallow: /_partials/
 
 Sitemap: https://malarkycharters.com/sitemap.xml
