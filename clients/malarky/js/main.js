@@ -103,3 +103,19 @@ document.querySelectorAll('.gallery-slider').forEach(slider => {
   window.addEventListener('resize', updateActive);
   updateActive();
 });
+
+
+/* ── BACK TO TOP BUTTON ── */
+(function() {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  function toggle() {
+    if (window.scrollY > 600) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  toggle();
+})();

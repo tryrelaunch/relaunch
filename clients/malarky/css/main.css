@@ -1234,3 +1234,27 @@ footer {
     font-size: clamp(32px, 7vw, 44px);
   }
 }
+
+
+/* ── BACK TO TOP BUTTON ── */
+#back-to-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--brass); background: var(--cream);
+  color: var(--ink); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease, background .2s, color .2s, transform .2s;
+  z-index: 90;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { background: var(--brass); color: var(--cream); transform: translateY(-2px); }
+#back-to-top:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+@media (max-width: 640px) {
+  #back-to-top { width: 44px; height: 44px; bottom: 18px; right: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top { transition: opacity .2s; }
+  #back-to-top:hover { transform: none; }
+}
