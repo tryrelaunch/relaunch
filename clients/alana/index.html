@@ -139,7 +139,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/main.css?v=2026052600">
+<link rel="stylesheet" href="css/main.css?v=2026052601">
 <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 </head>
 <body>
@@ -200,307 +200,376 @@
 <main>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  HERO                                    ║ -->
+<!-- ║  HERO — Two-Column Spork Editorial       ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <header class="hero" id="top">
-  <div class="hero-bg">
-    <img src="images/hero.jpg" alt="Alana — 40ft power catamaran on San Diego Bay" fetchpriority="high">
-  </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Shelter Island · San Diego Bay · Est. 2020</div>
-    <h1 class="hero-title"><strong>Party Boat Rental San Diego</strong></h1>
-    <p class="hero-sub" style="font-family:var(--ff-display);font-size:clamp(14px,1.1vw,17px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-4);margin-top:-12px;">40ft Power Catamaran &middot; Up to 35 Guests &middot; Full Bar On Board</p>
-    <p class="hero-sub">The only party boat on San Diego Bay with a full liquor-licensed bar, professional crew, and room for 35. Alana is a 40-foot Coral Island power catamaran available for private charters — birthdays, bachelorettes, corporate events, and any celebration. You book the entire boat. Captain, crew, and bartender are included on every trip.</p>
-    <div class="hero-ctas">
-      <button class="btn-primary" onclick="openBookModal()">Book a Private Charter &rarr;</button>
-      <a href="tel:+18443201237" class="btn-secondary">📞 (844) 320-1237</a>
+    <div class="hero-left">
+      <div class="hero-eyebrow">Shelter Island &middot; San Diego Bay</div>
+      <div class="hero-quote">
+        <span class="open-q">&ldquo;</span>Best time of my life.&rdquo;
+      </div>
+      <div class="hero-attrib"><strong>Paige Rodawig</strong> &mdash; Google Review</div>
+      <h1 class="hero-sub">The only party boat on San Diego Bay with a full liquor-licensed bar, professional crew, and room for 35. Private charters for birthdays, bachelorettes, corporate events, and any celebration worth having on the water.</h1>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openBookModal()">Book a Private Charter &rarr;</button>
+        <a href="#the-boat" class="btn-secondary">See the Boat &rarr;</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">35</div>
+          <div class="hero-stat-label">Guests Max</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</div>
+          <div class="hero-stat-label">781 Google Reviews</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">Private</div>
+          <div class="hero-stat-label">Your Boat, Your Group</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">2020</div>
+          <div class="hero-stat-label">Est.</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">35</div>
-        <div class="hero-stat-label">Guests Max</div>
+
+    <div class="hero-right">
+      <div class="hero-floating-badge">
+        <div class="b-num">35</div>
+        <div class="b-txt">Guests<br>Private</div>
       </div>
-      <div>
-        <div class="hero-stat-num">781</div>
-        <div class="hero-stat-label">Five-Star Reviews</div>
+      <div class="hero-photo-wrap">
+        <img src="images/hero.jpg" alt="Alana — 40ft power catamaran on San Diego Bay" fetchpriority="high">
+        <div class="hero-photo-tag"><span class="dot"></span> Private Charters &middot; 7 Days a Week</div>
       </div>
-      <div>
-        <div class="hero-stat-num">2020</div>
-        <div class="hero-stat-label">Est.</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">2700</div>
-        <div class="hero-stat-label">Shelter Island Dr</div>
+      <div class="review-strip">
+        <div class="rs-score">
+          <div class="rs-num">4.9</div>
+          <div class="rs-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+        <div class="rs-divider"></div>
+        <div class="rs-quotes">
+          <div class="rs-quote">Capt. Tess and crew were amazing. I would recommend this charter.</div>
+          <div class="rs-quote">Andrew was awesome! And Ben was the best bartender!</div>
+        </div>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  TRUST STRIP                             ║ -->
+<!-- ║  AWARDS MARQUEE                          ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<section class="guarantee" aria-label="What's included">
-  <div class="guarantee-inner">
-    <div class="g-block">
-      <div class="g-ico">🎉</div>
-      <div>
-        <div class="g-title">Captain, crew &amp; bartender included</div>
-        <p class="g-desc">Every trip comes with a professional captain, dedicated crew, and bartender. You step on, we handle everything.</p>
-      </div>
-    </div>
-    <div class="g-block">
-      <div class="g-ico">🍸</div>
-      <div>
-        <div class="g-title">Full bar on board</div>
-        <p class="g-desc">Liquor-licensed vessel with craft cocktails, local beer, wine, and prosecco available for purchase.</p>
-      </div>
-    </div>
-    <div class="g-block">
-      <div class="g-ico">⚓</div>
-      <div>
-        <div class="g-title">Up to 35 guests, USCG certified</div>
-        <p class="g-desc">The largest private charter capacity in our fleet. Coast Guard inspected and certified.</p>
-      </div>
-    </div>
+<div class="awards-strip">
+  <div class="marquee">
+    <div class="marquee-item"><span class="dot"></span>Private Yacht</div>
+    <div class="marquee-item"><span class="dot"></span>35 Guests</div>
+    <div class="marquee-item"><span class="dot"></span>Full Bar</div>
+    <div class="marquee-item"><span class="dot"></span>Captain &amp; Crew</div>
+    <div class="marquee-item"><span class="dot"></span>USCG Certified</div>
+    <div class="marquee-item"><span class="dot"></span>Shelter Island</div>
+    <div class="marquee-item"><span class="dot"></span>San Diego Bay</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><span class="dot"></span>Private Yacht</div>
+    <div class="marquee-item"><span class="dot"></span>35 Guests</div>
+    <div class="marquee-item"><span class="dot"></span>Full Bar</div>
+    <div class="marquee-item"><span class="dot"></span>Captain &amp; Crew</div>
+    <div class="marquee-item"><span class="dot"></span>USCG Certified</div>
+    <div class="marquee-item"><span class="dot"></span>Shelter Island</div>
+    <div class="marquee-item"><span class="dot"></span>San Diego Bay</div>
   </div>
-</section>
+</div>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  PRIVATE CHARTER                         ║ -->
+<!-- ║  STORY — Dark Navy Background            ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec" id="experiences">
-  <div class="sec-wide">
-    <div class="sec-eyebrow">Private Yacht Rental</div>
-    <h2 class="sec-title">The whole boat. Just your group.</h2>
-    <div class="svc-grid" style="max-width:640px;margin:0 auto;">
-      <div class="svc-card">
-        <img src="images/private-charter.jpg" alt="Private charter on San Diego Bay" loading="lazy">
-        <div class="svc-card-body">
-          <div class="svc-card-title">Private Charter</div>
-          <p class="svc-card-desc">Your group, your time. Up to 35 guests aboard your own private yacht. Choose your departure time, bring food, request catering. No strangers on board — ever.</p>
-          <button class="svc-card-link" onclick="openBookModal()">Book Private Charter &rarr;</button>
+<section class="story-section" id="about">
+  <div class="sec">
+    <div class="sec-eyebrow">Since 2020</div>
+    <h2 class="sec-title">San Diego's private<br><em>party boat</em>.</h2>
+
+    <div class="story-grid">
+      <div class="story-text">
+        <p>Alana is a <strong>40-foot Coral Island power catamaran</strong> based at Shelter Island in San Diego. She was built for one thing: giving groups of up to 35 a private party on the bay that feels nothing like a tourist cruise.</p>
+        <p>Every charter includes a <strong>professional captain</strong>, dedicated crew, and <em>a licensed bartender behind a full bar</em>. Craft cocktails, local beer, wine, and prosecco are available for purchase on board. No outside beverages, no ticketed seats, no strangers. You book the entire boat.</p>
+        <p>Alana runs seven days a week out of Shelter Island &mdash; birthdays, bachelorettes, corporate outings, family reunions, or just a good excuse to be on the water. The route takes you past the Coronado Bridge, USS Midway, Star of India, and the downtown skyline.</p>
+
+        <blockquote class="story-pullquote">
+          Spent 4 hours of my Bach having the best time of my life and it's all thanks to you guys!
+          <span class="story-pullquote-attrib">&mdash; Paige Rodawig, Google Review</span>
+        </blockquote>
+      </div>
+
+      <div class="story-specs">
+        <div class="story-spec">
+          <div class="story-spec-icon">&#9875;</div>
+          <div class="story-spec-text">
+            <strong>40ft Coral Island Power Catamaran</strong>
+            <span>Wide, stable, twin-hull design. Purpose-built for groups.</span>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  THE BOAT                                ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec about" id="the-boat">
-  <div class="about-grid sec-wide">
-    <div class="about-text">
-      <div class="sec-eyebrow">The Vessel</div>
-      <h2 class="sec-title">40-foot Coral Island power catamaran.</h2>
-      <p>Alana is a professionally maintained 40-foot Coral Island power catamaran — wide, stable, and purpose-built for groups who want a real party on the water. Two hulls mean minimal rocking, a wide open deck, and space for 35 guests to move around.</p>
-      <p>Every trip includes Captain Tess or Andrew at the helm, crew on deck, and bartender Ben behind the bar. The only thing you bring is your crew.</p>
-      <div class="about-card">
-        <div class="about-card-title">Vessel Specs</div>
-        <p>35 guest capacity (USCG certified) &middot; 2 below-deck bathrooms &middot; Retractable staircases for water access &middot; Forward + aft deck seating &middot; Professional sound system &middot; Full liquor-licensed bar</p>
-      </div>
-    </div>
-    <div class="about-photo-wrap">
-      <img class="about-photo" src="images/boat-exterior-1.jpg" alt="Alana — 40ft Coral Island power catamaran" loading="lazy">
-      <div class="about-photo-caption">Coral Island · 40ft · San Diego Bay</div>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  THE ROUTE                               ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec sec-alt" id="the-route">
-  <div class="sec-narrow">
-    <div class="sec-eyebrow">The Route</div>
-    <h2 class="sec-title">San Diego Bay Cruise Route</h2>
-    <p class="sec-lede">Every cruise departs from Shelter Island and circles some of San Diego's most iconic waterfront views. Here's what you'll see on the water.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;">
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">🌉</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">Coronado Bridge</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">The iconic 2.1-mile span arching over the bay — best viewed from the water.</p>
-      </div>
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">⚓</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">USS Midway</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">America's longest-serving 20th-century aircraft carrier, docked on the downtown waterfront.</p>
-      </div>
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">⛵</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">Star of India</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">The world's oldest active sailing ship, moored at the Maritime Museum.</p>
-      </div>
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">🏙️</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">Seaport Village</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">The bayfront shopping and dining district with front-row views from the water.</p>
-      </div>
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">🗿</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">Cabrillo National Monument</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">The tip of Point Loma, marking where Juan Rodríguez Cabrillo landed in 1542.</p>
-      </div>
-      <div style="text-align:center;padding:24px 16px;">
-        <div style="font-size:32px;margin-bottom:12px;">🏖️</div>
-        <div style="font-family:var(--ff-display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;">Shelter Island</div>
-        <p style="font-size:14px;color:var(--ink-2);line-height:1.55;">Your departure point — a peaceful marina peninsula with scenic bay views heading out and coming in.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  REVIEWS                                 ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec reviews" id="reviews">
-  <div class="reviews-header">
-    <div class="sec-eyebrow">What Guests Say</div>
-    <h2 class="sec-title"><strong>781</strong> five-star reviews.</h2>
-  </div>
-  <div class="reviews-grid sec-wide">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Capt. Tess and crew were amazing. I would recommend this charter.</p>
-      <div class="review-author">Ed Woolery</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Spent 4 hours of my Bach having the best time of my life and it's all thanks to you guys!</p>
-      <div class="review-author">Paige Rodawig</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Andrew was awesome! And Ben was the best bartender! Super clean boat, would definitely come back.</p>
-      <div class="review-author">Google Reviewer</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Great experience. The crew was friendly and professional. Beautiful views of the bay.</p>
-      <div class="review-author">Google Reviewer</div>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  PHOTO GALLERY                           ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="gallery-section" id="gallery">
-  <div class="sec-header" style="padding:0 32px;">
-    <div class="sec-eyebrow">On the Water</div>
-    <h2 class="sec-title">Life on Alana.</h2>
-  </div>
-  <div class="gallery-slider">
-    <div class="gallery-track" tabindex="0" aria-label="Photo gallery">
-      <figure class="gallery-slide">
-        <img src="images/gallery-1.jpg" alt="Guests celebrating on Alana yacht, San Diego Bay" loading="lazy">
-        <figcaption>San Diego Bay</figcaption>
-      </figure>
-      <figure class="gallery-slide">
-        <img src="images/gallery-2.jpg" alt="Full deck on Alana party boat" loading="lazy">
-        <figcaption>Full deck, full party</figcaption>
-      </figure>
-      <figure class="gallery-slide">
-        <img src="images/gallery-3.jpg" alt="Bar on Alana with bartender Ben" loading="lazy">
-        <figcaption>The bar</figcaption>
-      </figure>
-      <figure class="gallery-slide">
-        <img src="images/gallery-4.jpg" alt="Coronado Bridge from Alana" loading="lazy">
-        <figcaption>Coronado Bridge</figcaption>
-      </figure>
-      <figure class="gallery-slide">
-        <img src="images/gallery-5.jpg" alt="Private charter group on Alana" loading="lazy">
-        <figcaption>Private charter</figcaption>
-      </figure>
-      <figure class="gallery-slide">
-        <img src="images/gallery-6.jpg" alt="Sunset over San Diego Bay from Alana" loading="lazy">
-        <figcaption>Bay views</figcaption>
-      </figure>
-    </div>
-    <button class="gallery-prev" aria-label="Previous photo">&#8249;</button>
-    <button class="gallery-next" aria-label="Next photo">&#8250;</button>
-    <div class="gallery-dots">
-      <button class="gallery-dot active" aria-label="Photo 1"></button>
-      <button class="gallery-dot" aria-label="Photo 2"></button>
-      <button class="gallery-dot" aria-label="Photo 3"></button>
-      <button class="gallery-dot" aria-label="Photo 4"></button>
-      <button class="gallery-dot" aria-label="Photo 5"></button>
-      <button class="gallery-dot" aria-label="Photo 6"></button>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  BOOKING CTA                             ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec booking" id="book">
-  <div class="booking-card">
-    <div class="sec-eyebrow">Reserve Your Spot</div>
-    <h2 class="sec-title">Ready to get on the water?</h2>
-    <p class="sec-lede">Live availability through FareHarbor — book a private charter for your group. Captain, crew, and bartender included on every trip.</p>
-    <button class="btn-primary" onclick="openBookModal()">Check Availability &rarr;</button>
-    <p style="margin-top:20px;font-family:var(--ff-display);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Or call <a href="tel:+18443201237" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.5);">(844) 320-1237</a></p>
-  </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  LOCATION                                ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="sec location" id="location">
-  <div class="loc-grid">
-    <div class="loc-info">
-      <div>
-        <div class="sec-eyebrow">Find Us</div>
-        <h2 class="sec-title">Shelter Island, San Diego.</h2>
-      </div>
-      <div class="loc-row">
-        <div class="loc-row-icon">📍</div>
-        <div>
-          <div class="loc-row-label">Address</div>
-          <div class="loc-row-val">2700 Shelter Island Dr<br>San Diego, CA 92106<br><em style="font-size:14px;color:var(--ink-3);">Behind Ketch Grill and Taps</em></div>
+        <div class="story-spec">
+          <div class="story-spec-icon">&#9989;</div>
+          <div class="story-spec-text">
+            <strong>USCG Certified &mdash; 35 Guests</strong>
+            <span>Coast Guard inspected and certified for 35 passengers.</span>
+          </div>
         </div>
-      </div>
-      <div class="loc-row">
-        <div class="loc-row-icon">📞</div>
-        <div>
-          <div class="loc-row-label">Phone</div>
-          <div class="loc-row-val"><a href="tel:+18443201237">(844) 320-1237</a></div>
+        <div class="story-spec">
+          <div class="story-spec-icon">&#128706;</div>
+          <div class="story-spec-text">
+            <strong>2 Below-Deck Bathrooms</strong>
+            <span>Full-size restrooms below deck. No port-a-potties.</span>
+          </div>
         </div>
-      </div>
-      <div class="loc-row">
-        <div class="loc-row-icon">✉️</div>
-        <div>
-          <div class="loc-row-label">Email</div>
-          <div class="loc-row-val"><a href="mailto:info@alanayachtrental.com">info@alanayachtrental.com</a></div>
+        <div class="story-spec">
+          <div class="story-spec-icon">&#127864;</div>
+          <div class="story-spec-text">
+            <strong>Full Liquor-Licensed Bar</strong>
+            <span>Craft cocktails, local beer, wine, and prosecco on board.</span>
+          </div>
         </div>
-      </div>
-      <div class="loc-row">
-        <div class="loc-row-icon">🕐</div>
-        <div>
-          <div class="loc-row-label">Hours</div>
-          <div class="loc-row-val">7 days a week &middot; by appointment</div>
+        <div class="story-spec">
+          <div class="story-spec-icon">&#127925;</div>
+          <div class="story-spec-text">
+            <strong>Professional Sound System</strong>
+            <span>Bluetooth-connected speakers. Play your own music.</span>
+          </div>
         </div>
-      </div>
-      <div class="loc-row">
-        <div class="loc-row-icon">📱</div>
-        <div>
-          <div class="loc-row-label">Follow</div>
-          <div class="loc-row-val" style="display:flex;gap:16px;flex-wrap:wrap;">
-            <a href="https://www.instagram.com/alanayachtrental/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.facebook.com/Alana-Yacht-Rentals-110343601779164" target="_blank" rel="noopener">Facebook</a>
+        <div class="story-spec">
+          <div class="story-spec-icon">&#9732;</div>
+          <div class="story-spec-text">
+            <strong>Captain, Crew &amp; Bartender Included</strong>
+            <span>Every trip. You step on, we handle everything.</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="loc-map">
-      <iframe
-        src="https://www.google.com/maps?q=2700+Shelter+Island+Dr,+San+Diego,+CA+92106&output=embed"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Alana Yacht Rental — 2700 Shelter Island Dr, San Diego">
-      </iframe>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  EXPERIENCES — Cream Background          ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec" id="experiences" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Private Charters</div>
+    <h2 class="sec-title">Your boat, your party,<br><em>your rules</em>.</h2>
+    <p class="sec-lede">Every charter is private. No shared cruises, no ticketed seats. Pick your time, bring your crew, and we handle the rest.</p>
+
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-img">
+          <img src="images/gallery-1.jpg" alt="Birthday party on Alana yacht" loading="lazy">
+          <div class="exp-pill coral">Popular</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-name">Birthday Party</div>
+          <p class="exp-desc">The best birthday venue in San Diego is a boat. Music, drinks, bay views, and a crew that makes the birthday person feel like royalty. Up to 35 guests.</p>
+          <a href="birthday-boat-rental-san-diego/" class="exp-link">Book Birthday &rarr;</a>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-img">
+          <img src="images/gallery-cruise-1.jpg" alt="Private charter cruising San Diego Bay" loading="lazy">
+          <div class="exp-pill">Private</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-name">Private Charter</div>
+          <p class="exp-desc">Your group, your time. Cruise past the Coronado Bridge, USS Midway, and the downtown skyline. Full bar on board, captain and crew included. Perfect for any occasion.</p>
+          <a href="private-yacht-rental-san-diego/" class="exp-link">Book Private &rarr;</a>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-img">
+          <img src="images/boat-exterior-3.jpg" alt="Large group on Alana catamaran" loading="lazy">
+          <div class="exp-pill">35 Guests</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-name">Large Group</div>
+          <p class="exp-desc">Corporate outings, family reunions, bachelor and bachelorette parties. Alana fits up to 35 and has the deck space for everyone to move around.</p>
+          <a href="large-group-boat-rental-san-diego/" class="exp-link">Book Group &rarr;</a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  WHAT'S INCLUDED — Paper Background      ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec" id="the-boat" style="background:var(--paper);">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">What You Get</div>
+    <h2 class="sec-title"><strong>Everything's included.</strong></h2>
+    <p class="sec-lede">No hidden fees. No add-ons you didn't ask for. Every private charter comes with all of this.</p>
+
+    <div class="inclusions-grid">
+      <div class="inclusion-list">
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">Captain &amp; professional crew</div>
+            <div class="inclusion-desc">A licensed captain at the helm and crew on deck for the duration of your charter.</div>
+          </div>
+        </div>
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">Licensed bartender</div>
+            <div class="inclusion-desc">A dedicated bartender behind the bar the entire trip. Craft cocktails, draft beer, wine, and prosecco.</div>
+          </div>
+        </div>
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">Full bar (cocktails, beer, wine, prosecco)</div>
+            <div class="inclusion-desc">Alana is a liquor-licensed vessel. Drinks available for purchase on board. No coolers or outside beverages.</div>
+          </div>
+        </div>
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">Professional sound system (Bluetooth)</div>
+            <div class="inclusion-desc">Connect your phone and play your own playlist. Speakers throughout the deck.</div>
+          </div>
+        </div>
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">2 below-deck bathrooms</div>
+            <div class="inclusion-desc">Full-size restrooms below deck. Clean, maintained, and available throughout the charter.</div>
+          </div>
+        </div>
+        <div class="inclusion-item">
+          <div class="inclusion-icon">&#10003;</div>
+          <div>
+            <div class="inclusion-name">Retractable water-access staircases</div>
+            <div class="inclusion-desc">When the captain drops anchor, walk right down to the water from the swim platform.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inclusion-sidebar">
+        <div class="inclusion-sidebar-eyebrow">Not BYOB</div>
+        <div class="inclusion-sidebar-title">Full bar on board.</div>
+        <p class="inclusion-sidebar-text">Alana is a liquor-licensed vessel. Craft cocktails, local beer, wine, and prosecco available for purchase. No outside beverages permitted.</p>
+        <a href="pricing/" class="inclusion-sidebar-link">See Pricing &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  REVIEWS — Cream Background              ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec" id="reviews" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">What Guests Say</div>
+    <h2 class="sec-title"><strong>781</strong> five-star reviews.</h2>
+
+    <!-- Featured review card -->
+    <div class="reviews-hero">
+      <div>
+        <div class="rh-quote"><em>&ldquo;Spent 4 hours of my Bach having the best time of my life and it's all thanks to you guys!&rdquo;</em></div>
+        <div class="rh-attrib">&mdash; <strong>Paige Rodawig</strong>, Google Review</div>
+      </div>
+      <div class="rh-image">
+        <img src="images/gallery-party-1.jpg" alt="Guests celebrating on Alana yacht" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Stat block + review cards -->
+    <div class="reviews-grid-split">
+      <div class="reviews-stat">
+        <div class="reviews-stat-num">4.9</div>
+        <div class="reviews-stat-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="reviews-stat-label">781 Google<br>Reviews</div>
+      </div>
+
+      <div class="reviews-quotes">
+        <div class="r-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="r-text">Capt. Tess and crew were amazing. I would recommend this charter.</div>
+          <div class="r-author">Ed Woolery <span>&middot; Google</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="r-text">Andrew was awesome! And Ben was the best bartender! Super clean boat, would definitely come back.</div>
+          <div class="r-author">Google Reviewer <span>&middot; verified</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="r-text">Great experience. The crew was friendly and professional. Beautiful views of the bay.</div>
+          <div class="r-author">Google Reviewer <span>&middot; verified</span></div>
+        </div>
+        <div class="r-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="r-text">Spent 4 hours of my Bach having the best time of my life and it's all thanks to you guys!</div>
+          <div class="r-author">Paige Rodawig <span>&middot; Google</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  VISIT — Dark Navy Background            ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="visit-section" id="visit">
+  <div class="sec">
+    <div class="sec-eyebrow">Find Us</div>
+    <h2 class="sec-title">Shelter Island, <em>San Diego</em>.</h2>
+
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="vc-title">Hours</div>
+        <div class="vc-line"><strong>By appointment</strong></div>
+        <div class="vc-line muted">7 days a week</div>
+        <div class="vc-line muted" style="margin-top:14px;">Morning, afternoon, and sunset departures available. Book online for real-time availability.</div>
+        <div class="vc-cta-row">
+          <button class="vc-btn" onclick="openBookModal()">Check Availability &rarr;</button>
+        </div>
+      </div>
+
+      <div class="visit-card">
+        <div class="vc-title">Find Us</div>
+        <div class="vc-line"><strong>2700 Shelter Island Dr</strong></div>
+        <div class="vc-line">San Diego, CA 92106</div>
+        <div class="vc-line muted" style="margin-top:14px;">Behind Ketch Grill and Taps</div>
+        <div class="vc-line muted">Shelter Island, Point Loma</div>
+        <div class="vc-cta-row">
+          <a href="https://maps.app.goo.gl/s9FWF9HKTWUYWgDdA" target="_blank" rel="noopener" class="vc-btn">Get Directions &rarr;</a>
+        </div>
+      </div>
+
+      <div class="visit-card">
+        <div class="vc-title">Contact</div>
+        <div class="vc-line"><strong>Phone</strong></div>
+        <div class="vc-line"><a href="tel:+18443201237">(844) 320-1237</a></div>
+        <div class="vc-line muted" style="margin-top:12px;"><strong style="color:white;">Email</strong></div>
+        <div class="vc-line"><a href="mailto:info@alanayachtrental.com">info@alanayachtrental.com</a></div>
+        <div class="vc-line muted" style="margin-top:12px;"><strong style="color:white;">Follow</strong></div>
+        <div class="vc-line"><a href="https://www.instagram.com/alanayachtrental/" target="_blank" rel="noopener">Instagram</a></div>
+        <div class="vc-line"><a href="https://www.facebook.com/Alana-Yacht-Rentals-110343601779164" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FINAL CTA — Cream                       ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="cta-final" id="book">
+  <div class="cta-final-inner">
+    <div class="sec-eyebrow" style="justify-content:center;">Ready?</div>
+    <h2 class="sec-title">Book your <strong>private charter</strong>.</h2>
+    <button class="btn-primary" onclick="openBookModal()">Check Availability &rarr;</button>
+    <p class="cta-phone">Or call <a href="tel:+18443201237">(844) 320-1237</a></p>
   </div>
 </section>
 
