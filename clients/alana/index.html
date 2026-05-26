@@ -29,7 +29,7 @@
       "@id": "https://alanayachtrental.com/#business",
       "name": "Alana Yacht Rental",
       "alternateName": "Alana Charters LLC",
-      "description": "Party boat rental on San Diego Bay. 40-foot Coral Island power catamaran certified for up to 35 guests. Captain, crew, and bartender included on every trip. Ticketed bay cruises Wednesday through Sunday and private charters for any occasion.",
+      "description": "Private yacht rental on San Diego Bay. 40-foot Coral Island power catamaran certified for up to 35 guests. Captain, crew, and bartender included on every trip. Private charters for birthdays, bachelorettes, corporate events, and any occasion.",
       "url": "https://alanayachtrental.com/",
       "telephone": "+1-844-320-1237",
       "email": "info@alanayachtrental.com",
@@ -51,9 +51,9 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
           "opens": "09:00",
-          "closes": "18:00"
+          "closes": "21:00"
         }
       ],
       "aggregateRating": {
@@ -68,19 +68,10 @@
     },
     {
       "@type": "Service",
-      "@id": "https://alanayachtrental.com/#ticketed-cruise",
-      "serviceType": "Party Boat Rental",
-      "name": "Ticketed Bay Cruise",
-      "description": "Individual tickets for San Diego Bay cruises on a 40-foot power catamaran. Wednesday through Sunday at 11am, 2:30pm, and 6pm. 2.5-hour cruises with captain, crew, and bartender included.",
-      "provider": { "@id": "https://alanayachtrental.com/#business" },
-      "areaServed": { "@type": "Place", "name": "San Diego, CA" }
-    },
-    {
-      "@type": "Service",
       "@id": "https://alanayachtrental.com/#private-charter",
-      "serviceType": "Bay Cruise",
-      "name": "Private Charter",
-      "description": "Private charter of the Alana for up to 35 guests. Choose your departure time, catering available. Captain, crew, and bartender included on every trip.",
+      "serviceType": "Private Yacht Rental",
+      "name": "Private Yacht Charter",
+      "description": "Private charter of the Alana for up to 35 guests. Book the entire 40ft catamaran for your group. Choose your departure time, catering available. Captain, crew, and bartender included on every trip.",
       "provider": { "@id": "https://alanayachtrental.com/#business" },
       "areaServed": { "@type": "Place", "name": "San Diego Bay, CA" }
     },
@@ -94,18 +85,13 @@
         },
         {
           "@type": "Question",
-          "name": "Is a captain included with every trip?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every trip — ticketed cruise or private charter — includes a professional captain, dedicated crew, and a bartender. You step on, we handle everything." }
+          "name": "Is a captain included with every private charter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every private charter includes a professional captain, dedicated crew, and a bartender. You step on, we handle everything." }
         },
         {
           "@type": "Question",
           "name": "Can I bring my own alcohol?",
           "acceptedAnswer": { "@type": "Answer", "text": "No. Alana is a fully licensed vessel with a liquor license. A full bar is on board, including craft cocktails, local beer, wine, and prosecco available for purchase. BYOB is not permitted." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the ticketed cruise schedule?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Ticketed bay cruises run Wednesday through Sunday at 11am, 2:30pm, and 6pm. Each cruise is 2.5 hours on San Diego Bay." }
         },
         {
           "@type": "Question",
@@ -119,8 +105,8 @@
         },
         {
           "@type": "Question",
-          "name": "Can I book a private charter?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Private charters are available for up to 35 guests. Choose your departure time, and catering is available. Contact us or book online through FareHarbor." }
+          "name": "How do I book a private charter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Private charters are available for up to 35 guests. Choose your departure time, and catering is available. Book online through FareHarbor or call (844) 320-1237." }
         },
         {
           "@type": "Question",
@@ -129,13 +115,8 @@
         },
         {
           "@type": "Question",
-          "name": "Is there a minimum booking for ticketed cruises?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Ticketed cruises are sold as individual tickets — no minimum. Private charters have minimums; contact us for details." }
-        },
-        {
-          "@type": "Question",
           "name": "Are children allowed on Alana?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Children are welcome on all cruises. Life jackets are available on board. The bartender serves alcohol only to guests 21 and over." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Children are welcome on private charters. Life jackets are available on board. The bartender serves alcohol only to guests 21 and over." }
         }
       ]
     },
@@ -171,7 +152,6 @@
     </a>
     <div class="nav-links">
       <a href="party-boat-rental-san-diego/">Party Boat Rental</a>
-      <a href="bay-cruise-san-diego/">Bay Cruises</a>
       <div class="nav-dropdown">
         <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Experiences <span class="nav-dropdown-caret">&#9662;</span></button>
         <div class="nav-dropdown-menu" role="menu">
@@ -196,7 +176,6 @@
   </div>
   <nav class="mobile-menu" aria-label="Mobile navigation">
     <a href="party-boat-rental-san-diego/">Party Boat Rental</a>
-    <a href="bay-cruise-san-diego/">Bay Cruises</a>
     <div class="mobile-accordion">
       <button class="mobile-accordion-trigger" aria-expanded="false">Experiences <span class="mobile-accordion-caret">&#9662;</span></button>
       <div class="mobile-accordion-panel">
@@ -231,9 +210,9 @@
     <div class="hero-eyebrow">Shelter Island · San Diego Bay · Est. 2020</div>
     <h1 class="hero-title"><strong>Party Boat Rental San Diego</strong></h1>
     <p class="hero-sub" style="font-family:var(--ff-display);font-size:clamp(14px,1.1vw,17px);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-4);margin-top:-12px;">40ft Power Catamaran &middot; Up to 35 Guests &middot; Full Bar On Board</p>
-    <p class="hero-sub">The only party boat on San Diego Bay with a full liquor-licensed bar, professional crew, and room for 35. Alana is a 40-foot Coral Island power catamaran that runs ticketed bay cruises Wednesday through Sunday and private charters for birthdays, celebrations, and corporate events. Captain, crew, and bartender are included on every trip.</p>
+    <p class="hero-sub">The only party boat on San Diego Bay with a full liquor-licensed bar, professional crew, and room for 35. Alana is a 40-foot Coral Island power catamaran available for private charters — birthdays, bachelorettes, corporate events, and any celebration. You book the entire boat. Captain, crew, and bartender are included on every trip.</p>
     <div class="hero-ctas">
-      <button class="btn-primary" onclick="openBookModal()">Book a Cruise &rarr;</button>
+      <button class="btn-primary" onclick="openBookModal()">Book a Private Charter &rarr;</button>
       <a href="tel:+18443201237" class="btn-secondary">📞 (844) 320-1237</a>
     </div>
     <div class="hero-stats">
@@ -287,26 +266,18 @@
 </section>
 
 <!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  TWO WAYS TO CRUISE                      ║ -->
+<!-- ║  PRIVATE CHARTER                         ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <section class="sec" id="experiences">
   <div class="sec-wide">
-    <div class="sec-eyebrow">Two Ways to Cruise</div>
-    <h2 class="sec-title">Pick your experience.</h2>
-    <div class="svc-grid">
-      <div class="svc-card">
-        <img src="images/ticketed-cruise.jpg" alt="Ticketed bay cruise on San Diego Bay" loading="lazy">
-        <div class="svc-card-body">
-          <div class="svc-card-title">Ticketed Bay Cruise</div>
-          <p class="svc-card-desc">Buy individual tickets. Wed–Sun at 11am, 2:30pm, and 6pm. 2.5 hours on San Diego Bay. Full bar, professional sound system, captain and crew.</p>
-          <button class="svc-card-link" onclick="openBookModal()">Book Tickets &rarr;</button>
-        </div>
-      </div>
+    <div class="sec-eyebrow">Private Yacht Rental</div>
+    <h2 class="sec-title">The whole boat. Just your group.</h2>
+    <div class="svc-grid" style="max-width:640px;margin:0 auto;">
       <div class="svc-card">
         <img src="images/private-charter.jpg" alt="Private charter on San Diego Bay" loading="lazy">
         <div class="svc-card-body">
           <div class="svc-card-title">Private Charter</div>
-          <p class="svc-card-desc">Your group, your time. Up to 35 guests aboard your own private yacht. Catering available. Choose your departure time.</p>
+          <p class="svc-card-desc">Your group, your time. Up to 35 guests aboard your own private yacht. Choose your departure time, bring food, request catering. No strangers on board — ever.</p>
           <button class="svc-card-link" onclick="openBookModal()">Book Private Charter &rarr;</button>
         </div>
       </div>
@@ -466,7 +437,7 @@
   <div class="booking-card">
     <div class="sec-eyebrow">Reserve Your Spot</div>
     <h2 class="sec-title">Ready to get on the water?</h2>
-    <p class="sec-lede">Live availability through FareHarbor — book a ticketed cruise or a full private charter. Captain, crew, and bartender included on every trip.</p>
+    <p class="sec-lede">Live availability through FareHarbor — book a private charter for your group. Captain, crew, and bartender included on every trip.</p>
     <button class="btn-primary" onclick="openBookModal()">Check Availability &rarr;</button>
     <p style="margin-top:20px;font-family:var(--ff-display);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);">Or call <a href="tel:+18443201237" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.5);">(844) 320-1237</a></p>
   </div>
@@ -507,7 +478,7 @@
         <div class="loc-row-icon">🕐</div>
         <div>
           <div class="loc-row-label">Hours</div>
-          <div class="loc-row-val">Wed–Sun &middot; 9am–6pm</div>
+          <div class="loc-row-val">7 days a week &middot; by appointment</div>
         </div>
       </div>
       <div class="loc-row">
@@ -565,7 +536,6 @@
       <div class="foot-col-title">Experiences</div>
       <ul class="foot-list">
         <li><a href="party-boat-rental-san-diego/">Party Boat Rental</a></li>
-        <li><a href="bay-cruise-san-diego/">Bay Cruises</a></li>
         <li><a href="birthday-boat-rental-san-diego/">Birthday Party</a></li>
         <li><a href="private-yacht-rental-san-diego/">Private Yacht</a></li>
         <li><a href="large-group-boat-rental-san-diego/">Large Groups</a></li>
