@@ -1,0 +1,56 @@
+<!-- Single source of truth for site nav. Edit only here.
+     Placeholders: __BASE__ = "" on homepage, "../" on subpages.
+                   __HOME_HREF__ = "./" on homepage, "../" on subpages.
+     Run sync-partials.py before deploy. -->
+<nav>
+  <div class="nav-inner">
+    <a href="__HOME_HREF__" class="nav-logo" aria-label="Alana Yacht Rental home">
+      <img src="__BASE__images/logo.png" alt="Alana Yacht Rental">
+    </a>
+    <div class="nav-links">
+      <a href="__BASE__party-boat-rental-san-diego/">Party Boat Rental</a>
+      <a href="__BASE__san-diego-bay-cruises/">Bay Cruises</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Experiences <span class="nav-dropdown-caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu" role="menu">
+          <div class="nav-dropdown-col">
+            <a href="__BASE__birthday-party-boat-san-diego/" role="menuitem">Birthday</a>
+            <a href="__BASE__private-yacht-charter-san-diego/" role="menuitem">Private Yacht</a>
+          </div>
+          <div class="nav-dropdown-col">
+            <a href="__BASE__large-group-boat-rental-san-diego/" role="menuitem">Large Groups</a>
+            <a href="__BASE__anniversary-boat-cruise-san-diego/" role="menuitem">Anniversary</a>
+          </div>
+        </div>
+      </div>
+      <a href="__BASE__pricing/">Pricing</a>
+      <a href="__BASE__about/">About</a>
+      <a href="__BASE__contact/">Contact</a>
+      <button class="btn-book" onclick="openBookModal()">Book Now</button>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" aria-label="Mobile navigation">
+    <a href="__BASE__party-boat-rental-san-diego/">Party Boat Rental</a>
+    <a href="__BASE__san-diego-bay-cruises/">Bay Cruises</a>
+    <div class="mobile-accordion">
+      <button class="mobile-accordion-trigger" aria-expanded="false">Experiences <span class="mobile-accordion-caret">&#9662;</span></button>
+      <div class="mobile-accordion-panel">
+        <a href="__BASE__birthday-party-boat-san-diego/">Birthday</a>
+        <a href="__BASE__private-yacht-charter-san-diego/">Private Yacht</a>
+        <a href="__BASE__large-group-boat-rental-san-diego/">Large Groups</a>
+        <a href="__BASE__anniversary-boat-cruise-san-diego/">Anniversary</a>
+      </div>
+    </div>
+    <a href="__BASE__pricing/">Pricing</a>
+    <a href="__BASE__about/">About</a>
+    <a href="__BASE__contact/">Contact</a>
+    <a href="__BASE__faq/">FAQ</a>
+    <a href="__BASE__articles/">Articles</a>
+    <div class="mobile-menu-divider"></div>
+    <a href="__BASE__privacy-policy/" class="mobile-menu-meta">Privacy Policy</a>
+    <button class="btn-book" onclick="openBookModal()" style="margin-top:8px;display:inline-block;">Book Now</button>
+  </nav>
+</nav>
