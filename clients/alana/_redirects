@@ -1,0 +1,17 @@
+# Preserve SEO equity from old site URLs
+/alana-yacht-rental-about-us/       /about/                            301
+/alana-yacht-rental-about-us        /about/                            301
+/contact-us/                        /contact/                          301
+/contact-us                         /contact/                          301
+/party-boat-themed-packages/        /party-boat-rental-san-diego/      301
+/party-boat-themed-packages         /party-boat-rental-san-diego/      301
+/top-5-sunset-cruises-san-diego/    /bay-cruise-san-diego/             301
+/top-5-sunset-cruises-san-diego     /bay-cruise-san-diego/             301
+/boat-rentals/                      /                                  301
+/boat-rentals                       /                                  301
+
+# Edit page rewrites (for post-launch PIN gate)
+/edit     /edit/index.html    200
+/edit/*   /edit/index.html    200
+/admin    /edit/index.html    200
+/admin/*  /edit/index.html    200
