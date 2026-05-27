@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How Disco Boat Rentals collects, uses, and protects your information. Cookies, third-party services, your rights, and policy update terms.">
+<title>Privacy Policy · Disco Boat Rentals</title>
+
+<link rel="canonical" href="https://discoboatrentals.com/privacy-policy/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../images/disco-ball.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+
+<meta property="og:title" content="Privacy Policy · Disco Boat Rentals">
+<meta property="og:description" content="How Disco Boat Rentals collects, uses, and protects your information. Cookies, third-party services, your rights, and policy update terms.">
+<meta property="og:image" content="https://discoboatrentals.com/images/hero-photo.jpg">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1333">
+<meta property="og:url" content="https://discoboatrentals.com/privacy-policy/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy · Disco Boat Rentals">
+<meta name="twitter:description" content="How Disco Boat Rentals collects, uses, and protects your information. Cookies, third-party services, your rights, and policy update terms.">
+<meta name="twitter:image" content="https://discoboatrentals.com/images/hero-photo.jpg">
+
+<!-- ────────── SCHEMA: LocalBusiness + TouristAttraction ────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "TouristAttraction"],
+  "@id": "https://discoboatrentals.com/#business",
+  "name": "Disco Boat Rentals",
+  "description": "San Diego's party boat charter on a 32-foot Suntracker Party Cruiser with a chrome dance pole, rainbow 5-seat bar, fold-down windows, and a rooftop deck with a full-size mirrored disco ball. Up to 12 guests. Captained charter from Shelter Island in Point Loma, San Diego Bay; add a Disco Boat captain at $50/hour.",
+  "url": "https://discoboatrentals.com/",
+  "telephone": "+1-855-782-3988",
+  "email": "hello@discoboatrentals.com",
+  "image": "https://discoboatrentals.com/images/hero-photo.jpg",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2700 Shelter Island Drive",
+    "addressLocality": "San Diego",
+    "addressRegion": "CA",
+    "postalCode": "92106",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 32.7170,
+    "longitude": -117.2287
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "08:00",
+    "closes": "22:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4"
+  },
+  "areaServed": [
+    { "@type": "Place", "name": "San Diego, California" },
+    { "@type": "Place", "name": "San Diego Bay" },
+    { "@type": "Place", "name": "Point Loma" },
+    { "@type": "Place", "name": "Shelter Island" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/discoboats/",
+    "https://www.facebook.com/discoboats"
+  ]
+}
+</script>
+
+<!-- ────────── SCHEMA: BreadcrumbList ────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Disco Boat Rentals", "item": "https://discoboatrentals.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://discoboatrentals.com/privacy-policy/" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&family=Lobster&family=Fira+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="../images/feature-interior.jpg" type="image/jpeg" fetchpriority="high">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  /* ── Disco Boat palette (sampled from the live site's actual CSS — matches WP theme exactly) ── */
+  --coral:    #E74D43;   /* primary CTA / accent — live site button bg */
+  --coral-d:  #C13A30;
+  --coral-l:  #F08075;
+  --coral-2:  #E74E44;   /* footer link color from live CSS */
+  --sunshine: #F8CA5A;   /* live site section background */
+  --sunshine-d: #E8BC2A;
+  --teal:     #74CBD1;   /* live site button bg (Disco teal) */
+  --teal-d:   #4FB4BA;
+  --teal-l:   #9ADADF;
+  --salmon:   #F2B0A0;
+  --navy:     #0A2540;   /* high-contrast surfaces only */
+  --navy-2:   #143256;
+  --navy-3:   #1d4170;
+  --cream:    #FDFBF6;
+  --cream-2:  #FFF6E0;
+  --ink:      #1A1A1F;
+  --ink-2:    #3F4A5F;
+  --ink-3:    #6B7689;
+  --line:     #EDD79E;
+  --brass:    #c9a96a;
+
+  /* Rainbow accent (bachelorette / themed stripe — kept for use-case sections) */
+  --rb-1: #E84B3C; --rb-2: #F08A2E; --rb-3: #F8CA5A; --rb-4: #6BBE6E; --rb-5: #3F9DD4; --rb-6: #A06DBF;
+
+  /* Legacy aqua-* aliases — point at the live-site teal */
+  --aqua:     #74CBD1;
+  --aqua-lt:  #9ADADF;
+  --aqua-dk:  #4FB4BA;
+
+  /* Legacy sand-* aliases */
+  --sand:     #F8CA5A;
+  --sand-2:   #F2B0A0;
+
+  /* Boatr brand (for Boatr-owned surfaces only: banner, claim bar, edit widget) */
+  --b-dark:    #0F172A;
+  --b-dark-2:  #1E293B;
+  --b-orange:  #FE8D01;
+  --b-orange-d:#EA7C00;
+  --b-orange-l:#FFF7ED;
+
+  --fh: 'Archivo Black', 'Archivo', sans-serif;        /* H2s + buttons + eyebrows */
+  --fb: 'Poppins', 'Manrope', Helvetica, sans-serif;   /* body — matches live site exactly */
+  --fs: 'Lobster', cursive;                             /* chunky retro display (H1, feature subheads, footer headings) — matches live site exactly */
+  --fc: 'Fira Sans', sans-serif;                        /* CTA button text — matches live site exactly */
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--fb); background: var(--sunshine); color: var(--ink); line-height: 1.55; overflow-x: hidden; font-size: 16px; font-weight: 400; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; height: auto; }
+button, input, textarea { font-family: inherit; font-size: 16px; }
+
+/* ── NAV ─────────── */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--sunshine);
+  border-bottom: 3px solid var(--coral);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 32px; max-width: 100%;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand:hover .brand-name { color: var(--coral-d); }
+.brand-mark {
+  width: 56px; height: 56px; flex-shrink: 0;
+  display: block; object-fit: contain;
+}
+.brand-name {
+  font-family: var(--fh); font-weight: 800; font-size: 16px;
+  color: var(--navy); letter-spacing: 0.02em; line-height: 1.1;
+}
+.brand-name small { display: block; font-size: 11px; font-weight: 600; color: var(--coral-d); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
+.nav-links a {
+  font-family: var(--fh); font-size: 12px; font-weight: 700;
+  color: var(--navy); letter-spacing: 0.10em;
+  transition: color 0.2s; text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--coral); }
+.btn-book {
+  background: var(--coral); color: #fff !important;
+  padding: 11px 22px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 14px;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  transition: background 0.2s; display: inline-block;
+  border: none; cursor: pointer;
+}
+.btn-book:hover { background: var(--coral-d); }
+
+/* Hamburger (mobile only) */
+.nav-burger {
+  display: none;
+  background: transparent; border: 0; padding: 8px;
+  cursor: pointer;
+  width: 44px; height: 44px;
+  flex-direction: column; justify-content: center; gap: 5px;
+  margin-left: 8px;
+}
+.nav-burger span {
+  display: block; width: 26px; height: 3px;
+  background: var(--navy); border-radius: 3px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Back-to-top floating button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 52px; height: 52px;
+  border-radius: 999px; border: 0;
+  background: var(--coral); color: #fff;
+  font-size: 26px; font-weight: 700;
+  cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px -4px rgba(0,0,0,0.35), 0 0 0 2px var(--navy);
+  z-index: 90;
+  transition: transform 0.18s, background 0.18s;
+  padding: 0 0 4px 0;
+  line-height: 1;
+}
+.back-to-top.show { display: flex; }
+.back-to-top:hover { background: var(--coral-d); transform: translateY(-2px); }
+@media (max-width: 980px) {
+  .back-to-top { bottom: 18px; right: 18px; width: 46px; height: 46px; font-size: 22px; }
+}
+
+/* ── HERO (matches live discoboatrentals.com WP theme exactly) ────────── */
+.hero {
+  position: relative; min-height: 620px;
+  display: flex; align-items: center;
+  background-color: transparent;
+  background-image: url(../images/hero-photo.jpg');
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 84px; padding-bottom: 54px;
+}
+/* Yellow gradient overlay (sits ON TOP of the photo, BELOW the content) */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(248,202,90,0.88) 0%, rgba(248,202,90,0.72) 50%, rgba(248,202,90,0.88) 100%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 3; }
+/* Legacy hero-bg / hero-grad layers — keep but make them transparent so the section-level bg shows through */
+.hero-bg { display: none; }
+.hero-grad { display: none; }
+.hero-inner {
+  position: relative; z-index: 3;
+  max-width: 1140px; margin: 0 auto; padding: 0 32px;
+  width: 100%; text-align: center;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.45);
+  color: var(--ink); padding: 6px 16px; border-radius: 999px;
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  margin-bottom: 28px;
+  text-shadow: none;
+}
+.hero h1 {
+  font-family: var(--fs); font-weight: 400;
+  font-size: clamp(48px, 8.5vw, 87px);
+  color: var(--ink); line-height: 1.0;
+  max-width: 1080px; margin: 0 auto 26px;
+  text-shadow: none;
+  letter-spacing: 0; -webkit-text-stroke: 0;
+}
+.hero h1 span {
+  font-family: var(--fb); color: var(--ink); display: block;
+  font-size: clamp(20px, 2.4vw, 30px); font-weight: 400;
+  margin-top: 18px; line-height: 1.4em; letter-spacing: 0;
+  text-shadow: none; -webkit-text-stroke: 0;
+  max-width: 820px; margin-left: auto; margin-right: auto;
+}
+.hero p.lede {
+  font-family: var(--fb); font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 400; color: var(--ink);
+  max-width: 760px; margin: 0 auto 36px; line-height: 1.55;
+  text-shadow: none;
+}
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
+/* Primary CTA — matches the live site's teal button exactly */
+.btn-primary {
+  background: var(--teal); color: #fff !important;
+  padding: 14px 32px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 17px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s; display: inline-block;
+  border: 0; cursor: pointer;
+}
+.btn-primary:hover { background: var(--teal-d); transform: translateY(-1px); }
+/* Secondary CTA — matches live site's coral button (used for "WAITING LIST" header) */
+.btn-secondary {
+  background: var(--coral); color: #fff !important;
+  padding: 12px 26px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 15px;
+  letter-spacing: 0.02em;
+  border: 0; cursor: pointer;
+  transition: background 0.2s; display: inline-block;
+}
+.btn-secondary:hover { background: var(--coral-d); }
+.hero-stats {
+  display: flex; gap: 36px; margin-top: 48px; flex-wrap: wrap; justify-content: center;
+  padding-top: 26px; max-width: 920px; margin-left: auto; margin-right: auto;
+  border-top: 1px solid rgba(255,255,255,0.4);
+}
+.hs-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.hs-num {
+  font-family: var(--fs); font-weight: 400; font-size: 36px;
+  color: #fff; line-height: 1; text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.hs-lbl {
+  font-family: var(--fb); font-size: 12px; font-weight: 600;
+  color: #fff; opacity: 0.92; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* ── HERO PHOTO BAND (KD-227) ────────── */
+.hero-photo {
+  background: var(--sunshine);
+  padding: 0;
+  line-height: 0;
+}
+.hero-photo img {
+  width: 100%; height: auto;
+  display: block;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* ── ARTICLES INDEX ──────────── */
+.articles-hero {
+  background: var(--sunshine);
+  padding: 56px 24px 36px;
+  text-align: center;
+}
+.articles-hero-inner {
+  max-width: 760px; margin: 0 auto;
+}
+.articles-hero h1 {
+  font-family: var(--fs); font-weight: 400;
+  font-size: clamp(46px, 7vw, 78px); line-height: 1.0;
+  color: var(--navy); margin-bottom: 18px;
+}
+.articles-lead {
+  font-family: var(--fb); font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 400; color: var(--ink);
+  line-height: 1.55; max-width: 640px; margin: 0 auto;
+}
+
+.article-meta-top {
+  display: flex; justify-content: center; align-items: center;
+  gap: 14px; margin-bottom: 22px; flex-wrap: wrap;
+}
+.article-crumb {
+  font-family: var(--fb); font-size: 13px; font-weight: 600;
+  color: var(--coral-d); text-decoration: underline;
+}
+.article-tag {
+  background: var(--coral); color: #fff;
+  padding: 4px 12px; border-radius: 999px;
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.10em; text-transform: uppercase;
+}
+
+.articles-grid-wrap {
+  background: var(--sunshine);
+  padding: 24px 24px 80px;
+}
+.articles-grid {
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.article-card {
+  background: var(--cream);
+  border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 6px 24px -10px rgba(0,0,0,0.18);
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(0,0,0,0.28);
+}
+.article-card-img {
+  width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  background: var(--cream-2);
+}
+.article-card-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.article-card-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+.article-card-meta {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--coral-d); margin-bottom: 10px;
+}
+.article-card-title {
+  font-family: var(--fs); font-weight: 400;
+  font-size: 26px; line-height: 1.15;
+  color: var(--navy); margin: 0 0 12px;
+}
+.article-card-excerpt {
+  font-family: var(--fb); font-size: 14.5px; font-weight: 400;
+  color: var(--ink-2); line-height: 1.55;
+  margin-bottom: 16px; flex: 1;
+}
+.article-card-cta {
+  font-family: var(--fc); font-weight: 400; font-size: 14px;
+  color: var(--coral-d); text-decoration: underline;
+}
+.article-card-placeholder {
+  background: rgba(255,255,255,0.55);
+  box-shadow: none;
+}
+.article-card-placeholder:hover { transform: none; box-shadow: none; }
+
+@media (max-width: 980px) {
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .articles-grid { grid-template-columns: 1fr; }
+  .articles-hero { padding: 40px 22px 28px; }
+}
+
+/* ── HERO PHOTO SLIDER (right under hero — 4:5 portrait, peek-style) ── */
+.hero-slider {
+  background: var(--sunshine);
+  padding: 28px 0 36px;
+  overflow: hidden;
+  border-bottom: 4px solid var(--coral);
+  position: relative;
+}
+.slider-hint {
+  text-align: center;
+  font-family: var(--fs); color: var(--coral);
+  font-size: 22px; line-height: 1; margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.slider-track {
+  display: flex;
+  gap: 16px;
+  padding: 4px 20px 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  max-width: 1280px;                 /* keep track in line with page width */
+  margin: 0 auto;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slide {
+  flex: 0 0 80%;                     /* MOBILE: 80% width, next slide peeks on right */
+  position: relative;
+  padding-bottom: 125%;              /* 4:5 portrait (height = 125% of width) */
+  scroll-snap-align: start;
+  border-radius: 16px;
+  border: 3px solid var(--navy);
+  box-shadow: 0 8px 0 0 var(--navy);
+  overflow: hidden;
+  background: var(--cream-2);
+}
+.slide img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+@media (min-width: 700px) {
+  .slide { flex-basis: 46%; }        /* tablet: 2-up with peek */
+}
+@media (min-width: 1100px) {
+  .hero-slider { padding: 28px 0 32px; }
+  .slider-track {
+    gap: 16px;
+    padding-left: 32px; padding-right: 32px;
+    scroll-padding-left: 32px;
+  }
+  .slide {
+    flex: 0 0 600px;       /* fixed 600x600 squares on desktop */
+    height: 600px;
+    padding-bottom: 0;
+    border: 0;
+    box-shadow: 0 4px 14px -4px rgba(0,0,0,0.18);
+    border-radius: 12px;
+  }
+}
+
+/* ── TEAL ACCENT BAND (matches live site's "Meet our newest..." section) ── */
+.guarantee {
+  background: var(--teal);
+  padding: 56px 32px;
+}
+.guarantee-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; align-items: flex-start;
+}
+.g-block { text-align: center; }
+.g-ico {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.18); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 28px; flex-shrink: 0;
+  margin-bottom: 14px;
+}
+.g-text { flex: 1; }
+.g-title {
+  font-family: var(--fs); font-weight: 400; font-size: 22px;
+  color: #fff; margin-bottom: 6px; line-height: 1.1;
+}
+.g-desc { font-size: 14px; color: rgba(255,255,255,0.92); line-height: 1.55; font-weight: 300; }
+
+/* ── SECTIONS ────────── */
+.sec { padding: 70px 32px; }
+.sec-inner { max-width: 1140px; margin: 0 auto; }
+.sec-eyebrow {
+  font-family: var(--fs); font-weight: 400; font-size: 26px;
+  color: var(--coral); margin-bottom: 4px; line-height: 1.1;
+}
+.sec-title {
+  font-family: var(--fs); font-weight: 400; font-size: clamp(36px, 5vw, 51px);
+  color: var(--navy); line-height: 1.1; margin-bottom: 18px; letter-spacing: 0;
+}
+.sec-lede {
+  font-family: var(--fb); font-size: 18px; font-weight: 300; color: var(--ink);
+  line-height: 1.55; max-width: 760px;
+}
+
+/* ── OWNERSHIP / ABOUT ────────── */
+.about { background: var(--sunshine); }
+.about-grid {
+  display: block; max-width: 820px; margin: 0 auto;
+}
+.about-emoji-h2 {
+  font-family: var(--fb); font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3;
+  color: var(--navy); margin-bottom: 22px;
+  letter-spacing: 0;
+}
+.about-verbatim p {
+  font-family: var(--fb); font-weight: 400; font-size: 16px;
+  color: var(--ink); line-height: 1.7; margin-bottom: 18px;
+}
+.about-verbatim p:last-child { margin-bottom: 0; }
+.about-tagline {
+  font-family: var(--fs) !important; font-weight: 400 !important;
+  font-size: clamp(24px, 3vw, 32px) !important; line-height: 1.2 !important;
+  color: var(--coral) !important; margin-top: 24px !important;
+}
+.about-card {
+  background: var(--cream); color: var(--ink); border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.22);
+}
+.about-card-photo {
+  width: 100%; position: relative;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden; background: var(--cream-2);
+}
+.about-card-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.about-card-body { padding: 30px 32px 32px; }
+.about-card-eyebrow {
+  font-family: var(--fs); font-size: 22px; font-weight: 400;
+  color: var(--coral); margin-bottom: 8px;
+}
+.about-card-name {
+  font-family: var(--fh); font-weight: 900; font-size: 26px;
+  margin-bottom: 6px; letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.about-card-role {
+  font-size: 14px; color: var(--ink-2);
+  letter-spacing: 0.02em; margin-bottom: 22px;
+}
+.about-card-row {
+  padding: 14px 0; border-top: 1px dashed var(--line);
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 14px; color: var(--ink-2); line-height: 1.55;
+}
+.about-card-row strong { color: var(--coral-d); font-weight: 800; }
+.about-bullets { margin-top: 28px; }
+.about-bullets li {
+  list-style: none; padding: 14px 0; border-bottom: 1px dashed rgba(10,37,64,0.18);
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 15px; color: var(--ink); line-height: 1.5;
+}
+.about-bullets li::before {
+  content: '🪩'; font-size: 18px; flex-shrink: 0; line-height: 1.2;
+}
+.about-bullets li strong { color: var(--coral-d); font-weight: 800; }
+
+/* ── FLEET GRID (renamed: "The Boat" feature cards) ────────── */
+.fleet { background: var(--sunshine); position: relative; }
+.fleet-intro {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end;
+  margin-bottom: 48px;
+}
+.fleet-summary {
+  background: rgba(255,255,255,0.55); border-radius: 12px; padding: 22px 26px;
+  font-size: 14px; color: var(--ink); line-height: 1.6;
+  font-weight: 300;
+}
+.fleet-summary strong { color: var(--coral-d); font-weight: 600; }
+.fleet-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+}
+.fleet-card {
+  background: transparent; border: 0;
+  border-radius: 0; padding: 0;
+  transition: transform 0.25s; cursor: pointer; display: flex; flex-direction: column;
+  text-align: center; text-decoration: none; color: inherit;
+  overflow: hidden;
+}
+.fleet-card:hover { transform: translateY(-4px); }
+.fc-image {
+  width: 100%; position: relative;
+  padding-top: 100%; /* 1:1 aspect, padding-top fallback for iOS Safari */
+  overflow: hidden; border-radius: 12px; background: var(--cream-2);
+  margin-bottom: 22px;
+}
+.fc-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.fc-num { display: none; }
+.fc-name {
+  font-family: var(--fs); font-weight: 400; font-size: 26px;
+  color: var(--coral); margin: 0 0 12px; line-height: 1.1;
+  padding: 0;
+}
+.fc-body {
+  padding: 0;
+  font-family: var(--fb); font-size: 15px; color: var(--ink); font-weight: 300;
+  line-height: 1.6;
+  flex: 1;
+}
+/* legacy fc-meta — kept for backwards compat on other previews */
+.fc-meta {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin: 18px 24px 0; padding: 18px 0 0;
+  border-top: 1px dashed var(--line);
+}
+.fc-meta-item {
+  font-family: var(--fb); font-size: 12px;
+  color: var(--ink-2);
+}
+.fc-meta-item strong { color: var(--coral-d); font-weight: 800; }
+.fc-book {
+  margin: 16px 0 0;
+  font-family: var(--fc); font-size: 14px; font-weight: 400;
+  color: var(--teal-d);
+}
+.fleet-note {
+  margin-top: 48px; padding: 26px 28px;
+  background: rgba(255,255,255,0.55); border-radius: 12px;
+  font-size: 15px; color: var(--ink); line-height: 1.6; font-weight: 300;
+}
+.fleet-note strong { color: var(--coral-d); font-weight: 600; }
+.fleet-note a { color: var(--coral-d); text-decoration: underline; }
+
+/* ── USE-CASE CONTENT BLOCKS (Bachelorette, Themed, Sunset) ────────── */
+.dest { background: var(--coral); color: var(--cream); }
+.dest .sec-title { color: var(--cream); }
+.dest .sec-eyebrow { color: var(--sunshine); }
+.dest .sec-lede { color: rgba(253,251,246,0.92); }
+.dest-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+  margin-top: 48px;
+}
+.dest-body p {
+  font-family: var(--fb); font-size: 15.5px; color: rgba(253,251,246,0.92);
+  line-height: 1.7; margin-bottom: 18px;
+}
+.dest-body p strong { color: var(--sunshine); font-weight: 800; }
+.dest-fact-card {
+  background: var(--cream); color: var(--ink);
+  border-radius: 16px; padding: 30px 28px;
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.28);
+}
+.dest-fact-eyebrow {
+  font-family: var(--fs); font-size: 26px; font-weight: 400;
+  color: var(--coral); margin-bottom: 14px; line-height: 1.1;
+}
+.dest-fact-row {
+  display: flex; justify-content: space-between; gap: 18px;
+  padding: 14px 0; border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+.dest-fact-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.dest-fact-row .lbl { color: var(--ink-3); font-weight: 500; }
+.dest-fact-row .val { color: var(--coral-d); font-weight: 800; text-align: right; font-family: var(--fh); }
+
+/* Themed section: teal background variant */
+.dest-light { background: var(--teal); color: var(--cream); }
+.dest-light .sec-title { color: var(--cream); }
+.dest-light .sec-eyebrow { color: var(--sunshine); }
+.dest-light .sec-lede { color: rgba(253,251,246,0.95); }
+.dest-light .dest-body p { color: rgba(253,251,246,0.92); }
+.dest-light .dest-body p strong { color: var(--sunshine); }
+.dest-light .dest-fact-card { background: var(--cream); color: var(--ink); border-color: var(--navy); }
+.dest-light .dest-fact-eyebrow { color: var(--coral); }
+.dest-light .dest-fact-row { border-bottom-color: var(--line); }
+.dest-light .dest-fact-row .lbl { color: var(--ink-3); }
+.dest-light .dest-fact-row .val { color: var(--coral-d); }
+
+/* Destination image banner */
+.dest-image {
+  margin-top: 28px; border-radius: 14px; overflow: hidden;
+  width: 100%; position: relative;
+  padding-top: 37.5%; /* 16:6 */
+  background: var(--cream-2);
+  box-shadow: 0 22px 50px -22px rgba(0,0,0,0.35);
+}
+.dest-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* On the bay / guest gallery */
+.guests { background: var(--sunshine); }
+.guests-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin-top: 40px;
+}
+.guest-card {
+  border-radius: 12px; overflow: hidden;
+  position: relative; padding-top: 133.33%; /* 3:4 */
+  background: var(--cream);
+  box-shadow: 0 12px 32px -16px rgba(0,0,0,0.32);
+}
+.guest-card img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+}
+.guest-card:hover img { transform: scale(1.04); }
+
+/* ── BOOKING (inline GHL form embed) ────────── */
+.booking { background: var(--sunshine); text-align: center; }
+.booking-card {
+  max-width: 720px; margin: 0 auto;
+  background: var(--cream);
+  border-radius: 18px; padding: 50px 40px 40px;
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.32);
+}
+.booking-card .sec-eyebrow { color: var(--coral); text-align: center; }
+.booking-card .sec-title { color: var(--navy); margin-bottom: 18px; }
+.booking-card .sec-lede { color: var(--ink); margin: 0 auto 28px; }
+.booking-form-wrap {
+  margin: 28px auto 0; max-width: 560px;
+  border-radius: 12px; overflow: hidden;
+  background: var(--cream-2);
+  min-height: 880px; position: relative;
+}
+.booking-form-wrap iframe {
+  width: 100%; border: 0; display: block; min-height: 880px;
+}
+.booking-form-fallback {
+  padding: 36px 24px; text-align: center;
+  display: none;
+}
+.booking-form-fallback.show { display: block; }
+.booking-form-fallback a {
+  display: inline-block; margin-top: 14px;
+  background: var(--coral); color: #fff !important;
+  padding: 14px 28px; border-radius: 13px;
+  font-family: var(--fc); font-weight: 400; font-size: 15px;
+}
+.booking-phone {
+  display: block; margin-top: 22px;
+  font-family: var(--fh); font-weight: 800; font-size: 15px;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+.booking-phone a { color: var(--coral-d); text-decoration: underline; }
+
+/* ── LOCATION ────────── */
+.location { background: var(--cream-2); }
+.loc-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+.loc-info {
+  background: var(--cream); border-radius: 16px; padding: 36px;
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.22);
+}
+.loc-row { padding: 18px 0; border-bottom: 1px dashed var(--line); }
+.loc-row:last-child { border-bottom: 0; }
+.loc-row-lbl {
+  font-family: var(--fh); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--coral-d); margin-bottom: 6px;
+}
+.loc-row-val { font-size: 15px; color: var(--navy); font-weight: 600; line-height: 1.5; }
+.loc-row-val a { color: var(--coral-d); text-decoration: underline; }
+.loc-map {
+  border-radius: 16px; overflow: hidden; min-height: 360px;
+  background: var(--navy);
+  box-shadow: 0 18px 50px -22px rgba(0,0,0,0.28);
+}
+.loc-map iframe { width: 100%; height: 100%; border: 0; min-height: 360px; }
+
+/* ── FOOTER ────────── */
+footer {
+  background: var(--sunshine); color: var(--ink);
+  padding: 64px 32px 28px;
+  border-top: 4px solid var(--coral);
+}
+.foot-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
+.foot-brand-block { display: flex; gap: 16px; align-items: flex-start; }
+.foot-brand-mark { width: 78px; height: 78px; flex-shrink: 0; }
+.foot-brand { font-family: var(--fh); font-weight: 900; color: var(--navy); font-size: 20px; margin-bottom: 8px; }
+.foot-tag { font-size: 13.5px; line-height: 1.55; max-width: 320px; color: var(--ink-2); }
+.foot-col h3 {
+  font-family: var(--fs); font-size: 26px; font-weight: 400;
+  color: var(--coral); margin-bottom: 12px; line-height: 1.1;
+  text-transform: none; letter-spacing: 0;
+}
+.foot-col a, .foot-col button {
+  display: block; padding: 5px 0; font-size: 14px;
+  color: var(--navy); transition: color 0.2s;
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-weight: 600; text-align: left;
+}
+.foot-col a:hover, .foot-col button:hover { color: var(--coral-d); }
+.foot-bottom {
+  max-width: 1280px; margin: 48px auto 0;
+  padding-top: 24px; border-top: 2px dashed rgba(10,37,64,0.18);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  font-size: 12px; color: var(--ink-2);
+}
+.foot-bottom a { color: var(--coral-d); text-decoration: underline; }
+
+/* ── BOATR MARK (used by sticky claim bar) ────────── */
+.boatr-mark {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--fh); font-size: 15px; font-weight: 900;
+  color: #fff; letter-spacing: -0.02em; line-height: 1;
+}
+.boatr-mark::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--b-orange); display: inline-block;
+}
+
+/* ── STICKY CLAIM BAR ────────── */
+.sticky-bar {
+  position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
+  z-index: 99; background: var(--b-dark); color: #fff;
+  padding: 14px 18px 14px 22px; border-radius: 10px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 22px 60px -16px rgba(0,0,0,0.55);
+  border: 1px solid rgba(254,141,1,0.35);
+  transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
+  max-width: calc(100% - 32px);
+}
+.sticky-bar.show { transform: translate(-50%, 0); }
+.sticky-bar .boatr-mark { font-size: 13px; }
+.sticky-txt {
+  font-family: var(--fh); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.02em; color: rgba(255,255,255,0.92); white-space: nowrap;
+}
+.sticky-txt span { color: var(--b-orange); font-weight: 800; }
+.sticky-btn {
+  background: var(--b-orange); color: #fff !important;
+  padding: 10px 18px; border-radius: 6px;
+  font-family: var(--fh); font-size: 13px; font-weight: 900;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: background 0.2s; white-space: nowrap;
+}
+.sticky-btn:hover { background: var(--b-orange-d); }
+.sticky-close {
+  background: rgba(255,255,255,0.08); border: none; color: rgba(255,255,255,0.7);
+  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+  font-size: 18px; line-height: 1; flex-shrink: 0;
+}
+.sticky-close:hover { background: rgba(255,255,255,0.16); color: #fff; }
+
+/* ── BOOKING MODAL (on-page GHL waiting-list iframe) ────────── */
+.book-modal {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(10,37,64,0.85); backdrop-filter: blur(6px);
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.book-modal.open { display: flex; }
+.book-modal-inner {
+  background: white; border-radius: 10px;
+  width: 100%; max-width: 1100px; height: calc(100vh - 48px); max-height: 920px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  display: flex; flex-direction: column;
+}
+.book-modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 22px; background: var(--navy); color: white;
+  flex-shrink: 0;
+}
+.book-modal-title {
+  font-family: var(--fh); font-size: 15px; font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.book-modal-close {
+  background: rgba(255,255,255,0.1); border: none; color: white;
+  width: 36px; height: 36px; border-radius: 50%;
+  font-size: 20px; line-height: 1; cursor: pointer;
+  transition: background 0.2s;
+}
+.book-modal-close:hover { background: rgba(255,255,255,0.22); }
+.book-modal-body { flex: 1; position: relative; }
+.book-modal-iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+}
+.book-modal-fallback {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 32px; text-align: center; background: white;
+}
+.book-modal-fallback p { font-size: 16px; color: var(--ink-2); margin-bottom: 18px; max-width: 420px; line-height: 1.5; }
+.book-modal-fallback a {
+  background: var(--aqua); color: var(--navy) !important;
+  padding: 14px 26px; border-radius: 4px;
+  font-family: var(--fh); font-weight: 900; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ────────── */
+@media (max-width: 980px) {
+  nav { padding: 12px 18px; position: relative; }
+  .nav-burger { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; right: 0; left: 0;
+    background: var(--cream-2);
+    border-top: 2px solid var(--navy);
+    border-bottom: 4px solid var(--coral);
+    flex-direction: column; gap: 0;
+    align-items: stretch;
+    padding: 8px 0;
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.2);
+    z-index: 50;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    padding: 14px 22px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .nav-links a:last-child { border-bottom: 0; }
+  .brand-mark { width: 38px; height: 38px; font-size: 15px; }
+  .brand-name { font-size: 14px; }
+  .brand-name small { font-size: 10px; }
+  .btn-book { padding: 9px 14px; font-size: 12px; }
+  .sec { padding: 56px 22px; }
+  .hero-inner { padding: 60px 22px 56px; }
+  .hero-stats { gap: 24px; }
+  .hs-num { font-size: 22px; }
+  .about-grid, .loc-grid, .dest-grid, .fleet-intro { grid-template-columns: 1fr; gap: 36px; }
+  .fleet-grid { grid-template-columns: 1fr 1fr; }
+  .guests-grid { grid-template-columns: 1fr 1fr; }
+  .dest-image { padding-top: 56.25%; /* 16:9 on mobile */ }
+  .guarantee-inner { grid-template-columns: 1fr; gap: 22px; }
+  .foot-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .sticky-bar { display: none; }
+  .book-modal { padding: 0; }
+  .book-modal-inner { border-radius: 0; height: 100vh; max-height: 100vh; }
+}
+@media (max-width: 560px) {
+  .fleet-grid { grid-template-columns: 1fr; }
+  .foot-inner { grid-template-columns: 1fr; }
+  .booking-card { padding: 36px 22px; }
+}
+
+/* Legal page typography */
+.legal-prose h2 {
+  font-family: var(--fh); font-weight: 800; font-size: 22px;
+  color: var(--ink); margin-top: 32px; margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.legal-prose h2:first-child { margin-top: 0; }
+.legal-prose p {
+  font-family: var(--fb); font-size: 16px; line-height: 1.65;
+  color: var(--ink); margin-bottom: 14px;
+}
+.legal-prose ul {
+  font-family: var(--fb); font-size: 16px; line-height: 1.65;
+  color: var(--ink); padding-left: 22px; margin-bottom: 14px;
+}
+.legal-prose li { margin-bottom: 6px; }
+.legal-prose a { color: var(--teal-d); font-weight: 600; }
+.legal-prose a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  NAV                                     ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<nav>
+  <a href="../" class="brand" aria-label="Disco Boat Rentals — home">
+    <img class="brand-mark" src="../images/disco-ball.png" alt="Disco Boat Rentals logo" width="56" height="56">
+    <div class="brand-name" id="edit-brand-name">Disco Boat<small>Rentals · San Diego</small></div>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="../the-boat/">The Boat</a>
+    <a href="../bachelorette-party-boat-san-diego/">Bachelorette</a>
+    <a href="../#themed">Themed</a>
+    <a href="../#sunset">Sunset</a>
+    <a href="./" aria-current="page" style="color:var(--coral);">Articles</a>
+    <a href="../#visit">Visit</a>
+  </div>
+  <button class="btn-book" onclick="openBookModal()">Join Waiting List</button>
+
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+<section class="articles-hero" id="top">
+  <div class="articles-hero-inner">
+    <div class="article-meta-top">
+      <a href="../" class="article-crumb">← Disco Boat Rentals</a>
+      <span class="article-tag">Privacy</span>
+    </div>
+    <h1>🔐 Privacy Policy</h1>
+    <p class="articles-lead">Effective Date: January 1, 2025 · Your privacy matters to us. This policy describes how we collect, use, and protect your information.</p>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner" style="max-width:840px;">
+    <div class="legal-prose">
+      <h2>1. What We Collect</h2>
+      <p>We may collect the following:</p>
+      <ul>
+        <li>Name, phone number, email, and booking information</li>
+        <li>IP address and browser/device information via cookies</li>
+        <li>Activity data on our website via tools like Google Analytics</li>
+      </ul>
+
+      <h2>2. How We Use It</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Process bookings and send confirmations</li>
+        <li>Respond to inquiries and customer service needs</li>
+        <li>Send occasional promotional emails (opt-out any time)</li>
+        <li>Improve our website and services</li>
+      </ul>
+
+      <h2>3. How We Protect It</h2>
+      <p>We implement security measures to protect your data. However, no system is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>We may use third-party providers such as:</p>
+      <ul>
+        <li>Booking software</li>
+        <li>Email marketing platforms (e.g., Mailchimp)</li>
+        <li>Analytics tools (e.g., Google Analytics)</li>
+      </ul>
+      <p>These services may have access to your information only as necessary to perform their functions and are not permitted to use it for other purposes.</p>
+
+      <h2>5. Your Rights</h2>
+      <p>You can:</p>
+      <ul>
+        <li>Request to view, update, or delete your personal data</li>
+        <li>Opt out of promotional emails anytime via the unsubscribe link</li>
+      </ul>
+
+      <h2>6. Cookies</h2>
+      <p>Our site uses cookies to improve your browsing experience. You can disable cookies in your browser settings if you prefer.</p>
+
+      <h2>7. Policy Updates</h2>
+      <p>We may revise this Privacy Policy at any time. Continued use of our website indicates acceptance of the updated terms.</p>
+
+      <p style="margin-top:32px;">Questions? Email <a href="mailto:hello@discoboatrentals.com">hello@discoboatrentals.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FOOTER                                  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand-block">
+      <img class="foot-brand-mark" src="../images/disco-ball.png" alt="Disco Boat Rentals — disco ball logo">
+      <div>
+        <div class="foot-brand">Disco Boat Rentals</div>
+        <div class="foot-tag">San Diego's party boat charter. 32' Suntracker with a chrome dance pole, rainbow bar, and a rooftop disco ball. Out of Shelter Island in Point Loma. Captained vessel — Disco Boat captain at $50/hour.</div>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h3>The boat</h3>
+      <a href="../the-boat/">The Boat (specs + FAQ)</a>
+      <button onclick="openBookModal()">Join waiting list</button>
+      <a href="tel:8557823988">855-782-3988</a>
+    </div>
+    <div class="foot-col">
+      <h3>Charters</h3>
+      <a href="../bachelorette-party-boat-san-diego/">Bachelorette</a>
+      <a href="#themed">Themed charters</a>
+      <a href="#sunset">Sunset Disco Ball Cruise</a>
+    </div>
+    <div class="foot-col">
+      <h3>Visit</h3>
+      <a href="#visit">2700 Shelter Island Dr</a>
+      <a href="https://www.instagram.com/discoboats/" rel="noopener" target="_blank">Instagram @discoboats</a>
+      <a href="https://www.facebook.com/discoboats" rel="noopener" target="_blank">Facebook /discoboats</a>
+    </div>
+    <div class="foot-col">
+      <h3>Legal</h3>
+      <a href="../privacy-policy/">Privacy Policy</a>
+      <a href="../terms-and-conditions/">Terms &amp; Conditions</a>
+    </div>
+
+  </div>
+  <div class="foot-bottom">
+    <div>© 2026 Disco Boat Rentals · 2700 Shelter Island Dr, San Diego, CA 92106 · All rights reserved.</div>
+    <div>Site rebuilt by <a href="https://boatrmarketing.com" rel="noopener" style="color:rgba(255,255,255,0.7);">Boatr Marketing</a>.</div>
+  </div>
+</footer>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  BOOKING MODAL (Peek iframe)             ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<!-- Back to top -->
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="book-modal" id="book-modal" role="dialog" aria-modal="true" aria-label="Join the Disco Boat waiting list">
+  <div class="book-modal-inner">
+    <div class="book-modal-header">
+      <div class="book-modal-title">Join the Waiting List · Disco Boat Rentals</div>
+      <button class="book-modal-close" onclick="closeBookModal()" aria-label="Close waiting-list form">×</button>
+    </div>
+    <div class="book-modal-body">
+      <iframe class="book-modal-iframe" id="book-modal-iframe"
+              src="about:blank"
+              title="Waiting-list form — Disco Boat Rentals"
+              loading="lazy">
+      </iframe>
+      <div class="book-modal-fallback" id="book-modal-fallback" style="display:none;">
+        <p>The waiting-list form can't be embedded right now. Click below to open it in a new tab.</p>
+        <a href="https://link.boatrmarketing.com/widget/form/UKKEdzivMdsNJ2b5tZHI" target="_blank" rel="noopener">Open waiting-list form →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Booking modal (GHL waiting-list form iframe) ──
+const PEEK_BOOKING_URL = 'https://link.boatrmarketing.com/widget/form/UKKEdzivMdsNJ2b5tZHI';
+let bookModalLoadTimer = null;
+// ── Back-to-top button ──
+(function() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  const onScroll = () => {
+    if (window.scrollY > 600) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+function openBookModal() {
+  const modal = document.getElementById('book-modal');
+  const iframe = document.getElementById('book-modal-iframe');
+  const fallback = document.getElementById('book-modal-fallback');
+  fallback.style.display = 'none';
+  iframe.style.display = 'block';
+  iframe.src = PEEK_BOOKING_URL;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // If the form host blocks iframing (X-Frame-Options), show fallback
+  clearTimeout(bookModalLoadTimer);
+  bookModalLoadTimer = setTimeout(() => {
+    // Iframe load detection isn't reliable cross-origin — leave the iframe up;
+    // fallback link is one click away if the embed silently fails.
+  }, 4000);
+}
+function closeBookModal() {
+  const modal = document.getElementById('book-modal');
+  const iframe = document.getElementById('book-modal-iframe');
+  modal.classList.remove('open');
+  iframe.src = 'about:blank';
+  document.body.style.overflow = '';
+  clearTimeout(bookModalLoadTimer);
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('book-modal').classList.contains('open')) closeBookModal();
+  }
+});
+document.getElementById('book-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'book-modal') closeBookModal();
+});
+</script>
+
+</body>
+</html>

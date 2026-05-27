@@ -1,0 +1,26 @@
+# Disco Boat Rentals — robots.txt
+# Allow standard search crawlers + the AI bots we want citing us.
+
+User-agent: *
+Allow: /
+
+# AI / generative-search crawlers (per AI_OVERVIEW_READINESS pillar 4)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://discoboatrentals.com/sitemap.xml

@@ -1,0 +1,23 @@
+# ─── Disco Boat Rentals · production redirects ────────────────────────────────
+# Site lives at discoboatrentals.com (apex). www is canonicalized to apex.
+# Netlify handles HTTPS + apex/www automatically when both are added as custom
+# domains, but these explicit rules are a safety belt.
+
+# www → apex (force apex as canonical)
+https://www.discoboatrentals.com/*    https://discoboatrentals.com/:splat   301!
+
+# ─── WordPress URL preservation (don't lose existing rankings) ────────────────
+# Pages we kept at the same slug — handled by file structure, no redirect needed:
+#   /articles/                          → already present
+#   /boat-rental-mission-bay/           → already present
+#   /disco-party-planning-guide/        → already present
+
+# 301s from old WP URLs that we did NOT carry over
+/4135-2                /   301
+/4135-2/               /   301
+
+# Common WP URL patterns that won't exist on the new site — send to home
+/wp-admin              /   301
+/wp-admin/             /   301
+/wp-login.php          /   301
+/?p=*                  /   301
