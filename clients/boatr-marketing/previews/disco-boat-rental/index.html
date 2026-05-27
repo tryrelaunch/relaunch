@@ -390,6 +390,15 @@ nav {
   border-bottom: 4px solid var(--coral);
   position: relative;
 }
+.slider-lede {
+  text-align: center;
+  font-family: var(--fb); color: var(--ink);
+  font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55;
+  font-weight: 400;
+  max-width: 760px;
+  margin: 4px auto 22px;
+  padding: 0 24px;
+}
 .slider-hint {
   text-align: center;
   font-family: var(--fs); color: var(--coral);
@@ -945,7 +954,6 @@ footer {
   <div class="hero-inner">
     <span class="hero-eyebrow" id="edit-hero-eyebrow">Shelter Island · Point Loma · San Diego Bay</span>
     <h1 id="edit-hero-title">Disco Boat Rentals — San Diego.<span id="edit-hero-subtitle">The newest party boat rental in San Diego — perfect for birthday parties, bachelorette parties, or any groovy occasion.</span></h1>
-    <p class="lede" id="edit-hero-lede">A chrome dance pole, a rainbow 5-seat bar, a leopard-print lounge, fold-down windows to the bay, and a rooftop deck with a mirrored disco ball that scatters sparkle across the water at sunset. The Disco Boat is San Diego's bachelorette, birthday, and themed-party charter — on a 32-foot Suntracker out of Shelter Island.</p>
     <div class="hero-ctas">
       <button class="btn-primary" onclick="openBookModal()">Join the Waiting List →</button>
       <a href="tel:8557823988" class="btn-secondary">📞 855-782-3988</a>
@@ -975,6 +983,7 @@ footer {
 <!-- ║  PHOTO SLIDER (right under the hero)     ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <section class="hero-slider" aria-label="Photos of the Disco Boat">
+  <p class="slider-lede" id="edit-hero-lede">A chrome dance pole, a rainbow 5-seat bar, a leopard-print lounge, fold-down windows to the bay, and a rooftop deck with a mirrored disco ball that scatters sparkle across the water at sunset. The Disco Boat is San Diego's bachelorette, birthday, and themed-party charter — on a 32-foot Suntracker out of Shelter Island.</p>
   <div class="slider-hint">Swipe →</div>
   <div class="slider-track">
     <div class="slide"><img src="images/slider-1.jpg" width="1080" height="1350" alt="The Disco Boat on San Diego Bay — guests on the rooftop with palm trees behind"></div>
