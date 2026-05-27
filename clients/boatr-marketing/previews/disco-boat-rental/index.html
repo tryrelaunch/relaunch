@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Disco Boat Rentals — San Diego's party boat with a chrome dance pole, rainbow bar, and a rooftop disco ball. 32' Suntracker for up to 12 guests, out of Shelter Island in Point Loma. Captained charter: add a Disco Boat captain for $50/hour. Bachelorette, birthdays, themed nights, sunset cruises.">
+<meta name="description" content="San Diego party boat rental on the Disco Boat — 32' Suntracker, 12 guests, rooftop disco ball, chrome dance pole. Bachelorettes, birthdays, sunset cruises. Shelter Island, Point Loma.">
 <meta name="robots" content="noindex,nofollow">
 <title>Disco Boat Rentals · San Diego Party Boat Charter · Point Loma</title>
 
@@ -20,6 +20,11 @@
 <meta property="og:image:height" content="1333">
 <meta property="og:url" content="https://discoboatrentals.com/">
 <meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Disco Boat Rentals · San Diego's Party Boat with a Rooftop Disco Ball">
+<meta name="twitter:description" content="32' Suntracker party cruiser, 12 guests, rooftop disco ball, chrome dance pole. Bachelorettes, birthdays, sunset cruises out of Shelter Island.">
+<meta name="twitter:image" content="https://boatrmarketing.com/preview/disco-boat-rental/images/hero-photo.jpg">
 
 <!-- ────────── SCHEMA: LocalBusiness + TouristAttraction ────────── -->
 <script type="application/ld+json">
@@ -85,7 +90,33 @@
     "@type": "AggregateRating",
     "ratingValue": "5.0",
     "reviewCount": "4"
-  }
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Taryn Kyle" },
+      "reviewBody": "One of my favorite boat experiences in San Diego! I went out with a group of my girls and we had such a fun time!! 10/10 trip and would definitely recommend to anyone looking for a new and unique experience."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Michael Glauser" },
+      "reviewBody": "We had the best birthday disco themed party. Super unique boat!"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Mary Dale" },
+      "reviewBody": "Went on the Disco Boat with my girls and had so much fun!!! Can't wait to book again!"
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Justin Huelbig" },
+      "reviewBody": "We brought 10 people and this was the most unique boat rental I've ever been on. It was a blast."
+    }
+  ]
 }
 </script>
 
@@ -274,6 +305,82 @@ nav {
   border: none; cursor: pointer;
 }
 .btn-book:hover { background: var(--coral-d); }
+
+/* Reviews grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+  max-width: 1080px;
+  margin-left: auto; margin-right: auto;
+}
+.review-card {
+  background: #fff;
+  border: 2px solid var(--navy);
+  border-radius: 14px;
+  padding: 24px 22px 20px;
+  box-shadow: 0 4px 0 0 var(--navy);
+}
+.review-stars {
+  color: var(--sunshine-d);
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.review-body {
+  font-family: var(--fb); font-size: 15px;
+  line-height: 1.55; color: var(--ink);
+  margin: 0 0 14px 0;
+}
+.review-meta {
+  font-family: var(--fb); font-size: 13px;
+  color: var(--ink-3); border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+.review-meta strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 720px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* FAQ accordion */
+.faq-item {
+  background: #fff;
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: 0 3px 0 0 var(--navy);
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 56px 18px 22px;
+  font-family: var(--fh); font-weight: 800;
+  font-size: 16px; color: var(--ink);
+  position: relative;
+  letter-spacing: 0.01em;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute; right: 22px; top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  background: var(--coral); color: #fff;
+  border-radius: 999px;
+  font-family: var(--fb); font-weight: 400;
+  font-size: 22px; line-height: 26px; text-align: center;
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
+.faq-body {
+  padding: 4px 22px 22px;
+  font-family: var(--fb); font-size: 15px; color: var(--ink-2);
+  line-height: 1.6;
+}
+.faq-body a { color: var(--teal-d); font-weight: 600; }
+.faq-body a:hover { text-decoration: underline; }
 
 /* Back-to-top floating button */
 .back-to-top {
@@ -1080,7 +1187,7 @@ footer {
     </div>
     <div class="hs-item">
       <div class="hs-num">5.0★</div>
-      <div class="hs-lbl">Google rating · launching now</div>
+      <div class="hs-lbl">Google rating · 4 reviews</div>
     </div>
     <div class="hs-item">
       <div class="hs-num">BYOB</div>
@@ -1167,7 +1274,7 @@ footer {
     <div class="fleet-intro">
       <div>
         <div class="sec-eyebrow">The Boat · 32' Suntracker Party Cruiser</div>
-        <h2 class="sec-title" id="edit-fleet-title">One boat, built to be the room.</h2>
+        <h2 class="sec-title" id="edit-fleet-title">San Diego party boat rental — one boat, built to be the room.</h2>
         <p class="sec-lede" id="edit-fleet-lede">A 32-foot Suntracker Party Cruiser fitted out as a 1970s lounge from the floor to the ceiling. Three distinct spaces — rooftop, interior, fold-down deck — that combine into one party. Up to 12 guests. Captained charter — add a Disco Boat captain at $50/hour.</p>
       </div>
       <div class="fleet-summary">
@@ -1320,6 +1427,77 @@ footer {
 </section>
 
 <!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  REVIEWS (visible — matches Review schema)║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec reviews-sec" id="reviews" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="text-align:center;">⭐ 5.0 on Google · 4 reviews</div>
+    <h2 class="sec-title" id="edit-reviews-title" style="text-align:center;">What guests are saying about the Disco Boat.</h2>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"One of my favorite boat experiences in San Diego! I went out with a group of my girls and we had such a fun time!! 10/10 trip and would definitely recommend to anyone looking for a new and unique experience."</p>
+        <div class="review-meta"><strong>Taryn Kyle</strong> · Google · a month ago</div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"We brought 10 people and this was the most unique boat rental I've ever been on. It was a blast."</p>
+        <div class="review-meta"><strong>Justin Huelbig</strong> · Google · a month ago</div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"We had the best birthday disco themed party. Super unique boat!"</p>
+        <div class="review-meta"><strong>Michael Glauser</strong> · Google · a month ago</div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"Went on the Disco Boat with my girls and had so much fun!!! Can't wait to book again!"</p>
+        <div class="review-meta"><strong>Mary Dale</strong> · Google · a month ago</div>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:28px;font-family:var(--fb);font-size:14px;color:var(--ink-2);">
+      <a href="https://maps.google.com/?cid=8910617158795308757" target="_blank" rel="noopener" style="color:var(--teal-d);font-weight:600;">Read all reviews on Google →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  FAQ (visible — matches FAQPage schema)  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="sec faq-sec" id="faq" style="background:var(--cream-2);">
+  <div class="sec-inner" style="max-width:880px;">
+    <div class="sec-eyebrow" style="text-align:center;">Disco Boat FAQ</div>
+    <h2 class="sec-title" id="edit-faq-title" style="text-align:center;">Quick answers before you book.</h2>
+    <div class="faq-list" style="margin-top:36px;">
+      <details class="faq-item">
+        <summary>How much does the Disco Boat cost?</summary>
+        <div class="faq-body">Pricing is set by charter length and add-ons. A Disco Boat captain is required at <strong>$50/hour</strong>, and most groups book a 2- to 4-hour cruise. Full pricing goes live when bookings open — <a href="#book">join the waiting list</a> to get the rate card the moment it's published.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Where does the Disco Boat depart from?</summary>
+        <div class="faq-body">The Disco Boat departs from <strong>2700 Shelter Island Drive</strong> in Point Loma, San Diego — on San Diego Bay, a short trip from downtown and Coronado. Dock and parking instructions are sent with your booking confirmation.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How many people fit on the Disco Boat?</summary>
+        <div class="faq-body">Up to <strong>12 guests</strong>. The 32-foot Suntracker Party Cruiser is rated for 12, and that's the booking maximum. Bachelorette and birthday groups of 8 to 12 are the most common booking.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is a captain included?</summary>
+        <div class="faq-body">No — the Disco Boat is a captained vessel (guests cannot drive the boat themselves), and the captain isn't included in the rental fee. You <strong>add a Disco Boat captain at $50/hour</strong> when you reserve. The captain handles the helm so your group stays in party mode the entire cruise.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can we bring our own drinks?</summary>
+        <div class="faq-body"><strong>BYOB and bring-your-own snacks are welcome</strong> on every charter. We provide a cooler with ice. The rainbow 5-seat bar is yours to set up however you like — bring mixers, garnishes, or a full cocktail setup.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is the Disco Boat good for bachelorette parties?</summary>
+        <div class="faq-body">It's <strong>the bachelorette boat in San Diego</strong>. Chrome dance pole, mirrored ceiling, rainbow bar, fold-down windows for open-air party mode, and a rooftop deck with a full-size disco ball that lights up at golden hour. Bachelorettes are one of the two biggest categories on the boat. See the <a href="bachelorette-party-boat-san-diego/">bachelorette page</a> for the full rundown.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  BOOKING CTA                             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
 <section class="sec booking" id="book">
@@ -1384,7 +1562,7 @@ footer {
         </div>
       </div>
       <div class="loc-map">
-        <iframe src="https://www.google.com/maps?q=2700+Shelter+Island+Drive,+San+Diego,+CA+92106&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Disco Boat Rentals at Shelter Island, San Diego map"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26853.429986972114!2d-117.2663343256836!3d32.721163200000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80deab09d4f440fb%3A0x7ba8df186f7eaed5!2sDisco%20Boat%20Rentals!5e0!3m2!1sen!2sus!4v1779918028765!5m2!1sen!2sus" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Disco Boat Rentals on Google Maps — Shelter Island, San Diego"></iframe>
       </div>
     </div>
   </div>
