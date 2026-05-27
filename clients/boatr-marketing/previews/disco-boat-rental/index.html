@@ -412,6 +412,34 @@ nav {
   font-size: 22px; line-height: 1; margin-bottom: 16px;
   letter-spacing: 0.02em;
 }
+.hint-desktop { display: none; }
+.hint-mobile { display: inline; }
+@media (min-width: 1100px) {
+  .hint-desktop { display: inline; }
+  .hint-mobile { display: none; }
+}
+.slider-nav {
+  display: none;
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 5;
+  width: 56px; height: 56px;
+  border-radius: 999px; border: 0;
+  background: rgba(255,255,255,0.92);
+  color: var(--ink);
+  font-family: var(--fb);
+  font-size: 36px; line-height: 1; font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -4px rgba(0,0,0,0.25), 0 0 0 2px var(--navy);
+  transition: background 0.15s, transform 0.15s;
+}
+.slider-nav:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
+.slider-nav:active { transform: translateY(-50%) scale(0.96); }
+.slider-nav-prev { left: 18px; padding-right: 4px; }
+.slider-nav-next { right: 18px; padding-left: 4px; }
+@media (min-width: 1100px) {
+  .slider-nav { display: flex; align-items: center; justify-content: center; }
+}
 .slider-track {
   display: flex;
   gap: 16px;
@@ -909,8 +937,12 @@ footer {
   .brand-name small { font-size: 10px; }
   .btn-book { padding: 9px 14px; font-size: 12px; }
   .sec { padding: 56px 22px; }
-  .hero { background-position: center 60%; }
-  .hero::before { background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 100%); }
+  .hero {
+    background-image: url('images/hero-photo-mobile.jpg');
+    background-position: center center;
+    min-height: 540px;
+  }
+  .hero::before { background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.55) 100%); }
   .hero-inner { padding: 60px 22px 56px; text-align: center; }
   .hero-inner > * { max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero h1, .hero h1 span { max-width: 100%; margin-left: auto; margin-right: auto; }
@@ -997,8 +1029,10 @@ footer {
     </div>
   </div>
   <p class="slider-lede" id="edit-hero-lede">A chrome dance pole, a rainbow 5-seat bar, a leopard-print lounge, fold-down windows to the bay, and a rooftop deck with a mirrored disco ball that scatters sparkle across the water at sunset. The Disco Boat is San Diego's bachelorette, birthday, and themed-party charter — on a 32-foot Suntracker out of Shelter Island.</p>
-  <div class="slider-hint">Swipe →</div>
-  <div class="slider-track">
+  <div class="slider-hint"><span class="hint-mobile">Swipe →</span><span class="hint-desktop">← Use the arrows to scroll →</span></div>
+  <button type="button" class="slider-nav slider-nav-prev" aria-label="Previous photo" onclick="discoSlide(-1)">‹</button>
+  <button type="button" class="slider-nav slider-nav-next" aria-label="Next photo" onclick="discoSlide(1)">›</button>
+  <div class="slider-track" id="disco-slider-track">
     <div class="slide"><img src="images/slider-1.jpg" width="1080" height="1350" alt="The Disco Boat on San Diego Bay — guests on the rooftop with palm trees behind"></div>
     <div class="slide"><img src="images/slider-2.jpg" width="1080" height="1350" alt="The Disco Boat at sunset — rooftop disco ball lit up, guest waving from the upper deck" loading="lazy"></div>
     <div class="slide"><img src="images/slider-3.jpg" width="1080" height="1350" alt="Bachelorette party of six posing at the bow of the Disco Boat" loading="lazy"></div>
@@ -1056,7 +1090,6 @@ footer {
           <p id="edit-about-p3">Head up to the rooftop deck for sunshine, comfy seating, and sweet views of the bay — the perfect place to kick back between dance breaks or to sip a cold drink in style. We must mention the enormous Disco Ball that sits atop the roof which provides a beacon of boogie for all to see.</p>
           <p id="edit-about-p4">You choose how long you want to cruise and any fun add-ons. The Disco Boat is a captained vessel — one of our captains drives so your group can stay on the dance floor and the rooftop the whole time. It's your party, your way.</p>
           <p id="edit-about-p5">Whether it's a birthday bash, bachelorette party, or just a day you want to make special, the Disco Boat is here to make it extra fun, extra bright, and extra memorable.</p>
-          <p class="about-tagline">Let's cruise. Let's vibe. Let's party on the bay.</p>
         </div>
       </div>
     </div>
@@ -1081,7 +1114,7 @@ footer {
 
     <div class="fleet-grid">
       <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Retro Rooftop Deck">
-        <div class="fc-image"><img src="images/feature-rooftop.jpg" alt="The Disco Boat rooftop deck — open-air lounge above San Diego Bay with the mirrored disco ball" loading="lazy"></div>
+        <div class="fc-image"><img src="images/gal-6-boat.jpg" alt="The Disco Boat rooftop deck — open-air lounge above San Diego Bay with the mirrored disco ball" loading="lazy"></div>
         <div class="fc-num">Feature 01</div>
         <div class="fc-name" id="edit-boat-1-name">Retro Rooftop Deck</div>
         <div class="fc-body" id="edit-boat-1-body">Take the party upstairs to the retro rooftop — an open-air lounge above San Diego Bay. Fluffy turf with oversized bean-bags, a rooftop bartop, and a giant mirrored disco ball scattering sparkle across the water at sunset. Best seat on the boat for photos, birthdays, bachelorettes, and golden-hour vibes.</div>
@@ -1089,7 +1122,7 @@ footer {
       </a>
 
       <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Privacy Fold-Down Windows">
-        <div class="fc-image"><img src="images/feature-fold-down.jpg" alt="A guest walking through the Disco Boat with the fold-down windows open to San Diego Bay" loading="lazy"></div>
+        <div class="fc-image"><img src="images/gal-2-bay.jpg" alt="The Disco Boat on San Diego Bay with the fold-down side windows open" loading="lazy"></div>
         <div class="fc-num">Feature 02</div>
         <div class="fc-name" id="edit-boat-2-name">Privacy Fold-Down Windows</div>
         <div class="fc-body" id="edit-boat-2-body">Choose your vibe with the fold-down windows. Open them wide for fresh bay breeze and open-air groove at the 5-seat bar, or close them down for a cozy lounge when the marine layer rolls in. The clear panels keep panoramic views and great lighting either way.</div>
@@ -1392,6 +1425,33 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('book-modal').addEventListener('click', (e) => {
   if (e.target.id === 'book-modal') closeBookModal();
 });
+
+// ── Photo slider (desktop arrows + scroll behavior) ──
+function discoSlide(dir) {
+  const track = document.getElementById('disco-slider-track');
+  if (!track) return;
+  const slide = track.querySelector('.slide');
+  const step = slide ? slide.getBoundingClientRect().width + 16 : track.clientWidth * 0.8;
+  track.scrollBy({ left: dir * step, behavior: 'smooth' });
+}
+// Update arrow disabled states based on scroll position
+(function() {
+  const track = document.getElementById('disco-slider-track');
+  const prev = document.querySelector('.slider-nav-prev');
+  const next = document.querySelector('.slider-nav-next');
+  if (!track || !prev || !next) return;
+  function update() {
+    const atStart = track.scrollLeft <= 4;
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    prev.style.opacity = atStart ? '0.4' : '1';
+    prev.style.pointerEvents = atStart ? 'none' : 'auto';
+    next.style.opacity = atEnd ? '0.4' : '1';
+    next.style.pointerEvents = atEnd ? 'none' : 'auto';
+  }
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  setTimeout(update, 50);
+})();
 
 </script>
 
