@@ -282,15 +282,15 @@ nav {
   background-color: transparent;
   background-image: url('images/hero-photo.jpg');
   background-repeat: no-repeat;
-  background-position: center 55%;
+  background-position: right center;
   background-size: cover;
   overflow: hidden;
   padding-top: 84px; padding-bottom: 54px;
 }
-/* Subtle bottom-weighted dark gradient just to keep text legible where it overlaps the boat — no color tint */
+/* Left-side dark scrim so the white text reads cleanly; fades to clear on the right where the boat is */
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.35) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0) 100%);
   pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 3; }
@@ -300,8 +300,10 @@ nav {
 .hero-inner {
   position: relative; z-index: 3;
   max-width: 1140px; margin: 0 auto; padding: 0 32px;
-  width: 100%; text-align: center;
+  width: 100%; text-align: left;
 }
+.hero-inner > * { max-width: 560px; }
+.hero-inner .hero-eyebrow { max-width: none; }
 .hero-eyebrow {
   display: inline-block;
   background: rgba(0,0,0,0.32);
@@ -313,18 +315,18 @@ nav {
 }
 .hero h1 {
   font-family: var(--fs); font-weight: 400;
-  font-size: clamp(48px, 8.5vw, 87px);
+  font-size: clamp(44px, 7vw, 76px);
   color: #fff; line-height: 1.0;
-  max-width: 1080px; margin: 0 auto 26px;
+  max-width: 560px; margin: 0 0 26px 0;
   text-shadow: 0 2px 14px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.25);
   letter-spacing: 0; -webkit-text-stroke: 0;
 }
 .hero h1 span {
   font-family: var(--fb); color: #fff; display: block;
-  font-size: clamp(20px, 2.4vw, 30px); font-weight: 400;
-  margin-top: 18px; line-height: 1.4em; letter-spacing: 0;
+  font-size: clamp(18px, 2vw, 24px); font-weight: 400;
+  margin: 18px 0 0 0; line-height: 1.4em; letter-spacing: 0;
   text-shadow: 0 1px 6px rgba(0,0,0,0.4); -webkit-text-stroke: 0;
-  max-width: 820px; margin-left: auto; margin-right: auto;
+  max-width: 560px;
 }
 .hero p.lede {
   font-family: var(--fb); font-size: clamp(17px, 1.5vw, 21px);
@@ -332,7 +334,7 @@ nav {
   max-width: 760px; margin: 0 auto 36px; line-height: 1.55;
   text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
-.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: center; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
 /* Primary CTA — matches the live site's teal button exactly */
 .btn-primary {
   background: var(--teal); color: #fff !important;
@@ -354,10 +356,11 @@ nav {
 }
 .btn-secondary:hover { background: var(--coral-d); }
 .hero-stats {
-  display: flex; gap: 36px; margin-top: 48px; flex-wrap: wrap; justify-content: center;
-  padding-top: 26px; max-width: 920px; margin-left: auto; margin-right: auto;
+  display: flex; gap: 28px 36px; margin-top: 36px; flex-wrap: wrap; justify-content: flex-start;
+  padding-top: 22px; max-width: 560px; margin-left: 0; margin-right: 0;
   border-top: 1px solid rgba(255,255,255,0.4);
 }
+.hs-item { align-items: flex-start; text-align: left; }
 .hs-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .hs-num {
   font-family: var(--fs); font-weight: 400; font-size: 36px;
@@ -902,8 +905,14 @@ footer {
   .brand-name small { font-size: 10px; }
   .btn-book { padding: 9px 14px; font-size: 12px; }
   .sec { padding: 56px 22px; }
-  .hero-inner { padding: 60px 22px 56px; }
-  .hero-stats { gap: 24px; }
+  .hero { background-position: center 60%; }
+  .hero::before { background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 100%); }
+  .hero-inner { padding: 60px 22px 56px; text-align: center; }
+  .hero-inner > * { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero h1, .hero h1 span { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { gap: 24px; justify-content: center; max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hs-item { align-items: center; text-align: center; }
   .hs-num { font-size: 22px; }
   .about-grid, .loc-grid, .dest-grid, .fleet-intro { grid-template-columns: 1fr; gap: 36px; }
   .fleet-grid { grid-template-columns: 1fr 1fr; }
