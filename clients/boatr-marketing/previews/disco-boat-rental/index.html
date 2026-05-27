@@ -355,17 +355,15 @@ nav {
   transition: background 0.2s; display: inline-block;
 }
 .btn-secondary:hover { background: var(--coral-d); }
-.stat-bar {
-  background: var(--teal);
-  padding: 26px 22px;
-  border-bottom: 4px solid var(--coral);
+.hero-slider .hero-stats {
+  margin: 0 auto 22px; padding: 4px 22px 18px; border-top: 0;
+  max-width: 1100px;
+  display: flex; gap: 18px 32px; flex-wrap: wrap;
+  justify-content: space-around; align-items: center;
+  border-bottom: 1px dashed rgba(0,0,0,0.18);
 }
-.stat-bar .hero-stats {
-  margin: 0 auto; padding: 0; border-top: 0;
-  max-width: 1140px;
-  display: flex; gap: 24px 36px; flex-wrap: wrap;
-  justify-content: space-between; align-items: center;
-}
+.hero-slider .hs-num { color: var(--ink); text-shadow: none; }
+.hero-slider .hs-lbl { color: var(--ink); opacity: 0.85; }
 .hs-item { align-items: center; text-align: center; }
 .hs-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .hs-num {
@@ -917,8 +915,7 @@ footer {
   .hero-inner > * { max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero h1, .hero h1 span { max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero-ctas { justify-content: center; }
-  .stat-bar { padding: 22px 18px; }
-  .stat-bar .hero-stats { gap: 20px 24px; justify-content: center; }
+  .hero-slider .hero-stats { gap: 14px 22px; justify-content: center; padding: 4px 18px 16px; }
   .hs-num { font-size: 22px; }
   .about-grid, .loc-grid, .dest-grid, .fleet-intro { grid-template-columns: 1fr; gap: 36px; }
   .fleet-grid { grid-template-columns: 1fr 1fr; }
@@ -976,8 +973,11 @@ footer {
   </div>
 </header>
 
-<!-- Stat bar (moved out of hero) -->
-<section class="stat-bar" aria-label="Quick facts">
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║  PHOTO SLIDER (right under the hero)     ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+<section class="hero-slider" aria-label="Photos of the Disco Boat">
   <div class="hero-stats">
     <div class="hs-item">
       <div class="hs-num">12</div>
@@ -996,12 +996,6 @@ footer {
       <div class="hs-lbl">Disco Boat captain · required</div>
     </div>
   </div>
-</section>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  PHOTO SLIDER (right under the hero)     ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<section class="hero-slider" aria-label="Photos of the Disco Boat">
   <p class="slider-lede" id="edit-hero-lede">A chrome dance pole, a rainbow 5-seat bar, a leopard-print lounge, fold-down windows to the bay, and a rooftop deck with a mirrored disco ball that scatters sparkle across the water at sunset. The Disco Boat is San Diego's bachelorette, birthday, and themed-party charter — on a 32-foot Suntracker out of Shelter Island.</p>
   <div class="slider-hint">Swipe →</div>
   <div class="slider-track">
