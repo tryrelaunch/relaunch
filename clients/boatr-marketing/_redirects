@@ -10,6 +10,14 @@
 /preview/discoboatrentals.com   /preview/disco-boat-rental/   301
 /preview/discoboatrentals.com/  /preview/disco-boat-rental/   301
 
+# Force trailing slash on canonical Disco Boat URLs (relative img paths break without it)
+/preview/disco-boat-rental                                       /preview/disco-boat-rental/   301
+/preview/disco-boat-rental/the-boat                              /preview/disco-boat-rental/the-boat/   301
+/preview/disco-boat-rental/bachelorette-party-boat-san-diego     /preview/disco-boat-rental/bachelorette-party-boat-san-diego/   301
+/preview/disco-boat-rental/articles                              /preview/disco-boat-rental/articles/   301
+/preview/disco-boat-rental/disco-party-planning-guide            /preview/disco-boat-rental/disco-party-planning-guide/   301
+/preview/disco-boat-rental/boat-rental-mission-bay               /preview/disco-boat-rental/boat-rental-mission-bay/   301
+
 /preview/*   /previews/:splat   200!
 
 # Admin editor — rewrites to / with ?admin=1 so the editor unlocks PIN gate.
