@@ -21,8 +21,9 @@
   <!-- Protected blog posts from the existing WP site (URLs preserved) -->
   <url>
     <loc>https://discoboatrentals.com/disco-party-planning-guide/</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://discoboatrentals.com/boat-rental-mission-bay/</loc>
