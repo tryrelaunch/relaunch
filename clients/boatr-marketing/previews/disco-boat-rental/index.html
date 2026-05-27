@@ -275,6 +275,29 @@ nav {
 }
 .btn-book:hover { background: var(--coral-d); }
 
+/* Back-to-top floating button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 52px; height: 52px;
+  border-radius: 999px; border: 0;
+  background: var(--coral); color: #fff;
+  font-size: 26px; font-weight: 700;
+  cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px -4px rgba(0,0,0,0.35), 0 0 0 2px var(--navy);
+  z-index: 90;
+  transition: transform 0.18s, background 0.18s;
+  padding: 0 0 4px 0;
+  line-height: 1;
+}
+.back-to-top.show { display: flex; }
+.back-to-top:hover { background: var(--coral-d); transform: translateY(-2px); }
+@media (max-width: 980px) {
+  .back-to-top { bottom: 18px; right: 18px; width: 46px; height: 46px; font-size: 22px; }
+}
+
 /* Hamburger (mobile only) */
 .nav-burger {
   display: none;
@@ -1406,6 +1429,9 @@ footer {
   </div>
 </footer>
 
+<!-- Back to top -->
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  BOOKING MODAL (Peek iframe)             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
@@ -1465,6 +1491,18 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('book-modal').addEventListener('click', (e) => {
   if (e.target.id === 'book-modal') closeBookModal();
 });
+
+// ── Back-to-top button ──
+(function() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  const onScroll = () => {
+    if (window.scrollY > 600) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 
 // ── Mobile hamburger nav ──
 function toggleMobileNav() {
