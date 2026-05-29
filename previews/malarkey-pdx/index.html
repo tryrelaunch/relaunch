@@ -154,19 +154,17 @@ h1.hero-title .line2 {
   transform: rotate(-1deg);
 }
 .hero-stats {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem 2.5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255,255,255,0.1);
+  max-width: 520px;
 }
+.hero-stats .stat-wide { grid-column: 1 / -1; }
+.hero-stats > div { min-width: 0; }
 @media (max-width: 768px) {
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-  }
-  .hero-stats > div { min-width: 0; }
+  .hero-stats { gap: 1.5rem 1rem; }
 }
 .stat-num {
   font-family: 'Anton', sans-serif;
@@ -727,10 +725,9 @@ footer {
       <iframe src="https://www.youtube-nocookie.com/embed/JnBEP7b-wps?start=5&amp;rel=0&amp;modestbranding=1" title="Malarkey PDX walkthrough" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <div class="hero-stats">
-      <div><span class="stat-num">11K</span><span class="stat-label">Square Feet</span></div>
-      <div><span class="stat-num">4</span><span class="stat-label">Rooms / One Night</span></div>
-      <div><span class="stat-num">1</span><span class="stat-label">Tonya + D.B. Cooper Wall</span></div>
-      <div><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
+      <div><span class="stat-num">11,000</span><span class="stat-label">sq/ft</span></div>
+      <div><span class="stat-num">4</span><span class="stat-label">Vibes</span></div>
+      <div class="stat-wide"><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
     </div>
   </div>
 </section>
