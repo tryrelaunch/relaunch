@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MALARKEY PDX — Eat Loud. Drink Louder.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Permanent+Marker&family=Special+Elite&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --concrete: #1a1a1a;
+  --concrete-light: #2a2a2a;
+  --grit: #3a3735;
+  --bone: #ebe5d8;
+  --acid: #c8ff00;
+  --rust: #d94a1a;
+  --hot: #ff2d6f;
+  --forest: #1e3a2b;
+  --moss: #4a6b3f;
+  --gold: #c9a14a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--concrete);
+  color: var(--bone);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* CONCRETE TEXTURE OVERLAY */
+.grit-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(circle at 25% 25%, #fff 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, #fff 1px, transparent 1px);
+  background-size: 4px 4px, 6px 6px;
+  mix-blend-mode: overlay;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  color: var(--bone);
+}
+.logo span { color: var(--rust); }
+.nav-links { display: flex; gap: 2.2rem; }
+.nav-links a {
+  color: var(--bone);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--acid); }
+.reserve-btn {
+  background: var(--rust);
+  color: var(--bone);
+  padding: 0.7rem 1.4rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border: 2px solid var(--rust);
+  transition: all 0.2s;
+}
+.reserve-btn:hover { background: transparent; color: var(--rust); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem 2.5rem 3rem;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%),
+    repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 2px, #222 2px, #222 4px);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(217,74,26,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,255,0,0.08) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 1400px; width: 100%; }
+.hero-tag {
+  display: inline-block;
+  background: var(--acid);
+  color: var(--concrete);
+  font-family: 'Special Elite', monospace;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  transform: rotate(-1deg);
+}
+h1.hero-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(3.5rem, 14vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+h1.hero-title .line1 { display: block; color: var(--bone); }
+h1.hero-title .line2 {
+  display: block;
+  color: var(--rust);
+  font-style: italic;
+  -webkit-text-stroke: 1px var(--rust);
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: var(--bone);
+  max-width: 700px;
+  margin-bottom: 2rem;
+  transform: rotate(-1deg);
+}
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.stat-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  color: var(--acid);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(235,229,216,0.6);
+  margin-top: 0.4rem;
+}
+
+/* MARQUEE */
+.marquee {
+  background: var(--rust);
+  color: var(--concrete);
+  overflow: hidden;
+  padding: 1.2rem 0;
+  border-top: 2px solid var(--concrete);
+  border-bottom: 2px solid var(--concrete);
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 25s linear infinite;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.marquee-track span { padding: 0 2rem; }
+.marquee-track span::after { content: '✦'; margin-left: 4rem; color: var(--concrete); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* MANIFESTO */
+.manifesto {
+  padding: 8rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+.manifesto-eyebrow {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.4em;
+  color: var(--rust);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.manifesto h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.01em;
+}
+.manifesto h2 em {
+  font-style: italic;
+  color: var(--rust);
+}
+.manifesto p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 750px;
+  margin-bottom: 1.5rem;
+  color: rgba(235,229,216,0.85);
+}
+.manifesto p.lead {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--bone);
+}
+.signature {
+  margin-top: 3rem;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+  color: var(--acid);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* ROOMS — the four zones */
+.rooms {
+  background: #0d0d0d;
+  padding: 6rem 0 8rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.rooms-header {
+  text-align: center;
+  padding: 0 2rem 4rem;
+}
+.rooms-header .eyebrow {
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 0.4em;
+  color: var(--acid);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.rooms-header h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.9;
+}
+.rooms-header h2 span { color: var(--rust); }
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.room {
+  padding: 4rem 3rem;
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: transform 0.4s;
+}
+.room:hover { transform: translateY(-4px); }
+.room-num {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 6rem;
+  line-height: 1;
+  opacity: 0.18;
+  color: var(--bone);
+}
+.room h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.room-tag {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--acid);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.room p { color: rgba(235,229,216,0.75); font-size: 1rem; line-height: 1.6; max-width: 380px; }
+.room-1 {
+  background:
+    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
+    repeating-linear-gradient(0deg, #2a2625 0px, #2a2625 3px, #1f1c1b 3px, #1f1c1b 6px);
+}
+.room-1 .room-tag { color: var(--rust); }
+.room-2 {
+  background:
+    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
+    radial-gradient(circle at 30% 40%, rgba(255,45,111,0.45) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(200,255,0,0.25) 0%, transparent 50%),
+    #15010d;
+}
+.room-2 .room-tag { color: var(--hot); }
+.room-3 {
+  background:
+    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
+    repeating-linear-gradient(90deg, #3a2820 0px, #3a2820 25px, #2a1c16 25px, #2a1c16 50px),
+    #2a1c16;
+}
+.room-3 .room-tag { color: var(--gold); }
+.room-4 {
+  background:
+    linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.92) 100%),
+    radial-gradient(ellipse at 40% 30%, rgba(74,107,63,0.6) 0%, transparent 60%),
+    var(--forest);
+}
+.room-4 .room-tag { color: var(--moss); }
+
+/* MENU TEASER */
+.menu-teaser {
+  background: var(--bone);
+  color: var(--concrete);
+  padding: 7rem 2.5rem;
+  position: relative;
+}
+.menu-teaser::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+}
+.menu-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.menu-teaser .eyebrow {
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 0.4em;
+  color: var(--rust);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.menu-teaser h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+.menu-teaser .subline {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
+  margin-bottom: 4rem;
+  color: var(--grit);
+}
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem 4rem;
+}
+.menu-item {
+  border-bottom: 2px dashed var(--grit);
+  padding-bottom: 1.5rem;
+}
+.menu-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+.menu-item h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.menu-item .price {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.3rem;
+  color: var(--rust);
+}
+.menu-item p {
+  font-size: 0.95rem;
+  color: var(--grit);
+  line-height: 1.5;
+}
+.menu-foot {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 3px solid var(--concrete);
+}
+.menu-foot p { font-family: 'Special Elite', monospace; font-size: 0.9rem; color: var(--grit); }
+.btn-dark {
+  background: var(--concrete);
+  color: var(--bone);
+  padding: 1rem 2rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  border: 2px solid var(--concrete);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.btn-dark:hover { background: var(--rust); border-color: var(--rust); }
+
+/* PORTLAND WALL */
+.portland-wall {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%),
+    repeating-linear-gradient(90deg, #1a1a1a 0px, #1a1a1a 40px, #222 40px, #222 80px);
+  padding: 7rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.portland-wall::before, .portland-wall::after {
+  content: '';
+  position: absolute;
+  font-family: 'Permanent Marker', cursive;
+  color: var(--hot);
+  opacity: 0.15;
+  font-size: 8rem;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+.portland-wall::before { content: 'WEIRD'; top: 10%; left: -2%; }
+.portland-wall::after { content: 'STAY'; bottom: 5%; right: -2%; color: var(--acid); transform: rotate(6deg); }
+.pw-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.portland-wall .eyebrow {
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 0.4em;
+  color: var(--hot);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.portland-wall h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  margin-bottom: 3rem;
+  max-width: 900px;
+}
+.portland-wall h2 em { color: var(--acid); font-style: italic; }
+.portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.portrait {
+  background: var(--concrete-light);
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+.portrait-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--grit);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 5rem;
+  color: var(--bone);
+  border: 4px solid var(--bone);
+  position: relative;
+}
+.portrait-frame::after {
+  content: 'WANTED';
+  position: absolute;
+  top: -12px;
+  background: var(--hot);
+  color: var(--bone);
+  padding: 4px 14px;
+  font-family: 'Special Elite', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+}
+.portrait h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.portrait p {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.85rem;
+  color: rgba(235,229,216,0.65);
+}
+
+/* RESERVATION */
+.reservation {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217,74,26,0.4) 0%, transparent 60%),
+    var(--concrete);
+  padding: 8rem 2.5rem;
+  text-align: center;
+}
+.reservation .eyebrow {
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 0.4em;
+  color: var(--acid);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.reservation h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+.reservation h2 em { font-style: italic; color: var(--rust); }
+.reservation p {
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  color: rgba(235,229,216,0.8);
+}
+.res-buttons { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--rust);
+  color: var(--bone);
+  padding: 1.4rem 3rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid var(--rust);
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--bone); color: var(--concrete); border-color: var(--bone); }
+.btn-ghost {
+  background: transparent;
+  color: var(--bone);
+  padding: 1.4rem 3rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid var(--bone);
+  transition: all 0.2s;
+}
+.btn-ghost:hover { background: var(--acid); color: var(--concrete); border-color: var(--acid); }
+
+/* FOOTER */
+footer {
+  background: #0a0a0a;
+  padding: 5rem 2.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.foot-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.foot-grid h5 {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+  color: var(--acid);
+  text-transform: uppercase;
+}
+.foot-grid p, .foot-grid a {
+  color: rgba(235,229,216,0.7);
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  display: block;
+}
+.foot-grid a:hover { color: var(--acid); }
+.foot-logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  color: var(--bone);
+}
+.foot-logo span { color: var(--rust); }
+.foot-tag {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.1rem;
+  color: var(--acid);
+  margin-top: 1rem;
+}
+.foot-bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Special Elite', monospace;
+  font-size: 0.78rem;
+  color: rgba(235,229,216,0.5);
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-links { display: none; }
+  .hero { padding: 6rem 1.2rem 2rem; }
+  .manifesto, .menu-teaser, .portland-wall, .reservation { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="grit-texture"></div>
+
+<nav>
+  <div class="logo">MALARKEY<span>.</span>PDX</div>
+  <div class="nav-links">
+    <a href="#manifesto">The Story</a>
+    <a href="#rooms">The Rooms</a>
+    <a href="#menu">The Food</a>
+    <a href="#portland">Portland</a>
+  </div>
+  <a href="#reserve" class="reserve-btn">Get a Table</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">OPENING FALL 2026 / SOUTHEAST PORTLAND</div>
+    <h1 class="hero-title">
+      <span class="line1">EAT LOUD.</span>
+      <span class="line2">DRINK LOUDER.</span>
+    </h1>
+    <p class="hero-sub">11,000 square feet of Portland on a plate. A dining room, a dive bar, a forest, and a train. All of it under one roof. None of it apologizing.</p>
+    <div class="hero-stats">
+      <div><span class="stat-num">11K</span><span class="stat-label">Square Feet</span></div>
+      <div><span class="stat-num">4</span><span class="stat-label">Rooms / One Night</span></div>
+      <div><span class="stat-num">1</span><span class="stat-label">Tonya Harding Wall</span></div>
+      <div><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>FINE DINING WITH A DJ BOOTH</span>
+    <span>STRIPPER POLES IN THE BATHROOM</span>
+    <span>TRAIN CARS IN THE BACK</span>
+    <span>A FOREST BEHIND THE BAR</span>
+    <span>FINE DINING WITH A DJ BOOTH</span>
+    <span>STRIPPER POLES IN THE BATHROOM</span>
+    <span>TRAIN CARS IN THE BACK</span>
+    <span>A FOREST BEHIND THE BAR</span>
+  </div>
+</div>
+
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-eyebrow">// MANIFESTO</div>
+  <h2>Portland deserves a restaurant that <em>acts</em> like Portland.</h2>
+  <p class="lead">My name is Brian Malarkey. I opened thirty restaurants before this one. I went to San Diego at seventeen and stayed gone for three decades. Then I came home.</p>
+  <p>This city was decimated after COVID. People stopped showing up downtown. Critics wrote the obituary. Half the operators I respect packed up and left.</p>
+  <p>So I bet eleven thousand square feet, fifty employees, my reputation, and a number on the door that says we have to do nine million in year one. Cocky? Yes. Arrogant? Probably. The name fits.</p>
+  <p>If we pull this off, Portland gets the room it's been missing. If we don't, you can say you ate here first.</p>
+  <div class="signature">— Brian Malarkey</div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="rooms-header">
+    <div class="eyebrow">// FOUR ROOMS. ONE TICKET.</div>
+    <h2>One restaurant. <span>Four cities.</span></h2>
+  </div>
+  <div class="rooms-grid">
+    <div class="room room-1">
+      <div class="room-num">01</div>
+      <div class="room-tag">// DOWNTOWN</div>
+      <h3>The Concrete Room</h3>
+      <p>Dirt floors. Bare concrete. Exposed beams. The room downtown Portland actually feels like, served at white-tablecloth prices. Sit close to the open kitchen and watch the line yell at each other.</p>
+    </div>
+    <div class="room room-2">
+      <div class="room-num">02</div>
+      <div class="room-tag">// STAGE</div>
+      <h3>The DJ Floor</h3>
+      <p>A real stage. A real booth. Real bass. Dinner service does not stop when the music starts — it gets louder. Wednesdays through Sundays, the kitchen plates to the beat.</p>
+    </div>
+    <div class="room room-3">
+      <div class="room-num">03</div>
+      <div class="room-tag">// TRAIN YARD</div>
+      <h3>The Boxcars</h3>
+      <p>Two full-size train cars dropped into the back of the building. Booths inside. Graffiti walls outside. The boxcar doors slide open onto the forest. Best private dining in the city or you eat free.</p>
+    </div>
+    <div class="room room-4">
+      <div class="room-num">04</div>
+      <div class="room-tag">// FOREST</div>
+      <h3>The Magical Forest</h3>
+      <p>Yes, an actual forest. Real trees. Fog. A canopy of lights. Cocktails out here at dusk feel like you snuck out of dinner and into a David Lynch movie. Reservations recommended after 8pm.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu-teaser" id="menu">
+  <div class="menu-inner">
+    <div class="eyebrow">// TASTE OF THE OPENING MENU</div>
+    <h2>Chef-driven. Ego-fueled.</h2>
+    <p class="subline">Brian Malarkey + Chef Carlos. Pacific Northwest with a chip on its shoulder.</p>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>The Malarkey</h4><span class="price">42</span></div>
+        <p>Dry-aged Oregon wagyu, smoked marrow butter, sourdough black pepper crust. The dish the place is named after. Eat it first.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>Tumalo Ranch Lamb</h4><span class="price">38</span></div>
+        <p>Lamb from the ranch Brian grew up on in Central Oregon. Charred over juniper. Served with smoked stone-fruit jam and a hard look at his teenage self.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>D.B. Cooper Old Fashioned</h4><span class="price">16</span></div>
+        <p>Smoked rye, parachute-grade bitters, a single ice cube the size of a flight log. Garnished with a hundred-dollar bill (chocolate).</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>Long-Time Romaine</h4><span class="price">18</span></div>
+        <p>Whole charred heart of romaine, cured anchovy, brown butter parmesan crumb. Caesar's louder, meaner cousin.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>Boxcar Oysters</h4><span class="price">28</span></div>
+        <p>Half-dozen Oregon coast, mignonette three ways, served on a length of railroad iron. Yes, really.</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><h4>Forest Floor</h4><span class="price">22</span></div>
+        <p>Wild mushrooms foraged forty miles east of here, smoked yolk, charred bread. Dessert in the back room is on the house if you finish it.</p>
+      </div>
+    </div>
+    <div class="menu-foot">
+      <p>Full menu drops opening week. Tasting flights at the bar.</p>
+      <a href="#reserve" class="btn-dark">Reserve a Table →</a>
+    </div>
+  </div>
+</section>
+
+<section class="portland-wall" id="portland">
+  <div class="pw-inner">
+    <div class="eyebrow">// THE WALL OF LOCAL LEGENDS</div>
+    <h2>The whole back wall is portraits. <em>You'll recognize them.</em></h2>
+    <div class="portrait-grid">
+      <div class="portrait">
+        <div class="portrait-frame">T.H.</div>
+        <h4>Tonya Harding</h4>
+        <p>Figure skater. Folk hero. Cleveland Ave.</p>
+      </div>
+      <div class="portrait">
+        <div class="portrait-frame">D.B.</div>
+        <h4>D.B. Cooper</h4>
+        <p>Hijacker. Ghost. PDX → wherever.</p>
+      </div>
+      <div class="portrait">
+        <div class="portrait-frame">M.M.</div>
+        <h4>Matt Groening</h4>
+        <p>Cartoonist. Made The Simpsons. Made Portland.</p>
+      </div>
+      <div class="portrait">
+        <div class="portrait-frame">B.M.</div>
+        <h4>Bud Clark</h4>
+        <p>Former mayor. Flashed a statue. Won the city's heart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reservation" id="reserve">
+  <div class="eyebrow">// WE OPEN IN OCTOBER</div>
+  <h2>Get on the list <em>before</em> the city does.</h2>
+  <p>Pre-reservations open July 1. Limited soft-opening seats end of September. After that, we expect to be booked solid through New Year's. Don't say we didn't warn you.</p>
+  <div class="res-buttons">
+    <a href="#" class="btn-primary">Reserve a Table</a>
+    <a href="#" class="btn-ghost">Join the List</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo">MALARKEY<span>.</span>PDX</div>
+      <p>11,000 square feet of swagger.<br/>Southeast Portland, Oregon.</p>
+      <p class="foot-tag">Eat loud. Drink louder.</p>
+    </div>
+    <div>
+      <h5>Visit</h5>
+      <a href="#">Address (TBD)</a>
+      <a href="#">Parking & Transit</a>
+      <a href="#">Hours</a>
+      <a href="#">Accessibility</a>
+    </div>
+    <div>
+      <h5>The Place</h5>
+      <a href="#">The Rooms</a>
+      <a href="#">The Menu</a>
+      <a href="#">Private Events</a>
+      <a href="#">Buy Out the Boxcars</a>
+    </div>
+    <div>
+      <h5>Talk to Us</h5>
+      <a href="#">hello@malarkeypdx.com</a>
+      <a href="#">Press & Bookings</a>
+      <a href="#">@malarkeypdx</a>
+      <a href="#">Work in the Kitchen</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 MALARKEY PDX. ALL RIGHTS, NONE OF YOUR APOLOGIES.</span>
+    <span>BUILT IN PORTLAND. STILL WEIRD.</span>
+  </div>
+</footer>
+
+</body>
+</html>
