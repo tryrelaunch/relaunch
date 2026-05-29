@@ -155,16 +155,17 @@ h1.hero-title .line2 {
 }
 .hero-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255,255,255,0.1);
-  max-width: 520px;
+  max-width: 640px;
 }
-.hero-stats .stat-wide { grid-column: 1 / -1; text-align: center; padding-top: 0.5rem; border-top: 1px dashed rgba(255,255,255,0.08); }
 .hero-stats > div { min-width: 0; }
-@media (max-width: 768px) {
-  .hero-stats { gap: 1.5rem 1rem; }
+@media (max-width: 480px) {
+  .hero-stats { gap: 0.75rem; }
+  .hero-stats .stat-num { font-size: 1.75rem; }
+  .hero-stats .stat-label { font-size: 0.6rem; letter-spacing: 0.15em; }
 }
 .stat-num {
   font-family: 'Anton', sans-serif;
@@ -727,7 +728,7 @@ footer {
     <div class="hero-stats">
       <div><span class="stat-num">11,000</span><span class="stat-label">sq/ft</span></div>
       <div><span class="stat-num">4</span><span class="stat-label">Vibes</span></div>
-      <div class="stat-wide"><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
+      <div><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
     </div>
   </div>
 </section>
