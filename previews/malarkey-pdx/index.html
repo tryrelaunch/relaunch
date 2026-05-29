@@ -168,33 +168,37 @@ h1.hero-title .line2 {
   margin-top: 0.4rem;
 }
 
-/* MARQUEE */
+/* MARQUEE — auto-advance + draggable */
 .marquee {
   background: var(--rust);
   color: var(--concrete);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 1.2rem 0;
   border-top: 2px solid var(--concrete);
   border-bottom: 2px solid var(--concrete);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
 }
+.marquee::-webkit-scrollbar { display: none; }
+.marquee.dragging { cursor: grabbing; }
 .marquee-track {
-  display: flex;
+  display: inline-flex;
   white-space: nowrap;
-  animation: scroll 25s linear infinite;
   font-family: 'Anton', sans-serif;
   font-size: 1.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  will-change: transform;
 }
-.marquee-track span { padding: 0 2rem; }
+.marquee-track span { padding: 0 2rem; pointer-events: none; }
 .marquee-track span::after { content: '✦'; margin-left: 4rem; color: var(--concrete); }
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
 
 @media (max-width: 768px) {
-  .marquee-track { animation-duration: 10s; font-size: 1.3rem; }
+  .marquee-track { font-size: 1.3rem; }
   .marquee-track span { padding: 0 1.2rem; }
   .marquee-track span::after { margin-left: 2rem; }
 }
@@ -852,5 +856,55 @@ footer {
   </div>
 </footer>
 
+
+<script>
+(function(){
+  var marq = document.querySelector('.marquee');
+  var track = marq && marq.querySelector('.marquee-track');
+  if (!marq || !track) return;
+
+  // Duplicate the inner spans so the loop is seamless even with wider screens
+  track.innerHTML = track.innerHTML + track.innerHTML;
+
+  var speed = 0.6; // px per frame (desktop)
+  var mq = window.matchMedia('(max-width: 768px)');
+  function getSpeed(){ return mq.matches ? 1.6 : 0.6; }
+  var paused = false;
+  var lastInteraction = 0;
+  var resumeDelay = 1200; // ms after user lets go
+
+  function tick(){
+    var half = track.scrollWidth / 2;
+    if (!paused && (Date.now() - lastInteraction) > resumeDelay) {
+      marq.scrollLeft += getSpeed();
+    }
+    if (marq.scrollLeft >= half) marq.scrollLeft -= half;
+    if (marq.scrollLeft < 0) marq.scrollLeft += half;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // Pause while user is touching / dragging / hovering
+  ['pointerdown','touchstart','wheel'].forEach(function(ev){
+    marq.addEventListener(ev, function(){ paused = true; lastInteraction = Date.now(); }, {passive:true});
+  });
+  ['pointerup','pointercancel','touchend','touchcancel','mouseleave'].forEach(function(ev){
+    marq.addEventListener(ev, function(){ paused = false; lastInteraction = Date.now(); }, {passive:true});
+  });
+  marq.addEventListener('scroll', function(){ lastInteraction = Date.now(); }, {passive:true});
+
+  // Mouse drag-to-scroll (touch already works natively via overflow-x: auto)
+  var isDown = false, startX = 0, startScroll = 0;
+  marq.addEventListener('mousedown', function(e){
+    isDown = true; marq.classList.add('dragging');
+    startX = e.pageX; startScroll = marq.scrollLeft;
+  });
+  window.addEventListener('mouseup', function(){ isDown = false; marq.classList.remove('dragging'); });
+  window.addEventListener('mousemove', function(e){
+    if (!isDown) return;
+    marq.scrollLeft = startScroll - (e.pageX - startX);
+  });
+})();
+</script>
 </body>
 </html>
