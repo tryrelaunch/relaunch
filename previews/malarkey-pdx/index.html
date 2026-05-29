@@ -193,6 +193,13 @@ h1.hero-title .line2 {
   to { transform: translateX(-50%); }
 }
 
+@media (max-width: 768px) {
+  .marquee-track { animation-duration: 10s; font-size: 1.3rem; }
+  .marquee-track span { padding: 0 1.2rem; }
+  .marquee-track span::after { margin-left: 2rem; }
+}
+
+
 /* MANIFESTO */
 .manifesto {
   padding: 8rem 2.5rem;
