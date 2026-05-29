@@ -266,11 +266,14 @@ h1.hero-title .line2 {
 .rooms-header h2 span { color: var(--rust); }
 .rooms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   max-width: 1600px;
   margin: 0 auto;
 }
+
+@media (max-width: 1400px) { .rooms-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .rooms-grid { grid-template-columns: 1fr; } }
 .room {
   padding: 4rem 3rem;
   position: relative;
