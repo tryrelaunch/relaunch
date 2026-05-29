@@ -92,11 +92,11 @@ nav {
 
 /* HERO */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  padding: 4rem 2.5rem 3rem;
+  align-items: flex-start;
+  padding: 6rem 2.5rem 3rem;
   background:
     linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%),
     repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 2px, #222 2px, #222 4px);
@@ -166,6 +166,35 @@ h1.hero-title .line2 {
   text-transform: uppercase;
   color: rgba(235,229,216,0.6);
   margin-top: 0.4rem;
+}
+
+.hero-video {
+  margin: 2.5rem 0 2.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 3px solid var(--rust);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(217,74,26,0.3);
+  overflow: hidden;
+}
+.hero-video iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.hero-video-tag {
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--acid);
+  color: var(--concrete);
+  font-family: 'Special Elite', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  padding: 4px 12px;
+  z-index: 2;
+  text-transform: uppercase;
 }
 
 /* MARQUEE — auto-advance + draggable */
@@ -679,6 +708,10 @@ footer {
       <span class="line2">DRINK LOUDER.</span>
     </h1>
     <p class="hero-sub">11,000 square feet of Portland on a plate. A dining room, a dive bar, a forest, and a train. All of it under one roof. None of it apologizing.</p>
+    <div class="hero-video">
+      <span class="hero-video-tag">// WATCH BRIAN BUILD IT</span>
+      <iframe src="https://www.youtube.com/embed/JnBEP7b-wps?start=5&rel=0" title="Malarkey PDX" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
     <div class="hero-stats">
       <div><span class="stat-num">11K</span><span class="stat-label">Square Feet</span></div>
       <div><span class="stat-num">4</span><span class="stat-label">Rooms / One Night</span></div>
