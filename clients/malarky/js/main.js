@@ -21,29 +21,47 @@ document.querySelectorAll('.mobile-accordion-trigger').forEach(btn => {
   });
 });
 
-// Desktop Charter Types dropdown — click toggle (hover handled by CSS)
+// Desktop Charter Types dropdown — click toggle + hover with grace period
+// Hover open/close is JS-driven (not pure CSS) so we can hold the menu open
+// for ~250ms after the cursor leaves. Without that delay, fast/diagonal cursor
+// movement across the gap between trigger and menu closes the dropdown before
+// the cursor can reach the menu items.
+const DROPDOWN_CLOSE_DELAY = 250;
+
+function openDropdown(dd) {
+  dd.setAttribute('data-open', 'true');
+  const t = dd.querySelector('.nav-dropdown-trigger');
+  if (t) t.setAttribute('aria-expanded', 'true');
+}
+function closeDropdown(dd) {
+  dd.setAttribute('data-open', 'false');
+  const t = dd.querySelector('.nav-dropdown-trigger');
+  if (t) t.setAttribute('aria-expanded', 'false');
+}
+
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  let closeTimer = null;
+  dd.addEventListener('mouseenter', () => {
+    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+    openDropdown(dd);
+  });
+  dd.addEventListener('mouseleave', () => {
+    if (closeTimer) clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => closeDropdown(dd), DROPDOWN_CLOSE_DELAY);
+  });
+});
+
 document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const dd = btn.closest('.nav-dropdown');
     const isOpen = dd.getAttribute('data-open') === 'true';
-    document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => {
-      d.setAttribute('data-open', 'false');
-      const t = d.querySelector('.nav-dropdown-trigger');
-      if (t) t.setAttribute('aria-expanded', 'false');
-    });
-    if (!isOpen) {
-      dd.setAttribute('data-open', 'true');
-      btn.setAttribute('aria-expanded', 'true');
-    }
+    document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => closeDropdown(d));
+    if (!isOpen) openDropdown(dd);
   });
 });
 document.addEventListener('click', () => {
-  document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => {
-    d.setAttribute('data-open', 'false');
-    const t = d.querySelector('.nav-dropdown-trigger');
-    if (t) t.setAttribute('aria-expanded', 'false');
-  });
+  document.querySelectorAll('.nav-dropdown[data-open="true"]').forEach(d => closeDropdown(d));
 });
 
 // FAQ accordion
