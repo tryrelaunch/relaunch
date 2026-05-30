@@ -971,6 +971,9 @@ nav {
 .gallery-arrow:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 .gallery-prev { left: max(8px, calc(50vw - 680px)); }
 .gallery-next { right: max(8px, calc(50vw - 680px)); }
+/* Mini-galleries (embedded inside narrower section containers) use container-relative arrow positions instead of viewport-relative */
+.gallery-mini .gallery-prev { left: 8px; }
+.gallery-mini .gallery-next { right: 8px; }
 .gallery-dots {
   display: flex; justify-content: center; gap: 10px;
   margin-top: var(--s-5);
