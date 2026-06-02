@@ -872,12 +872,13 @@ nav {
   list-style: none;
   padding: 0;
   margin: var(--s-4) auto var(--s-5);
+  max-width: 640px;
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 14px 56px;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 40px;
 }
 .list-brass li {
+  justify-self: start;
   display: flex;
   align-items: flex-start;
   gap: 14px;
@@ -896,7 +897,7 @@ nav {
 }
 .list-brass li strong { color: var(--ink); }
 @media (max-width: 640px) {
-  .list-brass { grid-template-columns: max-content; gap: 12px; }
+  .list-brass { grid-template-columns: 1fr; gap: 12px; max-width: 360px; }
 }
 
 /* ── HOMEPAGE — OCCASIONS GRID ── */
