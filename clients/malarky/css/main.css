@@ -867,6 +867,32 @@ nav {
 .prose-wide a { color: var(--teal-deep); border-bottom: 1px solid var(--teal-deep); }
 .prose-wide strong { color: var(--ink); }
 
+/* ── CLASSY BRASS BULLET LIST ── echoes the kicker's brass dash */
+.list-brass {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-4) 0 var(--s-5);
+  display: grid;
+  gap: 14px;
+}
+.list-brass li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: clamp(16px, 1.2vw, 17px);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.list-brass li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 22px; height: 1px;
+  background: var(--brass);
+  margin-top: 14px;
+  display: inline-block;
+}
+.list-brass li strong { color: var(--ink); }
+
 /* ── HOMEPAGE — OCCASIONS GRID ── */
 .occasions-grid {
   max-width: 1280px; margin: 0 auto;
