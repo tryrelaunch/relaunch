@@ -867,6 +867,27 @@ nav {
 .prose-wide a { color: var(--teal-deep); border-bottom: 1px solid var(--teal-deep); }
 .prose-wide strong { color: var(--ink); }
 
+/* ── PROSE IMAGE PAIR ── always 2 images side-by-side with brass border */
+.image-pair {
+  max-width: 880px;
+  margin: var(--s-6) auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+.image-pair img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--brass);
+  display: block;
+  box-shadow: 0 4px 18px rgba(14, 42, 54, 0.08);
+}
+@media (max-width: 640px) {
+  .image-pair { grid-template-columns: 1fr; gap: var(--s-3); }
+}
+
 /* ── CLASSY BRASS BULLET LIST ── echoes the kicker's brass dash */
 .list-brass {
   list-style: none;
