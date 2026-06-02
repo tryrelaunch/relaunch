@@ -26,7 +26,7 @@ document.querySelectorAll('.mobile-accordion-trigger').forEach(btn => {
 // for ~250ms after the cursor leaves. Without that delay, fast/diagonal cursor
 // movement across the gap between trigger and menu closes the dropdown before
 // the cursor can reach the menu items.
-const DROPDOWN_CLOSE_DELAY = 250;
+const DROPDOWN_CLOSE_DELAY = 500;
 
 function openDropdown(dd) {
   dd.setAttribute('data-open', 'true');
