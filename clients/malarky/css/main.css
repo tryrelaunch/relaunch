@@ -906,6 +906,11 @@ nav {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: var(--s-7) var(--s-6);
 }
+/* 4-card grids balance to 2x2 instead of orphan 3+1 */
+.occasions-grid:has(> .occasion-card:nth-child(4):last-child) {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 960px;
+}
 .occasion-card { display: flex; flex-direction: column; gap: 10px; }
 .occasion-card h3 {
   font-family: var(--ff-display);
