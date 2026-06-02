@@ -333,7 +333,7 @@ nav {
 .breadcrumb-sep { opacity: 0.4; }
 
 /* ── SECTION SCAFFOLDING ── */
-.sec { padding: var(--s-10) 32px; }
+.sec { padding: var(--s-9) 32px; }
 .sec-narrow { max-width: 1080px; margin: 0 auto; }
 .sec-wide { max-width: 1280px; margin: 0 auto; }
 
@@ -864,17 +864,21 @@ nav {
 }
 .prose-wide p { margin-bottom: var(--s-5); }
 .prose-wide p:last-child { margin-bottom: 0; }
+.prose-wide > *:last-child { margin-bottom: 0; }
+.prose-wide > *:first-child { margin-top: 0; }
 .prose-wide a { color: var(--teal-deep); border-bottom: 1px solid var(--teal-deep); }
 .prose-wide strong { color: var(--ink); }
 
 /* ── PROSE IMAGE PAIR ── always 2 images side-by-side with brass border */
 .image-pair {
   max-width: 880px;
-  margin: var(--s-6) auto;
+  margin: var(--s-5) auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--s-4);
 }
+.image-pair:last-child { margin-bottom: 0; }
+.image-pair:first-child { margin-top: 0; }
 .image-pair img {
   width: 100%;
   aspect-ratio: 4 / 3;
