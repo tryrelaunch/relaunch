@@ -871,27 +871,35 @@ nav {
 .list-brass {
   list-style: none;
   padding: 0;
-  margin: var(--s-4) 0 var(--s-5);
+  margin: var(--s-4) auto var(--s-5);
+  max-width: 720px;
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 32px;
+  justify-content: center;
 }
 .list-brass li {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  font-size: clamp(16px, 1.2vw, 17px);
-  line-height: 1.6;
+  justify-content: center;
+  gap: 14px;
+  font-size: clamp(15px, 1.15vw, 16px);
+  line-height: 1.5;
   color: var(--ink-2);
+  text-align: left;
 }
 .list-brass li::before {
   content: '';
   flex-shrink: 0;
-  width: 22px; height: 1px;
+  width: 18px; height: 1px;
   background: var(--brass);
-  margin-top: 14px;
+  margin-top: 12px;
   display: inline-block;
 }
 .list-brass li strong { color: var(--ink); }
+@media (max-width: 640px) {
+  .list-brass { grid-template-columns: 1fr; gap: 12px; }
+}
 
 /* ── HOMEPAGE — OCCASIONS GRID ── */
 .occasions-grid {
