@@ -902,10 +902,11 @@ nav {
   gap: 14px 40px;
 }
 .list-brass li {
-  justify-self: start;
-  display: flex;
-  align-items: flex-start;
+  justify-self: stretch;
+  display: grid;
+  grid-template-columns: 18px 1fr;
   gap: 14px;
+  align-items: start;
   font-size: clamp(15px, 1.15vw, 16px);
   line-height: 1.5;
   color: var(--ink-2);
@@ -913,11 +914,11 @@ nav {
 }
 .list-brass li::before {
   content: '';
-  flex-shrink: 0;
-  width: 18px; height: 1px;
+  width: 18px;
+  height: 1px;
   background: var(--brass);
   margin-top: 12px;
-  display: inline-block;
+  display: block;
 }
 .list-brass li strong { color: var(--ink); }
 @media (max-width: 640px) {
