@@ -961,7 +961,7 @@ footer {
     <p class="lede" id="edit-hero-lede">Daily dolphin sightseeing, BYOB sunset cruises, private charters, and seasonal Nights of Lights tours aboard the Pellicano, our Coast Guard–certified 50-foot pontoon. We board at the Vilano Beach pier and cruise the calm water of the Intracoastal and Matanzas Bay. Family friendly, and always BYOB.</p>
     <div class="hero-ctas">
       <button class="btn-primary" onclick="openBookModal()">Book a Tour →</button>
-      <a href="tel:9044363566" class="btn-secondary">📞 904-436-3566</a>
+      <a href="tel:9044363566" class="btn-secondary" id="edit-hero-phone">📞 904-436-3566</a>
     </div>
     <div class="hero-stats">
       <div class="hs-item">
@@ -1095,7 +1095,7 @@ footer {
           <div class="fc-meta-item"><strong>Any</strong> occasion</div>
           <div class="fc-meta-item"><strong>Call</strong> for pricing</div>
         </div>
-        <div class="fc-book">Call 904-436-3566 →</div>
+        <div class="fc-book" id="edit-tour-3-cta">Call 904-436-3566 →</div>
       </a>
       <a class="fleet-card" onclick="openBookModal();return false;" href="#" aria-label="Book the Nights of Lights Tour">
         <div class="fc-num">SEASONAL · HOLIDAYS</div>
@@ -1109,7 +1109,7 @@ footer {
       </a>
     </div>
 
-    <div class="fleet-note">
+    <div class="fleet-note" id="edit-fleet-note">
       <strong>Every cruise is BYOB.</strong> Bring your own drinks and snacks. Children of all ages are welcome, and every passenger needs a paid ticket. Questions? Call Captain Tony at 904-436-3566.
     </div>
   </div>
@@ -1226,7 +1226,7 @@ footer {
       <h2 class="sec-title" id="edit-book-title">Pick a tour. Pick a day. Get on the water.</h2>
       <p class="sec-lede" id="edit-book-lede">Live availability through FareHarbor, right here on the page. If your dates are tight, call Captain Tony and we will work it out.</p>
       <button class="btn-primary" onclick="openBookModal()">Check Availability →</button>
-      <span class="booking-phone">Or call Captain Tony: <a href="tel:9044363566">904-436-3566</a></span>
+      <span class="booking-phone">Or call Captain Tony: <a href="tel:9044363566" id="edit-book-phone">904-436-3566</a></span>
     </div>
   </div>
 </section>
@@ -1286,7 +1286,7 @@ footer {
       <h3>Book a tour</h3>
       <a href="#fleet">The tours</a>
       <button onclick="openBookModal()">Book online</button>
-      <a href="tel:9044363566">904-436-3566</a>
+      <a href="tel:9044363566" id="edit-foot-phone">904-436-3566</a>
     </div>
     <div class="foot-col">
       <h3>The tours</h3>
@@ -1478,6 +1478,28 @@ function addMessage(text, type) {
   messages.scrollTop = messages.scrollHeight;
   return msg;
 }
+// ── Editor v2 (Phase 0, preview): runtime tagging ──
+// Assigns an edit handle to every customer-facing TEXT LEAF on demand, so the
+// editor can change anything without the page being pre-tagged. Leaf-only
+// (no element children) so setting textContent never destroys nested markup.
+// Public HTML stays clean — ids only exist after the editor is opened.
+let _autoTagged = false;
+function tagEditable() {
+  if (_autoTagged) return;
+  const SKIP_TAGS = new Set(['SCRIPT','STYLE','NOSCRIPT','SVG','TEXTAREA','BUTTON']);
+  const SKIP_SEL = '.seo-banner,.sticky-bar,.edit-fab,.edit-panel,.book-modal';
+  let n = 0;
+  document.querySelectorAll('main *, nav *, footer *').forEach(el => {
+    if (el.id && el.id.indexOf('edit-') === 0) return;       // already editable
+    if (SKIP_TAGS.has(el.tagName)) return;
+    if (el.children.length > 0) return;                       // leaf only
+    if (el.closest(SKIP_SEL)) return;                         // never the Boatr chrome
+    if (el.hasAttribute('data-noedit')) return;
+    if (!el.textContent.trim()) return;                       // must own real text
+    el.id = 'edit-auto-' + (n++);
+  });
+  _autoTagged = true;
+}
 async function sendEdit() {
   if (isLoading) return;
   const input = document.getElementById('edit-input');
@@ -1493,6 +1515,7 @@ async function sendEdit() {
   document.getElementById('edit-send').disabled = true;
   document.getElementById('edit-typing').classList.add('show');
 
+  tagEditable();
   const content = {};
   document.querySelectorAll('[id^="edit-"]').forEach(el => {
     content[el.id] = el.textContent.trim();
@@ -1519,23 +1542,25 @@ async function sendEdit() {
               : Array.isArray(data.changes) ? data.changes.map(c => ({ op: 'replace_text', id: c.id, text: c.text }))
               : [];
 
-    if (ops.length > 0) {
-      ops.forEach(op => {
-        const el = document.getElementById(op.id);
-        if (!el) return;
-        if (op.op === 'replace_text' && typeof op.text === 'string') {
-          el.textContent = op.text;
-        } else if (op.op === 'set_style' && typeof op.style === 'string') {
-          el.style.cssText = (el.style.cssText ? el.style.cssText + ';' : '') + op.style;
-        } else if (op.op === 'set_attr' && op.attr && typeof op.value === 'string') {
-          if (['src','href','alt','title','aria-label','placeholder'].includes(op.attr)) {
-            el.setAttribute(op.attr, op.value);
-          }
+    let applied = 0;
+    ops.forEach(op => {
+      const el = document.getElementById(op.id);
+      if (!el) return;
+      if (op.op === 'replace_text' && typeof op.text === 'string') {
+        el.textContent = op.text; applied++;
+      } else if (op.op === 'set_style' && typeof op.style === 'string') {
+        el.style.cssText = (el.style.cssText ? el.style.cssText + ';' : '') + op.style; applied++;
+      } else if (op.op === 'set_attr' && op.attr && typeof op.value === 'string') {
+        if (['src','href','alt','title','aria-label','placeholder'].includes(op.attr)) {
+          el.setAttribute(op.attr, op.value); applied++;
         }
-      });
-      addMessage(data.confirmation || 'Done! Change applied.', 'system');
+      }
+    });
+    // Truthful confirmation: only claim success when something actually changed.
+    if (applied > 0) {
+      addMessage(data.confirmation || ('Done. Updated ' + applied + (applied === 1 ? ' spot' : ' spots') + ' on the page.'), 'system');
     } else {
-      addMessage("I couldn't figure out what to change. Try being more specific.", 'claude');
+      addMessage("I couldn't find that on the page to change. Try naming the exact text you want updated.", 'claude');
     }
   } catch (err) {
     document.getElementById('edit-typing').classList.remove('show');
