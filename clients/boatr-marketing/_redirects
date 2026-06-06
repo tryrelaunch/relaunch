@@ -4,13 +4,6 @@
 
 # Common Disco Boat typo URLs — redirect to the canonical slug + trailing slash
 
-# Red Boat Tours preview — force trailing slash so relative asset paths resolve
-/preview/redboattours                                            /preview/redboattours/   301
-/preview/redboattours/tours                                      /preview/redboattours/tours/   301
-/preview/redboattours/dolphin-odyssey-sightseeing-tour           /preview/redboattours/dolphin-odyssey-sightseeing-tour/   301
-/preview/redboattours/sunset-byob-cruise                         /preview/redboattours/sunset-byob-cruise/   301
-/preview/redboattours/private-cruise                             /preview/redboattours/private-cruise/   301
-/preview/redboattours/st-augustine-nights-of-lights-boat-tours   /preview/redboattours/st-augustine-nights-of-lights-boat-tours/   301
 
 # so relative image paths resolve correctly. Listed BEFORE the generic /preview/*
 # rewrite so they fire first.
@@ -19,13 +12,6 @@
 /preview/discoboatrentals.com   /preview/disco-boat-rental/   301
 /preview/discoboatrentals.com/  /preview/disco-boat-rental/   301
 
-# Force trailing slash on canonical Disco Boat URLs (relative img paths break without it)
-/preview/disco-boat-rental                                       /preview/disco-boat-rental/   301
-/preview/disco-boat-rental/the-boat                              /preview/disco-boat-rental/the-boat/   301
-/preview/disco-boat-rental/bachelorette-party-boat-san-diego     /preview/disco-boat-rental/bachelorette-party-boat-san-diego/   301
-/preview/disco-boat-rental/articles                              /preview/disco-boat-rental/articles/   301
-/preview/disco-boat-rental/disco-party-planning-guide            /preview/disco-boat-rental/disco-party-planning-guide/   301
-/preview/disco-boat-rental/boat-rental-mission-bay               /preview/disco-boat-rental/boat-rental-mission-bay/   301
 
 /preview/*   /previews/:splat   200!
 
