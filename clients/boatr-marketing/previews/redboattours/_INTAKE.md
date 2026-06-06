@@ -24,8 +24,8 @@ Source site: https://redboattours.com (WordPress + Elementor 4.1.1)
 
 ## Brand identity (extracted from current site)
 
-- Palette: Red `#C8102E` (logo red) on deep navy `#0a2540`, cream/sand neutrals. Applied to the template's `--b-orange` accent.
-- Typography: template default retained (Archivo headings / Manrope body).
+- **See `_BRAND.md` (source of truth, measured 2026-06-06):** Boat Red `#FF000C`, Hull Red `#C2262E`, Splash Blue `#25AAE1`, deep-ocean darks derived from the splash blue, Sunny Gold `#D9A93F`, warm sand/cream neutrals.
+- Typography: `Baloo 2` headings / `Nunito` body — closest Google-Font match to the hand-drawn logo lettering (per `_BRAND.md`; flag for Nate's approval).
 - Imagery: 23 real photos pulled from redboattours.com (dolphins, sunset, Nights of Lights, the Pellicano, the family). No AI or stock imagery.
 
 ## Audit used in the SEO banner (verified only)
