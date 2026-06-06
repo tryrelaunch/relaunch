@@ -56,7 +56,7 @@ You may change: the `[customerdomain]` reference and the prospect-name query str
 
 ### 1.3 The AI editor widget (floating, bottom-right)
 - Search for `class="edit-fab"` and `class="edit-panel"`.
-- The floating "Edit this site" pill button with the animated dot is frozen. It renders in the platform-brand chrome variables (`--b-dark` background, `--b-orange` dot/hover border — matching boatrmarketing.com's dark/orange), not the prospect palette.
+- The floating pill button with the animated dot is frozen. On previews it's labeled **"Try the AI editor!"** and renders big and loud in the accent chrome (`--b-orange` background, white ring, gentle pulse) — it's the demo's main attraction, it must not be subtle. On promotion to a paying client the label swaps to "Edit this site" (owner tool, not a demo invite).
 - The chat-panel UI (welcome message, suggestion chips, typing indicator, textarea, send button) is frozen.
 - The `toggleEditPanel()`, `addMessage()`, `useChip()`, `handleKey()`, `autoResize()`, `sendEdit()` JS functions are frozen.
 - The endpoint is `/.netlify/functions/edit` (preview phase only). When this preview is promoted to a live customer, the endpoint becomes `/.netlify/functions/edit-persistent` — that's the only widget change post-payment.
@@ -219,6 +219,7 @@ Every preview → live customer journey follows this sequence. Do not deviate.
    c. STRIP the sticky-claim-bar from clients/[slug]/index.html
    d. STRIP the "Site rebuilt by [Brand]" footer line from clients/[slug]/index.html
    e. SWAP widget endpoint from /.netlify/functions/edit → /.netlify/functions/edit-persistent
+   e2. SWAP the fab label "Try the AI editor!" → "Edit this site"
    f. Create clients/[slug]/edit/ subfolder (PIN gate — see RELAUNCH_OPERATIONS §6)
    g. Generate 6-digit PIN, bcrypt-hash, write to config/clients/[slug].json
    h. Send customer welcome email with PIN + DNS instructions

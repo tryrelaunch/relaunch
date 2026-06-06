@@ -709,15 +709,17 @@ footer {
 /* ── EDIT WIDGET ────────── */
 .edit-fab {
   position: fixed; bottom: 24px; right: 24px; z-index: 998;
-  background: var(--b-dark); color: white;
-  padding: 12px 18px; border-radius: 999px;
+  background: var(--b-orange); color: white;
+  padding: 16px 26px; border-radius: 999px;
   display: flex; align-items: center; gap: 10px;
-  font-family: var(--fh); font-size: 13px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; border: 1px solid rgba(254,141,1,0.45);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.32);
+  font-family: var(--fh); font-size: 16px; font-weight: 800;
+  letter-spacing: 0.04em; cursor: pointer; border: 2px solid rgba(255,255,255,0.85);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.38);
   transition: all 0.25s;
+  animation: fabPulse 2.2s ease-in-out infinite;
 }
-.edit-fab:hover { background: var(--b-dark-2); transform: translateY(-2px); border-color: var(--b-orange); }
+@keyframes fabPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.edit-fab:hover { background: var(--b-orange-d); transform: scale(1.1); animation-play-state: paused; }
 .edit-fab-dot {
   width: 8px; height: 8px; background: var(--b-orange); border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
@@ -1400,9 +1402,9 @@ footer {
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  EDIT WIDGET                             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Edit this site">
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Try the AI editor!">
   <div class="edit-fab-dot"></div>
-  Edit this site
+  Try the AI editor!
 </button>
 
 <div class="edit-panel" id="edit-panel">
