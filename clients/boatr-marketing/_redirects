@@ -3,6 +3,15 @@
 # serves content from /previews/...
 
 # Common Disco Boat typo URLs — redirect to the canonical slug + trailing slash
+
+# Red Boat Tours preview — force trailing slash so relative asset paths resolve
+/preview/redboattours                                            /preview/redboattours/   301
+/preview/redboattours/tours                                      /preview/redboattours/tours/   301
+/preview/redboattours/dolphin-odyssey-sightseeing-tour           /preview/redboattours/dolphin-odyssey-sightseeing-tour/   301
+/preview/redboattours/sunset-byob-cruise                         /preview/redboattours/sunset-byob-cruise/   301
+/preview/redboattours/private-cruise                             /preview/redboattours/private-cruise/   301
+/preview/redboattours/st-augustine-nights-of-lights-boat-tours   /preview/redboattours/st-augustine-nights-of-lights-boat-tours/   301
+
 # so relative image paths resolve correctly. Listed BEFORE the generic /preview/*
 # rewrite so they fire first.
 /preview/discoboatrental.com    /preview/disco-boat-rental/   301
