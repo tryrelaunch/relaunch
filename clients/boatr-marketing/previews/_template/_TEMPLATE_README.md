@@ -56,12 +56,18 @@ You may change: the `[customerdomain]` reference and the prospect-name query str
 
 ### 1.3 The AI editor widget (floating, bottom-right)
 - Search for `class="edit-fab"` and `class="edit-panel"`.
-- The floating green pill button "Edit this site" with the animated dot is frozen.
+- The floating "Edit this site" pill button with the animated dot is frozen. It renders in the platform-brand chrome variables (`--b-dark` background, `--b-orange` dot/hover border — matching boatrmarketing.com's dark/orange), not the prospect palette.
 - The chat-panel UI (welcome message, suggestion chips, typing indicator, textarea, send button) is frozen.
 - The `toggleEditPanel()`, `addMessage()`, `useChip()`, `handleKey()`, `autoResize()`, `sendEdit()` JS functions are frozen.
 - The endpoint is `/.netlify/functions/edit` (preview phase only). When this preview is promoted to a live customer, the endpoint becomes `/.netlify/functions/edit-persistent` — that's the only widget change post-payment.
 
-You may change: the welcome message copy and the four suggestion chip examples (tailor them to the prospect's actual content — "Change [their menu item] to $20" etc.). Not the structure or widget classes.
+You may change: the welcome message copy and the four suggestion chip examples. Not the structure or widget classes.
+
+**Chip-writing rules (every chip, every preview):**
+1. **Concrete from→to.** "Change the Dolphin Odyssey price to $45 per guest" — never "Change the phone number" with no target value (the AI guesses, the demo flops).
+2. **Instantly visible on THAT page.** The prospect must see the change without hunting. Page-specific chips on subpages (a Nights of Lights page gets Nights of Lights chips).
+3. **Each chip demos a different power:** a price/fact change, a headline rewrite, a propagate-everywhere change ("update the phone number ... everywhere"), and a tone rewrite ("make this page sound more upscale").
+4. **Never suggest what the widget can't do.** No "add a section/line about X" — the widget edits existing text only, and a failed chip kills the demo.
 
 ### 1.4 The footer
 - Search for `<footer>`.
@@ -88,6 +94,8 @@ Everything else is fair game. Specifically:
 ---
 
 ## 3. BRAND IDENTITY EXTRACTION — pull from the prospect's site FIRST
+
+> **HARD RULE: produce `_BRAND.md` in the preview folder BEFORE the content swap** — measured hexes (dominant pixels from their logo/graphics, extracted programmatically), typography matches, imagery feel, one-sentence vibe. Every CSS variable derives from `_BRAND.md`. A preview that ships in the template default or another client's palette is a failed build (see Red Boat, 2026-06-06: accent swapped, page still Alligator Reef navy/teal).
 
 **The principle:** we are not reinventing this business. We are rebuilding their site **better, faster, and SEO-stronger** while keeping the brand identity their customers already recognize. The template ships with placeholder marine colors and a default font stack — that is **not** what the prospect's preview should ship with.
 
@@ -168,7 +176,7 @@ Everything else is identical. Same banner structure, same sticky bar, same widge
 Before this preview ships, verify:
 
 - [ ] **MOBILE HAMBURGER WORKS.** Open the preview on a real phone (not desktop responsive view). Tap the hamburger icon. Menu should slide open and links should be tappable. If the icon does nothing or the menu doesn't appear, the nav toggle JS or media-query CSS got dropped during build. Diff against the template and restore.
-- [ ] **PALETTE + TYPOGRAPHY MATCH THE PROSPECT'S CURRENT SITE.** Open the prospect's live site and the preview side by side. The colors and fonts should feel like the same brand, not the marine/teal template default. If they match the template default, you skipped Section 3 — go back and extract.
+- [ ] **PALETTE + TYPOGRAPHY MATCH THE PROSPECT'S CURRENT SITE — verified against the preview's `_BRAND.md`.** If `_BRAND.md` doesn't exist, the build isn't done. Open the prospect's live site and the preview side by side; the colors and fonts should feel like the same brand, not the marine/teal template default, and not any other client's palette. Sweep for hardcoded `rgba()` values too — variables aren't the only place colors live.
 - [ ] `<meta name="robots" content="noindex,nofollow">` is **REMOVED** before production launch (it's in the template so the staging URL doesn't pollute search; remove it the moment this goes live for a real prospect)
 - [ ] `<title>`, meta description, canonical URL match the prospect
 - [ ] SEO banner greeting has the prospect's real owner name(s) + their actual credential (review count, longevity, award)
@@ -182,6 +190,12 @@ Before this preview ships, verify:
 - [ ] No `305-990-5207` (Alligator Reef phone) anywhere
 - [ ] All images replaced with prospect's images
 - [ ] Schema markup updated with prospect's NAP + service types
+
+---
+
+- [ ] **FINAL CHECK 1 — images in every placeholder.** No empty `<img>`, no broken references. (`preflight.sh` verifies.)
+- [ ] **FINAL CHECK 2 — images properly sized and positioned.** Render every page and look: nothing stretched, badly cropped, or portrait in a landscape slot; files over 600KB optimized. (`preflight.sh` flags weight; the positioning eyeball is yours.)
+- [ ] **FINAL CHECK 3 — colors match the prospect's current branding.** Open their live site next to the preview: same brand at a glance. The measured `_BRAND.md` hexes must be in the CSS (`preflight.sh` verifies); the side-by-side is yours.
 
 ---
 
@@ -232,5 +246,4 @@ Three previous problems this fixes:
 
 ---
 
-*Save to: `clients/boatr-marketing/previews/_template/_TEMPLATE_README.md`*
-*Related: `brain/PREVIEW_TEMPLATE.md` (high-level overview), `brain/RELAUNCH_OPERATIONS.md` (platform mechanics)*
+*Save to: `clients
