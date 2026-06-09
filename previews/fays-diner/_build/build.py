@@ -373,8 +373,9 @@ def render_full_menu_html():
             if current_meal is not None:
                 out += "\n    </div>"  # close previous meal wrapper
             current_meal = meal
+            meal_slug = meal.lower()
             out += f'''
-    <div class="menu-meal">
+    <div class="menu-meal" id="meal-{meal_slug}">
       <div class="menu-meal-head">
         <h2>{meal}</h2>
         <p>{MEAL_BLURB.get(meal, "")}</p>
@@ -604,6 +605,10 @@ def main_index():
 
 
 def main_menu():
+    _meals = []
+    for _s in MENU:
+        if _s["meal"] not in _meals: _meals.append(_s["meal"])
+    meal_nav = '<nav class="menu-nav" aria-label="Menu sections">' + ''.join(f'<a href="#meal-{m.lower()}">{m}</a>' for m in _meals) + '</nav>'
     return f'''
 <section class="hero" style="min-height: 360px;">
   <div class="hero-bg-placeholder"></div>
@@ -624,6 +629,7 @@ def main_menu():
     <h2>Everything we make</h2>
     <p class="section-lede">Prices and availability can change with the season. For the freshest version, call <a href="tel:+18583972530">(858) 397-2530</a> or stop in. <span class="menu-item-flag veg" style="margin:0;">V</span> = vegetarian &nbsp; <span class="menu-item-flag gf" style="margin:0;">GF</span> = gluten-free.</p>
 
+    {meal_nav}
     {render_full_menu_html()}
 
     <div class="card" style="background: var(--fd-cream); border-color: var(--fd-sun); margin-top: 24px;">

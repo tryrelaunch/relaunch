@@ -411,6 +411,12 @@ p  { margin: 0 0 1em; }
 .gallery-nav.prev { left: -14px; }
 .gallery-nav.next { right: -14px; }
 
+/* ---- menu section quick-nav ---- */
+.menu-nav { position: sticky; top: 64px; z-index: 20; display: flex; flex-wrap: wrap; gap: 8px; background: var(--fd-cream-2); padding: 14px 0; margin: 0 0 28px; border-bottom: 1px solid var(--fd-line); }
+.menu-nav a { background: var(--fd-cream); border: 1px solid var(--fd-line); color: var(--fd-teal-3); padding: 8px 18px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.menu-nav a:hover { background: var(--fd-teal); color: #fff; border-color: var(--fd-teal); }
+.menu-meal { scroll-margin-top: 130px; }
+
 /* ---- responsive ---- */
 @media (max-width: 960px) {
   .dish-grid { grid-template-columns: repeat(2, 1fr); }
