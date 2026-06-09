@@ -133,10 +133,23 @@ nav.main-nav {
   letter-spacing: -0.01em;
   color: var(--ink);
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  line-height: 1.1;
+}
+.nav-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.nav-brand-text {
+  display: flex;
   flex-direction: column;
   line-height: 1.1;
 }
-.nav-brand-mark { font-size: 22px; font-weight: 700; }
+.nav-brand-mark { font-size: 19px; font-weight: 700; }
 .nav-brand-sub {
   font-family: var(--font-body);
   font-size: 10px;
@@ -951,6 +964,8 @@ footer {
   .info-row { grid-template-columns: 100px 1fr; gap: 16px; }
 }
 @media (max-width: 600px) {
+  .nav-brand-text { display: none; }
+  .nav-logo { height: 40px; }
   .top-strip .sep { display: none; }
   .top-strip { font-size: 11px; padding: 10px 16px; }
   .seo-top { padding: 10px 16px; }
@@ -1080,9 +1095,4 @@ footer {
 .edit-input:focus { border-color: #FE8D01; }
 .edit-send {
   background: #FE8D01; color: #0F172A; border: none;
-  border-radius: 8px; width: 40px; height: 40px;
-  cursor: pointer; font-size: 16px; flex-shrink: 0;
-  font-weight: 900; transition: background 0.2s;
-}
-.edit-send:hover { background: #EA7C00; }
-.edit-send:disabled { background: rgba(255, 255, 255, 0.1); cursor: not-allowed; }
+  border-radi

@@ -110,14 +110,18 @@
 <!-- NAV -->
 <nav class="main-nav">
   <a href="index.html" class="nav-brand">
-    <span class="nav-brand-mark">Hawkeye &amp; Huckleberry</span>
-    <span class="nav-brand-sub">A Modern Cowboy Steakhouse</span>
+    <img src="images/logo.webp" alt="Hawkeye &amp; Huckleberry Lounge" class="nav-logo" width="150" height="64">
+    <span class="nav-brand-text">
+      <span class="nav-brand-mark">Hawkeye &amp; Huckleberry Lounge</span>
+      <span class="nav-brand-sub">A Modern Cowboy Steakhouse</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="menu.html">Menu</a></li>
     <li><a href="happy-hour.html">Happy Hour</a></li>
     <li><a href="our-story.html">Our Story</a></li>
     <li><a href="private-events.html">Private Events</a></li>
+    <li><a href="press.html">Press</a></li>
     <li><a href="https://www.opentable.com/r/hawkeye-and-huckleberry-lounge-bend" class="nav-cta" target="_blank" rel="noopener">Reservations</a></li>
   </ul>
   <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -128,6 +132,7 @@
   <a href="happy-hour.html">Happy Hour</a>
   <a href="our-story.html">Our Story</a>
   <a href="private-events.html">Private Events</a>
+  <a href="press.html">Press</a>
   <a href="https://www.opentable.com/r/hawkeye-and-huckleberry-lounge-bend" target="_blank" rel="noopener">Reservations →</a>
 </div>
 
@@ -140,7 +145,7 @@
     <div class="hero-text">
       <span class="hero-eyebrow" id="edit-hero-eyebrow">Bend, Oregon · Since 2024</span>
       <h1 id="edit-hero-h1">A modern cowboy steakhouse</h1>
-      <h2 class="hero-lede" id="edit-hero-lede">From Brian and James Malarkey — bringing their Tumalo ranch heritage into a kitchen built around live fire, whole-animal butchery, and the kind of evening that lingers.</h2>
+      <h2 class="hero-lede" id="edit-hero-lede">Tumalo ranch beef, live fire, and whole-animal butchery — a kitchen built for the kind of evening that lingers, in the heart of Bend.</h2>
       <div class="hero-actions">
         <a href="https://www.opentable.com/r/hawkeye-and-huckleberry-lounge-bend" class="btn btn-primary" target="_blank" rel="noopener">Reserve a Table</a>
         <a href="menu.html" class="btn btn-secondary">View the Menu</a>
@@ -325,10 +330,42 @@
 </section>
 
 <!-- FOOTER -->
+<!-- PRESS HIGHLIGHTS -->
+<section class="press-strip">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow">Press &amp; Accolades</span>
+    <h2 class="section-h2">Bend's <em>most decorated</em> new table.</h2>
+    <div class="press-logos">
+      <span>Bend Magazine</span>
+      <span>The Source Weekly</span>
+      <span>Cond&eacute; Nast Traveler</span>
+      <span>Eater</span>
+      <span>Food Network</span>
+    </div>
+    <div class="press-cards">
+      <div class="press-card">
+        <div class="press-card-tag">Top Chef Finalist</div>
+        <p>Owner <strong>Brian Malarkey</strong> brings <strong>Top Chef</strong> and Food Network pedigree &mdash; and decades as a national restaurateur &mdash; home to Oregon.</p>
+      </div>
+      <div class="press-card">
+        <div class="press-card-tag">Chopped Champion</div>
+        <p>Executive Chef <strong>Carlos Anthony</strong> &mdash; winner of <strong>Chopped: Next Generation</strong> and <strong>Cutthroat Kitchen</strong>, and a Tournament of Champions competitor.</p>
+      </div>
+      <div class="press-card">
+        <div class="press-card-tag">Rookie Restaurant of the Year</div>
+        <p>Named by <strong>The Source Weekly</strong>, and featured by <strong>Bend Magazine</strong> and <strong>Cond&eacute; Nast Traveler</strong> as a standout Bend destination.</p>
+      </div>
+    </div>
+    <div class="press-strip-cta">
+      <a href="press.html" class="btn btn-secondary" style="border-color:var(--gold);color:var(--gold);">See all press &amp; accolades &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Hawkeye &amp; Huckleberry<span>A Modern Cowboy Steakhouse</span></div>
+      <div class="footer-brand">Hawkeye &amp; Huckleberry Lounge<span>A Modern Cowboy Steakhouse</span></div>
       <p class="footer-desc">Wood-fired beef from our Tumalo ranch, on-site butchery, canvas-tent dining. Brought to Bend by Brian &amp; James Malarkey.</p>
     </div>
     <div class="footer-col">
@@ -346,6 +383,7 @@
         <li><a href="menu.html">Menu</a></li>
         <li><a href="our-story.html">Our Story</a></li>
         <li><a href="private-events.html">Private Events</a></li>
+        <li><a href="press.html">Press &amp; Accolades</a></li>
         <li><a href="https://www.opentable.com/r/hawkeye-and-huckleberry-lounge-bend" target="_blank" rel="noopener">Reservations</a></li>
       </ul>
     </div>
@@ -354,7 +392,7 @@
       <ul>
         <li><a href="https://www.instagram.com/hawkandhuck/" target="_blank" rel="noopener">@hawkandhuck</a></li>
         <li><a href="#" >Gift Cards</a></li>
-        <li><a href="https://www.toasttab.com/invoice/lead?rx=57ac4b21-f04f-47e5-aa39-7509a9ae6108&ot=0b7f177c-e1dc-4c68-aebc-220c26834768" target="_blank" rel="noopener">Event Inquiries</a></li>
+        <li><a href="private-events.html#inquire">Event Inquiries</a></li>
       </ul>
     </div>
   </div>
@@ -638,4 +676,4 @@ async function sendEdit() {
 
 </body>
 </html>
-                                                                                  
+                                                                                                                     
