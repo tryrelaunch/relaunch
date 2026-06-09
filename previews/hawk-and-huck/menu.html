@@ -47,8 +47,64 @@
       },
       "hasMenu": {
         "@type": "Menu",
-        "name": "Hawkeye & Huckleberry Dinner Menu",
-        "description": "Wood-fired beef from the Malarkey family Tumalo ranch, hearth-roasted vegetables, and a Pacific Northwest spirits program. Menus shift with the season."
+        "name": "Hawkeye & Huckleberry Lounge Menu",
+        "description": "Wood-fired beef from our Tumalo ranch, on-site butchery, hearth-roasted vegetables, and a Pacific Northwest spirits program.",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "The Butcher Shop",
+            "description": "P-B Hawkeye Ranch & Painted Hills natural beef, cooked over Oregon hardwood and butchered in-house.",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "10 oz Top Sirloin", "offers": {"@type": "Offer", "price": "49", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "12 oz New York Strip", "offers": {"@type": "Offer", "price": "67", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "8 oz Filet Mignon", "offers": {"@type": "Offer", "price": "77", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "16 oz Ribeye", "offers": {"@type": "Offer", "price": "80", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "32 oz Tomahawk", "offers": {"@type": "Offer", "price": "155", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "32 oz Porterhouse", "offers": {"@type": "Offer", "price": "144", "priceCurrency": "USD"}}
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Entrees",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "Oregon Coast Salmon", "offers": {"@type": "Offer", "price": "48", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Pan Seared Halibut", "offers": {"@type": "Offer", "price": "48", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Cornmeal Fried Trout", "offers": {"@type": "Offer", "price": "35", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Chicken Milanese", "offers": {"@type": "Offer", "price": "33", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Desperado Burger", "offers": {"@type": "Offer", "price": "26", "priceCurrency": "USD"}}
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Wood-Fired Pizza",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "Roasted Tomato & Cheese", "offers": {"@type": "Offer", "price": "19", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Pepperoni & Hot Honey", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Charcuterie Pizza", "offers": {"@type": "Offer", "price": "25", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Dirty Martini Pizza", "offers": {"@type": "Offer", "price": "24", "priceCurrency": "USD"}}
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Cocktails",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "I'm Your Huckleberry", "offers": {"@type": "Offer", "price": "17", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Tumalo Honey", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Midnight Cowboy", "offers": {"@type": "Offer", "price": "17", "priceCurrency": "USD"}}
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Desserts",
+            "description": "All desserts $16.",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "Chocolate Peanut Butter Cake", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Cherry Cobbler", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Blueberry Cheesecake", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "S'mores Fried Ice Cream", "offers": {"@type": "Offer", "price": "16", "priceCurrency": "USD"}}
+            ]
+          }
+        ]
       }
     }
   ]
@@ -148,267 +204,544 @@
   <!-- MENU HERO -->
   <section class="menu-hero">
     <h1>The <em>Menu.</em></h1>
-    <p class="menu-hero-lede">Wood-fired beef from our Tumalo ranch, on-site butchery, hearth-roasted vegetables, and a bar program built around Pacific Northwest spirits. Menus shift with the season — the bones stay the same.</p>
+    <p class="menu-hero-lede">Wood-fired beef from our Tumalo ranch, on-site butchery, hearth-roasted vegetables, and a bar program built around Pacific Northwest spirits. Menus shift with the season &mdash; the bones stay the same.</p>
   </section>
 
   <!-- TABS -->
   <div class="menu-tabs">
     <a href="#dinner" class="menu-tab active">Dinner</a>
+    <a href="#butcher" class="menu-tab">Butcher Shop</a>
     <a href="#cocktails" class="menu-tab">Cocktails</a>
-    <a href="#wine" class="menu-tab">Wine &amp; Spirits</a>
-    <a href="#happy-hour" class="menu-tab">Happy Hour</a>
+    <a href="#wine" class="menu-tab">Wine &amp; Beer</a>
+    <a href="#desserts" class="menu-tab">Desserts</a>
+    <a href="happy-hour.html" class="menu-tab">Happy Hour</a>
   </div>
 
-  <!-- STARTERS -->
   <section class="menu-section" id="dinner">
     <div class="menu-section-header">
-      <h2>Starters &amp; <em>Hearth</em></h2>
-      <p>Built for sharing — and for ordering one each.</p>
+      <h2><em>Cold</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Bone Marrow &amp; Sourdough</span><span class="menu-item-price">22</span></div>
-        <p class="menu-item-desc">Roasted veal marrow, gremolata, pickled shallot, charred ranch sourdough.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Caesar Salad</span><span class="menu-item-price">18</span></div>
+        <p class="menu-item-desc">Romaine, tallow croutons, crispy capers, Parmesan</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Beef Tartare</span><span class="menu-item-price">21</span></div>
-        <p class="menu-item-desc">Hand-cut Tumalo ranch beef, smoked egg yolk, capers, sourdough crisps.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Ranch Wedge</span><span class="menu-item-price">18</span></div>
+        <p class="menu-item-desc">Rogue River blue cheese, bacon, cherry tomato, crispy onions</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Wood-Fired Oysters</span><span class="menu-item-price">24</span></div>
-        <p class="menu-item-desc">Half dozen Pacific oysters, charred over oak, brown butter mignonette.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Beets &amp; Burrata</span><span class="menu-item-price">18</span></div>
+        <p class="menu-item-desc">Orange, toasted hemp seeds, burnt honey, crispy shallots</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Smoked Elk Pâté</span><span class="menu-item-price">19</span></div>
-        <p class="menu-item-desc">House-smoked elk, huckleberry preserve, brioche, cornichon.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Farm Greens Salad</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Rainshadow Farm baby gem, radish, fennel, lemon, extra virgin olive oil</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Hearth-Roasted Carrots</span><span class="menu-item-price">14</span></div>
-        <p class="menu-item-desc">Charred heirloom carrots, ranch yogurt, dukkah, dill, lemon zest.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Hamachi Crudo</span><span class="menu-item-price">22</span></div>
+        <p class="menu-item-desc">Aji amarillo, blood orange, apples</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">House Charcuterie Board</span><span class="menu-item-price">26</span></div>
-        <p class="menu-item-desc">Selection from our butcher program — pâté, terrine, salumi, mustards, accoutrements.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Oregon Beef Tartare</span><span class="menu-item-price">21</span></div>
+        <p class="menu-item-desc">Fennel, chili crisp, lemon aioli, mint, dill, chicharrones, tallow toast</p>
       </div>
     </div>
   </section>
 
-  <!-- WOOD-FIRED -->
   <section class="menu-section">
     <div class="menu-section-header">
-      <h2>From the <em>Wood-Fired Oven</em></h2>
-      <p>Beef from the Malarkey ranch in Tumalo. Cuts vary by what's hanging in the butcher shop.</p>
+      <h2><em>Hot</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">32oz Tomahawk Ribeye <span class="menu-item-tag">For Two</span></span><span class="menu-item-price">145</span></div>
-        <p class="menu-item-desc">Bone-in, dry-aged 28 days. Finished over Oregon white oak. Served with marrow butter.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Campfire Cornbread</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Local honey butter</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">16oz Bone-In Strip</span><span class="menu-item-price">68</span></div>
-        <p class="menu-item-desc">Tumalo ranch, hearth-roasted, sea salt, cracked pepper.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Crispy Pork Belly</span><span class="menu-item-price">24</span></div>
+        <p class="menu-item-desc">Smoked pineapple, sweet chili glaze</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">14oz Filet Mignon</span><span class="menu-item-price">72</span></div>
-        <p class="menu-item-desc">Center cut, dry-aged, finished with maître d'hôtel butter.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Shrimp &amp; Polenta</span><span class="menu-item-price">25</span></div>
+        <p class="menu-item-desc">White cheddar polenta, tomato, basil, blackened seasoning</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">10oz Hanger Steak</span><span class="menu-item-price">42</span></div>
-        <p class="menu-item-desc">Whole-animal cut, salsa verde, charred lemon.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Tumalo Tostada</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Chipotle beef, black beans, salsa verde, cilantro crema</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Bison Sirloin</span><span class="menu-item-price">58</span></div>
-        <p class="menu-item-desc">Ember-roasted, juniper rub, huckleberry demi.</p>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Charred Cauliflower Steak</span><span class="menu-item-price">28</span></div>
-        <p class="menu-item-desc">Whole cauliflower, romesco, toasted hazelnuts, herb oil.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Bone Marrow &amp; Oysters</span><span class="menu-item-price">28</span></div>
+        <p class="menu-item-desc">Oysters Rockefeller, bacon, kale, grilled bread</p>
       </div>
     </div>
   </section>
 
-  <!-- LARGE FORMAT -->
   <section class="menu-section">
     <div class="menu-section-header">
-      <h2>Large <em>Format</em></h2>
-      <p>For the table. Reserve in advance.</p>
+      <h2>Wood-Fired <em>Pizza</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">36oz Cowboy Cut Ribeye <span class="menu-item-tag">For Two</span></span><span class="menu-item-price">155</span></div>
-        <p class="menu-item-desc">Bone-in, frenched, dry-aged 35 days, the showpiece of the menu.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Roasted Tomato &amp; Cheese</span><span class="menu-item-price">19</span></div>
+        <p class="menu-item-desc">Basil, oregano, roasted tomato sauce</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Whole Wood-Fired Trout</span><span class="menu-item-price">52</span></div>
-        <p class="menu-item-desc">Oregon trout, lemon, herbs, brown butter, served whole.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Pepperoni &amp; Hot Honey</span><span class="menu-item-price">24</span></div>
+        <p class="menu-item-desc">Mozzarella, Mama Lil&rsquo;s peppers</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Half Mary's Free-Range Chicken</span><span class="menu-item-price">38</span></div>
-        <p class="menu-item-desc">Brick-pressed, hearth-roasted, jus, wood-fired potatoes.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Charcuterie Pizza</span><span class="menu-item-price">25</span></div>
+        <p class="menu-item-desc">Prosciutto, pear, fig jam, arugula</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Lamb Crown Roast <span class="menu-item-tag">For 4 · 24h notice</span></span><span class="menu-item-price">220</span></div>
-        <p class="menu-item-desc">Whole crown, mint chimichurri, root vegetables, jus. Reserve at booking.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Dirty Martini Pizza</span><span class="menu-item-price">24</span></div>
+        <p class="menu-item-desc">Mozzarella, ricotta, olive tapenade</p>
       </div>
     </div>
   </section>
 
-  <!-- SIDES -->
   <section class="menu-section">
     <div class="menu-section-header">
-      <h2>Sides &amp; <em>Cellar</em></h2>
+      <h2><em>Entrees</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Cast Iron Cornbread</span><span class="menu-item-price">12</span></div>
-        <p class="menu-item-desc">Honey butter, flaky salt.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Oregon Coast Salmon</span><span class="menu-item-price">48</span></div>
+        <p class="menu-item-desc">Herbed yogurt, roasted garlic, lemon, Kalamata, pickled onions, Calabrian chili</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Wood-Fired Sweet Potatoes</span><span class="menu-item-price">11</span></div>
-        <p class="menu-item-desc">Crème fraîche, brown sugar, smoked paprika.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Pan Seared Halibut</span><span class="menu-item-price">48</span></div>
+        <p class="menu-item-desc">Preserved lemon cream sauce, spring peas, mint, radish</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Charred Brussels</span><span class="menu-item-price">13</span></div>
-        <p class="menu-item-desc">Bacon lardons, ranch dressing, pickled chili.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Cornmeal Fried Trout</span><span class="menu-item-price">35</span></div>
+        <p class="menu-item-desc">Corn puree, roasted corn relish, dill</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Wagon Wheel Macaroni</span><span class="menu-item-price">14</span></div>
-        <p class="menu-item-desc">Smoked cheddar, gruyère, sourdough crumb.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Mushroom &amp; Polenta</span><span class="menu-item-price">32</span></div>
+        <p class="menu-item-desc">Roasted maitake &amp; oyster mushrooms, Truffle Tremor, chimichurri, polenta</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Smashed Yukon Potatoes</span><span class="menu-item-price">11</span></div>
-        <p class="menu-item-desc">Brown butter, fried sage, sea salt.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Chicken Milanese</span><span class="menu-item-price">33</span></div>
+        <p class="menu-item-desc">Fennel slaw, chicken jus, charred lemon</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Heirloom Carrots</span><span class="menu-item-price">12</span></div>
-        <p class="menu-item-desc">Hearth-roasted, pomegranate, pistachio dukkah.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Desperado Burger</span><span class="menu-item-price">26</span></div>
+        <p class="menu-item-desc">BBQ sauce, cheddar, onion ring, bacon jam, chipotle mayo, fries</p>
       </div>
     </div>
   </section>
 
-  <!-- DESSERTS -->
+  <section class="menu-section" id="butcher">
+    <div class="menu-section-header">
+      <h2>The Butcher Shop &mdash; <em>Cowboy Cuts</em></h2>
+      <p>P-B Hawkeye Ranch &amp; Painted Hills natural beef, cooked over Oregon hardwood and butchered in-house. Served with delicious onions &amp; choice of one sauce.</p>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Top Sirloin <span class="menu-item-tag">10 oz</span></span><span class="menu-item-price">49</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">New York Strip <span class="menu-item-tag">12 oz</span></span><span class="menu-item-price">67</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Filet Mignon <span class="menu-item-tag">8 oz</span></span><span class="menu-item-price">77</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Ribeye <span class="menu-item-tag">16 oz</span></span><span class="menu-item-price">80</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Kansas City <span class="menu-item-tag">16 oz</span></span><span class="menu-item-price">78</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Tomahawk <span class="menu-item-tag">32 oz</span></span><span class="menu-item-price">155</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Porterhouse <span class="menu-item-tag">32 oz</span></span><span class="menu-item-price">144</span></div>
+      </div>
+    </div>
+    <p class="menu-section-foot">Sauces $4 &mdash; chili butter, chimichurri, bordelaise, toasted b&eacute;arnaise, horseradish cream, house steak sauce.</p>
+  </section>
+
   <section class="menu-section">
     <div class="menu-section-header">
-      <h2>To <em>Finish</em></h2>
+      <h2><em>Ranch Cuts</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Huckleberry Cobbler</span><span class="menu-item-price">14</span></div>
-        <p class="menu-item-desc">Cascade huckleberries, biscuit top, vanilla bean ice cream.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Steak Fried Steak</span><span class="menu-item-price">30</span></div>
+        <p class="menu-item-desc">Jalape&amp;ntilde;o tartar sauce</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Smoked Chocolate Tart</span><span class="menu-item-price">13</span></div>
-        <p class="menu-item-desc">Wood-smoked dark chocolate, Tumalo cream, sea salt.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Santa Maria Skirt Steak</span><span class="menu-item-price">36</span></div>
+        <p class="menu-item-desc">White beans, chimichurri</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Bourbon Pecan Pie</span><span class="menu-item-price">12</span></div>
-        <p class="menu-item-desc">House-roasted pecans, brown sugar, bourbon, crème fraîche.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Hawkeye Steak Frites</span><span class="menu-item-price">49</span></div>
+        <p class="menu-item-desc">8 oz New York, beef fat fries, b&amp;eacute;arnaise</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Cheese &amp; Honey Plate</span><span class="menu-item-price">18</span></div>
-        <p class="menu-item-desc">Three cheeses, local honeycomb, walnut-raisin bread.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Bone-In Pork Chop <span class="menu-item-tag">12 oz</span></span><span class="menu-item-price">38</span></div>
+        <p class="menu-item-desc">Mustard cream sauce, pepper relish</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Braised Chuck Roast</span><span class="menu-item-price">38</span></div>
+        <p class="menu-item-desc">Butter potatoes, bordelaise, crispy kale</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Whole Roasted Pig Dinner</span></div>
+        <p class="menu-item-desc">Advance notice required &amp;mdash; ask for details</p>
       </div>
     </div>
   </section>
 
-  <!-- COCKTAILS -->
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Family Style <em>Sides</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Butter Potatoes</span><span class="menu-item-price">10</span></div>
+        <p class="menu-item-desc">Smooth &amp; buttery</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Beef Fat Fries</span><span class="menu-item-price">10</span></div>
+        <p class="menu-item-desc">Heinz ketchup, secret sauce</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Broccolini</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Parmesan cream, black pepper</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Harissa Carrots</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Zhug, pistachio, mint, feta</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Mac &amp; Cheese</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Cheddar cheese, green onion, breadcrumbs</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Crispy Loaded Potato</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Cheddar, green onion, bacon, sour cream</p>
+      </div>
+    </div>
+  </section>
+
   <section class="menu-section" id="cocktails">
     <div class="menu-section-header">
-      <h2>Signature <em>Cocktails</em></h2>
-      <p>The bar program leans Oregon — local rye, Cascade huckleberry, smoked sugar, hand-cut ice.</p>
+      <h2><em>Cocktails</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">The Huckleberry Old Fashioned <span class="menu-item-tag">House Signature</span></span><span class="menu-item-price">16</span></div>
-        <p class="menu-item-desc">Oregon rye, house huckleberry preserve, smoked sugar, orange peel.</p>
+        <div class="menu-item-head"><span class="menu-item-name">I&rsquo;m Your Huckleberry</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Sun Ranch gin, Wild Roots huckleberry, lemon, basil</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Smoked Sage Manhattan</span><span class="menu-item-price">17</span></div>
-        <p class="menu-item-desc">Bourbon, sweet vermouth, sage smoke, brandied cherry.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Tumalo Honey</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Jim Beam bourbon, blackberries, lemon, pink peppercorn, sage honey</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">The Hawkeye</span><span class="menu-item-price">16</span></div>
-        <p class="menu-item-desc">Mezcal, lime, ranch tomato shrub, jalapeño tincture, sea salt rim.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Doc Holliday</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Tallow-washed bourbon, hazelnut, maple, amontillado, Angostura bitters</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Cascade Negroni</span><span class="menu-item-price">15</span></div>
-        <p class="menu-item-desc">Oregon gin, Campari, Antica Formula, juniper cube.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Rhinestone Cowgirl</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Sun Ranch vodka, Cocchi, strawberry, lemon, apricot, glitter</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Tumalo Margarita</span><span class="menu-item-price">15</span></div>
-        <p class="menu-item-desc">Reposado tequila, lime, agave, smoked salt, charred jalapeño.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Man, I Feel Like a Woman</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Divino mezcal, pineapple, passionfruit, lemon, beet ginger syrup, fire tincture</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Centennial Sour</span><span class="menu-item-price">14</span></div>
-        <p class="menu-item-desc">Whiskey sour with Centennial hop bitters, egg white, lemon.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Watermelon Moonshine</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Real Del Valle tequila, Aperol, watermelon, lime, fire tincture</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Barrel Racer</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Lunazul Blanco, ancho verde, lime, cilantro, cucumber cordial</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Midnight Cowboy</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Sun Ranch vodka, Mr. Black liqueur, hazelnut, cold brew coffee, Licor 43</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">The Stella Darby</span><span class="menu-item-price">17</span></div>
+        <p class="menu-item-desc">Crater Lake vodka, Dolin Blanc, dill aquavit, olive brine, goat cheese olives, juniper oil</p>
       </div>
     </div>
   </section>
 
-  <!-- WINE & SPIRITS -->
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Summer Frozen <em>Cocktails</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Strawberry Stampede</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Sun Ranch vodka, lemon, strawberry, elderflower, mint</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Doley Parton</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">Blanco tequila, triple sec, coconut, pineapple, lime, coconut foam, Tajin</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2><em>Mocktails</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Cool Hand Luke</span><span class="menu-item-price">13</span></div>
+        <p class="menu-item-desc">Cucumber cordial, lemon, basil, mint, egg white</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Ain&rsquo;t She a Peach</span><span class="menu-item-price">13</span></div>
+        <p class="menu-item-desc">White peach puree, basil, lemon, vanilla, bubbles</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Blue Suede Shoes</span><span class="menu-item-price">13</span></div>
+        <p class="menu-item-desc">Blueberry, lime, mint, bubbles, coconut lemongrass foam</p>
+      </div>
+    </div>
+  </section>
+
   <section class="menu-section" id="wine">
     <div class="menu-section-header">
-      <h2>Wine &amp; <em>Spirits</em></h2>
-      <p>Pacific Northwest first. Old World where it earns its keep.</p>
+      <h2>White <em>Wine</em></h2>
+      <p>By the glass / bottle.</p>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Wine by the glass</span><span class="menu-item-price">14–22</span></div>
-        <p class="menu-item-desc">Rotating list — six reds, four whites, two sparkling. Ask your server.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Mohua Sauvignon Blanc</span><span class="menu-item-price">16</span></div>
+        <p class="menu-item-desc">New Zealand</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Bottle list</span><span class="menu-item-price">52–620</span></div>
-        <p class="menu-item-desc">100+ selections, Oregon-Washington-California heavy. Burgundy &amp; Bordeaux on the deeper end.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Upper Left Pinot Gris</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Oregon</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Whiskey program</span><span class="menu-item-price">11–95</span></div>
-        <p class="menu-item-desc">Bourbon, rye, Scotch, Japanese. Ask about the back-bar selections.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Familia Torres Albari&amp;ntilde;o</span><span class="menu-item-price">16 / 64</span></div>
+        <p class="menu-item-desc">Spain</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Mezcal &amp; Tequila</span><span class="menu-item-price">12–48</span></div>
-        <p class="menu-item-desc">Single-village mezcals, additive-free tequilas, served neat or with citrus.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Solena Chardonnay</span><span class="menu-item-price">17 / 68</span></div>
+        <p class="menu-item-desc">Oregon</p>
       </div>
     </div>
   </section>
 
-  <!-- HAPPY HOUR -->
-  <section class="menu-section" id="happy-hour">
+  <section class="menu-section">
     <div class="menu-section-header">
-      <h2>Happy <em>Hour</em></h2>
-      <p>Daily 4–5 PM in the bar, lounge, and patio. Not the dining room.</p>
+      <h2>Red <em>Wine</em></h2>
     </div>
     <div class="menu-items">
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Snack Plate</span><span class="menu-item-price">10</span></div>
-        <p class="menu-item-desc">Castelvetrano olives, marcona almonds, sourdough, salted butter.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Portlandia Red Blend</span><span class="menu-item-price">15 / 60</span></div>
+        <p class="menu-item-desc">Washington</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Hearth Burger</span><span class="menu-item-price">14</span></div>
-        <p class="menu-item-desc">Ranch beef, smoked cheddar, bacon jam, sourdough bun, fries.</p>
+        <div class="menu-item-head"><span class="menu-item-name">The Harrison Pinot Noir</span><span class="menu-item-price">17 / 68</span></div>
+        <p class="menu-item-desc">Oregon</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Steak Frites</span><span class="menu-item-price">19</span></div>
-        <p class="menu-item-desc">6oz hanger, herb butter, fries, watercress.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Vi&amp;ntilde;a Alberdi Tempranillo</span><span class="menu-item-price">18 / 70</span></div>
+        <p class="menu-item-desc">Spain</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">House Cocktail</span><span class="menu-item-price">10</span></div>
-        <p class="menu-item-desc">Rotating bartender's choice — always one stirred, one shaken.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Solena Cabernet</span><span class="menu-item-price">20 / 78</span></div>
+        <p class="menu-item-desc">Washington</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Bubbles &amp; <em>Ros&eacute;</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">La Vieille Ferme Still Ros&amp;eacute;</span><span class="menu-item-price">13</span></div>
+        <p class="menu-item-desc">France</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Local Drafts</span><span class="menu-item-price">6</span></div>
-        <p class="menu-item-desc">Six rotating Oregon taps. Bend brewing represented.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Antech Cr&amp;eacute;mant Sparkling Ros&amp;eacute;</span><span class="menu-item-price">15 / 58</span></div>
+        <p class="menu-item-desc">France</p>
       </div>
       <div class="menu-item">
-        <div class="menu-item-head"><span class="menu-item-name">Wine by the Glass</span><span class="menu-item-price">9</span></div>
-        <p class="menu-item-desc">Three reds, two whites, one sparkling.</p>
+        <div class="menu-item-head"><span class="menu-item-name">Montparnasse Brut Sparkling</span><span class="menu-item-price">13 / 52</span></div>
+        <p class="menu-item-desc">France</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Bisol Prosecco Superiore</span><span class="menu-item-price">16 / 64</span></div>
+        <p class="menu-item-desc">Italy</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Draft <em>Beer</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Coors Light</span><span class="menu-item-price">7</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Van Henion Lager</span><span class="menu-item-price">8</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Pfriem Pilsner</span><span class="menu-item-price">8</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Sun River Fuzztail</span><span class="menu-item-price">9</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Barley Brown&rsquo;s Pallet Jack IPA</span><span class="menu-item-price">9</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Upp Liquids Rotating IPA</span><span class="menu-item-price">9</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Bend Cider Strawberry Peach</span><span class="menu-item-price">9</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Deschutes Red Chair Nitro</span><span class="menu-item-price">9</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Canned <em>Beer</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Rainier Tall Boy</span><span class="menu-item-price">6</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Modelo Tall Boy</span><span class="menu-item-price">6</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Athletic N/A Golden Ale</span><span class="menu-item-price">6</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Coors Banquet Stubby</span><span class="menu-item-price">6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>N/A <em>Beverages</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Coca-Cola Bottle</span><span class="menu-item-price">7</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Diet Coke Can</span><span class="menu-item-price">7</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Steelhead Root Beer</span><span class="menu-item-price">7</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Seasonal Lemonade</span><span class="menu-item-price">8</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Sprite Bottle</span><span class="menu-item-price">7</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Lemonade</span><span class="menu-item-price">8</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Saratoga Still</span><span class="menu-item-price">8</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Saratoga Sparkling</span><span class="menu-item-price">8</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="desserts">
+    <div class="menu-section-header">
+      <h2><em>Desserts</em></h2>
+      <p>All desserts $16.</p>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Chocolate Peanut Butter Cake</span></div>
+        <p class="menu-item-desc">Flourless chocolate cake, peanut butter</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Cherry Cobbler</span></div>
+        <p class="menu-item-desc">Rainier cherry compote, vanilla ice cream</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Blueberry Cheesecake</span></div>
+        <p class="menu-item-desc">Maple whipped cream, blueberry compote</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">S&rsquo;mores Fried Ice Cream</span></div>
+        <p class="menu-item-desc">Vanilla ice cream, graham cracker, toasted meringue, chocolate</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Dessert <em>Cocktails</em></h2>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Cowboy Coffee</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Bourbon, hazelnut, toffee caramel, hot coffee, house whip</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Goin&rsquo; Bananza</span><span class="menu-item-price">15</span></div>
+        <p class="menu-item-desc">Licor 43, banana liqueur, Amaro Averna, cold brew</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <div class="menu-section-header">
+      <h2>Adult <em>Dessert</em></h2>
+      <p>Cognac, scotch &amp; port.</p>
+    </div>
+    <div class="menu-items">
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Hennessy VS</span><span class="menu-item-price">16</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Hennessy VSOP</span><span class="menu-item-price">23</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Cognac Park VS</span><span class="menu-item-price">17</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Oban 14 Yr</span><span class="menu-item-price">25</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Macallan 12 Yr</span><span class="menu-item-price">24</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Johnnie Walker Blue</span><span class="menu-item-price">65</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Taylor Fladgate Tawny</span><span class="menu-item-price">18</span></div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-head"><span class="menu-item-name">Kopke Fine Ruby Port</span><span class="menu-item-price">15</span></div>
       </div>
     </div>
   </section>
 
   <div class="menu-note">
-    <strong>Note for Jayme:</strong> Sample placeholder content above — your real menu items, descriptions, and prices would be transcribed from your existing PDFs during onboarding. The structural difference is the win: text instead of JPG means Google indexes every dish, ChatGPT can recommend specific cuts, and updates take 30 seconds instead of a Photoshop session.
+    <strong>Consumer advisory:</strong> Consuming raw or undercooked meats, seafood, or eggs may increase your risk of foodborne illness. A 20% gratuity is added to parties of 6 or more.
   </div>
-
 </div>
 
 <!-- CTA Banner -->
@@ -657,84 +990,4 @@ async function sendEdit() {
   input.value = ''; autoResize(input);
   document.getElementById('edit-suggestions').style.display = 'none';
   addMessage(request, 'user');
-  isLoading = true;
-  document.getElementById('edit-send').disabled = true;
-  document.getElementById('edit-typing').classList.add('show');
-  const content = {};
-  document.querySelectorAll('[id^="edit-"]').forEach(el => { content[el.id] = el.textContent.trim(); });
-  try {
-    const response = await fetch('/.netlify/functions/edit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ request, content })
-    });
-    document.getElementById('edit-typing').classList.remove('show');
-    if (!response.ok) {
-      addMessage('Something went wrong. Try again.', 'error');
-      isLoading = false; document.getElementById('edit-send').disabled = false; return;
-    }
-    const data = await response.json();
-    if (data.changes && data.changes.length > 0) {
-      data.changes.forEach(change => {
-        const el = document.getElementById(change.id);
-        if (el) el.textContent = change.text;
-      });
-      addMessage(data.confirmation || 'Done! Change applied.', 'system');
-    } else {
-      addMessage("I couldn't find what to change. Try being more specific.", 'claude');
-    }
-  } catch (err) {
-    document.getElementById('edit-typing').classList.remove('show');
-    addMessage("Couldn't connect. Check your internet and try again.", 'error');
-  }
-  isLoading = false;
-  document.getElementById('edit-send').disabled = false;
-}
-</script>
-
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  STICKY CTA — "Make this my real site"   ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
-<style id="relaunch-sticky-cta-styles">
-.rl-sticky-cta {
-  position: fixed; bottom: 24px; left: 24px; z-index: 997;
-  display: flex; align-items: center; gap: 14px;
-  background: #1a0f08; color: #faf6ec;
-  padding: 10px 14px 10px 18px; border-radius: 999px;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.30), 0 0 0 1px rgba(255,255,255,0.05);
-  font-family: 'Inter', system-ui, sans-serif; font-size: 13px; font-weight: 600;
-  text-decoration: none; transition: all 0.2s; max-width: calc(100vw - 48px);
-}
-.rl-sticky-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(0,0,0,0.35); }
-.rl-sticky-cta-text { display: flex; flex-direction: column; line-height: 1.25; }
-.rl-sticky-cta-tag { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; opacity: 0.65; text-transform: uppercase; }
-.rl-sticky-cta-main { font-size: 14px; font-weight: 700; }
-.rl-sticky-cta-btn {
-  background: #a6431b; color: #faf6ec; border-radius: 999px;
-  padding: 8px 16px; font-size: 13px; font-weight: 800;
-  white-space: nowrap; transition: background 0.2s;
-}
-.rl-sticky-cta:hover .rl-sticky-cta-btn { background: #c25027; }
-.rl-sticky-cta-close {
-  background: none; border: none; color: #faf6ec; opacity: 0.4;
-  cursor: pointer; font-size: 18px; line-height: 1; padding: 0 4px;
-}
-.rl-sticky-cta-close:hover { opacity: 1; }
-@media (max-width: 640px) {
-  .rl-sticky-cta { left: 12px; right: 12px; bottom: 84px; padding: 10px 12px; }
-  .rl-sticky-cta-tag { display: none; }
-  .rl-sticky-cta-main { font-size: 13px; }
-}
-</style>
-<a class="rl-sticky-cta" id="rl-sticky-cta" href="https://tryrelaunch.com/onboard?business=Hawkeye%20%26%20Huckleberry%20Lounge&email=info%40hawkandhuck.com&avenue=outbound">
-  <div class="rl-sticky-cta-text">
-    <span class="rl-sticky-cta-tag">$99/mo · No contract</span>
-    <span class="rl-sticky-cta-main">Make this my real site</span>
-  </div>
-  <span class="rl-sticky-cta-btn">Switch →</span>
-  <button class="rl-sticky-cta-close" onclick="event.preventDefault();event.stopPropagation();document.getElementById('rl-sticky-cta').style.display='none';" aria-label="Dismiss">×</button>
-</a>
-
-</body>
-</html>
+  isLoadin

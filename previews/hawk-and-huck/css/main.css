@@ -733,6 +733,15 @@ nav.main-nav {
   vertical-align: middle;
 }
 
+.menu-section-foot {
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  font-style: italic;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
 .menu-note {
   background: var(--bg-deep);
   padding: 24px 32px;
@@ -1095,4 +1104,140 @@ footer {
 .edit-input:focus { border-color: #FE8D01; }
 .edit-send {
   background: #FE8D01; color: #0F172A; border: none;
-  border-radi
+  border-radius: 8px; width: 40px; height: 40px;
+  cursor: pointer; font-size: 16px; flex-shrink: 0;
+  font-weight: 900; transition: background 0.2s;
+}
+.edit-send:hover { background: #EA7C00; }
+.edit-send:disabled { background: rgba(255, 255, 255, 0.1); cursor: not-allowed; }
+
+/* ============================================================
+   PRIVATE EVENT — space cards + inquiry form
+   ============================================================ */
+.space-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 12px;
+}
+.space-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.space-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(45,31,21,0.12); }
+.space-card-img { height: 230px; overflow: hidden; }
+.space-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.space-card-body { padding: 26px 28px 30px; display: flex; flex-direction: column; flex: 1; }
+.space-card-num {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust); margin-bottom: 10px;
+}
+.space-card-body h3 { font-family: var(--font-display); font-size: 25px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
+.space-card-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 18px; }
+.space-card-specs {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px;
+}
+.space-card-tag {
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ink-muted);
+  background: var(--bg-deep); border-radius: 999px; padding: 5px 12px;
+}
+.space-card-link {
+  margin-top: auto; font-family: var(--font-body); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust);
+}
+.space-card-link:hover { color: var(--rust-deep); }
+
+/* Inquiry form */
+.event-inquiry { padding: 92px 0; background: var(--bg-deep); }
+.event-inquiry .eyebrow { color: var(--rust); }
+.event-form {
+  margin-top: 34px; text-align: left;
+  background: var(--bone); padding: 38px 40px;
+  border-radius: 12px; border: 1px solid var(--line);
+  box-shadow: 0 14px 40px rgba(45,31,21,0.06);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.form-field { margin-bottom: 20px; display: flex; flex-direction: column; }
+.form-field label {
+  font-family: var(--font-body); font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 7px;
+}
+.form-field input, .form-field select, .form-field textarea {
+  font-family: var(--font-body); font-size: 15px; color: var(--ink);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 7px;
+  padding: 12px 14px; outline: none; transition: border-color 0.2s; width: 100%;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--rust); }
+.form-field textarea { resize: vertical; min-height: 110px; }
+.event-form .hidden-field { position: absolute; left: -9999px; }
+.event-form button[type="submit"] { margin-top: 6px; cursor: pointer; border: none; }
+@media (max-width: 720px) {
+  .space-cards { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .event-form { padding: 26px 22px; }
+}
+
+/* ============================================================
+   PRESS / ACCOLADES
+   ============================================================ */
+.press-group { margin-bottom: 56px; }
+.press-group:last-child { margin-bottom: 0; }
+.press-group-title {
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--rust);
+  margin-bottom: 8px;
+}
+.press-group h3 {
+  font-family: var(--font-display); font-size: 28px; font-weight: 500;
+  color: var(--ink); margin-bottom: 22px; line-height: 1.2;
+}
+.accolade-list { list-style: none; padding: 0; margin: 0; }
+.accolade-list li {
+  position: relative; padding: 0 0 16px 30px;
+  font-size: 16.5px; color: var(--ink-soft); line-height: 1.6;
+  border-bottom: 1px solid var(--line); margin-bottom: 16px;
+}
+.accolade-list li:last-child { border-bottom: none; margin-bottom: 0; }
+.accolade-list li::before {
+  content: ''; position: absolute; left: 4px; top: 11px;
+  width: 7px; height: 7px; background: var(--gold);
+  transform: rotate(45deg);
+}
+.accolade-list li strong { color: var(--ink); font-weight: 600; }
+.press-lead {
+  font-family: var(--font-display); font-size: 21px; font-weight: 400;
+  color: var(--ink-soft); line-height: 1.55; max-width: 760px; margin: 0 0 8px;
+}
+
+/* Homepage press strip */
+.press-strip { padding: 96px 0; background: var(--ink); }
+.press-strip .eyebrow { color: var(--gold); }
+.press-strip .section-h2 { color: var(--bone); }
+.press-strip .section-h2 em { color: var(--gold); }
+.press-logos {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 34px;
+  margin: 18px auto 40px; max-width: 780px;
+}
+.press-logos span {
+  font-family: var(--font-display); font-size: 20px; font-weight: 500;
+  color: rgba(250,246,236,0.55); letter-spacing: 0.01em;
+}
+.press-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px;
+}
+.press-card {
+  background: rgba(250,246,236,0.04); border: 1px solid rgba(250,246,236,0.10);
+  border-radius: 10px; padding: 28px 26px; text-align: left;
+}
+.press-card-tag {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.press-card p { font-size: 15.5px; color: rgba(250,246,236,0.82); line-height: 1.55; margin: 0; }
+.press-card p strong { co
