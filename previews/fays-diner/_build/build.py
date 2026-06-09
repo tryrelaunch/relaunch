@@ -53,6 +53,16 @@ BUSINESS = {
 MAP_EMBED = ("https://www.google.com/maps?q=10006+Scripps+Ranch+Blvd,"
              "+San+Diego,+CA+92131&output=embed")
 
+# Real photography pulled from the live site (static.spotapps.co, 2026-06-08).
+# Hero image per page -> (filename, alt). Replaces the .hero-bg-placeholder div.
+HERO_IMG = {
+    "index":        ("video_poster.jpg", "The Fay's Diner & Cafe storefront and patio in Scripps Ranch"),
+    "menu":         ("food_back.jpg",    "A Benedict plate with breakfast potatoes at Fay's Diner & Cafe"),
+    "hours":        ("events_back.jpg",  "Inside Fay's Diner & Cafe with its teal booths and neon sign"),
+    "reservations": ("about_right.jpg",  "The counter and dining room at Fay's Diner & Cafe"),
+    "contact":      ("events_back.jpg",  "Inside Fay's Diner & Cafe in Scripps Ranch"),
+}
+
 # Order meals appear on the menu page
 MEAL_ORDER = ["Breakfast", "Kids", "Lunch", "Dinner"]
 MEAL_BLURB = {
@@ -413,14 +423,7 @@ def main_index():
         <a href="menu.html" class="btn btn-teal">See the Full Menu</a>
       </div>
       <div>
-        <div style="aspect-ratio: 4 / 5; background: linear-gradient(160deg, var(--fd-teal) 0%, var(--fd-teal-3) 55%, var(--fd-slate) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: var(--fd-shadow); position: relative; overflow: hidden;">
-          <div style="text-align: center; color: var(--fd-cream); padding: 32px;">
-            <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--fd-sun); line-height: 1; margin-bottom: 16px;">Fay's</div>
-            <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 6px;">Diner &amp; Cafe</div>
-            <div style="font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fd-sun-2);">Scripps Ranch &middot; San Diego</div>
-            <div style="margin-top: 32px; font-style: italic; color: rgba(251,244,230,0.7); font-size: 0.9rem;">Real photo will go here &mdash; owner to provide an interior or food shot</div>
-          </div>
-        </div>
+        <img src="assets/images/about_right.jpg" alt="Inside Fay's Diner & Cafe - teal booths, the counter, and the neon Fay's sign" style="aspect-ratio: 4 / 5; width: 100%; object-fit: cover; border-radius: 12px; box-shadow: var(--fd-shadow);" />
       </div>
     </div>
   </div>
@@ -863,6 +866,14 @@ def render_page(page_key):
     widget = (BUILD / "widget.html").read_text(encoding="utf-8")
 
     main_html = page["main"]()
+
+    # Swap the hero placeholder gradient for the real photo, if we have one.
+    hero = HERO_IMG.get(page_key)
+    if hero:
+        fname, alt = hero
+        img = f'<img class="hero-img" src="assets/images/{fname}" alt="{alt}" />'
+        main_html = main_html.replace('<div class="hero-bg-placeholder"></div>', img, 1)
+
     crumb = breadcrumb_html(page["breadcrumb_items"]) if len(page["breadcrumb_items"]) > 1 else ""
     schema_json = build_schema_block(page_key, page)
 
@@ -893,6 +904,10 @@ def main():
         edit_ids = len(re.findall(r'id="edit-', html))
         h1s = len(re.findall(r"<h1[ >]", html))
         print(f"  + {page['filename']:20s}  {len(html):>7,} bytes  .  {edit_ids:>3d} edit-* . {h1s} h1")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":

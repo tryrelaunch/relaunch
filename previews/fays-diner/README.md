@@ -125,9 +125,12 @@ Identical across all 5 pages. Three inline blocks (CSS + HTML + JS). POSTs to `/
 - [ ] **Reservations** — does Fay's actually take reservations, or is it walk-in only? The live site listed "Reservations," so the page assumes yes. If walk-in only, repoint that nav item to a "Private Parties" page instead.
 - [ ] **Private parties / catering** — page asserts Fay's hosts small private parties and can do group orders. Confirm before publishing.
 
-### Asset upgrades needed
-- [ ] **All photos.** Pages use CSS gradient placeholders. Pull real food + interior shots — Instagram `@faysdiner` is the obvious source. Needed: a hero (interior or a hero plate), the 4 featured-dish photos, and a real `assets/images/og-hero.jpg` for the link preview (currently referenced but not present).
-- [ ] **Logo** — an actual "Fay's" wordmark/SVG would replace the CSS-built circular "F" mark.
+### Photos — wired from the live site, a few gaps remain
+Real photography pulled from Fay's own site (`static.spotapps.co`) is now in `assets/images/` and wired in: storefront on the home hero, the Benedict plate on the menu hero + as `og-hero.jpg` (so the rebuilt site's own link preview has a real image), the teal-booth interior in the About block and on the reservations hero, and a teal interior shot on the hours/contact heroes.
+- [ ] **Individual dish photos** — the menu items are text-only. The per-dish photos on the live site load via JS, so they weren't scrapeable from source. Pull them from the SpotHopper export or Instagram `@faysdiner` if we want photo thumbnails on menu items.
+- [ ] **Featured-dish photos on the home page** — the 4 "favorites" are text rows; add real plate shots when available.
+- [ ] **Logo** — the nav/footer use a CSS-built circular "F" mark. Their real mark is a teal neon "Fay's / Diner & Cafe" script (visible in `about_right.jpg`); a clean SVG/PNG of it would be an upgrade. `assets/images/logo.png` (their current logo) is in the folder if useful.
+- [ ] A few unused scraped photos (`about_back`, `about_left`, `special_back`, `reviews_back2`) are in `assets/images/` — fine to keep as a small library or delete before publishing.
 
 ### Schema gaps
 - [ ] **Confirm `lat`/`lng`** in `build.py` — currently **approximate** (32.90981, -117.09972) because the live site renders its map via JS and exact coords weren't in the source. Verify against the Google Business Profile pin.
