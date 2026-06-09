@@ -411,8 +411,9 @@ def render_full_menu_html():
 # ------------------------------------------------------------------------------
 # Reviews + gallery (home page)
 # ------------------------------------------------------------------------------
-GALLERY = ["benedict.jpg", "dish-club.jpg", "dish-cfs.jpg",
-           "dish-seafood.jpg", "dish-acai.jpg", "dish-bundt.jpg"]
+GALLERY = ["benedict.jpg", "dish-club.jpg", "dish-burger.jpg", "dish-cobb.jpg",
+           "dish-cfs.jpg", "dish-seafood.jpg", "dish-omelette.jpg", "dish-acai.jpg",
+           "dish-bundt.jpg"]
 
 
 def _stars(n):
@@ -454,9 +455,14 @@ def _reviews_section():
     <span class="eyebrow">Straight off the griddle</span>
     <h2>A look at the food</h2>
     <p class="section-lede">Every plate made fresh to order. A few from the kitchen:</p>
-    <div class="gallery-grid">
-      {gallery}
+    <div class="gallery">
+      <button class="gallery-nav prev" type="button" aria-label="Previous photos" onclick="galScroll(-1)">&lsaquo;</button>
+      <div class="gallery-track" id="gallery-track">
+        {gallery}
+      </div>
+      <button class="gallery-nav next" type="button" aria-label="Next photos" onclick="galScroll(1)">&rsaquo;</button>
     </div>
+    <script>function galScroll(d){{var t=document.getElementById('gallery-track');if(!t)return;t.scrollBy({{left:d*Math.round(t.clientWidth*0.85),behavior:'smooth'}});}}</script>
   </div>
 </section>'''
 
