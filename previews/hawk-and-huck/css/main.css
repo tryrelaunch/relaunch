@@ -625,7 +625,7 @@ nav.main-nav {
 
 /* ── MENU PAGE ── */
 .menu-hero {
-  padding: 80px 0 40px;
+  padding: 48px 0 26px;
   text-align: center;
 }
 .menu-hero h1 {
@@ -653,9 +653,9 @@ nav.main-nav {
   display: flex;
   justify-content: center;
   gap: 24px;
-  padding: 36px 0 60px;
+  padding: 22px 0 18px;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 60px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 .menu-tab {
@@ -672,8 +672,8 @@ nav.main-nav {
 .menu-tab:hover { color: var(--ink); }
 .menu-tab.active { color: var(--rust); border-bottom-color: var(--rust); }
 
-.menu-section { padding: 60px 0; }
-.menu-section-header { text-align: center; margin-bottom: 48px; }
+.menu-section { padding: 26px 0; }
+.menu-section-header { text-align: center; margin-bottom: 24px; }
 .menu-section-header h2 {
   font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 48px);
@@ -694,8 +694,8 @@ nav.main-nav {
   font-style: italic;
 }
 
-.menu-items { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 64px; max-width: 1100px; margin: 0 auto; }
-.menu-item { padding: 18px 0; border-bottom: 1px dotted var(--line); }
+.menu-items { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 64px; max-width: 1100px; margin: 0 auto; }
+.menu-item { padding: 11px 0; border-bottom: 1px dotted var(--line); }
 .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 6px; }
 .menu-item-name {
   font-family: var(--font-display);
@@ -734,12 +734,12 @@ nav.main-nav {
 }
 
 .menu-section-foot {
-  margin-top: 22px;
+  margin-top: 14px;
   font-size: 13.5px;
   color: var(--ink-muted);
   font-style: italic;
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: 12px;
 }
 
 .menu-note {
@@ -1240,4 +1240,4 @@ footer {
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
 }
 .press-card p { font-size: 15.5px; color: rgba(250,246,236,0.82); line-height: 1.55; margin: 0; }
-.press-card p strong { co
+.press-card p strong { col
