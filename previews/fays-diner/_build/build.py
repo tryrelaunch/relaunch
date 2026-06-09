@@ -37,11 +37,9 @@ BUSINESS = {
     "region": "CA",
     "postal": "92131",
     "country": "US",
-    # APPROXIMATE coordinates for 10006 Scripps Ranch Blvd - confirm against the
-    # Google Business Profile pin before publishing (live site renders its map via
-    # JS, so exact lat/lng was not in the page source).
-    "lat": 32.90981,
-    "lng": -117.09972,
+    # Coordinates from the Google Maps business listing (verified 2026-06-08).
+    "lat": 32.903027,
+    "lng": -117.09989,
     "price_range": "$$",
     "cuisine": ["American", "Breakfast", "Cafe", "Californian"],
     "facebook": "https://www.facebook.com/112806368390004",
@@ -49,18 +47,34 @@ BUSINESS = {
     "yelp": "https://www.yelp.com/biz/fays-diner-and-cafe-san-diego",
 }
 
-# Map embed (keyless query embed - no API key needed)
-MAP_EMBED = ("https://www.google.com/maps?q=10006+Scripps+Ranch+Blvd,"
-             "+San+Diego,+CA+92131&output=embed")
+# Google Maps embed - keyless, centered on the business pin at its verified
+# coordinates (no API key required, shows the Fay's Diner marker).
+MAP_EMBED = ("https://maps.google.com/maps?q=Fay%27s%20Diner%20%26%20Cafe,"
+             "10006%20Scripps%20Ranch%20Blvd,%20San%20Diego,%20CA%2092131"
+             "&ll=32.903027,-117.09989&z=16&output=embed")
+
+# Real ratings/reviews (verified 2026-06-08).
+#   Google: 4.3 stars, 293 reviews   |   Yelp: 460 reviews   |   Tripadvisor: 4.6 (5)
+GOOGLE_RATING = "4.3"
+GOOGLE_REVIEW_COUNT = 293
+# Displayed quotes - real, attributable reviews pulled from Tripadvisor.
+REVIEWS = [
+    {"text": "Best breakfast spot in San Diego! Extensive menu and all made from scratch. Absolutely delicious. Highly recommend the biscuits and gravy to start you off.",
+     "author": "Suzanne S.", "city": "La Jolla, CA", "stars": 5, "source": "Tripadvisor"},
+    {"text": "The meals were both delicious and plentiful. We will be returning to try out some of the other unique items on the menu. Try Fay's - you won't be disappointed.",
+     "author": "Ron S.", "city": "Poway, CA", "stars": 5, "source": "Tripadvisor"},
+    {"text": "The food is made fresh to order and was tasty and plentiful. It's nice to find a local restaurant that can go on our regular go-to rotation.",
+     "author": "Lori I.", "city": "San Diego, CA", "stars": 5, "source": "Tripadvisor"},
+]
 
 # Real photography pulled from the live site (static.spotapps.co, 2026-06-08).
 # Hero image per page -> (filename, alt). Replaces the .hero-bg-placeholder div.
 HERO_IMG = {
     "index":        ("video_poster.jpg", "The Fay's Diner & Cafe storefront and patio in Scripps Ranch"),
-    "menu":         ("food_back.jpg",    "A Benedict plate with breakfast potatoes at Fay's Diner & Cafe"),
-    "hours":        ("events_back.jpg",  "Inside Fay's Diner & Cafe with its teal booths and neon sign"),
-    "reservations": ("about_right.jpg",  "The counter and dining room at Fay's Diner & Cafe"),
-    "contact":      ("events_back.jpg",  "Inside Fay's Diner & Cafe in Scripps Ranch"),
+    "menu":         ("benedict.jpg",     "A Benedict plate with breakfast potatoes at Fay's Diner & Cafe"),
+    "hours":        ("interior.jpg",     "Inside Fay's Diner & Cafe - the bright Scripps Ranch dining room"),
+    "reservations": ("interior.jpg",     "The dining room at Fay's Diner & Cafe"),
+    "contact":      ("interior.jpg",     "Inside Fay's Diner & Cafe in Scripps Ranch"),
 }
 
 # Order meals appear on the menu page
@@ -184,8 +198,24 @@ def restaurant_schema():
             {"@type": "LocationFeatureSpecification", "name": "Private parties / catering", "value": True},
             {"@type": "LocationFeatureSpecification", "name": "Wheelchair accessible", "value": True},
         ],
-        # NOTE: AggregateRating intentionally NOT stubbed - connect real Google/Yelp
-        # reviews before publishing. Fake stars poison both AI search and trust.
+        # Real aggregate from the Google Business listing (4.3 / 293 reviews, verified 2026-06-08).
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": GOOGLE_RATING,
+            "reviewCount": GOOGLE_REVIEW_COUNT,
+            "bestRating": "5",
+            "worstRating": "1",
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": r["author"]},
+                "reviewRating": {"@type": "Rating", "ratingValue": str(r["stars"]), "bestRating": "5"},
+                "reviewBody": r["text"],
+                "publisher": {"@type": "Organization", "name": r["source"]},
+            }
+            for r in REVIEWS
+        ],
     }
 
 
@@ -379,6 +409,59 @@ def render_full_menu_html():
 
 
 # ------------------------------------------------------------------------------
+# Reviews + gallery (home page)
+# ------------------------------------------------------------------------------
+GALLERY = ["benedict.jpg", "dish-club.jpg", "dish-cfs.jpg",
+           "dish-seafood.jpg", "dish-acai.jpg", "dish-bundt.jpg"]
+
+
+def _stars(n):
+    return '<span class="review-stars" aria-label="%d out of 5 stars">%s</span>' % (n, "&#9733;" * n)
+
+
+def _reviews_section():
+    cards = ""
+    for i, r in enumerate(REVIEWS):
+        cards += f'''
+        <figure class="review-card">
+          {_stars(r["stars"])}
+          <blockquote id="edit-review-{i}-text">&ldquo;{r["text"]}&rdquo;</blockquote>
+          <figcaption>
+            <span class="review-author" id="edit-review-{i}-author">{r["author"]}</span>
+            <span class="review-meta">{r["city"]} &middot; via {r["source"]}</span>
+          </figcaption>
+        </figure>'''
+    gallery = "".join(
+        f'<img src="assets/images/{g}" alt="A dish at Fay\'s Diner & Cafe" loading="lazy" />'
+        for g in GALLERY
+    )
+    return f'''
+<section class="section teal">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="eyebrow">What guests say</span>
+      <h2>Loved across Scripps Ranch</h2>
+      <p class="reviews-rating">{_stars(5)} <strong>{GOOGLE_RATING}</strong> on Google &middot; {GOOGLE_REVIEW_COUNT} reviews &middot; 460+ on Yelp</p>
+    </div>
+    <div class="reviews-grid">
+      {cards}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Straight off the griddle</span>
+    <h2>A look at the food</h2>
+    <p class="section-lede">Every plate made fresh to order. A few from the kitchen:</p>
+    <div class="gallery-grid">
+      {gallery}
+    </div>
+  </div>
+</section>'''
+
+
+# ------------------------------------------------------------------------------
 # Page main-content generators
 # ------------------------------------------------------------------------------
 
@@ -390,10 +473,10 @@ def main_index():
   <div class="hero-inner">
     <span class="hero-tagline" id="edit-hero-tagline">Scripps Ranch &middot; San Diego</span>
     <h1>
-      <span id="edit-hero-h1-main">All-day breakfast.</span>
-      <span class="accent" id="edit-hero-h1-accent">Real dinner on the weekend.</span>
+      <span id="edit-hero-h1-main">All-day breakfast,</span>
+      <span class="accent" id="edit-hero-h1-accent">made from scratch.</span>
     </h1>
-    <p class="hero-lede" id="edit-hero-lede">A bright neighborhood cafe in Scripps Ranch. Benedicts, French toast, omelettes, and burritos from 6:30 AM every day &mdash; plus a full sit-down dinner menu Wednesday through Saturday.</p>
+    <p class="hero-lede" id="edit-hero-lede">A bright neighborhood cafe in Scripps Ranch &mdash; Benedicts, French toast, omelettes, and burritos served from 6:30 AM every day, with a full dinner menu Wednesday through Saturday.</p>
     <div class="hero-ctas">
       <a href="menu.html" class="btn btn-primary">See the Menu</a>
       <a href="reservations.html" class="btn btn-ghost">Reserve a Table</a>
@@ -418,12 +501,12 @@ def main_index():
       <div>
         <span class="eyebrow">About Fay's</span>
         <h2 id="edit-mission-h2">Classic diner comfort, cooked like someone cares.</h2>
-        <p id="edit-mission-p1">Fay's Diner & Cafe is a family-run, all-day cafe in the heart of Scripps Ranch. We do breakfast the way it should be done &mdash; from Berries and Cream French Toast and house-made cinnamon rolls to Crab Cake Benedicts and a Cali Breakfast Burrito the size of your forearm &mdash; and we serve it every day we're open, all day long.</p>
-        <p id="edit-mission-p2">Wednesday through Saturday evenings we turn into a proper little dinner spot, with Steak Frites, Chicken Piccata, fresh seafood, and a few chef's specials. Same friendly room, same fair prices, just with the lights turned down a notch.</p>
+        <p id="edit-mission-p1">Fay's Diner & Cafe is a family-run, all-day cafe in the heart of Scripps Ranch &mdash; named by owner Josh for his mother, Fay, whose photos line the walls. We do breakfast the way it should be done, from Berries and Cream French Toast and house-made cinnamon rolls to Crab Cake Benedicts and a Cali Breakfast Burrito the size of your forearm, and we serve it every day we're open, all day long.</p>
+        <p id="edit-mission-p2">Wednesday through Saturday evenings we turn into a proper little dinner spot, with Steak Frites, Chicken Piccata, fresh seafood, and a few chef's specials. Same bright room, same fair prices, just with the lights turned down a notch.</p>
         <a href="menu.html" class="btn btn-teal">See the Full Menu</a>
       </div>
       <div>
-        <img src="assets/images/about_right.jpg" alt="Inside Fay's Diner & Cafe - teal booths, the counter, and the neon Fay's sign" style="aspect-ratio: 4 / 5; width: 100%; object-fit: cover; border-radius: 12px; box-shadow: var(--fd-shadow);" />
+        <img src="assets/images/interior.jpg" alt="Inside Fay's Diner & Cafe - the bright Scripps Ranch dining room with teal booths" style="aspect-ratio: 4 / 5; width: 100%; object-fit: cover; border-radius: 12px; box-shadow: var(--fd-shadow);" />
       </div>
     </div>
   </div>
@@ -435,49 +518,59 @@ def main_index():
     <h2>What people order again</h2>
     <p class="section-lede">A taste of the menu. The full breakfast, lunch, and dinner lineup lives on the <a href="menu.html">Menu page</a>.</p>
 
-    <div class="menu-section">
-      <div class="menu-grid">
+    <div class="dish-grid">
 
-        <div class="menu-item-row">
-          <div class="menu-item-top">
-            <h3 class="menu-item-name" id="edit-feat-frenchtoast-name">Berries &amp; Cream French Toast <span class="menu-item-flag veg">V</span></h3>
-            <span class="menu-item-price" id="edit-feat-frenchtoast-price">$20.00</span>
+      <div class="dish-card">
+        <img src="assets/images/benedict.jpg" alt="Crab Cake Benedict at Fay's Diner & Cafe" loading="lazy" />
+        <div class="dish-card-body">
+          <div class="dish-card-top">
+            <h3 id="edit-feat-benedict-name">Crab Cake Benedict</h3>
+            <span class="dish-card-price" id="edit-feat-benedict-price">$25</span>
           </div>
-          <p class="menu-item-desc" id="edit-feat-frenchtoast-desc">Brioche bread, berry compote, cream anglaise, maple bourbon syrup, and fresh strawberries.</p>
+          <p id="edit-feat-benedict-desc">Two house-made lump crab cakes, avocado, arugula, poached eggs, and hollandaise.</p>
         </div>
-
-        <div class="menu-item-row">
-          <div class="menu-item-top">
-            <h3 class="menu-item-name" id="edit-feat-crabbenedict-name">Crab Cake Benedict</h3>
-            <span class="menu-item-price" id="edit-feat-crabbenedict-price">$25.00</span>
-          </div>
-          <p class="menu-item-desc" id="edit-feat-crabbenedict-desc">Two house-made lump crab cakes, avocado, arugula, poached eggs, and hollandaise.</p>
-        </div>
-
-        <div class="menu-item-row">
-          <div class="menu-item-top">
-            <h3 class="menu-item-name" id="edit-feat-steakeggs-name">Steak &amp; Eggs</h3>
-            <span class="menu-item-price" id="edit-feat-steakeggs-price">$31.00</span>
-          </div>
-          <p class="menu-item-desc" id="edit-feat-steakeggs-desc">8 oz New York steak smothered in house-made hollandaise, with two eggs any style.</p>
-        </div>
-
-        <div class="menu-item-row">
-          <div class="menu-item-top">
-            <h3 class="menu-item-name" id="edit-feat-filetoscar-name">Filet Oscar <span class="menu-item-flag gf">Dinner</span></h3>
-            <span class="menu-item-price" id="edit-feat-filetoscar-price">$45.00</span>
-          </div>
-          <p class="menu-item-desc" id="edit-feat-filetoscar-desc">Filet mignon topped with jumbo crab meat and Bearnaise sauce. A Wed&ndash;Sat dinner special.</p>
-        </div>
-
       </div>
+
+      <div class="dish-card">
+        <img src="assets/images/dish-club.jpg" alt="The Club triple-decker sandwich at Fay's Diner & Cafe" loading="lazy" />
+        <div class="dish-card-body">
+          <div class="dish-card-top">
+            <h3 id="edit-feat-club-name">The Club</h3>
+            <span class="dish-card-price" id="edit-feat-club-price">$25</span>
+          </div>
+          <p id="edit-feat-club-desc">Triple decker with turkey, ham, bacon, lettuce, tomato, onion, and avocado.</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="assets/images/dish-burger.jpg" alt="A Fay's burger with fries" loading="lazy" />
+        <div class="dish-card-body">
+          <div class="dish-card-top">
+            <h3 id="edit-feat-burger-name">The Cali Burger</h3>
+            <span class="dish-card-price" id="edit-feat-burger-price">$20</span>
+          </div>
+          <p id="edit-feat-burger-desc">Quarter-pound patty, bacon, avocado, cheddar, lettuce, tomato, onion, and pickles.</p>
+        </div>
+      </div>
+
+      <div class="dish-card">
+        <img src="assets/images/dish-cobb.jpg" alt="Seafood Cobb salad at Fay's Diner & Cafe" loading="lazy" />
+        <div class="dish-card-body">
+          <div class="dish-card-top">
+            <h3 id="edit-feat-cobb-name">Seafood Cobb</h3>
+            <span class="dish-card-price" id="edit-feat-cobb-price">$22</span>
+          </div>
+          <p id="edit-feat-cobb-desc">Lobster, shrimp, romaine, hard-boiled eggs, bacon, blue cheese, and tomato.</p>
+        </div>
+      </div>
+
     </div>
 
-    <div style="text-align: center; margin-top: 24px;">
+    <div style="text-align: center; margin-top: 32px;">
       <a href="menu.html" class="btn btn-teal">See the full menu &rarr;</a>
     </div>
   </div>
-</section>
+</section>'''  + _reviews_section() + '''
 
 <section class="section teal">
   <div class="container">
@@ -501,14 +594,6 @@ def main_index():
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="quote">
-      <span id="edit-quote-text">The kind of neighborhood breakfast spot you wish was on your corner &mdash; generous plates, real cooking, and people who remember your order.</span>
-      <span class="quote-attr" id="edit-quote-attr">Placeholder &mdash; replace with a real Google or Yelp review once reviews are connected</span>
-    </div>
-  </div>
-</section>
 ''' + render_faq_section("index")
 
 
@@ -845,10 +930,6 @@ PAGES = {
 }
 
 
-# ------------------------------------------------------------------------------
-# BUILD
-# ------------------------------------------------------------------------------
-
 def build_schema_block(page_key, page):
     schemas = [breadcrumb_schema(page["breadcrumb_items"]), faq_schema(FAQS[page_key])]
     for s in page.get("extra_schemas", []):
@@ -867,7 +948,6 @@ def render_page(page_key):
 
     main_html = page["main"]()
 
-    # Swap the hero placeholder gradient for the real photo, if we have one.
     hero = HERO_IMG.get(page_key)
     if hero:
         fname, alt = hero
