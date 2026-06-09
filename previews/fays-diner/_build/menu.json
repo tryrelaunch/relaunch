@@ -1,0 +1,717 @@
+[
+ {
+  "meal": "Breakfast",
+  "section": "Bakery Specialties",
+  "items": [
+   {
+    "name": "Berries and Cream French Toast (V)",
+    "price": "$20.00",
+    "desc": "Brioche bread, berry compote, cream anglaise, maple bourbon syrup, streusel, and powdered sugar | Half portion $10.00"
+   },
+   {
+    "name": "French Toast Combo (V)",
+    "price": "$25.00",
+    "desc": "Half portion of our Berries and Cream French Toast, served with 2 eggs any style."
+   },
+   {
+    "name": "Pancakes",
+    "price": "",
+    "desc": "Short $14.00 | Full $16.00 • Choice of Blueberry, Strawberry, Chocolate Chip, covered in powdered sugar."
+   },
+   {
+    "name": "Sunrise Special",
+    "price": "$24.00",
+    "desc": "2 hot cakes, 2 eggs, 2 strips of bacon or sausage. Choice of one side."
+   },
+   {
+    "name": "Cinnamon Roll Combo",
+    "price": "$25.00",
+    "desc": "House made Cinnamon Roll served with 2 eggs any style, 2 strips of bacon or sausage. Choice of one side."
+   },
+   {
+    "name": "Belgium Waffle (V)",
+    "price": "$15.00",
+    "desc": "Mixed berries, whipped cream, powder sugar."
+   },
+   {
+    "name": "Cinnamon Roll",
+    "price": "$8.00",
+    "desc": ""
+   },
+   {
+    "name": "Plain French Toast",
+    "price": "$15.00",
+    "desc": ""
+   }
+  ]
+ },
+ {
+  "meal": "Breakfast",
+  "section": "Omelettes & Scrambles",
+  "items": [
+   {
+    "name": "Denver Omelette",
+    "price": "$21.00",
+    "desc": "Diced ham, bell peppers, onions, cheddar, and jack cheese."
+   },
+   {
+    "name": "Veggie Omelette (V)",
+    "price": "$20.00",
+    "desc": "Mushrooms, broccoli, diced tomato, spinach, bell pepper, onions, and avocado."
+   },
+   {
+    "name": "Ham & Cheese Scramble",
+    "price": "$20.00",
+    "desc": "Scrambled eggs, diced ham, cheddar, and jack cheese."
+   },
+   {
+    "name": "Chile Verde Omelette",
+    "price": "$21.00",
+    "desc": "House-made pork verde, pico de gallo, cheddar, and jack cheese."
+   },
+   {
+    "name": "Meat Lovers Omelette",
+    "price": "$21.00",
+    "desc": "Diced ham, bacon, sausage, cheddar, and jack cheese."
+   },
+   {
+    "name": "Bacon & Cheese Scramble",
+    "price": "$20.00",
+    "desc": "Scrambled eggs, bacon, cheddar, and jack cheese."
+   },
+   {
+    "name": "Veggie Scramble (V)",
+    "price": "$18.00",
+    "desc": "Scrambled eggs, mushrooms, spinach, tomatoes, broccoli, bell pepper, onion, and Swiss cheese."
+   },
+   {
+    "name": "Philly Cheesesteak Omelette",
+    "price": "$21.00",
+    "desc": "Shaved ribeye, sauteed bell peppers,onions, provolone cheese, white cheddar mornay."
+   },
+   {
+    "name": "Soyrizo Scramble (V)",
+    "price": "$17.00",
+    "desc": "Soyrizo, egg whites, scallions, bell peppers, pico de gallo, avocado, Choice of one side."
+   }
+  ]
+ },
+ {
+  "meal": "Breakfast",
+  "section": "Benedicts",
+  "items": [
+   {
+    "name": "Florentine (V)",
+    "price": "$20.00",
+    "desc": "English muffin, avocado, cherry tomato, sauteed spinach, poached eggs, and hollandaise."
+   },
+   {
+    "name": "Crab Cake",
+    "price": "$25.00",
+    "desc": "2 house made lump crab cakes, avocado, arugula, poached eggs, and hollandaise."
+   },
+   {
+    "name": "Cajun Seafood",
+    "price": "$26.00",
+    "desc": "English muffin, lobster, shrimp, seasonal catch, poached eggs, and cajun hollandaise."
+   },
+   {
+    "name": "Traditional",
+    "price": "$20.00",
+    "desc": "English muffin, ham steak, poached eggs, and hollandaise."
+   }
+  ]
+ },
+ {
+  "meal": "Breakfast",
+  "section": "Breakfast Specialties",
+  "items": [
+   {
+    "name": "Santa Fe Hash",
+    "price": "$21.00",
+    "desc": "House made pork verde, crispy potatoes, peppers, onions, pinto beans cheddar and jack cheese, 2 eggs any style, crema, queso fresco, and pico de gallo."
+   },
+   {
+    "name": "Breakfast Melt",
+    "price": "$18.00",
+    "desc": "Sourdough bread, 2 fried eggs, bacon, ham, garlic aioli, pepper jack cheese."
+   },
+   {
+    "name": "Steak & Eggs",
+    "price": "$31.00",
+    "desc": "8oz New York steak Smothered in House Made Hollandaise, and 2 eggs any way you like. Choice of 1 side, and Choice of toast, biscuit, or tortilla."
+   },
+   {
+    "name": "Cajun Seafood Scramble",
+    "price": "$25.00",
+    "desc": "Lobster, shrimp, seasonal catch, bell peppers, onions, scrambled eggs. Smothered in our house made Cajun cream sauce. Choice of one side and choice of toast, biscuit, or tortilla."
+   },
+   {
+    "name": "Chicken Fried Steak & Eggs",
+    "price": "$25.00",
+    "desc": "Fried to perfection, smothered in house made sausage bacon gravy, 2 eggs any style. Choice of one side, and choice of toast, biscuit, or tortilla."
+   },
+   {
+    "name": "Corned Beef Hash & Eggs",
+    "price": "$23.00",
+    "desc": "House made Corned beef hash, sautéed with onions, peppers, 2 eggs any style. and crispy potatoes."
+   },
+   {
+    "name": "Biscuits & Gravy",
+    "price": "$18.00",
+    "desc": "House made butter milk biscuits smothered in our sausage bacon gravy with 2 eggs any style, and a choice of one side."
+   },
+   {
+    "name": "Chicken Fried Chicken & Eggs",
+    "price": "$21.00",
+    "desc": "Fried chicken smothered in our sausage bacon gravy with 2 eggs any style, choice of toast, biscuit or tortilla and choice of one side."
+   },
+   {
+    "name": "Fay’ Breakfast Sando",
+    "price": "$18.00",
+    "desc": "Scrambled eggs with bacon and sausage folded in, American cheese, arugula, garlic aioli, on ciabatta."
+   },
+   {
+    "name": "Acai Bowl (V)",
+    "price": "$24.00",
+    "desc": "Acai, toasted coconut, seasonal berries, banana, house made granola."
+   },
+   {
+    "name": "Avocado Toast",
+    "price": "$16.00",
+    "desc": "Sliced avocado on a bed of seasoned arugula, cherry tomatoes, 2 eggs any style, and finished off with picked shallots, fresno chili, queso fresco, and a drizzle of Balsamic reduction."
+   },
+   {
+    "name": "All American Breakfast",
+    "price": "$17.00",
+    "desc": "2 eggs any style, choice of bacon, sausage links, sausage patty, or ham steak. Choice of one side and toast."
+   }
+  ]
+ },
+ {
+  "meal": "Breakfast",
+  "section": "Burritos",
+  "items": [
+   {
+    "name": "Veggie Burrito (V)",
+    "price": "$20.00",
+    "desc": "4 eggs, mushrooms, broccoli, diced tomato, spinach, bell peppers, hash brown, onions, avocado, and jack cheese. Choice of side salsa."
+   },
+   {
+    "name": "Cali Breakfast Burrito",
+    "price": "$22.00",
+    "desc": "4 eggs, marinated carne asada, crispy french fries, guacamole, pico de gallo, crema, cheddar, and jack cheese. Choice of side salsa."
+   },
+   {
+    "name": "Chilaquiles",
+    "price": "$21.00",
+    "desc": "Colorado sauce or pork verde, tortilla chips. pico de gallo, crema, queso fresco, refried beans, cilantro and choice of 2 eggs any style."
+   },
+   {
+    "name": "Chile Verde (GF)",
+    "price": "$20.00",
+    "desc": "Pork Verde, 2 eggs any style, refried beans and tortillas. Choice of hash brown or country potatoes."
+   },
+   {
+    "name": "Hash Brown Burrito",
+    "price": "$20.00",
+    "desc": "4 eggs, crispy hash browns, sausage, bacon, crema, cheddar, jack cheese and choice of salsa."
+   },
+   {
+    "name": "Chorizo Scramble",
+    "price": "$20.00",
+    "desc": "Scrambled eggs, chorizo, cheddar, jack cheese, scallions, refried beans and tortillas. Choice of country potatoes or hash browns."
+   },
+   {
+    "name": "Huevos Rancheros",
+    "price": "$18.00",
+    "desc": "Crisp corn tortilla, choice of 2 eggs. pico de gallo, queso fresco, refried beans, rojo salsa, crema, and cilantro."
+   },
+   {
+    "name": "Surfer Burrito",
+    "price": "$23.00",
+    "desc": "4 eggs, home fries, bell peppers, onions, bacon, sausage, chorizo, jack, and cheddar cheese. Choice of Colorado or Verde salsa."
+   }
+  ]
+ },
+ {
+  "meal": "Breakfast",
+  "section": "Sides & Extras",
+  "items": [
+   {
+    "name": "Avocado",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "Hash Browns",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "House Made Biscuit",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Side Salad",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "French Fries",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Soup of The Day",
+    "price": "",
+    "desc": "$6.00 | $9.00"
+   },
+   {
+    "name": "Sausage Patty",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Turkey Sausage Patty",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Cup of Gravy",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Side of Bacon",
+    "price": "$6.00",
+    "desc": ""
+   },
+   {
+    "name": "Sliced Tomatoes",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "Country Potatoes",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Sausage Links",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Refried Beans",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Biscuit & Gravy",
+    "price": "$12.00",
+    "desc": ""
+   },
+   {
+    "name": "1/2 Side of Bacon",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "Seasonal Fruit",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "1 Egg Any Style",
+    "price": "$2.50",
+    "desc": ""
+   },
+   {
+    "name": "2 Eggs Any Style",
+    "price": "$5.00",
+    "desc": ""
+   },
+   {
+    "name": "Toast",
+    "price": "$3.00",
+    "desc": ""
+   },
+   {
+    "name": "Sauteéd Spinach",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "Cottage Cheese",
+    "price": "$4.00",
+    "desc": ""
+   },
+   {
+    "name": "Cup of Chili Verde",
+    "price": "$10.00",
+    "desc": ""
+   },
+   {
+    "name": "Cup of Cajun Seafood",
+    "price": "$12.00",
+    "desc": ""
+   },
+   {
+    "name": "Single Pancake",
+    "price": "$9.00",
+    "desc": ""
+   }
+  ]
+ },
+ {
+  "meal": "Kids",
+  "section": "Kids' Menu",
+  "items": [
+   {
+    "name": "Mickey Mouse Pancake",
+    "price": "$13.00",
+    "desc": "1 Mickey Mouse pancake served 1 slice of bacon or a sausage link."
+   },
+   {
+    "name": "Grilled Cheese",
+    "price": "$12.00",
+    "desc": "Toasted white bread, melted cheddar jack cheese, and a choice of side."
+   },
+   {
+    "name": "Breakfast Combo",
+    "price": "$14.00",
+    "desc": "Choice of 1 egg any style, breakfast meat, and choice of a side."
+   },
+   {
+    "name": "Chicken Tenders",
+    "price": "$14.00",
+    "desc": "Crispy chicken tenders, choice of dipping sauce, and choice of a side."
+   },
+   {
+    "name": "French Toast",
+    "price": "$14.00",
+    "desc": "Brioche, powdered sugar, and choice of 1 slice of bacon, or 1 sausage link."
+   },
+   {
+    "name": "Burger",
+    "price": "$16.00",
+    "desc": "1/4 patty, brioche bun, cheddar cheese, lettuce, tomato, and choice of a side."
+   },
+   {
+    "name": "Spaghetti",
+    "price": "$12.00",
+    "desc": "Choice of marinara, butter, or alfredo, topped with parmesan cheese."
+   }
+  ]
+ },
+ {
+  "meal": "Lunch",
+  "section": "Lunch Plates",
+  "items": [
+   {
+    "name": "FISH And CHIPS",
+    "price": "$21.00",
+    "desc": "Fried Seasonal White Fish, fries, coleslaw, lemon, tartar sauce."
+   },
+   {
+    "name": "Blackened Salmon and Veggies (GF)",
+    "price": "$18.00",
+    "desc": "Seared Blackened Salmon on a bed of sautéed seasonal vegetables."
+   },
+   {
+    "name": "Grilled Chicken and Veggies (GF)",
+    "price": "$15.00",
+    "desc": "Sautéed seasonal vegetables, tender grilled chicken breast."
+   },
+   {
+    "name": "Half Sandwich and Soup",
+    "price": "$17.00",
+    "desc": "Choice of Deli, Melt, or BLAT sandwich and a cup of our soup of the day."
+   },
+   {
+    "name": "Bean and Cheese Burrito",
+    "price": "$10.00",
+    "desc": "House made bacon refried beans, blend of jack and cheddar cheese, flour tortilla, choice of red or green salsa."
+   },
+   {
+    "name": "Taco",
+    "price": "$14.00",
+    "desc": "Choice of Fish, Cajun shrimp, or Potato taco with choice of one side | Add additional taco for $3.00"
+   }
+  ]
+ },
+ {
+  "meal": "Lunch",
+  "section": "Salads",
+  "items": [
+   {
+    "name": "Seafood Cobb",
+    "price": "$22.00",
+    "desc": "Lobster, shrimp, romaine, hard boiled eggs, bacon, blue cheese, tomato, cucumber; onion, avocado, choice of dressing"
+   },
+   {
+    "name": "Blackened Salmon and Berries",
+    "price": "$20.00",
+    "desc": "Blackened Salmon, strawberries, blueberries, toasted almonds, shaved parmesan, spinach, red onion, arugula, frisee, and Greek dressing."
+   },
+   {
+    "name": "Caesar",
+    "price": "$18.00",
+    "desc": "Romaine lettuce, brioche croutons, parmesan cheese, romain lettuce, house-made Caesar dressing."
+   },
+   {
+    "name": "Citrus Shimp and Avocado",
+    "price": "$18.00",
+    "desc": "Citrus Shimp on a bed of Spinach, arugula, mandarins, cherry tomatoes, Frisee, red onion, avocado, spiced almonds, queso fresco, and citrus vinaigrette."
+   }
+  ]
+ },
+ {
+  "meal": "Lunch",
+  "section": "Sandwiches & Wraps",
+  "items": [
+   {
+    "name": "Club",
+    "price": "$25.00",
+    "desc": "Triple decker, turkey, ham, bacon, lettuce, tomato, onion, avocado, and garlic aioli. Served on sourdough."
+   },
+   {
+    "name": "Chicken Bacon Ranch",
+    "price": "$20.00",
+    "desc": "Grilled chicken, thick sliced bacon, buttermilk ranch, lettuce, onion, tomato, and pickles on a brioche bread."
+   },
+   {
+    "name": "Chicken Pesto Sandwich",
+    "price": "$21.00",
+    "desc": "Grilled chicken, pesto, sundried tomato aioli, prosciutto, balsamic reduction, parmesan cheese, frisee, aru"
+   },
+   {
+    "name": "BLAT",
+    "price": "$22.00",
+    "desc": "Thick slice of bacon, lettuce, tomato, avocado, and garlic aioli on sourdough | Add Blackened Salmon for +$7.00"
+   },
+   {
+    "name": "Steak Sandwich",
+    "price": "$28.00",
+    "desc": "Grilled New York steak, caramelized onions, arugula, tomato, gorgonzola, house made pesto, garlic aioli, on ciabatta."
+   },
+   {
+    "name": "Tuna Melt",
+    "price": "$20.00",
+    "desc": "Tuna salad, cheddar cheese, and tomatoes, on sourdough."
+   },
+   {
+    "name": "Cali Burrito",
+    "price": "$19.00",
+    "desc": "Marinated carne asada, crispy french fries, guacamole, pico de gallo, crema, cheddar, and jack cheese. Does not come with a side"
+   },
+   {
+    "name": "Deli",
+    "price": "$18.00",
+    "desc": "Grilled chicken, sliced turkey, sliced ham, or our tuna, with lettuce, tomato, onion, pickles, and garlic aioli on your choice of bread."
+   },
+   {
+    "name": "Caesar Wrap",
+    "price": "$20.00",
+    "desc": "Choice of grilled or blackened chicken or salmon, romain lettuce, brioche croutons, parmesan cheese, house made Caesar dressing, in a flour tortilla."
+   },
+   {
+    "name": "French Dip",
+    "price": "$22.00",
+    "desc": "Shaved ribeye, caramelized onions, swiss cheese, white cheddar mornay, garlic aioli, crispy onion strings, au jus, on a French baguette."
+   },
+   {
+    "name": "Crab Cake",
+    "price": "$22.00",
+    "desc": "Crispy crab cake, arugula, frisee, pickled shallots, tartar sauce, on a brioche bun."
+   }
+  ]
+ },
+ {
+  "meal": "Lunch",
+  "section": "Burgers",
+  "items": [
+   {
+    "name": "Drugstore",
+    "price": "$20.00",
+    "desc": "1/4 lb patty, American cheese, lettuce, tomato, onion, pickles, and mayo, on a brioche bun | Add: Patty +$4.00 | Egg +$4.00"
+   },
+   {
+    "name": "Cowboy",
+    "price": "$20.00",
+    "desc": "1/4lb burger, BBQ sauce, crispy onion strings, bacon,cheddar, arugula | Add: Patty +$4.00 | Egg +$4.00"
+   },
+   {
+    "name": "All American",
+    "price": "$20.00",
+    "desc": "1/4lb burger, cheddar, caramelized onions, butter lettuce, tomato, pickles, secret sauce | Add: Patty +$4.00 | Egg +$4.00"
+   },
+   {
+    "name": "Cali",
+    "price": "$20.00",
+    "desc": "1/4lb burger, bacon, avocado, cheddar, lettuce, tomato, onion, pickles, garlic aioli | Add: Patty +$4.00 | Egg +$4.00"
+   }
+  ]
+ },
+ {
+  "meal": "Lunch",
+  "section": "Desserts",
+  "items": [
+   {
+    "name": "Housemade Cinnamon Rolls",
+    "price": "$18.00",
+    "desc": "Single $8.00 | Pack of 4 $24.00 | Pack of 6 $30.00 Plain: finished with Maple bourbon syrup Frosted: finished with our cream cheese frosting. Maple Bacon: finished with cream cheese frosting and maple bourbon bacon. Mudslide: finished with cream cheese frosting, crushed Oreo cookies, caramel and chocolate sauce. Pecan: finished with cream cheese frosting and candied pecans. Almond: finished with cream cheese frosting and toasted almonds."
+   },
+   {
+    "name": "Ice Cream Sundae",
+    "price": "$11.00",
+    "desc": "Hot fudge, whipped cream, sprinkles, and a cherry. Flavors: Vanilla ,Chocolate, Strawberry, Coffee Additional Toppings +$0.50/ea: Chocolate sauce, Caramel, Candied Pecans, Toasted Almonds, Oreo cookie crumbles."
+   },
+   {
+    "name": "Fays Banana Split",
+    "price": "$12.00",
+    "desc": "2 scoops ice cream, Candied pecans, Chocolate and caramel sauce, bananas, whipped cream and cherry"
+   },
+   {
+    "name": "Milkshake",
+    "price": "$10.00",
+    "desc": "Chocolate,Vanilla, Strawberry, Peanut Butter, Coffee."
+   },
+   {
+    "name": "Floats",
+    "price": "$12.00",
+    "desc": "Root beer Float, Creamsicle Float, Coca Cola Float, Dr. Pepper Float, Sprite Float."
+   },
+   {
+    "name": "Ice Cream Scoop",
+    "price": "$4.00",
+    "desc": "Vanilla, Coffee, Chocolate, Strawberry."
+   }
+  ]
+ },
+ {
+  "meal": "Dinner",
+  "section": "Starters & Small Plates",
+  "items": [
+   {
+    "name": "Small Salad",
+    "price": "$5.00",
+    "desc": "Romaine lettuce, cucumbers, cherry tomatoes, red onion, croutons, with choice of dressing."
+   },
+   {
+    "name": "Ceasar Salad",
+    "price": "$6.00",
+    "desc": "Romaine lettuce, shaved parmesan cheese, croutons, caesar dressing."
+   },
+   {
+    "name": "Soup of The Day",
+    "price": "",
+    "desc": "Cup $6.00 | Bowl $9.00"
+   },
+   {
+    "name": "Truffle Fries",
+    "price": "$10.00",
+    "desc": "Bowl of crispy fries tossed in truffle oil, shaved parmesan, chopped herbs, and a garlic aioli dipping sauce."
+   },
+   {
+    "name": "Truffle Mac and Cheese",
+    "price": "$15.00",
+    "desc": "Cavatappi pasta smothered in our house made white cheddar mornay sauce, bacon, truffle oil, shaved parmesan, herb breadcrumbs."
+   },
+   {
+    "name": "Crab Cake",
+    "price": "$15.00",
+    "desc": "House made lump crab cake made crispy served with arugula, pickled shallots, pickled chili, frisee, cherry tomatoes tossed in balsamic vinaigrette. Served with tarter sauce."
+   },
+   {
+    "name": "Fries",
+    "price": "",
+    "desc": "Cup $5.00 | Bowl $8.00"
+   },
+   {
+    "name": "Onion Rings",
+    "price": "",
+    "desc": "Cup $5.00 | Bowl $8.00 • Hand battered tempura onion rings."
+   }
+  ]
+ },
+ {
+  "meal": "Dinner",
+  "section": "Dinner Entrees",
+  "items": [
+   {
+    "name": "Chicken Piccata",
+    "price": "$24.00",
+    "desc": "Pan-seared chicken breast in a piccata cream sauce, served with herb rice pilaf, and sauteed vegetable medley."
+   },
+   {
+    "name": "Shrimp Scampi",
+    "price": "$26.00",
+    "desc": "Sauteed Shrimp, confit tomatoes, garlic, shallot, herbs, tossed in our scampi cream sauce, fettucine, and topped with parmesan cheese."
+   },
+   {
+    "name": "Steak Frites",
+    "price": "$36.00",
+    "desc": "Grilled 8oz New York steak topped with our brandy peppercorn au poivre sauce, served with parmesan herb truffle fries, and a side for roasted garlic aioli."
+   },
+   {
+    "name": "Chicken Pot Pie",
+    "price": "$23.00",
+    "desc": "Roasted chicken, onion, celery, carrots, garlic, potatoes, and herbs all cooked down in a creamy savory gravy, topped with puff pastry."
+   },
+   {
+    "name": "Cajun Salmon and Shrimp",
+    "price": "$29.00",
+    "desc": "Blackened Salmon smothered in shrimp, peppers, onions, and a Cajun cream sauce, served with rice pilaf, and sautéed seasonal vegetables."
+   },
+   {
+    "name": "Beef Bourguignon Pasta",
+    "price": "$26.00",
+    "desc": "Slow braised short rib, roasted cipollini onions, mushrooms, garlic, herbs, tossed in our bourguignon sauce, and cavatappi pasta, topped with parmesan cheese."
+   },
+   {
+    "name": "Chicken Parmesan",
+    "price": "$26.00",
+    "desc": "Crispy breaded chicken breast, topped with marinara, mozzarella, pecorino romano, and parmesan cheese. Served with spaghetti tossed in marinara and finished with chopped basil."
+   },
+   {
+    "name": "Mushroom Risotto",
+    "price": "$25.00",
+    "desc": "Arborio rice, seasonal mushroom medley, garlic, shallot, herbs, tossed in a roasted mushroom cream sauce, parmesan, and topped with a balsamic reduction.."
+   }
+  ]
+ },
+ {
+  "meal": "Dinner",
+  "section": "Chef's Specials",
+  "items": [
+   {
+    "name": "Charcuterie",
+    "price": "$25.00",
+    "desc": "Prosciutto, Spanish chorizo, fig jam, grapes and assorted cheeses with toasted baguette"
+   },
+   {
+    "name": "Filet Oscar",
+    "price": "$45.00",
+    "desc": "Filet mignon topped with jumbo crab meat and Bearnaise sauce. Served with asparagus and garlic mashed potatoes"
+   },
+   {
+    "name": "Pan Seared Halibut",
+    "price": "$38.00",
+    "desc": "Pan-seared halibut on a bed of roasted baby carrots and citrus carrot puree. Finished with Beurre Blanc and a citrus herb salad"
+   },
+   {
+    "name": "Chorizo and Shrimp Pasta",
+    "price": "$34.00",
+    "desc": "Grilled Spanish chorizo and shrimp, sauteed with roasted Cipollini onions, red peppers, and garlic, tossed in Romesco and topped with Gremolata"
+   },
+   {
+    "name": "Mixed Berry New York Cheesecake",
+    "price": "$12.00",
+    "desc": ""
+   }
+  ]
+ }
+]

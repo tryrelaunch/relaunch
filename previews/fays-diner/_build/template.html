@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESC}}" />
+  <link rel="canonical" href="https://faysdiner.com/{{CANONICAL_PATH}}" />
+  <meta property="og:title" content="{{OG_TITLE}}" />
+  <meta property="og:description" content="{{OG_DESC}}" />
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:url" content="https://faysdiner.com/{{CANONICAL_PATH}}" />
+  <meta property="og:image" content="https://faysdiner.com/assets/images/og-hero.jpg" />
+  <meta property="og:site_name" content="Fay's Diner &amp; Cafe" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{OG_TITLE}}" />
+  <meta name="twitter:description" content="{{OG_DESC}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <script type="application/ld+json">
+{{SCHEMA_JSON}}
+  </script>
+</head>
+<body>
+
+{{BANNER}}
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" id="edit-nav-logo-link">
+      <span class="nav-logo-mark">F</span>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main" id="edit-nav-brand-main">Fay's Diner &amp; Cafe</span>
+        <span class="nav-logo-sub" id="edit-nav-brand-sub">Scripps Ranch &middot; San Diego</span>
+      </div>
+    </a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="hours.html">Hours &amp; Location</a></li>
+      <li><a href="reservations.html">Reservations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="tel:+18583972530" class="nav-cta">Call (858) 397-2530</a></li>
+    </ul>
+  </div>
+</nav>
+
+{{BREADCRUMB}}
+
+{{MAIN}}
+
+<section class="contact-strip">
+  <div class="container">
+    <h2 id="edit-contact-strip-h2">Come in hungry.</h2>
+    <p id="edit-contact-strip-lede">10006 Scripps Ranch Boulevard, San Diego. All-day breakfast every day, dinner Wednesday through Saturday. Walk in or reserve a table.</p>
+    <div class="hero-ctas" style="justify-content: center;">
+      <a href="reservations.html" class="btn btn-primary">Reserve a Table</a>
+      <a href="tel:+18583972530" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.8); color: #fff !important;">Call (858) 397-2530</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom: 14px;">
+          <span style="width:48px; height:48px; border-radius:50%; background: var(--fd-red); color: var(--fd-cream); display:inline-flex; align-items:center; justify-content:center; font-family: var(--font-display); font-weight:700; font-size:1.35rem; border: 3px solid var(--fd-sun);">F</span>
+          <span style="font-family: var(--font-display); font-size: 1.3rem; color: var(--fd-cream); font-weight: 600;">Fay's Diner &amp; Cafe</span>
+        </div>
+        <p id="edit-footer-tagline">A bright all-day cafe in Scripps Ranch &mdash; classic diner fare, all-day breakfast, and a full dinner menu Wednesday through Saturday.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li id="edit-footer-address">10006 Scripps Ranch Blvd<br/>San Diego, CA 92131</li>
+          <li><a href="https://maps.google.com/?q=10006+Scripps+Ranch+Blvd+San+Diego+CA+92131" target="_blank" rel="noopener">Get directions &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="tel:+18583972530" id="edit-footer-phone">(858) 397-2530</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+          <li id="edit-footer-hours">Daily 6:30a&ndash;3p &middot; Dinner Wed&ndash;Sat 4&ndash;8p</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="hours.html">Hours &amp; Location</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Fay's Diner &amp; Cafe. All rights reserved.</div>
+      <div class="relaunch-tag">Site preview built by <a href="https://tryrelaunch.com" style="color: inherit; text-decoration: underline;">Relaunch</a></div>
+    </div>
+  </div>
+</footer>
+
+{{WIDGET}}
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
