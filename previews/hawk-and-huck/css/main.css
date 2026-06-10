@@ -1294,3 +1294,9 @@ footer {
   .press-logos { gap: 20px 30px; }
   .press-logo img { height: 24px; }
 }
+
+/* ── OpenTable reservation widget ── */
+.reserve-section { padding: 90px 0; background: var(--bg-deep); }
+.reserve-section .eyebrow { color: var(--rust); }
+.ot-widget { display: flex; justify-content: center; margin-top: 8px; min-height: 230px; }
+.ot-widget iframe { margin: 0 auto !important; max-width: 100%; }
