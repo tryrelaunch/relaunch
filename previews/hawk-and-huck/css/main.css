@@ -1220,41 +1220,57 @@ footer {
 }
 
 /* ============================================================
-   PRESS / ACCOLADES
+   PRESS STRIP (homepage) — sleek, high-contrast, logo row
    ============================================================ */
-.press-group { margin-bottom: 56px; }
-.press-group:last-child { margin-bottom: 0; }
-.press-group-title {
-  font-family: var(--font-body); font-size: 12px; font-weight: 700;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--rust);
-  margin-bottom: 8px;
-}
-.press-group h3 {
-  font-family: var(--font-display); font-size: 28px; font-weight: 500;
-  color: var(--ink); margin-bottom: 22px; line-height: 1.2;
-}
-.accolade-list { list-style: none; padding: 0; margin: 0; }
-.accolade-list li {
-  position: relative; padding: 0 0 16px 30px;
-  font-size: 16.5px; color: var(--ink-soft); line-height: 1.6;
-  border-bottom: 1px solid var(--line); margin-bottom: 16px;
-}
-.accolade-list li:last-child { border-bottom: none; margin-bottom: 0; }
-.accolade-list li::before {
-  content: ''; position: absolute; left: 4px; top: 11px;
-  width: 7px; height: 7px; background: var(--gold);
-  transform: rotate(45deg);
-}
-.accolade-list li strong { color: var(--ink); font-weight: 600; }
-.press-lead {
-  font-family: var(--font-display); font-size: 21px; font-weight: 400;
-  color: var(--ink-soft); line-height: 1.55; max-width: 760px; margin: 0 0 8px;
-}
-
-/* Homepage press strip */
 .press-strip { padding: 96px 0; background: var(--ink); }
 .press-strip .eyebrow { color: var(--gold); }
 .press-strip .section-h2 { color: var(--bone); }
 .press-strip .section-h2 em { color: var(--gold); }
+
+.press-eyebrow-sub {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(250,246,236,0.45); margin: 22px 0 18px;
+}
 .press-logos {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 14p
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 26px 44px; margin: 0 auto 48px; max-width: 860px;
+}
+.press-logo { display: inline-flex; align-items: center; height: 36px; }
+.press-logo img {
+  height: 30px; width: auto; max-width: 150px; object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.5; transition: opacity 0.25s;
+}
+.press-logo:hover img { opacity: 0.92; }
+.press-logo-txt {
+  display: none; font-family: var(--font-display); font-size: 19px;
+  font-weight: 500; color: rgba(250,246,236,0.6); letter-spacing: 0.01em;
+}
+.press-logo.noimg img { display: none; }
+.press-logo.noimg .press-logo-txt { display: inline; }
+
+.press-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 8px; text-align: left;
+}
+.press-card {
+  background: rgba(250,246,236,0.05);
+  border: 1px solid rgba(184,148,92,0.22);
+  border-top: 2px solid var(--gold);
+  border-radius: 10px; padding: 26px 24px;
+  transition: transform 0.2s, background 0.2s;
+}
+.press-card:hover { transform: translateY(-3px); background: rgba(250,246,236,0.08); }
+.press-card-tag {
+  font-family: var(--font-body); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.press-card p { font-size: 15px; color: #efe7d6; line-height: 1.6; margin: 0; }
+.press-card p strong { color: #ffffff; font-weight: 600; }
+.press-strip-cta { text-align: center; margin-top: 44px; }
+@media (max-width: 860px) {
+  .press-cards { grid-template-columns: 1fr; }
+  .press-logos { gap: 20px 30px; }
+  .press-logo img { height: 24px; }
+}
