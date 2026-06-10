@@ -548,12 +548,27 @@ nav.main-nav {
 
 .event-spaces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
 .event-space {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid rgba(250, 246, 236, 0.15);
   padding: 28px 24px;
   background: rgba(250, 246, 236, 0.04);
   transition: all 0.25s;
+  text-decoration: none;
+  cursor: pointer;
 }
-.event-space:hover { background: rgba(250, 246, 236, 0.08); border-color: var(--gold); }
+.event-space:hover { background: rgba(250, 246, 236, 0.08); border-color: var(--gold); transform: translateY(-3px); }
+.event-space-link {
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.event-space:hover .event-space-link { color: var(--bone); }
 .event-space-num {
   font-family: var(--font-display);
   font-size: 14px;
@@ -571,7 +586,7 @@ nav.main-nav {
 }
 .event-space p { font-size: 14px; color: rgba(250, 246, 236, 0.65); line-height: 1.6; }
 .event-space-cap {
-  margin-top: 14px;
+  margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid rgba(250, 246, 236, 0.12);
   font-size: 13px;
@@ -1242,15 +1257,4 @@ footer {
 .press-strip .section-h2 { color: var(--bone); }
 .press-strip .section-h2 em { color: var(--gold); }
 .press-logos {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 34px;
-  margin: 18px auto 40px; max-width: 780px;
-}
-.press-logos span {
-  font-family: var(--font-display); font-size: 20px; font-weight: 500;
-  color: rgba(250,246,236,0.55); letter-spacing: 0.01em;
-}
-.press-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px;
-}
-.press-card {
-  background: rgba(250,246,236,0.04); border: 1px solid rgba(250
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 14p
