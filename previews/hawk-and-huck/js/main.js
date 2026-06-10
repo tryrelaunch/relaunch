@@ -132,3 +132,49 @@ async function sendEdit() {
   __relaunchEditLoading = false;
   if (sendBtn) sendBtn.disabled = false;
 }
+
+
+// ── OpenTable reservation lightbox ──
+(function () {
+  var otLoaded = false;
+  function buildReserveModal() {
+    if (document.getElementById('reserve-modal')) return;
+    var m = document.createElement('div');
+    m.id = 'reserve-modal';
+    m.className = 'reserve-modal';
+    m.innerHTML =
+      '<div class="reserve-modal-panel">' +
+        '<button class="reserve-modal-close" type="button" aria-label="Close">&times;</button>' +
+        '<div class="reserve-modal-title">Reserve a Table</div>' +
+        '<div id="reserve-modal-body"><div class="reserve-modal-loading">Loading reservations…</div></div>' +
+      '</div>';
+    document.body.appendChild(m);
+    m.addEventListener('click', function (e) {
+      if (e.target === m || e.target.classList.contains('reserve-modal-close')) window.closeReserve();
+    });
+  }
+  window.openReserve = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    buildReserveModal();
+    document.getElementById('reserve-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (!otLoaded) {
+      otLoaded = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src = '//www.opentable.com/widget/reservation/loader?rid=1340929&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true';
+      document.getElementById('reserve-modal-body').appendChild(s);
+    }
+  };
+  window.closeReserve = function () {
+    var m = document.getElementById('reserve-modal');
+    if (m) m.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') window.closeReserve(); });
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="opentable.com/r/"], a[href="#reserve"]').forEach(function (a) {
+      a.addEventListener('click', window.openReserve);
+    });
+  });
+})();
