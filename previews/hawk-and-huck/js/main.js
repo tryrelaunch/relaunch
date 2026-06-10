@@ -146,7 +146,7 @@ async function sendEdit() {
       '<div class="reserve-modal-panel">' +
         '<button class="reserve-modal-close" type="button" aria-label="Close">&times;</button>' +
         '<div class="reserve-modal-title">Reserve a Table</div>' +
-        '<div id="reserve-modal-body"><div class="reserve-modal-loading">Loading reservations…</div></div>' +
+        '<div id="reserve-modal-body"></div>' +
       '</div>';
     document.body.appendChild(m);
     m.addEventListener('click', function (e) {
