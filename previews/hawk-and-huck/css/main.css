@@ -864,7 +864,7 @@ nav.main-nav {
   font-weight: 400;
 }
 .about-content { padding: 60px 0; }
-.about-block { max-width: 760px; margin: 0 auto 80px; }
+.about-block { max-width: 880px; margin: 0 auto 80px; }
 .about-block p { font-size: 19px; line-height: 1.85; color: var(--ink-soft); margin-bottom: 20px; }
 .about-block p strong { color: var(--ink); font-weight: 600; }
 .about-block .pullquote {
@@ -898,8 +898,8 @@ nav.main-nav {
 .brothers-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 900px;
+  gap: 48px;
+  max-width: 1180px;
   margin: 60px auto;
 }
 .brother-card { text-align: left; }
