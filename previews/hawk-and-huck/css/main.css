@@ -1387,3 +1387,9 @@ footer {
   .chef-cards { grid-template-columns: 1fr; gap: 50px; }
   .chef-card-photo { max-width: 380px; margin-left: auto; margin-right: auto; }
 }
+
+/* press accolade links */
+.accolade-list a { color: var(--rust); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.accolade-list a:hover { color: var(--rust-deep); }
+a.award-tile { cursor: pointer; }
+a.award-tile:hover { border-color: var(--gold); }
