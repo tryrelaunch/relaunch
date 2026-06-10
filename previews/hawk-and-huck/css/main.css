@@ -921,7 +921,7 @@ nav.main-nav {
   text-align: center;
   overflow: hidden;
 }
-.brother-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.brother-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
 
 /* ── FOOTER ── */
 footer {
