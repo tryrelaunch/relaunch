@@ -504,7 +504,7 @@ nav.main-nav {
 .sig-card p { font-size: 15px; line-height: 1.65; color: var(--ink-muted); }
 
 /* ── EXPERIENCE STRIP ── */
-.experience { padding: 120px 0; background: var(--bg); }
+.experience { padding: 72px 0; background: var(--bg); }
 .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .exp-card { padding: 48px 32px; border-right: 1px solid var(--line); }
 .exp-card:last-child { border-right: none; }
@@ -1400,3 +1400,9 @@ a.award-tile:hover { border-color: var(--gold); }
 @media (max-width: 760px) { .hh-menu-grid { grid-template-columns: 1fr; gap: 40px; } }
 @media (max-width: 600px) { .hh-facts { grid-template-columns: 1fr 1fr; gap: 28px 18px; } }
 @media (max-width: 480px) { .award-grid { grid-template-columns: 1fr; } }
+
+/* experience spacing (mobile) */
+@media (max-width: 600px) {
+  .experience { padding: 44px 0; }
+  .exp-card { padding: 28px 18px; }
+}
