@@ -16,6 +16,16 @@ Reason: Year-round passenger ferry / marine vertical.
 
 All *authored* body copy (hero, about, schedule, fares, boats, cruises, getting-here, footer) was cleaned: no `<strong>X.</strong>`/`<strong>X:</strong>` bold-term patterns, banned words, banned phrases, or banned structures, and em dashes reduced to ~zero (schedule separators converted to middots). Per `PREVIEW_TEMPLATE.md` pre-ship gates, treat the script's banner/head hits as informational for this client.
 
+## Multipage build (2026-06-11)
+
+Expanded from one page to a multipage site matching their live menu. Pages: `/` (home overview), `/schedule/` (schedule + fares + policy), `/boats/` (Laura B + Elizabeth Ann), `/cruises/` (puffin + lighthouse + sunset + charters), `/port-clyde/` (Getting Here + directions + map). Nav + footer link through to these on every page; "Buy Tickets" everywhere opens the FareHarbor modal (ferry 89753 / puffin 89759 / gift).
+
+Two deliberate deviations from the single-file frozen template, both to make multipage reliable and consistent:
+- **Shared assets:** the frozen CSS/JS were moved to `assets/site.css` + `assets/site.js` and linked by every page (one source of truth; identical buttons/behavior across pages). Frozen class names and JS function names are unchanged. NOTE for promotion: the widget endpoint to swap (`/edit` → `/edit-persistent`) and the fab label now live in `assets/site.js`, not inline.
+- **Mobile hamburger added:** the template shipped with `.nav-links{display:none}` on mobile and no toggle — the menu was unusable on phones (most of their traffic). Added a `.nav-toggle` + `toggleNav()`; nav now works on mobile.
+
+Stray `images/lb_*.jpg` and `images/ea_*.jpg` are leftover 404 probes (couldn't delete — mount is create/overwrite-only); neutralized to valid images, unreferenced. Safe to delete on Nate's machine.
+
 ## Basic Info
 
 ```
