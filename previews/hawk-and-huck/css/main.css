@@ -1393,3 +1393,10 @@ footer {
 .accolade-list a:hover { color: var(--rust-deep); }
 a.award-tile { cursor: pointer; }
 a.award-tile:hover { border-color: var(--gold); }
+
+/* Happy Hour responsive grids */
+.hh-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+.hh-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 56px; }
+@media (max-width: 760px) { .hh-menu-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 600px) { .hh-facts { grid-template-columns: 1fr 1fr; gap: 28px 18px; } }
+@media (max-width: 480px) { .award-grid { grid-template-columns: 1fr; } }
