@@ -334,3 +334,8 @@ section{position:relative}
   .nav{justify-content:flex-end}
   .nav__brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
 }
+
+/* ---- photo page headers ---- */
+.phead--photo{background-size:cover;background-position:center}
+.phead--photo .phead__motif{display:none}
+.phead--photo .wrap{position:relative;z-index:2}
