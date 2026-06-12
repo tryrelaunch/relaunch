@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Malarkey · See You Summer 2026</title>
-<meta name="description" content="The Malarkey, chef Brian Malarkey's wood-fired Pacific Northwest restaurant, opens summer 2026 in Portland's Pearl District. Drop your email to be first through the door.">
+<meta name="description" content="The Malarkey, chef Brian Malarkey's wood-fired Pacific Northwest restaurant, opens summer 2026 in Portland's Pearl District. Keep up with the madness.">
 <meta property="og:title" content="The Malarkey · See You Summer 2026">
-<meta property="og:description" content="Opening summer 2026 at 555 NW 12th Ave, Portland. Be first through the door.">
+<meta property="og:description" content="Opening summer 2026 at 555 NW 12th Ave, Portland. Keep up with the madness.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/clover-gold.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,19 +23,41 @@
 .lander__logo{width:min(840px,92vw);height:auto;margin:0 auto clamp(18px,3vw,30px);display:block}
 .lander h1{font-family:var(--display);font-weight:300;font-size:clamp(1.8rem,6.5vw,4rem);line-height:.95;margin:0}
 .lander h1 em{font-family:var(--display);font-style:normal;color:var(--gold)}
-.lander__meta{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+.lander__cta{margin-top:30px;font-size:.9rem;padding:17px 38px}
+.lander__meta{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:30px;flex-wrap:wrap}
 .lander__press{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--summerglow);display:inline-flex;align-items:center;gap:10px}
 .lander__press a{font-weight:700;letter-spacing:-.01em;font-size:1.15rem;color:var(--cream);text-transform:none}
 .lander__press a:hover{color:var(--gold)}
-.lander__meta .ig{color:var(--cream)}
 .lander__meta .sep{width:1px;height:20px;background:rgba(244,239,230,.3)}
 .lander__follow{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--summerglow);display:inline-flex;align-items:center;gap:10px}
-.lander__follow .ig{color:var(--cream)}
+.lander__meta .ig{color:var(--cream)}
+
+/* lightbox modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal__backdrop{position:absolute;inset:0;background:rgba(8,6,5,.8);backdrop-filter:blur(3px)}
+.modal__card{position:relative;z-index:1;width:100%;max-width:460px;background:#1b1511;border:1px solid rgba(244,239,230,.14);border-radius:18px;padding:clamp(28px,5vw,44px);box-shadow:0 40px 90px rgba(0,0,0,.6);text-align:left;animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.modal__x{position:absolute;top:12px;right:16px;background:none;border:0;color:var(--cream);font-size:1.7rem;line-height:1;cursor:pointer;opacity:.6}
+.modal__x:hover{opacity:1;color:var(--gold)}
+.modal__card .kicker{color:var(--gold);margin-bottom:10px}
+.modal__card h2{font-family:var(--display);font-weight:300;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--cream);line-height:1}
+.modal__sub{color:var(--summerglow);font-size:.95rem;margin:12px 0 22px}
+.modal__form{display:grid;gap:12px}
+.modal__form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal__form input{background:rgba(244,239,230,.05);border:1px solid rgba(244,239,230,.25);border-radius:12px;padding:13px 16px;color:var(--cream);font-family:var(--grotesk);font-size:.95rem;width:100%}
+.modal__form input::placeholder{color:rgba(244,239,230,.5)}
+.modal__form input:focus{outline:none;border-color:var(--gold)}
+.modal__form .btn{margin-top:6px;justify-content:center}
+.modal__ok{display:none;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:1.35rem;margin-top:6px}
+.modal.done .modal__form{display:none}
+.modal.done .modal__ok{display:block}
+@media(max-width:480px){.modal__form .row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<section class="closer lander grain-wrap" id="waitlist" style="--bg:#14110F;--fg:var(--cream);--accent:var(--gold)">
+<section class="closer lander grain-wrap">
   <img class="closer__bg" src="assets/img/manifesto-bg.jpg" alt="">
   <div class="closer__scrim" style="background:linear-gradient(0deg,rgba(20,17,15,.92),rgba(20,17,15,.72))"></div>
   <div class="grain"></div>
@@ -43,24 +65,45 @@
     <img class="lander__logo" src="assets/img/wordmark-red-clovergold.png" alt="The Malarkey">
     <h1>See you <em>Summer 2026.</em></h1>
     <p class="closer__sub" style="margin-top:18px">555 NW 12th Ave · The Pearl District</p>
-    <form class="closer__mini" style="max-width:440px">
-      <input type="email" placeholder="Drop your email to be first through the door" aria-label="Email" required>
-      <button class="btn btn--gold" type="submit"><span>Done</span></button>
-    </form>
-    <p class="closer__hint">Keep up with the madness.</p>
+    <button class="btn btn--gold lander__cta" data-open><span>Keep Up With the Madness</span></button>
     <div class="lander__meta">
       <span class="lander__press">As seen in <a href="#" target="_blank" rel="noopener">Eater</a></span>
       <span class="sep"></span>
       <span class="lander__follow">Follow us <a class="ig" href="https://www.instagram.com/the_malarkey_pdx/" target="_blank" rel="noopener" aria-label="The Malarkey on Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a></span>
     </div>
-    <p class="closer__ok">You're in. We'll see you when the doors swing open.</p>
   </div>
 </section>
 
+<!-- SIGNUP LIGHTBOX -->
+<div class="modal" id="signupModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-label="Keep up with the madness">
+    <button class="modal__x" data-close aria-label="Close">&times;</button>
+    <p class="kicker">The Malarkey</p>
+    <h2>Keep up with the madness</h2>
+    <p class="modal__sub">First reservations, opening-night details, and the occasional bit of malarkey.</p>
+    <form class="modal__form" id="signupForm">
+      <div class="row">
+        <input type="text" name="first" placeholder="First name" autocomplete="given-name" required>
+        <input type="text" name="last" placeholder="Last name" autocomplete="family-name" required>
+      </div>
+      <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+      <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
+      <button class="btn btn--gold" type="submit"><span>I'm In</span></button>
+    </form>
+    <p class="modal__ok">You're in. We'll see you when the doors swing open.</p>
+  </div>
+</div>
+
 <script>
-  document.querySelectorAll('.closer__mini').forEach(function(f){
-    f.addEventListener('submit',function(e){e.preventDefault();f.closest('.closer').classList.add('done');});
-  });
+  var modal=document.getElementById('signupModal');
+  function openM(){modal.classList.add('open');document.body.style.overflow='hidden';
+    var f=modal.querySelector('input');if(f)setTimeout(function(){f.focus();},60);}
+  function closeM(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',openM);});
+  modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',closeM);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
+  document.getElementById('signupForm').addEventListener('submit',function(e){e.preventDefault();modal.classList.add('done');});
 </script>
 </body>
 </html>
