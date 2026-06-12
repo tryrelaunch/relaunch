@@ -341,3 +341,16 @@ section{position:relative}
 /* ---- nav CTA: no pill/border, clean text link ---- */
 .nav__cta{border:0;border-radius:0;padding:4px 0;background:transparent}
 .nav__cta:hover{background:transparent;border-color:transparent;color:inherit}
+
+/* ---- instagram / social icon ---- */
+.ig{display:inline-flex;align-items:center;justify-content:center;color:inherit;opacity:.78;transition:opacity .2s,color .2s,transform .2s}
+.ig:hover{opacity:1;color:var(--gold);transform:translateY(-1px)}
+.foot__bottom .ig{order:-1}
+.lander__social{margin-top:26px}
+.lander__social .ig{color:var(--cream)}
+
+/* ---- press strip ---- */
+.press{background:var(--bg);color:var(--fg);padding:clamp(40px,6vw,72px) 0;text-align:center}
+.press__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(22px,5vw,56px);margin-top:22px}
+.press__row a,.press__row span{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.55rem);color:var(--cream);opacity:.66;transition:opacity .2s,color .2s}
+.press__row a:hover{opacity:1;color:var(--gold)}
