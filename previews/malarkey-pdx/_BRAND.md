@@ -3,7 +3,7 @@
 Bespoke build (no template). Brand wrapper: **Relaunch**. Restaurant, pre-launch.
 
 ## One-sentence vibe
-The rule breaker in pearls — Pacific Northwest grit wrapped in old-world glamour. Wood-fired, eclectic, a little irreverent, deeply Portland.
+Chef Brian Malarkey's Pacific Northwest restaurant: grit wrapped in old-world glamour. Wood-fired, eclectic, a little irreverent, deeply Portland. NOTE: the approved deck's "Teeta Malarkey / rule breaker in pearls" matriarch is the interior designer's fictional mood persona — do NOT use it as the public brand story. The restaurant is owned by chef Brian Malarkey.
 
 ## Identity
 - Name: **The Malarkey**

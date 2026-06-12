@@ -16,7 +16,7 @@ Bespoke Relaunch build (no template — Nate's call). Pre-launch waitlist site.
 - Logo lockups (gold/red wordmark + clover) and PP Editorial New Thin font.
 
 ## Pages
-Home (themed-room sections), Menu, Story (Teeta narrative + rooms), Visit (map + private events).
+Home (themed-room sections), Menu, Story (about the restaurant + rooms), Visit (map + private events). NOTE: do not use the deck's fictional "Teeta Malarkey" persona — owner is chef Brian Malarkey.
 
 ## Reference
 Lafayette Hotel SD (lafayettehotelsd.com) — themed-section structure. Adapt, not copy.
