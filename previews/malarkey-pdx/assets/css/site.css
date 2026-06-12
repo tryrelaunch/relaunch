@@ -256,3 +256,20 @@ section{position:relative}
   .waitlist input{text-align:center}
   .marquee span{font-size:1.2rem}
 }
+
+/* ============================================================
+   FULL-BLEED PHOTO ROOMS (home)
+   ============================================================ */
+.room--photo{background-size:cover;background-position:center;min-height:88vh;
+  display:flex;align-items:flex-end;color:var(--cream)}
+.room--photo .grain{opacity:.22}
+.room__photo-inner{position:relative;z-index:2;width:100%;padding:clamp(40px,8vw,108px) 0}
+.room--photo .room__copy{max-width:640px}
+.room--photo .room__num{color:var(--accent)}
+.room--photo .room__title{font-family:var(--display);font-weight:300;
+  font-size:clamp(2.6rem,7vw,5.4rem);margin:.1em 0 .35em}
+.room--photo .room__body p{color:rgba(244,239,230,.92);max-width:48ch}
+.room--photo .room__tags span{border-color:rgba(244,239,230,.35);color:rgba(244,239,230,.85)}
+.room__stamp{width:clamp(88px,11vw,132px);margin-bottom:22px;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.55))}
+@media (max-width:860px){.room--photo{min-height:78vh}}
