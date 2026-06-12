@@ -328,3 +328,9 @@ section{position:relative}
 .closer__ok{display:none;margin-top:24px;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold)}
 .closer.done .closer__ok{display:block}
 @media (max-width:560px){.closer__mini{flex-direction:column}.closer__mini input{text-align:center}}
+
+/* ---- centered nav logo (desktop) ---- */
+@media (min-width:861px){
+  .nav{justify-content:flex-end}
+  .nav__brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
+}
