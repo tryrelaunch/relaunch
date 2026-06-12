@@ -329,13 +329,11 @@ section{position:relative}
 .closer.done .closer__ok{display:block}
 @media (max-width:560px){.closer__mini{flex-direction:column}.closer__mini input{text-align:center}}
 
-/* ---- centered nav logo (desktop) ---- */
-@media (min-width:861px){
-  .nav{justify-content:flex-end}
-  .nav__brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
-}
-
 /* ---- photo page headers ---- */
 .phead--photo{background-size:cover;background-position:center}
 .phead--photo .phead__motif{display:none}
 .phead--photo .wrap{position:relative;z-index:2}
+
+/* ---- hero logo (wordmark) ---- */
+.hero__logo-wrap{margin:0}
+.hero__logo{width:min(720px,86vw);height:auto;margin:0 auto;display:block}
