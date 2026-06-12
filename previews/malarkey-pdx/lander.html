@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Malarkey · See You in 2026</title>
+<meta name="description" content="The Malarkey, chef Brian Malarkey's wood-fired Pacific Northwest restaurant, opens 2026 in Portland's Pearl District. Drop your email to be first through the door.">
+<meta property="og:title" content="The Malarkey · See You in 2026">
+<meta property="og:description" content="Opening 2026 at 555 NW 12th Ave, Portland. Be first through the door.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/clover-gold.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+:root{
+  --ink:#14110F; --red:#CE3A2A; --terracotta:#D05A45; --gold:#F4B81A; --orient:#B5894C;
+  --elkwood:#2C3D37; --clover:#347853; --deepsea:#356068; --summerglow:#DDB4AB;
+  --peach:#F8D7CD; --cream:#F4EFE6;
+}
+.lander{min-height:100svh}
+.lander__mark{height:clamp(40px,6vw,64px);width:auto;margin:0 auto clamp(22px,4vw,34px);display:block}
+.lander__logo{width:min(560px,80vw);height:auto;margin:0 auto clamp(10px,2vw,18px);display:block}
+.lander h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,12vw,8rem);line-height:.9;margin:0}
+.lander h1 em{font-family:var(--serif);font-style:italic;color:var(--gold)}
+.lander__kicker{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.34em;font-size:.72rem;color:var(--gold);margin-bottom:24px}
+</style>
+</head>
+<body>
+
+<section class="closer lander grain-wrap" id="waitlist" style="--bg:#14110F;--fg:var(--cream);--accent:var(--gold)">
+  <img class="closer__bg" src="assets/img/manifesto-bg.jpg" alt="">
+  <div class="closer__scrim" style="background:linear-gradient(0deg,rgba(20,17,15,.92),rgba(20,17,15,.72))"></div>
+  <div class="grain"></div>
+  <div class="wrap closer__inner">
+    <img class="lander__mark" src="assets/img/clover-gold.png" alt="">
+    <img class="lander__logo" src="assets/img/wordmark-cream.png" alt="The Malarkey">
+    <p class="lander__kicker">Opening 2026 · Portland, Oregon</p>
+    <h1>See you in <em>2026.</em></h1>
+    <p class="closer__sub" style="margin-top:20px">555 NW 12th Ave · The Pearl District</p>
+    <form class="closer__mini" style="max-width:440px">
+      <input type="email" placeholder="Drop your email to be first through the door" aria-label="Email" required>
+      <button class="btn btn--gold" type="submit"><span>Done</span></button>
+    </form>
+    <p class="closer__hint">First reservations and opening-night nonsense. Nothing else.</p>
+    <p class="closer__ok">You're in. We'll see you when the doors swing open.</p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.closer__mini').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();f.closest('.closer').classList.add('done');});
+  });
+</script>
+</body>
+</html>
