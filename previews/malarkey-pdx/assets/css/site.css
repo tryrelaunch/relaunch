@@ -273,3 +273,58 @@ section{position:relative}
 .room__stamp{width:clamp(88px,11vw,132px);margin-bottom:22px;
   filter:drop-shadow(0 12px 26px rgba(0,0,0,.55))}
 @media (max-width:860px){.room--photo{min-height:78vh}}
+
+/* ============================================================
+   BADASS PASS — photo hero, manifesto, closer
+   ============================================================ */
+.hero--photo{position:relative;min-height:100svh;display:flex;align-items:center;
+  justify-content:center;text-align:center;overflow:hidden;background:var(--ink)}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  animation:kenburns 24s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1.05)}to{transform:scale(1.18) translateY(-1.5%)}}
+.hero__scrim{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(75% 75% at 50% 42%,rgba(20,17,15,.42),rgba(20,17,15,.8)),
+  linear-gradient(0deg,rgba(20,17,15,.96),rgba(20,17,15,.2) 58%)}
+.hero--photo .hero__inner{position:relative;z-index:2}
+.hero--photo .hero__title{font-size:clamp(3.6rem,14vw,12rem)}
+.hero__kicker{font-family:var(--grotesk);font-weight:600;text-transform:uppercase;
+  letter-spacing:.4em;font-size:.74rem;color:var(--gold);margin-bottom:22px}
+.hero__scroll{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:3;
+  color:var(--cream);opacity:.7;font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero__scroll::after{content:"";width:1px;height:38px;background:linear-gradient(var(--gold),transparent);
+  animation:scrollpulse 1.8s ease-in-out infinite}
+@keyframes scrollpulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+.manifesto{background:var(--ink);color:var(--cream);text-align:center;overflow:hidden}
+.manifesto h2{font-family:var(--display);font-weight:300;font-size:clamp(2.4rem,7vw,6rem);
+  line-height:1.02;max-width:18ch;margin:0 auto}
+.manifesto h2 em{font-family:var(--serif);font-style:italic;color:var(--gold)}
+.big-nums{display:flex;justify-content:center;gap:clamp(26px,7vw,96px);
+  margin-top:clamp(44px,6vw,76px);flex-wrap:wrap}
+.big-nums .n{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,6vw,4.6rem);
+  color:var(--gold);line-height:1}
+.big-nums .l{margin-top:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--summerglow);max-width:16ch;margin-left:auto;margin-right:auto}
+
+.closer{position:relative;min-height:82vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;color:var(--cream);overflow:hidden;background:var(--ink)}
+.closer__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;z-index:0;
+  animation:kenburns 26s ease-in-out infinite alternate}
+.closer__scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(20,17,15,.92),rgba(20,17,15,.55))}
+.closer__inner{position:relative;z-index:2;padding:clamp(64px,10vw,128px) 0}
+.closer h2{font-family:var(--display);font-weight:300;font-size:clamp(3rem,12vw,9rem);line-height:.9}
+.closer h2 em{font-family:var(--serif);font-style:italic;color:var(--gold)}
+.closer__sub{margin-top:22px;font-family:var(--grotesk);text-transform:uppercase;
+  letter-spacing:.22em;font-size:.8rem;color:var(--summerglow)}
+.closer__mini{display:flex;gap:8px;max-width:400px;margin:34px auto 0}
+.closer__mini input{flex:1;background:rgba(244,239,230,.06);border:1px solid rgba(244,239,230,.3);
+  border-radius:100px;padding:13px 20px;color:var(--cream);font-family:var(--grotesk);font-size:.9rem}
+.closer__mini input::placeholder{color:rgba(244,239,230,.5)}
+.closer__mini input:focus{outline:none;border-color:var(--gold)}
+.closer__hint{margin-top:14px;font-size:.74rem;letter-spacing:.06em;color:rgba(244,239,230,.45)}
+.closer.done .closer__mini{display:none}
+.closer__ok{display:none;margin-top:24px;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold)}
+.closer.done .closer__ok{display:block}
+@media (max-width:560px){.closer__mini{flex-direction:column}.closer__mini input{text-align:center}}

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Malarkey · Opening 2026 · Pearl District, Portland</title>
-<meta name="description" content="The Malarkey is a wood-fired Pacific Northwest restaurant and bar from chef Brian Malarkey, opening 2026 at 555 NW 12th Ave in Portland's Pearl District. Join the list.">
+<meta name="description" content="The Malarkey is chef Brian Malarkey's wood-fired Pacific Northwest restaurant, opening 2026 at 555 NW 12th Ave in Portland's Pearl District. Eleven thousand square feet, seven rooms, one homecoming.">
 <meta property="og:title" content="The Malarkey · Opening 2026 in Portland">
-<meta property="og:description" content="Wood-fired Pacific Northwest cooking, raw bar, and a maze of rooms with stories to tell. Pearl District, Portland. Join the list.">
+<meta property="og:description" content="Wood fire, raw bar, and seven rooms that don't behave. Chef Brian Malarkey's biggest, loudest love letter to Portland.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/img/clover-gold.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-/* The Malarkey brand palette (authoritative copy in assets/css/site.css; inline here as a fallback) */
 :root{
   --ink:#14110F; --red:#CE3A2A; --terracotta:#D05A45; --gold:#F4B81A; --orient:#B5894C;
   --elkwood:#2C3D37; --clover:#347853; --deepsea:#356068; --summerglow:#DDB4AB;
@@ -33,7 +32,7 @@
     <a href="menu.html">Menu</a>
     <a href="story.html">Story</a>
     <a href="visit.html">Visit</a>
-    <a class="nav__cta" href="#waitlist">Join the List</a>
+    <a class="nav__cta" href="#waitlist">Pull Up</a>
   </nav>
   <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
@@ -43,25 +42,25 @@
   <a href="menu.html">Menu</a>
   <a href="story.html">Story</a>
   <a href="visit.html">Visit</a>
-  <a href="#waitlist">Join the List</a>
+  <a href="#waitlist">Pull Up</a>
   <div class="drawer__meta">555 NW 12th Ave · Portland</div>
 </div>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <img class="hero__elk" src="assets/img/motif-elk.png" alt=""
-       style="height:88vh;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.5">
-  <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(60% 55% at 50% 52%,rgba(20,17,15,.82),rgba(20,17,15,.45) 60%,rgba(20,17,15,.85))"></div>
+<section class="hero--photo" id="top">
+  <img class="hero__bg" src="assets/img/room-coast.jpg" alt="">
+  <div class="hero__scrim"></div>
   <div class="hero__inner wrap">
     <img class="hero__mark" src="assets/img/clover-gold.png" alt="">
+    <p class="hero__kicker">Opening 2026 · Portland, Oregon</p>
     <h1 class="hero__title">The <em>Malarkey</em></h1>
-    <p class="hero__sub">A wood-fired Pacific Northwest table from chef Brian Malarkey, set across a maze of rooms with stories to tell. Coming soon to the Pearl.</p>
-    <div class="hero__open"><span>Opening</span> <b>2026</b> <span>·</span> <span>Portland, Oregon</span></div>
+    <p class="hero__sub">Wood fire, raw bar, and seven rooms that don't behave. Chef Brian Malarkey's biggest, loudest love letter to Portland.</p>
     <div class="hero__cta-row">
-      <a class="btn btn--gold" href="#waitlist"><span>Join the List</span></a>
-      <a class="btn btn--ghost" href="menu.html"><span>See the Menu</span></a>
+      <a class="btn btn--gold" href="menu.html"><span>See the Menu</span></a>
+      <a class="btn btn--ghost" href="story.html"><span>The Story</span></a>
     </div>
   </div>
+  <div class="hero__scroll">Scroll</div>
 </section>
 
 <!-- MARQUEE -->
@@ -72,7 +71,7 @@
   </div>
 </div>
 
-<!-- INTRO / STORY TEASER -->
+<!-- INTRO -->
 <section class="room grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--red);--line:rgba(20,17,15,.16)">
   <div class="grain"></div>
   <div class="wrap">
@@ -150,6 +149,20 @@
   </div>
 </section>
 
+<!-- MANIFESTO -->
+<section class="manifesto grain-wrap section-pad" data-theme style="--bg:var(--ink);--fg:var(--cream);--accent:var(--gold)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <h2 class="reveal">Portland hasn't seen a restaurant <em>this big.</em> That's the point.</h2>
+    <div class="big-nums">
+      <div class="reveal"><div class="n">11,000</div><div class="l">Square Feet</div></div>
+      <div class="reveal"><div class="n">7</div><div class="l">Rooms, Each Its Own World</div></div>
+      <div class="reveal"><div class="n">30+</div><div class="l">Restaurants Behind Him</div></div>
+      <div class="reveal"><div class="n">2026</div><div class="l">Doors Open</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- MENU HIGHLIGHTS -->
 <section class="band grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--red);--line:rgba(20,17,15,.14)">
   <div class="grain"></div>
@@ -167,28 +180,20 @@
   </div>
 </section>
 
-<!-- DETAIL SPLIT -->
-<section class="band" data-theme style="--bg:var(--ink);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.16)">
-  <div class="split">
-    <div class="reveal"><div class="n">555</div><div class="l">NW 12th Ave · The Pearl</div></div>
-    <div class="reveal"><div class="n">2026</div><div class="l">Doors Open</div></div>
-    <div class="reveal"><div class="n">7</div><div class="l">Rooms, Each Its Own Story</div></div>
-  </div>
-</section>
-
-<!-- WAITLIST -->
-<section class="waitlist grain-wrap section-pad" id="waitlist" data-theme style="--bg:var(--elkwood);--fg:var(--cream);--accent:var(--gold)">
+<!-- CLOSER -->
+<section class="closer grain-wrap" id="waitlist" data-theme style="--bg:#4A1B14;--fg:var(--cream);--accent:var(--gold)">
+  <img class="closer__bg" src="assets/img/room-hazel.jpg" alt="">
+  <div class="closer__scrim"></div>
   <div class="grain"></div>
-  <div class="wrap waitlist__inner">
-    <p class="kicker reveal" style="color:var(--gold)">Be First Through the Door</p>
-    <h2 class="reveal">Join the List</h2>
-    <p class="lead reveal" style="color:var(--summerglow);margin-top:1em">We'll send word before the doors open: first reservations, opening-night details, and the occasional bit of malarkey. No spam, just an invitation.</p>
-    <form class="form reveal">
-      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
-      <button class="btn btn--gold" type="submit"><span>Join</span></button>
+  <div class="wrap closer__inner">
+    <p class="hero__kicker reveal">555 NW 12th Ave · The Pearl</p>
+    <h2 class="reveal">See you in <em>2026.</em></h2>
+    <form class="closer__mini reveal">
+      <input type="email" placeholder="Want first dibs? Drop your email." aria-label="Email" required>
+      <button class="btn btn--gold" type="submit"><span>Done</span></button>
     </form>
-    <p class="waitlist__note reveal">555 NW 12th Ave, Portland, OR 97209</p>
-    <p class="waitlist__ok">You're on the list. We'll be in touch before the doors open.</p>
+    <p class="closer__hint reveal">First reservations and opening-night nonsense. Nothing else.</p>
+    <p class="closer__ok">You're in. We'll see you when the doors swing open.</p>
   </div>
 </section>
 
@@ -210,7 +215,7 @@
         <a href="menu.html">Menu</a>
         <a href="story.html">Story</a>
         <a href="visit.html">Visit &amp; Events</a>
-        <a href="#waitlist">Join the List</a>
+        <a href="#waitlist">Pull Up</a>
       </div>
     </div>
     <div class="foot__bottom">
@@ -221,5 +226,10 @@
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script>
+  document.querySelectorAll('.closer__mini').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();f.closest('.closer').classList.add('done');});
+  });
+</script>
 </body>
 </html>
