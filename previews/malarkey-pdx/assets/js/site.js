@@ -52,4 +52,29 @@
     nav.style.color = light ? 'var(--ink)' : 'var(--cream)';
     setLogo(light ? LOGO_LIGHTBG : LOGO_DARKBG);
   }
-  window.addEventListener('scroll', paintNav, { passive: tru
+  window.addEventListener('scroll', paintNav, { passive: true });
+  window.addEventListener('resize', paintNav);
+  paintNav();
+
+  /* scroll reveal (with graceful fallbacks) */
+  var reveals = document.querySelectorAll('.reveal');
+  function revealAll() { reveals.forEach(function (el) { el.classList.add('in'); }); }
+  if (!('IntersectionObserver' in window) || /[?&]qa\b/.test(location.search)) {
+    revealAll();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+    /* safety net: never leave content hidden */
+    setTimeout(revealAll, 2600);
+  }
+
+  /* waitlist (no backend — captures and confirms) */
+  document.querySelectorAll('.waitlist .form').forEach(function (f) {
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      f.closest('.waitlist').classList.add('done');
+    });
+  });
+})();

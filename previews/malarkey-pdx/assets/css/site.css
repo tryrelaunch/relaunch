@@ -254,4 +254,5 @@ section{position:relative}
   .foot__top{grid-template-columns:1fr}
   .waitlist .form{flex-direction:column}
   .waitlist input{text-align:center}
-  .marquee span{font-size:1.
+  .marquee span{font-size:1.2rem}
+}
