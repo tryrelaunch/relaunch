@@ -1,967 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MALARKEY PDX — Eat Loud. Drink Louder.</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Malarkey, Opening 2026 · Pearl District, Portland</title>
+<meta name="description" content="The Malarkey is a wood-fired Pacific Northwest restaurant and bar opening 2026 at 555 NW 12th Ave in Portland's Pearl District. The rule breaker in pearls. Join the list.">
+<meta property="og:title" content="The Malarkey, Opening 2026 in Portland">
+<meta property="og:description" content="Wood-fired Pacific Northwest cooking, raw bar, and a maze of rooms with stories to tell. Pearl District, Portland. Join the list.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/clover-gold.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Permanent+Marker&family=Special+Elite&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 <style>
-:root {
-  --concrete: #1a1a1a;
-  --concrete-light: #2a2a2a;
-  --grit: #3a3735;
-  --bone: #ebe5d8;
-  --acid: #c8ff00;
-  --rust: #d94a1a;
-  --hot: #ff2d6f;
-  --forest: #1e3a2b;
-  --moss: #4a6b3f;
-  --gold: #c9a14a;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: clip;
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--concrete);
-  color: var(--bone);
-  line-height: 1.5;
-  position: relative;
-}
-section, footer, nav, .marquee { max-width: 100vw; overflow-x: clip; }
-.marquee { overflow-x: hidden; }
-
-/* CONCRETE TEXTURE OVERLAY */
-.grit-texture {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.08;
-  background-image:
-    radial-gradient(circle at 25% 25%, #fff 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, #fff 1px, transparent 1px);
-  background-size: 4px 4px, 6px 6px;
-  mix-blend-mode: overlay;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 1.2rem 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.15em;
-  color: var(--bone);
-}
-.logo span { color: var(--rust); }
-.nav-links { display: flex; gap: 2.2rem; }
-.nav-links a {
-  color: var(--bone);
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a:hover { color: var(--acid); }
-.reserve-btn {
-  background: var(--rust);
-  color: var(--bone);
-  padding: 0.7rem 1.4rem;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 0.18em;
-  font-size: 0.85rem;
-  text-decoration: none;
-  border: 2px solid var(--rust);
-  transition: all 0.2s;
-}
-.reserve-btn:hover { background: transparent; color: var(--rust); }
-
-/* HERO */
-.hero {
-  min-height: auto;
-  position: relative;
-  display: block;
-  padding: 6rem 2.5rem 3rem;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.95) 100%),
-    repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 2px, #222 2px, #222 4px);
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(ellipse at 70% 30%, rgba(217,74,26,0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(200,255,0,0.08) 0%, transparent 50%);
-}
-.hero-content { position: relative; z-index: 2; max-width: 1400px; width: 100%; margin: 0 auto; }
-.hero-tag {
-  display: inline-block;
-  background: var(--acid);
-  color: var(--concrete);
-  font-family: 'Special Elite', monospace;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
-  transform: rotate(-1deg);
-}
-h1.hero-title {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(3.5rem, 14vw, 13rem);
-  line-height: 0.85;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-h1.hero-title .line1 { display: block; color: var(--bone); }
-h1.hero-title .line2 {
-  display: block;
-  color: var(--rust);
-  font-style: italic;
-  -webkit-text-stroke: 1px var(--rust);
-  -webkit-text-fill-color: transparent;
-}
-.hero-sub {
-  font-family: 'Permanent Marker', cursive;
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  color: var(--bone);
-  max-width: 700px;
-  margin-bottom: 2rem;
-  transform: rotate(-1deg);
-}
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  justify-items: center;
-}
-.hero-stats > div { min-width: 0; text-align: center; }
-@media (max-width: 768px) {
-  .hero-stats {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    justify-items: center;
-    gap: 0.75rem;
-  }
-  .hero-stats > div { text-align: center; }
-  .hero-stats .stat-num { font-size: 1.75rem; }
-  .hero-stats .stat-label { font-size: 0.6rem; letter-spacing: 0.15em; }
-}
-.stat-num {
-  font-family: 'Anton', sans-serif;
-  font-size: 2.5rem;
-  color: var(--acid);
-  display: block;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(235,229,216,0.6);
-  margin-top: 0.4rem;
-}
-
-.hero-video {
-  margin: 2.5rem 0 2.5rem;
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border: 3px solid var(--rust);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(217,74,26,0.3);
-  overflow: hidden;
-}
-.hero-video iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  border: 0;
-}
-.hero-video-tag {
-  position: absolute;
-  top: -14px; left: 24px;
-  background: var(--acid);
-  color: var(--concrete);
-  font-family: 'Special Elite', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.3em;
-  padding: 4px 12px;
-  z-index: 2;
-  text-transform: uppercase;
-}
-
-/* MARQUEE — transform-based auto + drag */
-.marquee {
-  background: var(--rust);
-  color: var(--concrete);
-  overflow: hidden;
-  padding: 1.2rem 0;
-  border-top: 2px solid var(--concrete);
-  border-bottom: 2px solid var(--concrete);
-  cursor: grab;
-  user-select: none;
-  position: relative;
-  touch-action: pan-y;
-}
-.marquee.dragging { cursor: grabbing; }
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  font-family: 'Anton', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  width: max-content;
-  will-change: transform;
-  transform: translateX(0);
-}
-.marquee-track span { padding: 0 2rem; pointer-events: none; display: inline-block; }
-.marquee-track span::after { content: '✦'; margin-left: 4rem; color: var(--concrete); }
-
-@media (max-width: 768px) {
-  .marquee-track { font-size: 1.3rem; }
-  .marquee-track span { padding: 0 1.2rem; }
-  .marquee-track span::after { margin-left: 2rem; }
-}
-
-
-/* MANIFESTO */
-.manifesto {
-  padding: 8rem 2.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-}
-.manifesto-eyebrow {
-  font-family: 'Special Elite', monospace;
-  font-size: 0.85rem;
-  letter-spacing: 0.4em;
-  color: var(--rust);
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-}
-.manifesto h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  line-height: 1;
-  margin-bottom: 2.5rem;
-  letter-spacing: -0.01em;
-}
-.manifesto h2 em {
-  font-style: italic;
-  color: var(--rust);
-}
-.manifesto p {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  max-width: 750px;
-  margin-bottom: 1.5rem;
-  color: rgba(235,229,216,0.85);
-}
-.manifesto p.lead {
-  /* match standard manifesto paragraph for visual consistency */
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: rgba(235,229,216,0.85);
-}
-.signature {
-  margin-top: 3rem;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2rem;
-  color: var(--acid);
-  transform: rotate(-2deg);
-  display: inline-block;
-}
-
-/* ROOMS — the four zones */
-.rooms {
-  background: #0d0d0d;
-  padding: 6rem 0 8rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.rooms-header {
-  text-align: center;
-  padding: 0 2rem 4rem;
-}
-.rooms-header .eyebrow {
-  font-family: 'Special Elite', monospace;
-  letter-spacing: 0.4em;
-  color: var(--acid);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-.rooms-header h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 0.9;
-}
-.rooms-header h2 span { color: var(--rust); }
-.rooms-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-@media (max-width: 1400px) { .rooms-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 700px) { .rooms-grid { grid-template-columns: 1fr; } }
-.room {
-  padding: 4rem 3rem;
-  position: relative;
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border: 1px solid rgba(255,255,255,0.06);
-  overflow: hidden;
-  transition: transform 0.4s;
-}
-.room:hover { transform: translateY(-4px); }
-.room-num {
-  position: absolute;
-  top: 2rem;
-  right: 2.5rem;
-  font-family: 'Anton', sans-serif;
-  font-size: 6rem;
-  line-height: 1;
-  opacity: 0.18;
-  color: var(--bone);
-}
-.room h3 {
-  font-family: 'Anton', sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 0.02em;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-.room-tag {
-  font-family: 'Special Elite', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  color: var(--acid);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.room p { color: rgba(235,229,216,0.75); font-size: 1rem; line-height: 1.6; max-width: 380px; }
-.room-1 {
-  background:
-    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
-    repeating-linear-gradient(0deg, #2a2625 0px, #2a2625 3px, #1f1c1b 3px, #1f1c1b 6px);
-}
-.room-1 .room-tag { color: var(--rust); }
-.room-2 {
-  background:
-    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
-    radial-gradient(circle at 30% 40%, rgba(255,45,111,0.45) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(200,255,0,0.25) 0%, transparent 50%),
-    #15010d;
-}
-.room-2 .room-tag { color: var(--hot); }
-.room-3 {
-  background:
-    linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.92) 100%),
-    repeating-linear-gradient(90deg, #3a2820 0px, #3a2820 25px, #2a1c16 25px, #2a1c16 50px),
-    #2a1c16;
-}
-.room-3 .room-tag { color: var(--gold); }
-.room-4 {
-  background:
-    linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.92) 100%),
-    radial-gradient(ellipse at 40% 30%, rgba(74,107,63,0.6) 0%, transparent 60%),
-    var(--forest);
-}
-.room-4 .room-tag { color: var(--moss); }
-
-/* MENU TEASER */
-.menu-teaser {
-  background: var(--bone);
-  color: var(--concrete);
-  padding: 7rem 2.5rem;
-  position: relative;
-}
-.menu-teaser::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
-  background-size: 8px 8px;
-  pointer-events: none;
-}
-.menu-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-.menu-teaser .eyebrow {
-  font-family: 'Special Elite', monospace;
-  letter-spacing: 0.4em;
-  color: var(--rust);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
-.menu-teaser h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-bottom: 1rem;
-  line-height: 1;
-}
-.menu-teaser .subline {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.3rem;
-  margin-bottom: 4rem;
-  color: var(--grit);
-}
-.menu-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem 4rem;
-}
-.menu-item {
-  border-bottom: 2px dashed var(--grit);
-  padding-bottom: 1.5rem;
-}
-.menu-item-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
-}
-.menu-item h4 {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.menu-item .price {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.3rem;
-  color: var(--rust);
-}
-.menu-item p {
-  font-size: 0.95rem;
-  color: var(--grit);
-  line-height: 1.5;
-}
-.menu-foot {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 2rem;
-  border-top: 3px solid var(--concrete);
-}
-.menu-foot p { font-family: 'Special Elite', monospace; font-size: 0.9rem; color: var(--grit); }
-.btn-dark {
-  background: var(--concrete);
-  color: var(--bone);
-  padding: 1rem 2rem;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  border: 2px solid var(--concrete);
-  font-size: 0.9rem;
-  transition: all 0.2s;
-}
-.btn-dark:hover { background: var(--rust); border-color: var(--rust); }
-
-/* PORTLAND WALL */
-.portland-wall {
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%),
-    repeating-linear-gradient(90deg, #1a1a1a 0px, #1a1a1a 40px, #222 40px, #222 80px);
-  padding: 7rem 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.portland-wall::before, .portland-wall::after {
-  content: '';
-  position: absolute;
-  font-family: 'Permanent Marker', cursive;
-  color: var(--hot);
-  opacity: 0.15;
-  font-size: 8rem;
-  pointer-events: none;
-  transform: rotate(-8deg);
-}
-.portland-wall::before { content: 'WEIRD'; top: 10%; left: -2%; }
-.portland-wall::after { content: 'STAY'; bottom: 5%; right: -2%; color: var(--acid); transform: rotate(6deg); }
-.pw-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-.portland-wall .eyebrow {
-  font-family: 'Special Elite', monospace;
-  letter-spacing: 0.4em;
-  color: var(--hot);
-  font-size: 0.85rem;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-.portland-wall h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 1;
-  margin-bottom: 3rem;
-  max-width: 900px;
-}
-.portland-wall h2 em { color: var(--acid); font-style: italic; }
-.portrait-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
-.portrait {
-  background: var(--concrete-light);
-  padding: 2rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  position: relative;
-}
-.portrait-frame {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--grit);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Anton', sans-serif;
-  font-size: 5rem;
-  color: var(--bone);
-  border: 4px solid var(--bone);
-  position: relative;
-}
-.portrait-frame::after {
-  content: 'WANTED';
-  position: absolute;
-  top: -12px;
-  background: var(--hot);
-  color: var(--bone);
-  padding: 4px 14px;
-  font-family: 'Special Elite', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-}
-.portrait h4 {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.3rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-}
-.portrait p {
-  font-family: 'Special Elite', monospace;
-  font-size: 0.85rem;
-  color: rgba(235,229,216,0.65);
-}
-
-/* RESERVATION */
-.reservation {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(217,74,26,0.4) 0%, transparent 60%),
-    var(--concrete);
-  padding: 8rem 2.5rem;
-  text-align: center;
-}
-.reservation .eyebrow {
-  font-family: 'Special Elite', monospace;
-  letter-spacing: 0.4em;
-  color: var(--acid);
-  font-size: 0.85rem;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-.reservation h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(3rem, 9vw, 7rem);
-  line-height: 0.95;
-  margin-bottom: 1.5rem;
-}
-.reservation h2 em { font-style: italic; color: var(--rust); }
-.reservation p {
-  font-size: 1.2rem;
-  max-width: 650px;
-  margin: 0 auto 3rem;
-  color: rgba(235,229,216,0.8);
-}
-.res-buttons { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--rust);
-  color: var(--bone);
-  padding: 1.4rem 3rem;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border: 2px solid var(--rust);
-  transition: all 0.2s;
-}
-.btn-primary:hover { background: var(--bone); color: var(--concrete); border-color: var(--bone); }
-.btn-ghost {
-  background: transparent;
-  color: var(--bone);
-  padding: 1.4rem 3rem;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border: 2px solid var(--bone);
-  transition: all 0.2s;
-}
-.btn-ghost:hover { background: var(--acid); color: var(--concrete); border-color: var(--acid); }
-
-/* FOOTER */
-footer {
-  background: #0a0a0a;
-  padding: 5rem 2.5rem 2rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.foot-grid {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
-}
-.foot-grid h5 {
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 0.85rem;
-  margin-bottom: 1.2rem;
-  color: var(--acid);
-  text-transform: uppercase;
-}
-.foot-grid p, .foot-grid a {
-  color: rgba(235,229,216,0.7);
-  text-decoration: none;
-  font-size: 0.92rem;
-  line-height: 1.9;
-  display: block;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-.foot-grid a:hover { color: var(--acid); }
-.foot-logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-  color: var(--bone);
-}
-.foot-logo span { color: var(--rust); }
-.foot-tag {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.1rem;
-  color: var(--acid);
-  margin-top: 1rem;
-}
-.foot-bottom {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  font-family: 'Special Elite', monospace;
-  font-size: 0.78rem;
-  color: rgba(235,229,216,0.5);
-  letter-spacing: 0.1em;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.foot-bottom span { overflow-wrap: anywhere; max-width: 100%; }
-
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.2rem; }
-  .nav-links { display: none; }
-  .hero { padding: 6rem 1.2rem 2rem; }
-  .manifesto, .menu-teaser, .portland-wall, .reservation, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
-  .foot-grid { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.5rem; }
-  .foot-bottom { flex-direction: column; align-items: flex-start; text-align: left; }
-  .hero-stats { gap: 1.5rem; }
+/* The Malarkey brand palette (authoritative copy in assets/css/site.css; inline here as a fallback) */
+:root{
+  --ink:#14110F; --red:#CE3A2A; --terracotta:#D05A45; --gold:#F4B81A; --orient:#B5894C;
+  --elkwood:#2C3D37; --clover:#347853; --deepsea:#356068; --summerglow:#DDB4AB;
+  --peach:#F8D7CD; --cream:#F4EFE6;
 }
 </style>
 </head>
 <body>
-<div class="grit-texture"></div>
 
-<nav>
-  <div class="logo">MALARKEY<span>.</span>PDX</div>
-  <div class="nav-links">
-    <a href="#manifesto">The Story</a>
-    <a href="#rooms">The Rooms</a>
-    <a href="#menu">The Food</a>
-    <a href="#portland">Portland</a>
-  </div>
-  <a href="#reserve" class="reserve-btn">Keep Me Posted</a>
-</nav>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="The Malarkey home">
+    <img src="assets/img/wordmark-cream.png" alt="The Malarkey">
+  </a>
+  <nav class="nav__links">
+    <a href="menu.html">Menu</a>
+    <a href="story.html">Story</a>
+    <a href="visit.html">Visit</a>
+    <a class="nav__cta" href="#waitlist">Join the List</a>
+  </nav>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">OPENING FALL 2026 / SOUTHEAST PORTLAND</div>
-    <h1 class="hero-title">
-      <span class="line1">EAT LOUD.</span>
-      <span class="line2">DRINK LOUDER.</span>
-    </h1>
-    <p class="hero-sub">11,000 square feet of Portland on a plate. A dining room, a dive bar, a forest, and a train. All of it under one roof. None of it apologizing.</p>
-    <div class="hero-video">
-      <iframe src="https://www.youtube-nocookie.com/embed/JnBEP7b-wps?start=5&amp;rel=0&amp;modestbranding=1" title="Malarkey PDX walkthrough" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <div class="hero-stats">
-      <div><span class="stat-num">11,000</span><span class="stat-label">sq/ft</span></div>
-      <div><span class="stat-num">4</span><span class="stat-label">Vibes</span></div>
-      <div><span class="stat-num">0</span><span class="stat-label">Apologies</span></div>
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <a href="menu.html">Menu</a>
+  <a href="story.html">Story</a>
+  <a href="visit.html">Visit</a>
+  <a href="#waitlist">Join the List</a>
+  <div class="drawer__meta">555 NW 12th Ave · Portland</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="hero__elk" src="assets/img/motif-elk.png" alt=""
+       style="height:88vh;left:50%;top:54%;transform:translate(-50%,-50%);opacity:.5">
+  <div style="position:absolute;inset:0;z-index:2;background:radial-gradient(60% 55% at 50% 52%,rgba(20,17,15,.82),rgba(20,17,15,.45) 60%,rgba(20,17,15,.85))"></div>
+  <div class="hero__inner wrap">
+    <img class="hero__mark" src="assets/img/clover-gold.png" alt="">
+    <h1 class="hero__title">The <em>Malarkey</em></h1>
+    <p class="hero__sub">The rule breaker in pearls. A wood-fired Pacific Northwest table and a maze of rooms with stories to tell, coming soon to the Pearl.</p>
+    <div class="hero__open"><span>Opening</span> <b>2026</b> <span>·</span> <span>Portland, Oregon</span></div>
+    <div class="hero__cta-row">
+      <a class="btn btn--gold" href="#waitlist"><span>Join the List</span></a>
+      <a class="btn btn--ghost" href="menu.html"><span>See the Menu</span></a>
     </div>
   </div>
 </section>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span>FINE DINING WITH A DJ BOOTH</span>
-    <span>STRIPPER POLES IN THE BATHROOM</span>
-    <span>TRAIN CARS IN THE BACK</span>
-    <span>A FOREST BEHIND THE BAR</span>
-    <span>FINE DINING WITH A DJ BOOTH</span>
-    <span>STRIPPER POLES IN THE BATHROOM</span>
-    <span>TRAIN CARS IN THE BACK</span>
-    <span>A FOREST BEHIND THE BAR</span>
+<!-- MARQUEE -->
+<div class="marquee" data-theme style="--bg:var(--ink);--fg:var(--cream);--accent:var(--summerglow)">
+  <div class="marquee__track">
+    <span>Thompson Elk Fountain, 1964</span><span>Rose Show Winner, 1946</span><span>Portlandia Arriving, 1985</span><span>Rose Parade, 1956</span><span>Resident Crow, 1994</span>
+    <span>Thompson Elk Fountain, 1964</span><span>Rose Show Winner, 1946</span><span>Portlandia Arriving, 1985</span><span>Rose Parade, 1956</span><span>Resident Crow, 1994</span>
   </div>
 </div>
 
-<section class="manifesto" id="manifesto">
-  <div class="manifesto-eyebrow">// MANIFESTO</div>
-  <h2>Portland deserves a restaurant that <em>acts</em> like Portland.</h2>
-  <p class="lead">My name is Brian Malarkey. I opened thirty restaurants before this one. I went to San Diego at seventeen and stayed gone for three decades. Then I came home.</p>
-  <p>This city was decimated after COVID. People stopped showing up downtown. Critics wrote the obituary. Half the operators I respect packed up and left.</p>
-  <p>So I bet eleven thousand square feet, fifty employees, my reputation, and a number on the door that says we have to do nine million in year one. Cocky? Yes. Arrogant? Probably. The name fits.</p>
-  <p>If we pull this off, Portland gets the room it's been missing. If we don't, you can say you ate here first.</p>
-  <div class="signature">— Brian Malarkey</div>
-</section>
-
-<section class="rooms" id="rooms">
-  <div class="rooms-header">
-    <div class="eyebrow">// THEME PARK MEETS FINE DINING</div>
-    <h2>One restaurant. <span>Four rooms.</span></h2>
-  </div>
-  <div class="rooms-grid">
-    <div class="room room-1">
-      <div class="room-num">01</div>
-      <div class="room-tag">// DOWNTOWN</div>
-      <h3>The Downtown Room</h3>
-      <p>A little bit gritty, the way downtown Portland actually feels. Old brick, graffiti tags, scuffed floors, exposed beams. The dining room that doesn't pretend it's anywhere else. Sit close to the open kitchen and watch the line yell at each other.</p>
-    </div>
-    <div class="room room-2">
-      <div class="room-num">02</div>
-      <div class="room-tag">// STAGE</div>
-      <h3>The DJ Floor</h3>
-      <p>A real stage. A real booth. Real bass. Dinner service does not stop when the music starts — it gets louder. Wednesdays through Sundays, the kitchen plates to the beat.</p>
-    </div>
-    <div class="room room-3">
-      <div class="room-num">03</div>
-      <div class="room-tag">// TRAIN YARD</div>
-      <h3>The Boxcars</h3>
-      <p>Two full-size train cars dropped into the back of the building. Booths inside. Graffiti walls outside. The boxcar doors slide open onto the forest. Best private dining in the city or you eat free.</p>
-    </div>
-    <div class="room room-4">
-      <div class="room-num">04</div>
-      <div class="room-tag">// FOREST</div>
-      <h3>The Magical Forest</h3>
-      <p>Yes, an actual forest. Real trees. Fog. A canopy of lights. Cocktails out here at dusk feel like you snuck out of dinner and into a David Lynch movie. Reservations recommended after 8pm.</p>
+<!-- INTRO / STORY TEASER -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--red);--line:rgba(20,17,15,.16)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div style="max-width:880px">
+      <p class="kicker reveal">Who is the Malarkey</p>
+      <h2 class="room__title reveal" style="margin-top:.25em">She never belonged to anyone <span class="quote" style="color:var(--accent)">but herself.</span></h2>
+      <p class="lead reveal" style="margin-top:1.2em">Teeta Malarkey is the wild grandma your mother kept quiet about. Tough as nails, elegant as pearls, with grit beneath the glamour and glamour in the grit. From the salt-soaked edge of the Pacific to the misty shoulders of the Cascades, she carved her own way: weathered, and wonderfully untamed.</p>
+      <p class="reveal" style="max-width:62ch">Her home is more than four walls. It's a living, breathing maze of memory, and every room tells a different story. She might give you a tour. Don't expect to leave the same.</p>
+      <a class="btn btn--red reveal" href="story.html" style="margin-top:14px"><span>Read Her Story</span></a>
     </div>
   </div>
 </section>
 
-<section class="menu-teaser" id="menu">
-  <div class="menu-inner">
-    <div class="eyebrow">// TASTE OF THE OPENING MENU</div>
-    <h2>Chef-driven. Ego-fueled.</h2>
-    <p class="subline">Brian Malarkey + Chef Carlos. Pacific Northwest with a chip on its shoulder.</p>
-    <div class="menu-list">
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>The Malarkey</h4><span class="price">42</span></div>
-        <p>Dry-aged Oregon wagyu, smoked marrow butter, sourdough black pepper crust. The dish the place is named after. Eat it first.</p>
+<!-- ROOM 1, THE COAST (bar) -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--deepsea);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.2)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="room__grid">
+      <div class="room__copy reveal">
+        <div class="room__num">Room 01 · The Coast</div>
+        <h3 class="room__title">The Bar &amp; Raw Bar</h3>
+        <div class="room__body">
+          <p>Pull up to the elk and settle in. The Coast is where the night starts: Pacific Northwest oysters on ice, a tower stacked with crudo and crab, and cocktails that don't take themselves too seriously. There's a stage, a weathered art wall, and the kind of lighting that makes everyone look like they have a secret.</p>
+        </div>
+        <div class="room__tags"><span>Oysters</span><span>Seafood Tower</span><span>Proof &amp; Zero-Proof</span><span>Live Music</span></div>
       </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>Tumalo Ranch Lamb</h4><span class="price">38</span></div>
-        <p>Lamb from the ranch Brian grew up on in Central Oregon. Charred over juniper. Served with smoked stone-fruit jam and a hard look at his teenage self.</p>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>D.B. Cooper Old Fashioned</h4><span class="price">16</span></div>
-        <p>Smoked rye, parachute-grade bitters, a single ice cube the size of a flight log. Garnished with a hundred-dollar bill (chocolate).</p>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>Long-Time Romaine</h4><span class="price">18</span></div>
-        <p>Whole charred heart of romaine, cured anchovy, brown butter parmesan crumb. Caesar's louder, meaner cousin.</p>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>Boxcar Oysters</h4><span class="price">28</span></div>
-        <p>Half-dozen Oregon coast, mignonette three ways, served on a length of railroad iron. Yes, really.</p>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-head"><h4>Forest Floor</h4><span class="price">22</span></div>
-        <p>Wild mushrooms foraged forty miles east of here, smoked yolk, charred bread. Dessert in the back room is on the house if you finish it.</p>
-      </div>
-    </div>
-    <div class="menu-foot">
-      <p>Full menu drops opening week. Tasting flights at the bar.</p>
-      <a href="#reserve" class="btn-dark">Reserve a Table →</a>
-    </div>
-  </div>
-</section>
-
-<section class="portland-wall" id="portland">
-  <div class="pw-inner">
-    <div class="eyebrow">// THE WALL OF LOCAL LEGENDS</div>
-    <h2>The whole back wall is portraits. <em>You'll recognize them.</em></h2>
-    <div class="portrait-grid">
-      <div class="portrait">
-        <div class="portrait-frame">T.H.</div>
-        <h4>Tonya Harding</h4>
-        <p>Figure skater. Folk hero. Cleveland Ave.</p>
-      </div>
-      <div class="portrait">
-        <div class="portrait-frame">D.B.</div>
-        <h4>D.B. Cooper</h4>
-        <p>Hijacker. Ghost. PDX → wherever.</p>
+      <div class="room__art reveal">
+        <img class="room__disc" src="assets/img/coaster-crow.png" alt="Resident Crow, 1994, red halftone illustration">
       </div>
     </div>
   </div>
 </section>
 
-<section class="reservation" id="reserve">
-  <div class="eyebrow">// WE OPEN IN OCTOBER</div>
-  <h2>Get on the list <em>before</em> the city does.</h2>
-  <p>Pre-reservations open July 1. Limited soft-opening seats end of September. After that, we expect to be booked solid through New Year's. Don't say we didn't warn you.</p>
-  <div class="res-buttons">
-    <a href="#" class="btn-primary">Reserve a Table</a>
-    <a href="#" class="btn-ghost">Join the List</a>
+<!-- ROOM 2, THE HEIGHTS (dining) -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--terracotta);--line:rgba(20,17,15,.16)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="room__grid">
+      <div class="room__art reveal">
+        <img class="room__disc" src="assets/img/coaster-bugler.png" alt="Rose Parade, 1956, red halftone illustration">
+      </div>
+      <div class="room__copy reveal">
+        <div class="room__num">Room 02 · The Heights</div>
+        <h3 class="room__title">The Dining Room</h3>
+        <div class="room__body">
+          <p>White oak, cane-backed banquettes, and bolsters that double as dividers so every table feels like its own little balcony. This is the room for the long dinner: wood-fired steaks, whole fried rockfish, the Sunday-best version of a Tuesday night. Counter-height seats keep the energy up; the rounded corners keep it soft.</p>
+        </div>
+        <div class="room__tags"><span>Wood-Fired Steaks</span><span>Whole Fish</span><span>Big Tables</span><span>Counter Seats</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="foot-grid">
-    <div>
-      <div class="foot-logo">MALARKEY<span>.</span>PDX</div>
-      <p>11,000 square feet of swagger.<br/>Southeast Portland, Oregon.</p>
-      <p class="foot-tag">Eat loud. Drink louder.</p>
-    </div>
-    <div>
-      <h5>Visit</h5>
-      <a href="#">Address (TBD)</a>
-      <a href="#">Parking & Transit</a>
-      <a href="#">Hours</a>
-      <a href="#">Accessibility</a>
-    </div>
-    <div>
-      <h5>The Place</h5>
-      <a href="#">The Rooms</a>
-      <a href="#">The Menu</a>
-      <a href="#">Private Events</a>
-      <a href="#">Buy Out the Boxcars</a>
-    </div>
-    <div>
-      <h5>Talk to Us</h5>
-      <a href="#">hello@malarkeypdx.com</a>
-      <a href="#">Press & Bookings</a>
-      <a href="#">@malarkeypdx</a>
-      <a href="#">Work in the Kitchen</a>
+<!-- ROOM 3, FOREST ROOMS -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--elkwood);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.18)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="room__grid">
+      <div class="room__copy reveal">
+        <div class="room__num">Room 03 · The Forest</div>
+        <h3 class="room__title">The Forest Rooms</h3>
+        <div class="room__body">
+          <p>Step into the deep green and the city goes quiet. The Forest Rooms are the hideaway: darker, closer, built for the dinner you'll still be talking about next year. Bring the people you actually like. Order the truffle cavatelli. Stay too long.</p>
+        </div>
+        <div class="room__tags"><span>Intimate</span><span>Truffle Season</span><span>By Candlelight</span></div>
+      </div>
+      <div class="room__art reveal">
+        <img class="room__disc" src="assets/img/coaster-elk.png" alt="Thompson Elk Fountain, 1964, red halftone illustration">
+      </div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <span>© 2026 MALARKEY PDX. ALL RIGHTS, NONE OF YOUR APOLOGIES.</span>
-    <span>BUILT IN PORTLAND. STILL WEIRD.</span>
+</section>
+
+<!-- ROOM 4, HAZEL YING -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--terracotta);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.22)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="room__grid">
+      <div class="room__art reveal">
+        <img class="room__disc" src="assets/img/coaster-rose.png" alt="Rose Show Winner, 1946, red halftone illustration">
+      </div>
+      <div class="room__copy reveal">
+        <div class="room__num">Room 04 · Hazel Ying</div>
+        <h3 class="room__title">The Hazel Ying Room</h3>
+        <div class="room__body">
+          <p>Named for Hazel Ying Lee, the Portland-raised aviator who flew when the world told her not to, and a fitting patron saint for a house full of rule breakers. The room wears its color loud: original murals, a decorative roofline, and a private table for the celebrations worth closing the doors for.</p>
+        </div>
+        <div class="room__tags"><span>Private Dining</span><span>Original Murals</span><span>Celebrations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU HIGHLIGHTS -->
+<section class="band grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--red);--line:rgba(20,17,15,.14)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <p class="kicker reveal">From the Kitchen</p>
+    <h2 class="room__title reveal" style="font-size:clamp(2.2rem,6vw,4rem);margin:.2em 0 1em">A few things to look forward to</h2>
+    <div class="menu-rows reveal">
+      <div class="row"><div><h4>Pacific Northwest Oysters</h4><p>House hot sauce, ginger apple mignonette, horseradish, lime, Jacobsen sea salt.</p></div><div class="price">12 / 22 / 42</div></div>
+      <div class="row"><div><h4>Seafood Tower</h4><p>Dozen oysters, steelhead crudo, albacore tuna, shrimp cocktail, rockfish ceviche.</p></div><div class="price">65</div></div>
+      <div class="row"><div><h4>Cast Iron Dungeness Crab</h4><p>XO salsa macha, scallions, cilantro, lime.</p></div><div class="price">54</div></div>
+      <div class="row"><div><h4>Bone-In Ribeye, Wood Fired</h4><p>32 oz, off the fire, your choice of sauce. Built to share.</p></div><div class="price">78</div></div>
+      <div class="row"><div><h4>The Malarkey Burger</h4><p>House pickles, Tillamook cheddar, secret sauce, grilled onions, served with jojos.</p></div><div class="price">42</div></div>
+    </div>
+    <a class="btn btn--red reveal" href="menu.html" style="margin-top:34px"><span>See the Full Menu</span></a>
+  </div>
+</section>
+
+<!-- DETAIL SPLIT -->
+<section class="band" data-theme style="--bg:var(--ink);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.16)">
+  <div class="split">
+    <div class="reveal"><div class="n">555</div><div class="l">NW 12th Ave · The Pearl</div></div>
+    <div class="reveal"><div class="n">2026</div><div class="l">Doors Open</div></div>
+    <div class="reveal"><div class="n">7</div><div class="l">Rooms, Each Its Own Story</div></div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist grain-wrap section-pad" id="waitlist" data-theme style="--bg:var(--elkwood);--fg:var(--cream);--accent:var(--gold)">
+  <div class="grain"></div>
+  <div class="wrap waitlist__inner">
+    <p class="kicker reveal" style="color:var(--gold)">Be First Through the Door</p>
+    <h2 class="reveal">Join the List</h2>
+    <p class="lead reveal" style="color:var(--summerglow);margin-top:1em">We'll send word before the doors open: first reservations, opening-night details, and the occasional bit of malarkey. No spam, just an invitation.</p>
+    <form class="form reveal">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button class="btn btn--gold" type="submit"><span>Join</span></button>
+    </form>
+    <p class="waitlist__note reveal">555 NW 12th Ave, Portland, OR 97209</p>
+    <p class="waitlist__ok">You're on the list. We'll be in touch before the doors open.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__mark">
+        <img src="assets/img/wordmark-gold.png" alt="The Malarkey">
+        <p>The rule breaker in pearls.<br>Wood-fired Pacific Northwest cooking and a maze of rooms, opening 2026 in Portland's Pearl District.</p>
+      </div>
+      <div>
+        <h5>Visit</h5>
+        <p>555 NW 12th Ave<br>Portland, OR 97209</p>
+        <p style="margin-top:10px">Opening 2026</p>
+      </div>
+      <div class="foot__links">
+        <h5>Explore</h5>
+        <a href="menu.html">Menu</a>
+        <a href="story.html">Story</a>
+        <a href="visit.html">Visit &amp; Events</a>
+        <a href="#waitlist">Join the List</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 The Malarkey</span>
+      <span>Portland, Oregon</span>
+    </div>
   </div>
 </footer>
 
-
-<script>
-(function(){
-  var marq = document.querySelector('.marquee');
-  var track = marq && marq.querySelector('.marquee-track');
-  if (!marq || !track) return;
-
-  // Duplicate spans for seamless loop
-  track.innerHTML = track.innerHTML + track.innerHTML;
-
-  var pos = 0;
-  var halfW = 0;
-  function measure(){ halfW = track.scrollWidth / 2; }
-  measure();
-  window.addEventListener('resize', measure);
-
-  var mq = window.matchMedia('(max-width: 768px)');
-  function speed(){ return mq.matches ? 1.4 : 0.6; }
-  var dragging = false;
-  var lastInteraction = 0;
-  var resumeDelay = 1200;
-  var dragStartX = 0, dragStartPos = 0;
-
-  function tick(){
-    if (!dragging && (Date.now() - lastInteraction) > resumeDelay) {
-      pos -= speed();
-    }
-    if (halfW > 0) {
-      if (pos <= -halfW) pos += halfW;
-      if (pos > 0) pos -= halfW;
-    }
-    track.style.transform = 'translateX(' + pos + 'px)';
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-
-  function down(x){ dragging = true; marq.classList.add('dragging'); dragStartX = x; dragStartPos = pos; lastInteraction = Date.now(); }
-  function move(x){ if (!dragging) return; pos = dragStartPos + (x - dragStartX); lastInteraction = Date.now(); }
-  function up(){ if (dragging) { dragging = false; marq.classList.remove('dragging'); lastInteraction = Date.now(); } }
-
-  marq.addEventListener('mousedown', function(e){ down(e.pageX); e.preventDefault(); });
-  window.addEventListener('mousemove', function(e){ move(e.pageX); });
-  window.addEventListener('mouseup', up);
-  marq.addEventListener('mouseleave', up);
-
-  marq.addEventListener('touchstart', function(e){ down(e.touches[0].pageX); }, {passive:true});
-  marq.addEventListener('touchmove', function(e){ move(e.touches[0].pageX); }, {passive:true});
-  marq.addEventListener('touchend', up);
-  marq.addEventListener('touchcancel', up);
-
-  marq.addEventListener('wheel', function(e){
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-      pos -= e.deltaX;
-      lastInteraction = Date.now();
-    }
-  }, {passive:true});
-})();
-</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>

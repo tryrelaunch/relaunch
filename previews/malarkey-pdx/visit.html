@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visit &amp; Events, The Malarkey · Pearl District, Portland</title>
+<meta name="description" content="Find The Malarkey at 555 NW 12th Ave in Portland's Pearl District, opening 2026. Directions, neighborhood, hours, and private event inquiries.">
+<link rel="icon" href="assets/img/clover-gold.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+  .info dt{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:600;color:var(--red);margin-top:28px}
+  .info dt:first-child{margin-top:0}
+  .info dd{margin:8px 0 0;font-size:1.12rem;line-height:1.5}
+  .map{border:0;width:100%;height:100%;min-height:420px;border-radius:14px;filter:saturate(.9) contrast(1.02)}
+  .map-frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.25);height:100%}
+  .events-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .ev-form{display:grid;gap:12px;max-width:460px}
+  .ev-form input,.ev-form textarea{background:transparent;border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;font-family:var(--grotesk);font-size:.98rem;color:var(--fg);width:100%}
+  .ev-form input::placeholder,.ev-form textarea::placeholder{color:var(--muted)}
+  .ev-form input:focus,.ev-form textarea:focus{outline:none;border-color:var(--red)}
+  .ev-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ev-ok{display:none;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--red);margin-top:6px}
+  .ev-form.done .ev-fields{display:none}.ev-form.done .ev-ok{display:block}
+  @media (max-width:820px){.visit-grid,.events-grid{grid-template-columns:1fr}.events-grid .room__art{order:-1}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="The Malarkey home"><img src="assets/img/wordmark-cream.png" alt="The Malarkey"></a>
+  <nav class="nav__links">
+    <a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit</a>
+    <a class="nav__cta" href="index.html#waitlist">Join the List</a>
+  </nav>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<div class="drawer" id="drawer">
+  <a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit</a><a href="index.html#waitlist">Join the List</a>
+  <div class="drawer__meta">555 NW 12th Ave · Portland</div>
+</div>
+
+<section class="phead">
+  <img class="phead__motif" src="assets/img/motif-portlandia.png" alt="" style="height:82%;right:-2%;bottom:-12%">
+  <div class="wrap">
+    <p class="kicker" style="color:var(--gold)">The Pearl District, Portland</p>
+    <h1>Come <em>Visit</em></h1>
+    <p>We're putting the finishing touches on 555 NW 12th Ave. Here's where to find us when the doors open in 2026.</p>
+  </div>
+</section>
+
+<!-- LOCATION + MAP -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--cream);--fg:var(--ink);--accent:var(--red);--line:rgba(20,17,15,.16)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="visit-grid">
+      <div class="reveal">
+        <p class="kicker">Where to Find Us</p>
+        <h2 class="room__title" style="font-size:clamp(2rem,5.5vw,3.4rem);margin:.15em 0 .5em">555 NW 12th Ave</h2>
+        <dl class="info">
+          <dt>Address</dt>
+          <dd>555 NW 12th Ave<br>Portland, OR 97209</dd>
+          <dt>Neighborhood</dt>
+          <dd>The Pearl District, galleries, brick warehouses, and the streetcar at the corner. Easy to find, hard to leave.</dd>
+          <dt>Getting Here</dt>
+          <dd>A short walk from the Portland Streetcar NW 11th &amp; Johnson stop. Street and garage parking nearby; rideshare drops right out front.</dd>
+          <dt>Hours</dt>
+          <dd>Dinner nightly when we open in 2026. Full hours to come, join the list and you'll be the first to know.</dd>
+        </dl>
+        <a class="btn btn--red" href="https://www.google.com/maps/search/?api=1&query=555+NW+12th+Ave+Portland+OR+97209" target="_blank" rel="noopener" style="margin-top:28px"><span>Open in Maps</span></a>
+      </div>
+      <div class="map-frame reveal">
+        <iframe class="map" title="Map to The Malarkey, 555 NW 12th Ave, Portland"
+          src="https://www.google.com/maps?q=555+NW+12th+Ave,+Portland,+OR+97209&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE EVENTS -->
+<section class="room grain-wrap section-pad" data-theme style="--bg:var(--elkwood);--fg:var(--cream);--accent:var(--gold);--line:rgba(244,239,230,.22)">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="events-grid">
+      <div class="reveal">
+        <p class="kicker">Private Events</p>
+        <h2 class="room__title" style="font-size:clamp(2rem,5.5vw,3.4rem);margin:.15em 0 .5em">Close the doors on a room</h2>
+        <p style="max-width:48ch;color:var(--summerglow)">Birthdays, rehearsal dinners, the kind of party Teeta would approve of. The Hazel Ying Room and the Forest Rooms are built for groups who want the place to themselves. Tell us what you're planning and we'll be in touch as we get closer to opening.</p>
+        <form class="ev-form" style="margin-top:26px">
+          <div class="ev-fields" style="display:grid;gap:12px">
+            <div class="ev-row">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="ev-row">
+              <input type="text" name="date" placeholder="Approx. date">
+              <input type="number" name="guests" placeholder="Guests" min="2">
+            </div>
+            <textarea name="about" rows="3" placeholder="What are you celebrating?"></textarea>
+            <button class="btn btn--gold" type="submit" style="justify-self:start"><span>Send Inquiry</span></button>
+          </div>
+          <p class="ev-ok">Thanks, we've got it. We'll reach out as opening gets closer.</p>
+        </form>
+      </div>
+      <div class="room__art reveal">
+        <img class="room__disc" src="assets/img/coaster-rose.png" alt="Rose Show Winner, 1946, red halftone illustration">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="waitlist grain-wrap section-pad" id="waitlist" data-theme style="--bg:var(--terracotta);--fg:var(--cream);--accent:var(--gold)">
+  <div class="grain"></div>
+  <div class="wrap waitlist__inner">
+    <h2 class="reveal">Join the List</h2>
+    <p class="lead reveal" style="color:var(--cream);opacity:.9;margin-top:1em">First reservations, opening-night details, and the occasional bit of malarkey.</p>
+    <form class="form reveal">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button class="btn btn--gold" type="submit"><span>Join</span></button>
+    </form>
+    <p class="waitlist__ok">You're on the list. We'll be in touch before the doors open.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__mark"><img src="assets/img/wordmark-gold.png" alt="The Malarkey">
+        <p>The rule breaker in pearls.<br>Wood-fired Pacific Northwest cooking and a maze of rooms, opening 2026 in Portland's Pearl District.</p></div>
+      <div><h5>Visit</h5><p>555 NW 12th Ave<br>Portland, OR 97209</p><p style="margin-top:10px">Opening 2026</p></div>
+      <div class="foot__links"><h5>Explore</h5><a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit &amp; Events</a><a href="index.html#waitlist">Join the List</a></div>
+    </div>
+    <div class="foot__bottom"><span>© 2026 The Malarkey</span><span>Portland, Oregon</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+  document.querySelectorAll('.ev-form').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();f.classList.add('done');});
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu, The Malarkey · Portland</title>
+<meta name="description" content="A preview of the opening menu at The Malarkey: Pacific Northwest oysters and raw bar, wood-fired steaks, whole fish, and a kitchen that likes to play. Pearl District, Portland.">
+<link rel="icon" href="assets/img/clover-gold.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .menu-wrap{background:var(--cream);color:var(--ink)}
+  .menu-block{padding:clamp(48px,7vw,86px) 0;border-bottom:1px solid rgba(20,17,15,.12)}
+  .menu-block:last-child{border-bottom:0}
+  .menu-cols{columns:2;column-gap:clamp(36px,6vw,86px)}
+  .menu-group{break-inside:avoid;margin-bottom:40px;display:inline-block;width:100%}
+  .menu-group h3{font-family:var(--grotesk);text-transform:uppercase;letter-spacing:.22em;
+    font-size:.78rem;font-weight:600;color:var(--red);margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid rgba(20,17,15,.2)}
+  .m-item{margin:0 0 16px}
+  .m-head{display:flex;align-items:baseline;gap:8px}
+  .m-head .name{font-family:var(--display);font-weight:300;font-size:1.35rem;line-height:1.1}
+  .m-head .dots{flex:1;border-bottom:1px dotted rgba(20,17,15,.35);transform:translateY(-4px)}
+  .m-head .price{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--red);white-space:nowrap}
+  .m-desc{margin:5px 0 0;font-size:.9rem;line-height:1.45;color:rgba(20,17,15,.6);max-width:42ch}
+  .menu-note{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:rgba(20,17,15,.55);margin-top:8px}
+  @media (max-width:680px){.menu-cols{columns:1}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="The Malarkey home"><img src="assets/img/wordmark-cream.png" alt="The Malarkey"></a>
+  <nav class="nav__links">
+    <a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit</a>
+    <a class="nav__cta" href="index.html#waitlist">Join the List</a>
+  </nav>
+  <button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<div class="drawer" id="drawer">
+  <a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit</a><a href="index.html#waitlist">Join the List</a>
+  <div class="drawer__meta">555 NW 12th Ave · Portland</div>
+</div>
+
+<!-- HEADER -->
+<section class="phead">
+  <img class="phead__motif" src="assets/img/motif-crow.png" alt="" style="height:80%;right:-4%;bottom:-10%">
+  <div class="wrap">
+    <p class="kicker" style="color:var(--gold)">A Preview of the Table</p>
+    <h1>The <em>Menu</em></h1>
+    <p>Pacific Northwest at the center, wood and fire doing the heavy lifting, and a kitchen that likes to play. Here's a taste of what's coming. Dishes and prices will shift before the doors open.</p>
+  </div>
+</section>
+
+<div class="menu-wrap grain-wrap">
+  <div class="grain"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+
+    <!-- FOOD -->
+    <div class="menu-block">
+      <div class="menu-cols">
+
+        <div class="menu-group">
+          <h3>Raw &amp; Cold Bar</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Pacific Northwest Oysters</span><span class="dots"></span><span class="price">12&thinsp;/&thinsp;22&thinsp;/&thinsp;42</span></div><p class="m-desc">House hot sauce, ginger apple mignonette, horseradish, lime, Jacobsen sea salt. 3 / 6 / 12.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Seafood Tower</span><span class="dots"></span><span class="price">65</span></div><p class="m-desc">Dozen oysters, steelhead crudo, albacore tuna, shrimp cocktail, rockfish ceviche. Add half Dungeness crab 36.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Rockfish Ceviche</span><span class="dots"></span><span class="price">19</span></div><p class="m-desc">Pickled carrot, turnips, confit garlic.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Oregon Bay Shrimp Cocktail</span><span class="dots"></span><span class="price">18</span></div><p class="m-desc">"St. Elmo hot" cocktail sauce, avocado, house crackers.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Local Steelhead Crudo</span><span class="dots"></span><span class="price">21</span></div><p class="m-desc">Strawberries, spicy cucumbers, masa tuile.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Albacore Tuna</span><span class="dots"></span><span class="price">22</span></div><p class="m-desc">Black sesame, peach aguachile, serrano.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Cauliflower Ceviche</span><span class="dots"></span><span class="price">21</span></div><p class="m-desc">Yuzu, shallot, pickled pears.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Dungeness Crab</span><span class="dots"></span><span class="price">36&thinsp;/&thinsp;68</span></div><p class="m-desc">Crab butter aioli, pickles, herb salad. Half / whole.</p></div>
+        </div>
+
+        <div class="menu-group">
+          <h3>Salads</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Summer Tomatoes</span><span class="dots"></span><span class="price">14</span></div><p class="m-desc">Grilled chicory, shiso, tomatoes, stracciatella.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Caesar</span><span class="dots"></span><span class="price">13</span></div><p class="m-desc">Romaine, smoked anchovy, green peppercorn, tallow croutons, grana padano.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Smoked Cabbage Wedge</span><span class="dots"></span><span class="price">16</span></div><p class="m-desc">Gorgonzola dulce, pickled shallots, tarragon, crumbled crispy beef tendon.</p></div>
+        </div>
+
+        <div class="menu-group">
+          <h3>Small Plates</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Dungeness Crab Cake</span><span class="dots"></span><span class="price">14</span></div><p class="m-desc">Chervil aioli, preserved peppers, shaved celery.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Mussel Toast</span><span class="dots"></span><span class="price">24</span></div><p class="m-desc">Whipped brie, mussel escabeche, mustard greens.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Oregon Beef Tartare</span><span class="dots"></span><span class="price">18</span></div><p class="m-desc">Charred Jimmy Nardello, pink peppercorn aioli, burnt toast, chicharrones.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Corned Beef Tongue Tostada</span><span class="dots"></span><span class="price">18</span></div><p class="m-desc">French onion salt, crispy shallots, cilantro, green garlic dressing.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Chicken Liver Paté</span><span class="dots"></span><span class="price">20</span></div><p class="m-desc">Sourdough, salmonberry jam, local olive oil.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Steamer Clams</span><span class="dots"></span><span class="price">25</span></div><p class="m-desc">Bacon lardons, fine herbs, curry oil.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Crispy Chicken</span><span class="dots"></span><span class="price">17</span></div><p class="m-desc">Fermented lemon aioli, pickled ginger.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Half-Dozen Broiled Oysters</span><span class="dots"></span><span class="price">22</span></div><p class="m-desc">Mexican snail butter, crostini, lime.</p></div>
+        </div>
+
+        <div class="menu-group">
+          <h3>Bread Service</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Dutch Crunch Demi Baguette</span><span class="dots"></span><span class="price"></span></div><p class="m-desc">European butter 5 · Dungeness crab butter 7 · beef tallow butter 6.</p></div>
+        </div>
+
+        <div class="menu-group">
+          <h3>Entrées</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Oregon Coast Salmon</span><span class="dots"></span><span class="price">35</span></div><p class="m-desc">Koji marinated, spicy green beans, yuzu.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Cast Iron Dungeness Crab</span><span class="dots"></span><span class="price">54</span></div><p class="m-desc">XO salsa macha, scallions, cilantro, lime.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Whole Fried Rockfish</span><span class="dots"></span><span class="price">48</span></div><p class="m-desc">Chile lime aioli, braised charred cabbage.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Cedar-Plank Sturgeon</span><span class="dots"></span><span class="price">39</span></div><p class="m-desc">Masa grits, sweet corn, mountain morels.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Achiote Grilled Black Cod</span><span class="dots"></span><span class="price">43</span></div><p class="m-desc">Salsa cruda, warm potato salad, Cerignola olives, quince vinaigrette.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Braised Oxtail</span><span class="dots"></span><span class="price">39</span></div><p class="m-desc">Porcini, whipped celeriac, chili crunch Brussels.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Kentucky Fried Rabbit</span><span class="dots"></span><span class="price">46</span></div><p class="m-desc">Pickled carrots, buttermilk ranch.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Roasted Half Chicken</span><span class="dots"></span><span class="price">62</span></div><p class="m-desc">Caper salsa verde, charred lemon, braised kale.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">The Malarkey Burger</span><span class="dots"></span><span class="price">42</span></div><p class="m-desc">House pickles, Tillamook cheddar, secret sauce, grilled onions, served with jojos.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Truffle Cavatelli</span><span class="dots"></span><span class="price">42</span></div><p class="m-desc">Oregon white truffle, carrot soubise, pickled carrots.</p></div>
+        </div>
+
+        <div class="menu-group">
+          <h3>Wood Fired Steaks</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Ribeye · 16 oz</span><span class="dots"></span><span class="price">98</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Filet · 8 oz</span><span class="dots"></span><span class="price">56</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">New York Strip · 14 oz</span><span class="dots"></span><span class="price">72</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Bone-In Ribeye · 32 oz</span><span class="dots"></span><span class="price">78</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Top Sirloin · 10 oz</span><span class="dots"></span><span class="price">48</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Hanger · 10 oz</span><span class="dots"></span><span class="price">56</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Porterhouse · 32 oz</span><span class="dots"></span><span class="price">78</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Pork Tomahawk · 20 oz</span><span class="dots"></span><span class="price">78</span></div></div>
+          <p class="m-desc" style="margin-top:14px">Sauces 4, XO salsa macha, horseradish cream, veal bordelaise, truffle demi, salsa verde, crab butter.</p>
+        </div>
+
+        <div class="menu-group">
+          <h3>Sides</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Beef Tallow Jojos</span><span class="dots"></span><span class="price">12</span></div><p class="m-desc">Catsup, garlic aioli.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Pomme Puree</span><span class="dots"></span><span class="price">13</span></div><p class="m-desc">Smooth and buttery.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Salt Roasted Baked Potato</span><span class="dots"></span><span class="price">12</span></div><p class="m-desc">Crème fraîche, cheddar, bacon.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Crispy Brussels Sprouts</span><span class="dots"></span><span class="price">11</span></div><p class="m-desc">Chili crunch, fish sauce.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Spicy Green Beans</span><span class="dots"></span><span class="price">11</span></div><p class="m-desc">Gochujang, yuzu.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Fire Roasted Carrots</span><span class="dots"></span><span class="price">14</span></div><p class="m-desc">Fenugreek yogurt, chervil, crispy sunflower seeds.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-block">
+      <div class="menu-cols">
+        <div class="menu-group">
+          <h3>Proof Cocktails</h3>
+          <div class="m-item"><div class="m-head"><span class="name">New Old Fashioned</span><span class="dots"></span><span class="price">14</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Negroni</span><span class="dots"></span><span class="price">16</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">Rainwater Martini</span><span class="dots"></span><span class="price">16</span></div></div>
+          <div class="m-item"><div class="m-head"><span class="name">The Last Word</span><span class="dots"></span><span class="price">18</span></div></div>
+          <p class="menu-note">A full bar of proof and zero-proof cocktails is still being shaken into shape.</p>
+        </div>
+        <div class="menu-group">
+          <h3>Beer, Cider &amp; Wine</h3>
+          <div class="m-item"><div class="m-head"><span class="name">Draft Beer &amp; Cider</span><span class="dots"></span><span class="price">6+</span></div><p class="m-desc">A rotating Pacific Northwest draft list, plus bottles and cans from Rainier to Montucky.</p></div>
+          <div class="m-item"><div class="m-head"><span class="name">Wine</span><span class="dots"></span><span class="price"></span></div><p class="m-desc">Bubbles, PNW whites and reds, and a few out-of-towners worth the trip. By the glass and bottle.</p></div>
+          <p class="menu-note">The full wine and beverage list arrives closer to opening.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="waitlist grain-wrap section-pad" id="waitlist" data-theme style="--bg:var(--elkwood);--fg:var(--cream);--accent:var(--gold)">
+  <div class="grain"></div>
+  <div class="wrap waitlist__inner">
+    <h2 class="reveal">Hungry yet?</h2>
+    <p class="lead reveal" style="color:var(--summerglow);margin-top:1em">Get on the list and we'll make sure you're among the first to book a table.</p>
+    <form class="form reveal">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <button class="btn btn--gold" type="submit"><span>Join</span></button>
+    </form>
+    <p class="waitlist__ok">You're on the list. We'll be in touch before the doors open.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__mark"><img src="assets/img/wordmark-gold.png" alt="The Malarkey">
+        <p>The rule breaker in pearls.<br>Wood-fired Pacific Northwest cooking and a maze of rooms, opening 2026 in Portland's Pearl District.</p></div>
+      <div><h5>Visit</h5><p>555 NW 12th Ave<br>Portland, OR 97209</p><p style="margin-top:10px">Opening 2026</p></div>
+      <div class="foot__links"><h5>Explore</h5><a href="menu.html">Menu</a><a href="story.html">Story</a><a href="visit.html">Visit &amp; Events</a><a href="index.html#waitlist">Join the List</a></div>
+    </div>
+    <div class="foot__bottom"><span>© 2026 The Malarkey</span><span>Portland, Oregon</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
