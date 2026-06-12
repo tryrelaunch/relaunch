@@ -337,3 +337,7 @@ section{position:relative}
 /* ---- hero logo (wordmark) ---- */
 .hero__logo-wrap{margin:0}
 .hero__logo{width:min(720px,86vw);height:auto;margin:0 auto;display:block}
+
+/* ---- nav CTA: no pill/border, clean text link ---- */
+.nav__cta{border:0;border-radius:0;padding:4px 0;background:transparent}
+.nav__cta:hover{background:transparent;border-color:transparent;color:inherit}
