@@ -1116,8 +1116,8 @@ footer {
 <section class="properties" id="properties">
   <div class="sec-head">
     <span class="mbg-eyebrow">The homes</span>
-    <h2>Eleven ways to stay in Bend</h2>
-    <p>From a sweet studio with a built-in hammock to a four-bedroom farmhouse. Every one is walkable, comfortable, and ready for your trip.</p>
+    <h2>The rest of the homes</h2>
+    <p>Ten more locally owned homes across central Bend — from a sweet studio with a built-in hammock to a three-bedroom on the Westside.</p>
   </div>
   <div class="filter-bar">
     <select id="f-hood" onchange="renderGrid()" aria-label="Filter by neighborhood"><option value="">All neighborhoods</option></select>
@@ -1266,7 +1266,8 @@ const cHome=document.getElementById('c-home');PROPS.forEach(p=>{const o=document
 function renderGrid(){
   const hood=document.getElementById('f-hood').value;
   const beds=document.getElementById('f-beds').value;
-  const list=PROPS.filter(p=>(!hood||p.hood===hood)&&(beds===''||p.beds>=+beds));
+  const FEATURED='hawkeye-house-farmhouse-escape';
+  const list=PROPS.filter(p=>p.slug!==FEATURED&&(!hood||p.hood===hood)&&(beds===''||p.beds>=+beds));
   const g=document.getElementById('grid');
   g.innerHTML=list.map(p=>`
     <article class="card">
