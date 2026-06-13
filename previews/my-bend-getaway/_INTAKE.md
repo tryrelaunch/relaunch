@@ -52,3 +52,23 @@ Drake Park · Deschutes River · Downtown Bend · Old Mill District · Mt. Bache
 7. **All ~11 listings on one long homepage** — no individual indexable property pages, so no unit ranks for its own searches.
 8. **No area/neighborhood guide** — missing the highest-intent Bend content (and the section Nate prioritized).
 9. **No reviews/ratings surfaced
+## Lodgify embed wiring (extracted from live site 2026-06-12)
+- **Website ID (account):** `372959`  ·  userId `489707`  ·  checkout host `checkout.lodgify.com/mybendgetaway`
+- **Booking widget snippet:** the public widget endpoint (`app.lodgify.com/booking-widget/v2/bookingwidget.js`) now returns 503/404 — the embed code must be generated in the Lodgify dashboard (Settings → Widgets → Booking box). Once we have one snippet, replicate across all rentals using the IDs below.
+- **Rental → Lodgify propertyId map:**
+
+| Our property page | Lodgify name | propertyId |
+|---|---|---|
+| hawkeye-house-farmhouse-escape | Hawkeye House: Farmhouse Escape! | 640420 |
+| drake-park-cottage | Drake Park Cottage | 401130 |
+| charming-1-bedroom-apartment-in-historic-old-bend | Charming 1 Bedroom Apartment in Historic Old Bend | 401128 |
+| gorgeous-3-bedroom-home-on-bends-westside | Gorgeous 3 Bedroom Home on Bend's Westside | 418836 |
+| spacious-1-bedroom-across-from-drake-park | Spacious 1 Bedroom across from Drake Park | 401129 |
+| hip-fun-1-bed-on-bends-westside | Hip Fun 1 Bed on Bend's Westside | 418840 |
+| cute-1-bedroom-with-great-location | Cute 1 Bedroom with Great Location | 434330 |
+| delightful-2-bedroom-close-to-river | Delightful 2 Bedroom Close to River | 487613 |
+| adorable-2-bedroom-12-mile-to-downtown-old-mill | Adorable **3** bedroom 1/2 mile to Downtown & Old Mill | 594069 |
+| sweet-studio-near-downtown-old-mill | Sweet Studio 1/2 mile Downtown & Old Mill District | 594599 |
+| 2-bedroom-gem-in-the-heart-of-bend-parks-district | **NO LIVE LODGIFY LISTING** — appears delisted; use inquiry CTA, not an embed | — |
+
+**Discrepancies to confirm with owner:** (a) "Adorable" is a **3**-bedroom in Lodgify but the homepage card said 2BR. (b) "Sweet Studio" has its own Lodgify property (594599) — the live site's card links to the Adorable URL (bug); our deep-link should target Sweet Studio's own page. (c) The "2BR Gem in the Parks District" has no active Lodgify property.
