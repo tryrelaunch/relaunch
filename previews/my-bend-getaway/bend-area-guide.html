@@ -591,24 +591,14 @@ footer {
 .edit-fab {
   position: fixed; bottom: 24px; right: 24px; z-index: 998;
   background: var(--b-orange); color: white;
-  padding: 16px 26px; border-radius: 999px;
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--fh); font-size: 16px; font-weight: 800;
-  letter-spacing: 0.04em; cursor: pointer; border: 2px solid rgba(255,255,255,0.85);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.38);
-  transition: all 0.25s;
-  animation: fabPulse 2.2s ease-in-out infinite;
+  width: 76px; height: 76px; border-radius: 50%; padding: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--fh); font-size: 12.5px; font-weight: 800; line-height: 1.12;
+  letter-spacing: 0.01em; cursor: pointer; border: 2px solid rgba(255,255,255,0.85);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+  transition: transform 0.2s, background 0.2s;
 }
-@keyframes fabPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
-.edit-fab:hover { background: var(--b-orange-d); transform: scale(1.1); animation-play-state: paused; }
-.edit-fab-dot {
-  width: 8px; height: 8px; background: var(--b-orange); border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-}
+.edit-fab:hover { background: var(--b-orange-d); transform: scale(1.06); }
 .edit-panel {
   position: fixed; bottom: 86px; right: 24px; z-index: 999;
   width: min(380px, calc(100vw - 48px));
@@ -1002,9 +992,8 @@ fl.innerHTML=FAQS.map(([q,a])=>`<div class="faq-item"><button class="faq-q" oncl
 <!-- ╔══════════════════════════════════════════╗ -->
 <!-- ║  EDIT WIDGET                             ║ -->
 <!-- ╚══════════════════════════════════════════╝ -->
-<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="Try the AI editor!">
-  <div class="edit-fab-dot"></div>
-  Try the AI editor!
+<button class="edit-fab" onclick="toggleEditPanel()" id="edit-fab" aria-label="AI editor">
+  <span>AI</span><span>editor</span>
 </button>
 
 <div class="edit-panel" id="edit-panel">
