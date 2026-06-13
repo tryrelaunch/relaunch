@@ -908,8 +908,8 @@ footer {
 
   <aside class="pp-side">
     <div class="price">Check live dates</div>
-    <div class="sub">Book direct on Lodgify, no extra fees.</div>
-    <a class="res" href="https://www.mybendgetaway.com/en/adorable-2-bedroom-12-mile-to-downtown-old-mill" target="_blank" rel="noopener">Reserve on Lodgify →</a>
+    <div class="sub">Live availability, booked in USD on Lodgify.</div>
+    <a class="res" href="https://checkout.lodgify.com/en/mybendgetaway/594599/reservation?currency=USD" target="_blank" rel="noopener">Check dates & book →</a>
     <a class="ask" href="../index.html#contact">Have a question? Ask us →</a>
     <ul>
       <li>📍 Old Mill, central Bend</li>
@@ -929,85 +929,6 @@ footer {
 </section>
 </main>
 
-<!-- Leaflet JS + page data/logic -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-const PROPS = [
-  {name:"The Hawkeye House",slug:"hawkeye-house-farmhouse-escape",lodgify:"https://www.mybendgetaway.com/en/hawkeye-house-farmhouse-escape",beds:4,baths:4,guests:8,hood:"Bend",img:"07dc0b17-1568-4e8c-b626-fabc7989f93e",blurb:"Chef Brian Malarkey's 4-bedroom farmhouse with rustic charm, modern comfort, and room for the whole crew.",lat:44.0455,lng:-121.2960},
-  {name:"Drake Park Cottage",slug:"drake-park-cottage",lodgify:"https://www.mybendgetaway.com/en/drake-park-cottage",beds:1,baths:1,guests:2,hood:"Drake Park",img:"4ae10a6e-3c0c-4d8d-acfd-f4dc6827f6a3",blurb:"A newly remodeled contemporary cottage steps from Drake Park, the river, and downtown.",lat:44.0576,lng:-121.3186},
-  {name:"Charming 1BR in Historic Old Bend",slug:"charming-1-bedroom-apartment-in-historic-old-bend",lodgify:"https://www.mybendgetaway.com/en/charming-1-bedroom-apartment-in-historic-old-bend",beds:1,baths:1,guests:2,hood:"Old Bend",img:"dc24f227-c2c7-4b5b-be51-05f74f85a1fb",blurb:"Walk-to-everything apartment next to Drake Park. Covered parking, ideal for a couple.",lat:44.0561,lng:-121.3168},
-  {name:"Downtown Awbrey · 3BR Westside Home",slug:"gorgeous-3-bedroom-home-on-bends-westside",lodgify:"https://www.mybendgetaway.com/en/gorgeous-3-bedroom-home-on-bends-westside",beds:3,baths:2,guests:6,hood:"Westside",img:"df8990e6-97b9-4679-8bbd-5d58017a0a14",blurb:"HGTV-designed home with a hot tub, cruiser bikes, and a block-from-downtown location.",lat:44.0627,lng:-121.3242},
-  {name:"Spacious 1BR Across from Drake Park",slug:"spacious-1-bedroom-across-from-drake-park",lodgify:"https://www.mybendgetaway.com/en/spacious-1-bedroom-across-from-drake-park",beds:1,baths:1,guests:2,hood:"Parks District",img:"fbed533e-c400-44af-817a-c8d3a4bf8853",blurb:"Historic building turned cozy apartment. Bikes and rafts provided, covered parking, no pets.",lat:44.0569,lng:-121.3176},
-  {name:"2BR Gem in the Parks District",slug:"2-bedroom-gem-in-the-heart-of-bend-parks-district",lodgify:"https://www.mybendgetaway.com/en/2-bedroom-gem-in-the-heart-of-bend-parks-district",beds:2,baths:2,guests:4,hood:"Parks District",img:"565d1121-a733-4b58-a003-eb3ecfe17edd",blurb:"Renovated executive rental in Bend's first maternity hospital (1919). 30-day minimum stay.",lat:44.0573,lng:-121.3171},
-  {name:"The Drake · Hip 1BR on the Westside",slug:"hip-fun-1-bed-on-bends-westside",lodgify:"https://www.mybendgetaway.com/en/hip-fun-1-bed-on-bends-westside",beds:1,baths:1,guests:2,hood:"Westside",img:"4091a9a9-80e7-4bb6-9084-1125631a2524",blurb:"Colorful, upscale 1-bedroom designed by HGTV's Shannon Quimby in the heart of the Westside.",lat:44.0619,lng:-121.3233},
-  {name:"Cute 1BR with a Great Location",slug:"cute-1-bedroom-with-great-location",lodgify:"https://www.mybendgetaway.com/en/cute-1-bedroom-with-great-location",beds:1,baths:1,guests:2,hood:"Downtown",img:"1112fdd7-0a8e-40c1-941e-9ea061329be5",blurb:"Three blocks to downtown, two to Drake Park, with breweries, coffee, and great food in easy walking distance.",lat:44.0556,lng:-121.3142},
-  {name:"Delightful 2BR Close to the River",slug:"delightful-2-bedroom-close-to-river",lodgify:"https://www.mybendgetaway.com/en/delightful-2-bedroom-close-to-river",beds:2,baths:1,guests:4,hood:"Downtown",img:"9c760df9-bde9-46d9-945c-a8b1c80380cb",blurb:"Two blocks to Drake Park and the river (floats provided), a half mile to downtown.",lat:44.0549,lng:-121.3156},
-  {name:"Adorable 2BR Near Downtown & Old Mill",slug:"adorable-2-bedroom-12-mile-to-downtown-old-mill",lodgify:"https://www.mybendgetaway.com/en/adorable-2-bedroom-12-mile-to-downtown-old-mill",beds:2,baths:1,guests:4,hood:"Old Mill",img:"df3f9f95-610e-4794-a8d9-98e554f20739",blurb:"Historic home a half mile from downtown and the Old Mill, with a charming A-frame loft room.",lat:44.0521,lng:-121.3121},
-  {name:"Sweet Studio Near Downtown & Old Mill",slug:"sweet-studio-near-downtown-old-mill",lodgify:"https://www.mybendgetaway.com/en/adorable-2-bedroom-12-mile-to-downtown-old-mill",beds:0,baths:1,guests:2,hood:"Old Mill",img:"df84b12c-8ee3-4b64-8547-a31bc394692c",blurb:"A historic cutie with a netted hammock built into the home. Half a mile to downtown and the Old Mill.",lat:44.0519,lng:-121.3126}
-];
-const IMG=(id,w)=>`https://l.icdbcdn.com/oh/${id}.jpg?w=${w||1040}`;
-const bedLabel=p=>p.beds===0?"Studio":`${p.beds} bed${p.beds>1?'s':''}`;
-const HOODS=[...new Set(PROPS.map(p=>p.hood))];
-
-// populate selects
-function fillHoods(sel){HOODS.forEach(h=>{const o=document.createElement('option');o.value=h;o.textContent=h;sel.appendChild(o);});}
-['s-hood','f-hood'].forEach(id=>fillHoods(document.getElementById(id)));
-const cHome=document.getElementById('c-home');PROPS.forEach(p=>{const o=document.createElement('option');o.value=p.slug;o.textContent=p.name;cHome.appendChild(o);});
-
-// grid render with filters
-function renderGrid(){
-  const hood=document.getElementById('f-hood').value;
-  const beds=document.getElementById('f-beds').value;
-  const list=PROPS.filter(p=>(!hood||p.hood===hood)&&(beds===''||p.beds>=+beds));
-  const g=document.getElementById('grid');
-  g.innerHTML=list.map(p=>`
-    <article class="card">
-      <a class="card-img" href="properties/${p.slug}.html" style="background-image:url('${IMG(p.img,800)}')" aria-label="${p.name}"><span class="card-hood">${p.hood}</span></a>
-      <div class="card-body">
-        <h3>${p.name}</h3>
-        <div class="card-meta">${bedLabel(p)}${p.baths?` · ${p.baths} bath${p.baths>1?'s':''}`:''} · sleeps ${p.guests}</div>
-        <p>${p.blurb}</p>
-        <div class="card-ctas">
-          <a class="btn-view" href="properties/${p.slug}.html">View home</a>
-          <a class="btn-reserve" href="${p.lodgify}" target="_blank" rel="noopener">Reserve →</a>
-        </div>
-      </div>
-    </article>`).join('');
-  document.getElementById('f-count').textContent=`${list.length} home${list.length!==1?'s':''}`;
-}
-renderGrid();
-
-// map
-const map=L.map('bend-map',{scrollWheelZoom:false}).setView([44.0565,-121.3153],13);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19}).addTo(map);
-const coral='#FF6B5A';
-PROPS.forEach(p=>{
-  const icon=L.divIcon({className:'',html:`<div style="background:${coral};width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>`,iconSize:[18,18],iconAnchor:[9,18]});
-  L.marker([p.lat,p.lng],{icon}).addTo(map).bindPopup(
-    `<div class="map-pop"><img src="${IMG(p.img,400)}" alt="${p.name}"><h4>${p.name}</h4><div class="mp-meta">${bedLabel(p)} · ${p.hood}</div><a href="properties/${p.slug}.html">View home →</a></div>`
-  );
-});
-
-// FAQ
-const FAQS=[
-  ["Where are the homes located?","All eleven homes are in central Bend, Oregon, clustered around downtown, the Westside, Old Bend, the Parks District, and the Old Mill. Most are within walking distance of Drake Park, the Deschutes River, and downtown restaurants and breweries."],
-  ["Do I really not need a car?","For most stays, no. The homes are walkable to downtown, the park, and the river, and many come with cruiser bikes. You'll want a car for Mt. Bachelor or the Cascade Lakes, but in town you can leave it parked."],
-  ["What's included at the homes?","Standard across the homes: fast WiFi, off-street parking, air conditioning, and laundry. Most also provide cruiser bikes, kayaks, and river floats so you can hit the Deschutes straight from the door."],
-  ["What are check-in and check-out times?","Check-in is 4pm and check-out is 11am. Most homes use self check-in, so you can arrive on your own schedule."],
-  ["Are pets allowed?","Most homes are no-pets, but a few allow them, and it's noted on each listing. If you're traveling with a dog, message us first and we'll point you to a pet-friendly home."],
-  ["Is there a minimum stay?","It varies by home and season. A couple of homes (like the 2BR Gem in the Parks District) have a 30-day minimum. Each listing shows its own minimum when you check dates."],
-  ["Can a big group book?","Yes. The Hawkeye House sleeps the whole crew with four bedrooms, and several 2- and 3-bedroom homes work for families. Use the filters above to find the right size."],
-  ["How do I book?","Hit “Reserve” or “Check dates” on any home to see live availability and book direct. Booking direct means you deal with the local owners, not a third-party platform."],
-  ["Are the homes good for families?","Many are. Note that a few have spiral staircases or loft ladders that aren't ideal for young kids or anyone with mobility concerns, and those are flagged on the individual listings."],
-  ["How close is skiing?","Mt. Bachelor is about 25 minutes from downtown Bend. In winter you can ski or ride and be back in town for dinner; in summer the same road opens up the Cascade Lakes."]
-];
-const fl=document.getElementById('faq-list');
-fl.innerHTML=FAQS.map(([q,a])=>`<div class="faq-item"><button class="faq-q" onclick="this.parentNode.classList.toggle('open');const a=this.nextElementSibling;a.style.maxHeight=this.parentNode.classList.contains('open')?a.scrollHeight+'px':null;">${q}<span class="chev">▼</span></button><div class="faq-a"><p>${a}</p></div></div>`).join('');
-</script>
-
-<!-- ╔══════════════════════════════════════════╗ -->
-<!-- ║  FOOTER                                  ║ -->
-<!-- ╚══════════════════════════════════════════╝ -->
 <footer>
   <div class="foot-inner">
     <div>
