@@ -1277,7 +1277,6 @@ function renderGrid(){
         <p>${p.blurb}</p>
         <div class="card-ctas">
           <a class="btn-view" href="properties/${p.slug}.html">View home</a>
-          ${p.lodgify.startsWith('http') ? `<a class="btn-reserve" href="${p.lodgify}" target="_blank" rel="noopener">Book now →</a>` : `<a class="btn-reserve" href="${p.lodgify}">Inquire →</a>`}
         </div>
       </div>
     </article>`).join('');
