@@ -1041,8 +1041,9 @@ footer {
   .contact-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:560px){
-  .hero-search{flex-direction:column;align-items:stretch}
-  .hs-btn{margin-top:4px}
+  .hero-search{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;align-items:end}
+  .hs-field label{display:none}
+  .hs-btn{margin-top:0;padding:12px}
   .hero-stats{gap:20px}
 }
 </style>
