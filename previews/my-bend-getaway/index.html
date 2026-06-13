@@ -11,7 +11,7 @@
 
 <meta property="og:title" content="Bend Vacation Rentals Near Downtown &amp; the River · My Bend Getaway">
 <meta property="og:description" content="11 walkable, locally owned homes in central Bend, Oregon. Drake Park, the Deschutes, downtown breweries, and Mt. Bachelor 25 minutes away. Bikes and floats included.">
-<meta property="og:image" content="https://l.icdbcdn.com/oh/f16a7f66-ea4e-4f83-ad21-b0c0781b352f.jpg?w=1200">
+<meta property="og:image" content="https://tryrelaunch.com/preview/my-bend-getaway/images/hero.jpg">
 <meta property="og:url" content="https://mybendgetaway.com/">
 <meta property="og:type" content="website">
 
@@ -95,7 +95,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="https://l.icdbcdn.com/oh/f16a7f66-ea4e-4f83-ad21-b0c0781b352f.jpg?w=2080" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -853,7 +853,7 @@ footer {
 
 /* HERO */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://l.icdbcdn.com/oh/f16a7f66-ea4e-4f83-ad21-b0c0781b352f.jpg?w=2080') center/cover no-repeat;transform:scale(1.03)}
+.hero-bg{position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat;transform:scale(1.03)}
 .hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,38,34,.55) 0%,rgba(42,38,34,.35) 40%,rgba(42,38,34,.78) 100%)}
 .hero-inner{position:relative;max-width:1140px;margin:0 auto;padding:120px 24px 60px;width:100%}
 .hero-eyebrow{display:inline-block;font-family:var(--fh);text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:700;color:#fff;background:rgba(255,107,90,.92);padding:7px 14px;border-radius:6px;margin-bottom:20px}
@@ -983,6 +983,7 @@ footer {
   .contact-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:560px){
+  .hero-bg{background-image:url('images/hero-mobile.jpg')}
   .hero-search{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;align-items:end}
   .hs-field label{display:none}
   .hs-btn{margin-top:0;padding:12px}
