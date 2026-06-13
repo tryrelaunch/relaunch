@@ -931,9 +931,10 @@ footer {
 
 /* TRUST STRIP */
 .trust{background:var(--ink);color:#fff;padding:22px 24px}
-.trust-inner{max-width:1140px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 40px;text-align:center}
+.trust-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;justify-items:center;gap:16px 48px;text-align:center}
 .trust-item{display:flex;align-items:center;gap:10px;font-size:14.5px;color:rgba(255,255,255,.9)}
 .trust-item b{color:var(--brand-sun);font-family:var(--fh);font-weight:700}
+@media(max-width:600px){.trust-inner{grid-template-columns:1fr}}
 
 /* FEATURED */
 .featured{padding:80px 24px;background:var(--bg-warm)}
@@ -1081,10 +1082,10 @@ footer {
 <!-- TRUST STRIP -->
 <section class="trust">
   <div class="trust-inner">
-    <div class="trust-item"><span>🏡</span><b>Locally owned</b>, book direct, no middleman</div>
+    <div class="trust-item"><span>🏡</span><b>Locally owned</b> · book direct · no middleman</div>
     <div class="trust-item"><span>🚲</span><b>Bikes &amp; floats</b> included at most homes</div>
     <div class="trust-item"><span>📍</span><b>Walkable</b> downtown &amp; Parks District</div>
-    <div class="trust-item"><span>🔑</span><b>Self check-in</b> · 4pm in, 11am out</div>
+    <div class="trust-item"><span>🔑</span><b>Self check-in</b> · 4pm in · 11am out</div>
   </div>
 </section>
 
